@@ -301,7 +301,7 @@
         heart.input = $('[name=heart_input]').val()
         heart.message = $('[name=heart_message]').text()
 
-        $.get('/',()=>{ // post
+        $.get('https://jsonplaceholder.typicode.com/todos',()=>{ // post
           alert('請看console')
           console.log( heart )
           $('#modal-heart').modal('hide')
@@ -524,7 +524,7 @@
         hangout.allowance = +$('[name=hangout_allowance]').val()
         hangout.coupon = $('[name=hangout_coupon]').val()
     
-        $.get('/',()=>{ // post
+        $.get('https://jsonplaceholder.typicode.com/todos',()=>{ // post
           alert('請看console')
           console.log( hangout )
           $('#modal-hangout-step3').modal('hide')
@@ -619,7 +619,7 @@
           let This = this
           if ( !This.fetching ){
             This.fetching = true
-            $.get('/', (resData)=>{
+            $.get('https://jsonplaceholder.typicode.com/todos', (resData)=>{
               let randomId = new Date().getTime()
               resData = [
                 { id: randomId + 0, name: '動森小廚神 🐣 小菜雞(3圖150心)', age: 22, county: '台北市', heartISent: 150, heart: 1000, hobby: ['Coffee Elite', 'Concert', 'Movie star'], avatar: ['/myProjects/Hangoutwith/static/common/img/avatar/2.jpg','/myProjects/Hangoutwith/static/common/img/avatar/3.jpg','/myProjects/Hangoutwith/static/common/img/avatar/4.jpg'], igLink: 'https://www.instagram.com/', },

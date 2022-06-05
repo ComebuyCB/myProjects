@@ -526,7 +526,7 @@
           let This = this
           if ( !This.fetching ){
             This.fetching = true
-            $.get('/', (resData)=>{
+            $.get('https://jsonplaceholder.typicode.com/todos', (resData)=>{
               let randomId = new Date().getTime()
               resData = [
                 {
@@ -602,7 +602,7 @@
         submitModal_heart(){
           let sendData = JSON.parse(JSON.stringify(this.modal.heart))
           let This = this
-          $.get('/',()=>{
+          $.get('https://jsonplaceholder.typicode.com/todos',()=>{
             console.log( sendData )
             This.initHeart()
             This.bsModal_heart.hide()
@@ -611,7 +611,7 @@
         submitModal_hangout(){
           let sendData = JSON.parse(JSON.stringify(this.modal.hangout))
           let This = this
-          $.get('/',()=>{
+          $.get('https://jsonplaceholder.typicode.com/todos',()=>{
             console.log( sendData )
             This.initHangout()
             This.bsModal_hangout_step3.hide()

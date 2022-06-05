@@ -129,7 +129,7 @@
 
   <script>
     function submitStep1(){
-      $.get('/', ( getToken )=>{
+      $.get('https://jsonplaceholder.typicode.com/todos', ( getToken )=>{
         if ( getToken ){
           $('#step1').hide()
           $('#step2').show()

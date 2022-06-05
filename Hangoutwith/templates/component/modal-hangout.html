@@ -210,7 +210,7 @@
     hangout.allowance = +$('[name=hangout_allowance]').val()
     hangout.coupon = $('[name=hangout_coupon]').val()
 
-    $.get('/',()=>{ // post
+    $.get('https://jsonplaceholder.typicode.com/todos',()=>{ // post
       alert('請看console')
       console.log( hangout )
       $('#modal-hangout-step3').modal('hide')

@@ -178,7 +178,7 @@
           if ( !This.fetching ){
             This.fetching = true
             console.log( `送出url?: (${This.tagsSelected})`)
-            $.get('/', (resData) => {
+            $.get('https://jsonplaceholder.typicode.com/todos', (resData) => {
               let randomId = new Date().getTime()
               resData = [
                 { id: randomId + 0, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heartISent: 0, heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400','https://picsum.photos/500'], igLink: 'https://www.instagram.com/', },

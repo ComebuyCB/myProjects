@@ -102,7 +102,7 @@
   </div>
   <script>
     function submitForm(){
-      $.get('/',function(){
+      $.get('https://jsonplaceholder.typicode.com/todos',function(){
         $('#form').hide()
         $('#afterSubmit').show()
       })

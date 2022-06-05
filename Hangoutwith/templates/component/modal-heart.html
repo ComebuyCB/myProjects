@@ -102,7 +102,7 @@
     heart.input = $('[name=heart_input]').val()
     heart.message = $('[name=heart_message]').text()
 
-    $.get('/',()=>{ // post
+    $.get('https://jsonplaceholder.typicode.com/todos',()=>{ // post
       alert('請看console')
       console.log( heart )
       $('#modal-heart').modal('hide')
