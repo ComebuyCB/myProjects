@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="shortcut Icon" type="image/x-icon" href="/static/common/img/logo/Logo@3x.png">
+  <title></title>
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- core -->
+  <script src="/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+  <link href="/static/core/bootstrap-5.1.3/css/bootstrap-custom.css" rel="stylesheet">
+  <script src="/static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+  <!-- plugins -->
+  <!-- 測試機 -->
+  <script src="/static/plugins/vue-2.6.12/vue.js"></script>
+  <!-- 正式機 -->
+  <!-- <script src="/static/plugins/vue-2.6.12/vue.min.js"></script> -->
+  <!-- <script src="/static/plugins/axios-0.21.1/axios.min.js"></script> -->
+
+  <link href="/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+  <script src="/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+
+  <link href="/static/plugins/Swiper-8.0.6/swiper-bundle.min.css" rel="stylesheet"/>
+  <script src="/static/plugins/Swiper-8.0.6/swiper-bundle.min.js"></script>
+
+  <!-- main -->
+  <link href="/static/common/css/main.css" rel="stylesheet">
+  <script src="/static/common/js/main.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+      <script>$.get('/myProjects/Hangoutwith/templates/include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script>
+    </header>
+    
+    <main>
+      <div class="container">
+        <nav>
+          <div class="nav nav-tabs">
+            <a class="nav-link active" href="/myProjects/Hangoutwith/templates/invite/inviteMe.html">邀約我的</a>
+            <a class="nav-link" href="/myProjects/Hangoutwith/templates/invite/meInvite.html">我邀約的</a>
+          </div>
+        </nav>
+        <nav class="container-nav-scroll-x mt-3 mt-lg-5">
+          <div class="nav nav-pills flex-nowrap">
+            <a class="nav-link" href="/myProjects/Hangoutwith/templates/invite/inviteMe.html">邀約訊息</a>
+            <a class="nav-link active" href="/myProjects/Hangoutwith/templates/invite/inviteMe-matched.html">已成立</a>
+            <a class="nav-link" href="/myProjects/Hangoutwith/templates/invite/inviteMe-verified.html">已核銷</a>
+            <a class="nav-link" href="/myProjects/Hangoutwith/templates/invite/inviteMe-invalid.html">不成立</a>
+          </div>
+        </nav>
+
+        <div class="ch-gy-4 max-w-660 mt-lg-3">
+
+          <div class="section-blockLine">
+            <div class="flex-center-a ch-gx-3">
+              <div>
+                <div class="avatar avatar-white" style="background-image: url(/static/common/img/avatar/4.jpg)"></div>
+              </div>
+              <div class="ch-gy-1">
+                <div>你已同意 <b>動森小廚神 🐣 小菜雞</b> 的邀約</div>
+                <div>自由業 • 請客</div>
+              </div>
+              <div class="ms-auto">
+                <button class="btn btn-brand-ol btn-round" onclick="openModal_heart( 'id001', 50 )">
+                  <img src="/static/common/img/svg/comment-heart.svg" onload="SVGInject(this)">
+                </button>
+              </div>
+            </div>
+            <div class="box ch-gy-3">
+              <div class="ch-gy-2">
+                <div><b class="fs-label c-text1 me-3">日期</b> 2021/11/20~2021/11/23</div>
+                <div><b class="fs-label c-text1 me-3">津貼NT$</b> 2000</div>
+              </div>
+              <div class="row d-lg-inline-flex g-3">
+                <div class="col-12 col-lg">
+                  <button class="btn btn-brand-ol" data-bs-toggle="modal" data-bs-target="#modal-cancel">我要取消</button>
+                </div>
+
+                <!-- 時間到出現 -->
+                <div class="col-12 col-lg">
+                  <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#modal-notArrived">對方未赴約</button>
+                </div>
+                <div class="col-12 col-lg">
+                  <button class="btn btn-white" data-bs-toggle="modal" data-bs-target="#modal-verifyCode">輸入核銷碼</button>
+                </div>
+              </div>
+            </div>
+            <div class="fs-14 c-text1">2021/11/20 12:00:00</div>
+          </div>
+
+          <div class="section-blockLine">
+            <div class="flex-center-a ch-gx-3">
+              <div>
+                <div class="avatar avatar-white" style="background-image: url(/static/common/img/avatar/4.jpg)"></div>
+              </div>
+              <div class="ch-gy-1">
+                <div>你已同意 <b>動森小廚神 🐣 小菜雞</b> 的邀約</div>
+                <div>自由業 • 請客</div>
+              </div>
+              <div class="ms-auto">
+                <button class="btn btn-brand-ol btn-round" onclick="openModal_heart( 'id001', 50 )">
+                  <img src="/static/common/img/svg/comment-heart.svg" onload="SVGInject(this)">
+                </button>
+              </div>
+            </div>
+            <div class="box ch-gy-3">
+              <!-- 對方按下按鈕二擇一 -->
+              <a class="c-danger img-text a-link" href="javascript:" data-bs-toggle="modal" data-bs-target="#modal-asked-cancel">
+                <img src="/static/common/img/svg/Warning.svg" onload="SVGInject(this)"><span><b>動森小廚神 🐣 小菜雞</b> 已提出取消此邀約，請問是否同意？</span>
+              </a>
+              <a class="c-danger img-text a-link" href="javascript:" data-bs-toggle="modal" data-bs-target="#modal-asked-notArrived">
+                <img src="/static/common/img/svg/Warning.svg" onload="SVGInject(this)"><span><b>動森小廚神 🐣 小菜雞</b> 已提出您未如期赴約，請問是否同意？</span>
+              </a>
+
+              <div class="ch-gy-2">
+                <div><b class="fs-label c-text1 me-3">日期</b> 2021/11/20~2021/11/23</div>
+                <div><b class="fs-label c-text1 me-3">津貼NT$</b> 2000</div>
+              </div>
+              <div class="row d-lg-inline-flex g-3">
+                <div class="col-12 col-lg">
+                  <button class="btn btn-brand-ol" disabled data-bs-toggle="modal" data-bs-target="#modal-cancel">我要取消</button>
+                </div>
+                <div class="col-12 col-lg">
+                  <button class="btn btn-white" disabled data-bs-toggle="modal" data-bs-target="#modal-notArrived">對方未赴約</button>
+                </div>
+                <div class="col-12 col-lg">
+                  <button class="btn btn-white" disabled data-bs-toggle="modal" data-bs-target="#modal-verifyCode">輸入核銷碼</button>
+                </div>
+              </div>
+            </div>
+            <div class="fs-14 c-text1">2021/11/20 12:00:00</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 時間未到modal -->
+      <div class="modal modal-page fade" id="modal-cancel" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev d-block d-lg-none" data-bs-dismiss="modal"></button>
+                <h2 class="page-title">取消邀約</h2>
+                <button type="button" class="btn btn-white btn-round page-close d-none d-lg-block" data-bs-dismiss="modal"></button>
+              </div>
+              <div>
+                點選確認後，系統將發出通知請對方確認是否同意取消此次邀約，同意後取消才成立。<br><br>
+                建議您取消前，請先跟對方說明取消原因，以加速作業。
+              </div>
+              <div class="form-foot">
+                <div class="d-flex ch-gx-3">
+                  <button class="btn btn-brand-ol" data-bs-dismiss="modal">取消</button>
+                  <button class="btn btn-brand">確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 在時間內modal -->
+      <div class="modal modal-page fade" id="modal-notArrived" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev d-block d-lg-none" data-bs-dismiss="modal"></button>
+                <h2 class="page-title">對方未赴約</h2>
+                <button type="button" class="btn btn-white btn-round page-close d-none d-lg-block" data-bs-dismiss="modal"></button>
+              </div>
+              <div>系統將發出通知請對方確認此次邀約是否未赴約，若確認，將補償您50%的金額。</div>
+              <div class="form-foot">
+                <div class="d-flex ch-gx-3">
+                  <button class="btn btn-brand-ol" data-bs-dismiss="modal">取消</button>
+                  <button class="btn btn-brand">確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-page fade" id="modal-verifyCode" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev d-block d-lg-none" data-bs-dismiss="modal"></button>
+                <h2 class="page-title">輸入核銷碼</h2>
+                <button type="button" class="btn btn-white btn-round page-close d-none d-lg-block" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="form-body">
+                <div class="form-group">
+                  <div class="form-label">核銷代碼</div>
+                  <input type="text" class="form-control">
+                  <div class="form-desc">請填入對方提供的核銷代碼。</div>
+                </div>
+              </div>
+              <div class="form-foot">
+                <div class="d-flex ch-gx-3">
+                  <button class="btn btn-brand-ol" data-bs-dismiss="modal">取消</button>
+                  <button class="btn btn-brand">確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-page fade" id="modal-asked-notArrived" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev d-block d-lg-none" data-bs-dismiss="modal"></button>
+                <h2 class="page-title">動森小廚神 🐣 小菜雞 已提出您未如期赴約</h2>
+                <button type="button" class="btn btn-white btn-round page-close d-none d-lg-block" data-bs-dismiss="modal"></button>
+              </div>
+              <ul>
+                <li>若同意未赴約需自您的帳戶扣除30%的金額。</li>
+                <li>建議您可先跟對方溝通後再做決定，以保障雙方權益。</li>
+                <li>累積未赴約兩次，帳號即停權。 </li>
+              </ul>
+              <div class="form-foot justify-content-center ch-gx-3">
+                <button class="btn btn-brand-ol w-100 max-w-160" data-bs-dismiss="modal">不同意</button>
+                <button class="btn btn-brand w-100 max-w-160" data-bs-dismiss="modal">同意</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-page fade" id="modal-asked-cancel" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev d-block d-lg-none" data-bs-dismiss="modal"></button>
+                <h2 class="page-title">動森小廚神 🐣 小菜雞 已提出取消此邀約</h2>
+                <button type="button" class="btn btn-white btn-round page-close d-none d-lg-block" data-bs-dismiss="modal"></button>
+              </div>
+              <ul>
+                <li>點選同意並不會造成您的任何損失。</li>
+                <li>點選不同意，此邀約單即會維持在已成立狀態。</li>
+                <li>建議您可先跟對方溝通後再做決定，以保障雙方權益。</li>
+              </ul>
+              <div class="form-foot justify-content-center ch-gx-3">
+                <button class="btn btn-brand-ol w-100 max-w-160" data-bs-dismiss="modal">不同意</button>
+                <button class="btn btn-brand w-100 max-w-160" data-bs-dismiss="modal">同意</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+<!-- ### component/modal-heart.html ### -->
+    <div id="comp-modal-heart">
+      <script>$.get('/myProjects/Hangoutwith/templates/component/modal-heart.html', (res)=>{ $('#comp-modal-heart')[0].outerHTML=res } )</script>
+    </div>
+<!-- ### component/modal-heart.html /END ### -->
+
+    <div id="modal">
+      <script>$.get('/myProjects/Hangoutwith/templates/include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script>
+    </div>
+
+    <footer>
+      <script>$.get('/myProjects/Hangoutwith/templates/include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script>
+    </footer>
+
+  </div>
+</body>
+</html>

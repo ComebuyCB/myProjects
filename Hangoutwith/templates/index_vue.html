@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="shortcut Icon" type="image/x-icon" href="/static/common/img/logo/Logo@3x.png">
+  <title></title>
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- core -->
+  <script src="/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+  <link href="/static/core/bootstrap-5.1.3/css/bootstrap-custom.css" rel="stylesheet">
+  <script src="/static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+  <!-- plugins -->
+  <!-- 測試機 -->
+  <script src="/static/plugins/vue-2.6.12/vue.js"></script>
+  <!-- 正式機 -->
+  <!-- <script src="/static/plugins/vue-2.6.12/vue.min.js"></script> -->
+  <!-- <script src="/static/plugins/axios-0.21.1/axios.min.js"></script> -->
+
+  <link href="/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+  <script src="/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+
+  <link href="/static/plugins/Swiper-8.0.6/swiper-bundle.min.css" rel="stylesheet"/>
+  <script src="/static/plugins/Swiper-8.0.6/swiper-bundle.min.js"></script>
+
+  <!-- main -->
+  <link href="/static/common/css/main.css" rel="stylesheet">
+  <script src="/static/common/js/main.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+      <script>$.get('/myProjects/Hangoutwith/templates/include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script>
+    </header>
+    
+    <main id="main">
+      <div class="container">
+        <div class="mb-3 text-end">
+          <button class="btn btn-brand-ol img-text w-auto" data-bs-toggle="modal" data-bs-target="#modal-hobby">
+            <img src="/static/common/img/svg/Settings.svg" onload="SVGInject(this)"> 興趣偏好
+          </button>
+        </div>
+        <div class="row g-3">
+          <template v-for="(item,idx) in api.list">
+            <div :id="item.id" v-show="!item.del" class="col-lg-4">
+              <div class="pCard" :class="item.fadeOut ? 'fadeOut' : ''">
+                <div class="pCard-pic">
+                  <div :id="'SwipeImage'+item.id" class="swiper swiper-container SwipeImage">
+                    <div class="swiper-wrapper">
+                      <div v-for="avatar in item.avatar" class="swiper-slide">
+                        <div class="ratio ratio-1x1 img-full" :style="`background-image: url(${avatar})`"></div>
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+
+                  <div class="pCard-pic-close">
+                    <button class="btn btn-white btn-round" @click="removeCard( $event, idx )">
+                      <img src="/static/common/img/svg/Dismiss.svg">
+                    </button>
+                  </div>
+
+                  <div class="pCard-pic-bottom">
+                    <div class="ch-gy-2">
+                      <div :id="'SwipeBadge'+item.id" class="swiper swiper-container SwipeBadge">
+                        <div class="swiper-wrapper">
+                          <div v-for="hobby in item.hobby" class="swiper-slide w-auto">
+                            <div class="pCard-badge">{{hobby}}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="fs-h3 text-more">{{item.name}}</div>
+                      <div class="fs-label flex-center-a ch-gx-3">
+                        <div class="img-text"><img src="/static/common/img/svg/Location.svg" onload="SVGInject(this)"><span>{{item.age}}，{{item.county}}</span></div>
+                        <div class="img-text"><img src="/static/common/img/svg/heart.svg" class="svg20" onload="SVGInject(this)"><span>{{item.heart}}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pCard-bottom">
+                  <div class="d-flex justify-content-between">
+                    <button class="btn btn-brand w-auto" @click="openModal_hangout1(item)">
+                      <img class="me-3" src="/static/common/img/svg/Location.svg" onload="SVGInject(this)">Lets Hangout
+                    </button>
+                    <button class="btn btn-brand-ol btn-round" @click="openModal_heart(item)">
+                      <img src="/static/common/img/svg/comment-heart.svg" onload="SVGInject(this)">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modal-hobby" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <h2 class="page-title">興趣偏好設定</h2>
+                <button type="button" class="btn btn-white btn-round page-close" data-bs-dismiss="modal" @click="default_hobby()"></button>
+              </div>
+              <div class="form-body">
+                <div class="form-group">透過興趣認識新朋友，交流分享生活點滴，立刻挑選興趣看誰願意和你來一個知性的交流。</div>
+                <div class="form-group">
+                  <label class="form-label">對象 (可複選)</label>
+                  <div class="ch-g-2">
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.partner" value="男">
+                      <div>
+                        <div>男</div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.partner" value="女">
+                      <div>
+                        <div>女</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">興趣</label>
+                  <div class="ch-g-2">
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="Coffee Chat">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/coffee.svg"> Coffee Chat
+                        </div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="Outdoor activity">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/tree.svg"> Outdoor activity
+                        </div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="Movie Time">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/movie.svg"> Movie Time
+                        </div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="KTV Super Idol">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/microphone.svg"> KTV Super Idol
+                        </div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="Foodie">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/foodie.svg"> Foodie
+                        </div>
+                      </div>
+                    </label>
+                    <label class="ckb ckbBox ckbHide">
+                      <input type="checkbox" v-model="hobbySetting.hobby" value="Concert">
+                      <div>
+                        <div class="img-text">
+                          <img src="/static/common/img/svg/concert.svg"> Concert
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+  
+                <div class="form-foot">
+                  <button type="button" class="btn btn-brand">儲存</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal modal-bot fade" id="modal-heart" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <h2 class="page-title">送愛心</h2>
+                <button type="button" class="btn btn-white btn-round page-close" data-bs-dismiss="modal" @click="initHeart()"></button>
+              </div>
+  
+              <div>
+                <div class="form-body">
+                  <div class="form-section">
+                    <div class="form-group">
+                      <div>贈送超過100顆愛心，立刻享有留言功能~</div>
+                    </div>
+                    <div class="form-group">
+                      <div class="flex-center-a ch-gx-3">
+                        <button type="button" class="btn btn-white btn-round" @click="addHeart(-1)"><img src="/static/common/img/svg/Minus.svg"></button>
+                        <input type="number" class="form-control" v-model.number="modal.heart.amount" @input="currentHeart" style="width: 100px">
+                        <button type="button" class="btn btn-white btn-round" @click="addHeart(1)"><img src="/static/common/img/svg/Plus.svg"></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-section" v-if="modal.heart.amount >= 100">
+                    <div class="form-group">
+                      <label class="form-label">留言</label>
+                      <textarea class="form-control" rows="5" placeholder="分享自我介紹訊息增加興趣交流的機會" v-model="modal.heart.message"></textarea>
+                      <div class="form-desc">留言時請遵守留言規則。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-foot">
+                  <button type="button" class="btn btn-brand" @click="submitModal_heart()">送出</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal modal-bot fade" id="modal-hangout-step1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <h2 class="page-title">邀約表單</h2>
+                <button type="button" class="btn btn-white btn-round page-close" data-bs-dismiss="modal" @click="initHangout()"></button>
+              </div>
+              <div>
+                <input type="hidden" name="userId">
+                <div class="form-body">
+                  <div class="form-group">
+                    <label class="form-label">要做什麼呢？</label>
+                    <div class="ch-g-2">
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="Coffee Chat">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/coffee.svg"> Coffee Chat
+                          </div>
+                        </div>
+                      </label>
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="Outdoor activity">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/tree.svg"> Outdoor activity
+                          </div>
+                        </div>
+                      </label>
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="Movie Time">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/movie.svg"> Movie Time
+                          </div>
+                        </div>
+                      </label>
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="KTV Super Idol">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/microphone.svg"> KTV Super Idol
+                          </div>
+                        </div>
+                      </label>
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="Foodie">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/foodie.svg"> Foodie
+                          </div>
+                        </div>
+                      </label>
+                      <label class="ckb ckbBox ckbHide">
+                        <input type="radio" v-model="modal.hangout.hobby" value="Concert">
+                        <div>
+                          <div class="img-text">
+                            <img src="/static/common/img/svg/concert.svg"> Concert
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-foot">
+                  <button type="button" class="btn btn-brand" @click="openModal_hangout2()" :disabled="modal.hangout.hobby === ''">下一步</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal modal-bot fade" id="modal-hangout-step2" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev" @click="openModal_hangout1()"></button>
+                <h2 class="page-title">邀約表單</h2>
+                <button type="button" class="btn btn-white btn-round page-close" data-bs-dismiss="modal" @click="initHangout()"></button>
+              </div>
+              <div>
+                <input type="hidden" name="userId">
+                <div class="form-body">
+                  <div class="form-group">
+                    <label class="form-label">想約什麼時候呢？</label>
+                    <div class="flex-center-a">
+                      <input type="date" v-model="modal.hangout.date" class="form-control">
+                      <div class="px-3">至</div>
+                      <div class="text-nowrap">2022/1/3</div>
+                    </div>
+                    <div class="form-desc">每次邀約以設定日期後3天為一個期間，邀約開始日期最常不可超過14天。</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">如何分攤？</label>
+                    <div class="ch-gy-2">
+                      <div>
+                        <label class="ckb">
+                          <input type="radio" v-model="modal.hangout.payType" value="treat">
+                          <div>我請客</div>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="ckb">
+                          <input type="radio" v-model="modal.hangout.payType" value="AA">
+                          <div>AA制</div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-foot">
+                  <button type="button" class="btn btn-brand" @click="openModal_hangout3()" :disabled="modal.hangout.date === '' || modal.hangout.payType === ''">下一步</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal modal-bot fade" id="modal-hangout-step3" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="page-header">
+                <button type="button" class="btn btn-white btn-round page-prev" @click="openModal_hangout2()"></button>
+                <h2 class="page-title">邀約表單</h2>
+                <button type="button" class="btn btn-white btn-round page-close" data-bs-dismiss="modal" @click="initHangout()"></button>
+              </div>
+              <div>
+                <input type="hidden" name="userId">
+                <div class="form-body">
+                  <div class="form-group">
+                    此時段已被其他人邀約，建議提高津貼至少oooo元，以提高邀約成功的機會喔！
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">津貼<span class="ms-2 fw-n">可用額度: 5000</span></label>
+                    <input type="number" class="form-control" v-model.number="modal.hangout.allowance">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">使用coupon？</label>
+                    <input type="text" class="form-control" v-model.number="modal.hangout.coupon">
+                  </div>
+                </div>
+                <div class="form-foot">
+                  <button type="button" class="btn btn-brand" @click="submitModal_hangout()">送出</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div id="modal">
+      <script>$.get('/myProjects/Hangoutwith/templates/include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script>
+    </div>
+
+    <footer>
+      <script>$.get('/myProjects/Hangoutwith/templates/include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script>
+    </footer>
+  </div>
+  <script>
+    new Vue({
+      el: '#main',
+      data: {
+        ori_hobbySetting: {
+          partner: ['女'],
+          hobby: ['Coffee Chat', 'Concert']
+        },
+        hobbySetting: {
+          partner: [],
+          hobby: [],
+        },
+        fetching: false,
+        api: {
+          list: [ ]
+        },
+        modal: {
+          hangout: {
+            id: '',
+            hobby: '',
+            date: '',
+            payType: '',
+            allowance: 0,
+            coupon: 0,
+          },
+          heart: {
+            id: '',
+            amount: 0,
+            message: 0,
+          }
+        },
+        bsModal_hobby: null,
+        bsModal_heart: null,
+        bsModal_hangout_step1: null,
+        bsModal_hangout_step2: null,
+        bsModal_hangout_step3: null,
+      },
+      beforeMount() {
+        history.scrollRestoration = "manual"
+      },
+      mounted() {
+        let This = this
+
+        This.default_hobby()
+
+        This.bsModal_hobby = new bootstrap.Modal( document.getElementById('modal-hobby') ),
+        This.bsModal_heart = new bootstrap.Modal( document.getElementById('modal-heart') ),
+        This.bsModal_hangout_step1 = new bootstrap.Modal( document.getElementById('modal-hangout-step1') ),
+        This.bsModal_hangout_step2 = new bootstrap.Modal( document.getElementById('modal-hangout-step2') ),
+        This.bsModal_hangout_step3 = new bootstrap.Modal( document.getElementById('modal-hangout-step3') ),
+
+        This.ajaxNewList()
+        // 往下滑列出新的data
+        $(window).on('scroll', ()=>{
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10 ) {
+            This.ajaxNewList()
+          }
+        })
+
+      },
+      computed: {
+        // da(){
+        //   return this.api.data
+        // },
+      },
+      methods: {
+        // appendItem( array, itemFormat = {} ){
+        //   array.push( itemFormat )
+        // },
+        // deleteItem( array, index ){
+        //   array.splice( index, 1 )
+        // },
+        initHeart( item ){
+          this.modal.heart = {
+            id: '',
+            amount: 0,
+            message: '',
+            isOver100: false,
+          }
+        },
+        initHangout( item ){
+          this.modal.hangout = {
+            id: '',
+            hobby: '',
+            date: '',
+            payType: '',
+            allowance: 0,
+            coupon: 0,
+          }
+        },
+        removeCard( event, index ){
+          let This = this
+          This.api.list[index].fadeOut = true
+          let sto = setTimeout(()=>{
+            This.api.list[index].del = true
+            clearTimeout(sto)
+          }, 300)
+        },
+        createSwipers( id ){
+          new Swiper('#SwipeBadge' + id, {
+            slidesPerView: 'auto',
+            autoplay: true,
+            spaceBetween: 15,
+          })
+
+          new Swiper('#SwipeImage' + id, {
+            on: {
+              beforeInit: ()=>{
+                $.each( $('.SwipeImage'), (idx, ele) => {
+                  if ( $(ele).find('.swiper-slide').length === 1 ){
+                    $(ele).find('.swiper-wrapper').addClass("disabled")
+                    $(ele).find('.swiper-button-prev').addClass("d-none")
+                    $(ele).find('.swiper-button-next').addClass("d-none")
+                  }
+                })
+              }
+            },
+            loop: true,
+            zoom : true, 
+            watchOverflow: true,
+            spaceBetween: 0,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            // effect: 'flip',
+          })
+        },
+        ajaxNewList(){
+          let This = this
+          if ( !This.fetching ){
+            This.fetching = true
+            $.get('/', (resData)=>{
+              let randomId = new Date().getTime()
+              resData = [
+                {
+                  id: randomId + 0,
+                  name: '動森小廚神 🐣 小菜雞(3圖)',
+                  age: 22,
+                  county: '台北市',
+                  heart: 1000,
+                  hobby: ['Coffee Elite', 'Concert', 'Movie star'],
+                  avatar: ['/static/common/img/avatar/2.jpg','/static/common/img/avatar/3.jpg','/static/common/img/avatar/4.jpg'],
+                },
+                { id: randomId + 1, name: '一夜三枯八百里(2圖)', age: 26,  county: '台中市',  heart: 600, hobby: ['Concert', 'Movie star'], avatar: ['/static/common/img/avatar/0.jpg','/static/common/img/avatar/1.jpg'], },
+                { id: randomId + 2, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400'], },
+                { id: randomId + 3, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400'], },
+                { id: randomId + 4, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400'], },
+                { id: randomId + 5, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400'], },
+                { id: randomId + 6, name: '糖醋小小排(1圖)', age: 31, county: '桃園市', heart: 800, hobby: ['Movie star'], avatar: ['https://picsum.photos/400'], },
+              ]
+  
+              resData.forEach( obj => {
+                obj['del'] = false
+                obj['fadeOut'] = false
+              })
+  
+              This.api.list.push( ...resData )
+  
+              let sto = setTimeout(()=>{
+                resData.forEach( obj => {
+                  This.createSwipers( obj.id )
+                })
+                clearTimeout(sto)
+              })
+  
+              This.fetching = false
+            })
+          }
+        },
+        default_hobby(){
+          this.hobbySetting = { ...this.ori_hobbySetting }
+        },
+        addHeart( num ){
+          this.modal.heart.amount += ( this.modal.heart.amount + num >= 0 ) ? num : 0
+        },
+        currentHeart(){
+          this.modal.heart.amount = this.modal.heart.amount < 0 ? 0 : this.modal.heart.amount
+        },
+        openModal_heart( item ){
+          this.modal.heart.id = item.id
+          this.bsModal_heart.show()
+        },
+        openModal_hangout1( item ){
+          if ( item ){
+            this.modal.hangout.id = item.id
+          }
+          this.bsModal_hangout_step2.hide()
+          setTimeout(()=>{
+            this.bsModal_hangout_step1.show()
+          })
+        },
+        openModal_hangout2(){
+          this.bsModal_hangout_step1.hide()
+          this.bsModal_hangout_step3.hide()
+          setTimeout(()=>{
+            this.bsModal_hangout_step2.show()
+          })
+        },
+        openModal_hangout3(){
+          this.bsModal_hangout_step2.hide()
+          setTimeout(()=>{
+            this.bsModal_hangout_step3.show()
+          })
+        },
+        submitModal_heart(){
+          let sendData = JSON.parse(JSON.stringify(this.modal.heart))
+          let This = this
+          $.get('/',()=>{
+            console.log( sendData )
+            This.initHeart()
+            This.bsModal_heart.hide()
+          })
+        },
+        submitModal_hangout(){
+          let sendData = JSON.parse(JSON.stringify(this.modal.hangout))
+          let This = this
+          $.get('/',()=>{
+            console.log( sendData )
+            This.initHangout()
+            This.bsModal_hangout_step3.hide()
+          })
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
