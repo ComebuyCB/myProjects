@@ -32,7 +32,16 @@
 <body id="index">
     <div id="wrap">
         <div id="bgSection" class="bgSection">
-            <script>$.get('include/bg.html', (res)=>{ $('#bgSection')[0].outerHTML=res; } )</script>
+            <div class="bgContainer container-fluid">
+                <div class="bgBox">
+                    <div class="bg"></div>
+                </div>
+                <div id="videoBox" class="videoBox autoAlpha-0 h-100">
+                    <video id="video" class="video" muted playsinline preload="metadata">
+                        <source src="/myProjects/NAFA/static/common/media/index.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </div>
 
         <header>
