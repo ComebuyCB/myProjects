@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/jquery.marquee@1.6.0/jquery.marquee.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/gsap-public/minified/gsap.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('/myProjects/Yee/templates/include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="bgc_light py_40">
+                <div class="container-xl">
+                    <div class="row g-3 g-lg-4">
+                        <div class="w-100 w-md-auto">
+                            <div class="user_sideMenu p-3">
+                                <div class="c_darkgray mb-3">個人專區</div>
+                                <div class="ch_mb_3">
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/contribute-list.html"><img src="/myProjects/Yee/static/common/img/icon/List.svg" onload="SVGInject(this)">投稿歷程</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100 active" href="/myProjects/Yee/templates/user/contribute-edit-notice.html"><img src="/myProjects/Yee/static/common/img/icon/Paperplan.svg" onload="SVGInject(this)">我要投稿</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/account-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-circle.svg" onload="SVGInject(this)">帳號資訊</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/public-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-list.svg" onload="SVGInject(this)">公開資訊</a>
+                                    <hr />
+                                    <a class="btn btn_icon_tab hover:stroke w-100" href="/myProjects/Yee/templates/login.html"><img src="/myProjects/Yee/static/common/img/icon/Log-out.svg" onload="SVGInject(this)">登出</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <div class="bgc_white ch_mb_4 p-3 p_lg_40">
+                                <div class="mb_40">
+                                    <div class="errorBlock">待調整原因：內文未完成，請重新檢視後填入完整內容。</div>
+                                </div>
+
+                                <div>
+                                    <div class="formBox--label required">標題</div>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div>
+                                    <div class="formBox--label required">簡介</div>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div>
+                                    <div class="formBox--label required">內文</div>
+                                    <textarea name="editor1" hidden>編輯器套件沒使用本機引入，<br>請換成常使用的代替。</textarea>
+                                </div>
+
+                                <div class="ch_mb_3">
+                                    <div class="formBox--label">註解</div>
+                                    <button class="btn btn_outline img_text"><img src="/myProjects/Yee/static/common/img/icon/Plus.png">新增註解</button>
+                                    <div>若內文有標註註解[1]，請於註1內填入內容，[2]則填入註2...以此類推。</div>
+                                    
+                                    <table class="addFormTable">
+                                        <tr>
+                                            <td>註1</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><button class="btn"><img src="/myProjects/Yee/static/common/img/icon/Trash.png" alt="X"></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>註2</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><button class="btn"><img src="/myProjects/Yee/static/common/img/icon/Trash.png" alt="X"></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>註3</td>
+                                            <td><input type="text" class="form-control"></td>
+                                            <td><button class="btn"><img src="/myProjects/Yee/static/common/img/icon/Trash.png" alt="X"></button></td>
+                                        </tr>
+                                    </table>
+
+
+                                </div>
+
+                                <div class="ch_mb_3">
+                                    <div class="formBox--label">相關戲劇</div>
+                                    <button class="btn btn_outline img_text"><img src="/myProjects/Yee/static/common/img/icon/Plus.png">新增相關戲劇</button>
+                                    <div class="bgc_light p-4" js-html-repeat="2">
+                                        <table class="addFormTable">
+                                            <tr>
+                                                <td>戲劇名稱</td>
+                                                <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>演出</td>
+                                                <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>時間</td>
+                                                <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>地點</td>
+                                                <td><input type="text" class="form-control"></td>
+                                            </tr>
+                                        </table>
+                                        <div class="text-end mt-3"><button class="btn"><img src="/myProjects/Yee/static/common/img/icon/Trash.png" alt="X"></button></div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt_40">
+                                    <button class="btn">存為草稿</button>
+                                    <button class="btn btn_dark">確定送出</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="modal"><script>$.get('/myProjects/Yee/templates/include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('/myProjects/Yee/templates/include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <!-- 編輯器僅隨意弄個套件，後端請換成常使用的。 -->
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script>CKEDITOR.replace('editor1')</script>
+
+</body>
+</html>

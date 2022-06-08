@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/NAFA/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/NAFA/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <link href="/myProjects/NAFA/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/NAFA/static/plugins/Swiper-6.8.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/plugins/Swiper-6.8.4/swiper-bundle.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/NAFA/static/common/css/bootstrap-extra.css" rel="stylesheet">
+    <link href="/myProjects/NAFA/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/NAFA/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/common/js/main.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="bgSection">
+            <script>$.get('include/bg.html', (res)=>{ $('#bgSection')[0].outerHTML=res; } )</script>
+        </div>
+        
+        <header>
+            <script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script>
+        </header>
+
+        <main>
+            <div class="container-fluid">
+                <div class="title_with_filter">
+                    <div class="sectionTitle _lg">
+                        <h2 class="_en">PREVIOUS YEARS<br>AWARDS-WINNING<br>ARTISTS</h2>
+                        <h1 class="_tw">歷屆得主<small> / 第二十一屆</small>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="sectionGaps container-fluid">
+                <section>
+                    <div class="d-flex justify-content-between align-items-center pb-2 pt-sm-2 pb-sm-3">
+                        <div class="f-h3">關於第21屆國家文藝獎</div>
+                        <div class="text_year bgYear">21th</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-lg-6 col-xl-7">
+                            <div class="f-h5">
+                                象徵國內藝文界最高榮譽的「國家文藝獎」，於2018年4月3日下午二時三十分假淡水雲門劇場舉行贈獎典禮。詩人李魁賢、藝術家撒古流．巴瓦瓦隆、作曲家金希文、編舞家姚淑芬、劇作家陳勝國、建築師黃聲遠、電影音樂創作者林強7位得獎者，在親友陪同下步上榮耀大道進場，為贈獎典禮揭開序幕，總統蔡英文、文化部長鄭麗君，以及藝文界、駐台機構等逾兩百位貴賓出席贈獎典禮，共同分享得獎者的喜悅與榮耀。
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="title_with_date">
+                        <div class="sectionTitle">
+                            <div class="_en">AWARD-WINNING<br>ARTIST</div>
+                            <div class="_tw">獲獎藝術家</div>
+                        </div>
+                        <div class="swiper_outside_arrow_buttons">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+
+                    <div id="swiper-AWARD_WINNING_ARTIST" class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" js-html-repeat="7">
+                                <a href="winner-detail.html" class="awardeeBox hover_shadow">
+                                    <div class="awardeeBox--img ratio ratio-4x5 img" style="background-image: url(https://picsum.photos/200)"></div>
+                                    <div class="awardeeBox--txt">
+                                        <div class="_top">
+                                            <div class="_tw">柯金源</div>
+                                            <div class="_pro">紀錄片導演<br>Documentary<br>Director</div>
+                                        </div>
+                                        <div class="_bot">
+                                            <div class="_en">KE<br>CHIN-YUAN</div>
+                                            <div class="ms-auto py-1">
+                                                <img src="/myProjects/NAFA/static/common/img/icon/chevron-right.svg">
+                                            </div>
+                                        </div>
+                                        <div class="_year">21th</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="title_with_date">
+                        <div class="sectionTitle">
+                            <div class="_en">AWARDS<br>CEREMONY</div>
+                            <div class="_tw">贈獎典禮</div>
+                        </div>
+                        <div>
+                            <div class="f-h6">2020.10.31</div>
+                        </div>
+                    </div>
+                    <div class="row g-4 g-xl-5">
+                        <div class="col-md-6 col-xxl-5">
+                            <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/600)"></div>
+                            <div class="f-h6 mt-2">（左起）文化部部長李永得、王墨林、古名伸、莊普、總統蔡英文、王秋華、陳中申、柯金源、黃惠信（代領人：黃娟三妹）、國藝會董事長林曼麗</div>
+                        </div>
+                        <div class="col-md-6 col-xxl-7">
+                            <div class="moreHiddenBox border_y">
+                                <div class="moreHiddenBox--cont">
+                                    <div class="moreHiddenBox--abs">
+                                        <a href="news-detail.html?param=ceremony" class="text-more-3 f-h3 mb-3">用藝術向藝術致敬，得獎者感動受獎</a>
+                                        <div class="f-h5 _content">
+                                            首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與與人首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與人性關懷的基礎上來從事設計，其中以圖書館建築對台灣貢獻最大。在探究建築的價值上，增加了現代意義的「公共」觀念。典禮邀請建築師阮慶岳
+                                        </div>
+                                        <div class="text-center mt-3 d-md-none">
+                                            <a href="news-detail.html?param=ceremony" class="btn img_text f-h5 py-0"><span>閱讀更多</span> <img src="/myProjects/NAFA/static/common/img/icon/more.svg" height="16"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="title_with_date">
+                        <div class="sectionTitle">
+                            <div class="_en">PROMOTING<br>EVENT</div>
+                            <div class="_tw">推廣活動</div>
+                        </div>
+                        <div>
+                            <div class="f-h6">2020.10.31</div>
+                        </div>
+                    </div>
+                    <div class="row g-3 g-md-4 g-xl-5">
+                        <div class="col-md-6 col-xxl-5">
+                            <div id="swiper-PROMOTING_EVENT" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/700)"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/800)"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/900)"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination" style="position: relative; bottom: 0"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xxl-7">
+                            <div class="moreHiddenBox border_y">
+                                <div class="moreHiddenBox--cont">
+                                    <div class="moreHiddenBox--abs">
+                                        <a href="news-detail.html?param=event" class="text-more-3 f-h3 mb-3">用藝術向藝術致敬，得獎者用藝術向藝術致敬，得獎者感動受獎用藝術向藝術致敬，得獎者感動受獎用藝術向藝術致敬，得獎者感動受獎</a>
+                                        <div class="f-h5 _content">
+                                            首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與與人首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與人性關懷的基礎上來從事設計，其中以圖書館建築對台灣貢獻最大。在探究建築的價值上，增加了現代意義的「公共」觀念。典禮邀請建築師阮慶岳
+                                            首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與與人首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與人性關懷的基礎上來從事設計，其中以圖書館建築對台灣貢獻最大。在探究建築的價值上，增加了現代意義的「公共」觀念。典禮邀請建築師阮慶岳
+                                        </div>
+                                        <div class="text-center mt-3 d-md-none">
+                                            <a href="news-detail.html?param=event" class="btn img_text f-h5 py-0"><span>閱讀更多</span> <img src="/myProjects/NAFA/static/common/img/icon/more.svg" height="16"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="mb-4">
+                        <div class="sectionTitle">
+                            <div class="_en">MEDIA<br>INTERVIEW</div>
+                            <div class="_tw">媒體專訪</div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-md-2 row-cols-xl-3 g-4 g-xl-5">
+                        <div class="pb-4" js-html-repeat="6">
+                            <div class="img ratio ratio-16x9 mb-4" style="background-image: url(https://picsum.photos/1200)"></div>
+                            <div class="moreHiddenBox border_y _fixedHeight">
+                                <div class="moreHiddenBox--cont">
+                                    <div class="moreHiddenBox--abs">
+                                        <a href="news-detail.html?param=news" class="text-more-3 f-h3 mb-3">得獎用藝術向藝術致敬，得獎者感動受獎用藝術向藝術致敬，得獎者感動受獎用藝術向藝術致敬，得獎者感動受獎</a>
+                                        <div class="f-h5 _content">
+                                            首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與與人首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與人性關懷的基礎上來從事設計，其中以圖書館建築對台灣貢獻最大。在探究建築的價值上，增加了現代意義的「公共」觀念。典禮邀請建築師阮慶岳
+                                            首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與與人首先上場接受贈獎的是王秋華。建築師王秋華具社會關懷，在教育、文化的推廣傳播上不遺餘力，更強調美學與工藝必須建立在環境與人性關懷的基礎上來從事設計，其中以圖書館建築對台灣貢獻最大。在探究建築的價值上，增加了現代意義的「公共」觀念。典禮邀請建築師阮慶岳
+                                        </div>
+                                        <div class="text-center mt-3 d-md-none">
+                                            <a href="news-detail.html?param=news" class="btn img_text f-h5 py-0"><span>閱讀更多</span> <img src="/myProjects/NAFA/static/common/img/icon/more.svg" height="16"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script>
+        </footer>
+    </div>
+
+    <script>
+        $(function(){
+            new Swiper('#swiper-AWARD_WINNING_ARTIST', {
+                autoplay: true,
+                spaceBetween: 16,
+                slidesPerColumnFill: 'row',
+                slidesPerColumn: 2,
+                slidesPerView: 1,
+                breakpoints: {
+                    576: {
+                        slidesPerColumn: 2,
+                        slidesPerView: 1.6,
+                    },
+                    768: {
+                        slidesPerColumn: 1,
+                        slidesPerView: 2.2,
+                    },
+                    992: {
+                        slidesPerColumn: 1,
+                        slidesPerView: 2.5,
+                    },
+                    1200: {
+                        slidesPerColumn: 1,
+                        slidesPerView: 2.8,
+                    }
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            })
+
+            new Swiper('#swiper-PROMOTING_EVENT', {
+                loop: true,
+                autoplay: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            })
+        })
+    </script>
+</body>
+</html>

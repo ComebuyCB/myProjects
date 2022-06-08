@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/jquery.marquee@1.6.0/jquery.marquee.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/gsap-public/minified/gsap.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('/myProjects/Yee/templates/include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="bgc_light py_40">
+                <div class="container-xl">
+                    <div class="row g-3 g-lg-4">
+                        <div class="w-100 w-md-auto">
+                            <div class="user_sideMenu p-3">
+                                <div class="c_darkgray mb-3">個人專區</div>
+                                <div class="ch_mb_3">
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/contribute-list.html"><img src="/myProjects/Yee/static/common/img/icon/List.svg" onload="SVGInject(this)">投稿歷程</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/contribute-edit-notice.html"><img src="/myProjects/Yee/static/common/img/icon/Paperplan.svg" onload="SVGInject(this)">我要投稿</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/account-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-circle.svg" onload="SVGInject(this)">帳號資訊</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100 active" href="/myProjects/Yee/templates/user/public-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-list.svg" onload="SVGInject(this)">公開資訊</a>
+                                    <hr />
+                                    <a class="btn btn_icon_tab hover:stroke w-100" href="/myProjects/Yee/templates/login.html"><img src="/myProjects/Yee/static/common/img/icon/Log-out.svg" onload="SVGInject(this)">登出</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <form class="bgc_white p-3 p_lg_40">
+                                <div class="ch_mb_4 mb_60">
+                                    <div>
+                                        <div class="formBox--label required">姓名</div>
+                                        <div>梁家琪</div>
+                                    </div>
+                                    <div>
+                                        <div class="formBox--label required">個人照片</div>
+                                        <div class="d-flex flex-column flex-sm-row pt-3 ch_mb_3">
+                                            <div class="me-sm-4">
+                                                <div id="avatar" class="avatar img_full" style="background-image: url(/static/common/img/Avatar.png);"></div>
+                                            </div>
+                                            <div class="ch_mb_3">
+                                                <label class="btn btn_outline w-100 w-sm-auto">
+                                                    <input type="file" hidden onchange="upload_To_Change_Image(this,'#avatar','#avatar_base64')">
+                                                    <textarea id="avatar_base64" name="avatar_base64" hidden></textarea>
+                                                    <img src="/myProjects/Yee/static/common/img/icon/Upload.png">上傳相片
+                                                </label>
+                                                <div>請上傳 JPG、JPEG 或 PNG 格式圖片，建議尺寸 724*724 像素。</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="formBox--label required">簡介</div>
+                                        <textarea class="form-control" rows="6"></textarea>
+                                        <div class="formBox--note f-p">500字以內</div>
+                                    </div>
+                                    <div>
+                                        <div class="formBox--label">聯絡Email</div>
+                                        <input type="email" class="form-control">
+                                    </div>
+                                    <div>
+                                        <div class="formBox--label">Facebook</div>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div>
+                                        <div class="formBox--label">個人網站</div>
+                                        <div class="ch_mb_3">
+                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn_dark w-100 w-sm-auto">儲存修改</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('/myProjects/Yee/templates/include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('/myProjects/Yee/templates/include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+        /**
+         * 使用<input type="file">上傳圖片時，將其轉為base64，並使用background-image預覽之。
+         * @param {string} inputTarget <input type="file" onchange="thisFunction">
+         * @param {string} layoutTarget PreviewImage with background-image
+         * @param {string} textareaTarget Save Base64 in <textarea>
+         */
+        function upload_To_Change_Image( inputTarget, layoutTarget, textareaTarget ) {
+            if (inputTarget.files && inputTarget.files[0]) {
+                let reader = new FileReader()
+
+                console.log( '圖片大小：' + inputTarget.files[0].size + '位元組', '圖片類型：' + inputTarget.files[0].type )
+
+                reader.onload = function(evt){
+                    $( layoutTarget ).css( 'background-image', `url(${this.result})`)
+                    $( textareaTarget ).text( this.result )
+                }
+                reader.readAsDataURL(inputTarget.files[0])
+            }
+        }
+    </script>
+</body>
+</html>

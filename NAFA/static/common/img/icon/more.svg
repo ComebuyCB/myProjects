@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#3e3e3d;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="more" transform="translate(.5 .5)">
+        <g id="Group_107" data-name="Group 107" transform="translate(-.766 -.831)">
+            <path id="Path_219" data-name="Path 219" class="cls-1" d="M4.266 10.009h10" transform="translate(1 .75)"/>
+            <path id="Path_220" data-name="Path 220" class="cls-1" d="m10.945 6.58 3.373 3.4-3.425 3.456" transform="translate(1.091 .751)"/>
+        </g>
+        <circle id="Ellipse_1" data-name="Ellipse 1" cx="10" cy="10" r="10" style="fill:none;stroke:#3e3e3d"/>
+    </g>
+</svg>

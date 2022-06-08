@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/jquery.marquee@1.6.0/jquery.marquee.min.js"></script>
+    <script src="/myProjects/Yee/static/plugins/gsap-public/minified/gsap.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('/myProjects/Yee/templates/include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="bgc_light py_40">
+                <div class="container-xl">
+                    <div class="row g-3 g-lg-4">
+                        <div class="w-100 w-md-auto">
+                            <div class="user_sideMenu p-3">
+                                <div class="c_darkgray mb-3">個人專區</div>
+                                <div class="ch_mb_3">
+                                    <a class="btn btn_icon_tab hover:fill w-100 active" href="/myProjects/Yee/templates/user/contribute-list.html"><img src="/myProjects/Yee/static/common/img/icon/List.svg" onload="SVGInject(this)">投稿歷程</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/contribute-edit-notice.html"><img src="/myProjects/Yee/static/common/img/icon/Paperplan.svg" onload="SVGInject(this)">我要投稿</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/account-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-circle.svg" onload="SVGInject(this)">帳號資訊</a>
+                                    <a class="btn btn_icon_tab hover:fill w-100" href="/myProjects/Yee/templates/user/public-info.html"><img src="/myProjects/Yee/static/common/img/icon/User-list.svg" onload="SVGInject(this)">公開資訊</a>
+                                    <hr />
+                                    <a class="btn btn_icon_tab hover:stroke w-100" href="/myProjects/Yee/templates/login.html"><img src="/myProjects/Yee/static/common/img/icon/Log-out.svg" onload="SVGInject(this)">登出</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <div class="bgc_white p-3 p_lg_40">
+                                <div class="py-3 f-cap">共 5 筆</div>
+                                <hr />
+                                <table class="rwd_table rwd_table--block rwd_table--bottomLine contribute_table">
+                                    <thead>
+                                        <tr>
+                                            <th>序號</th>
+                                            <th>標題</th>
+                                            <th>投稿日期</th>
+                                            <th>下載稿件</th>
+                                            <th>狀態</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data_th="序號">1</td>
+                                            <td data_th="標題">思索年輕、生命、短暫、恆定——NSO《深情交響》</td>
+                                            <td data_th="投稿日期"></td>
+                                            <td data_th="下載稿件"><a download class="btn btn_link">下載</a></td>
+                                            <td data_th="狀態"><button class="btn btn_link">草稿</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td data_th="序號">2</td>
+                                            <td data_th="標題">從藝Fun劇場至OPENTIX Live：夏秋之際、虛實之間，擁抱新日常為疫情下現場演出的原真性調息《貴人暖身趴：瑜珈場》</td>
+                                            <td data_th="投稿日期">2021.10.1</td>
+                                            <td data_th="下載稿件"><a download class="btn btn_link">下載</a></td>
+                                            <td data_th="狀態">審核中</td>
+                                        </tr>
+                                        <tr>
+                                            <td data_th="序號">3</td>
+                                            <td data_th="標題"><a class="btn btn_link d-inline" href="comment-detail.html">「撐」起金屬次文化的存亡之際？《BCFEST》</a></td>
+                                            <td data_th="投稿日期">2021.9.20</td>
+                                            <td data_th="下載稿件"><a download class="btn btn_link">下載</a></td>
+                                            <td data_th="狀態">2021.10.1<br>已上架</td>
+                                        </tr>
+                                        <tr>
+                                            <td data_th="序號">4</td>
+                                            <td data_th="標題">以現場互動討論音樂劇價值《大家都想做音樂劇！》</td>
+                                            <td data_th="投稿日期">2021.6.30</td>
+                                            <td data_th="下載稿件"><a download class="btn btn_link">下載</a></td>
+                                            <td data_th="狀態"><button class="btn btn_link">待調整</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td data_th="序號">5</td>
+                                            <td data_th="標題">思索年輕、生命、短暫、恆定——NSO《深情交響》</td>
+                                            <td data_th="投稿日期">2021.3.15</td>
+                                            <td data_th="下載稿件"><a download class="btn btn_link">下載</a></td>
+                                            <td data_th="狀態">2021.3.20<br>未通過</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="modal"><script>$.get('/myProjects/Yee/templates/include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('/myProjects/Yee/templates/include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+        <div id="bulletin">
+            <div class="container-xl flex_center_y">
+                <div id="bulletinMarquee" style="opacity: 0">系統停機公告：110年3月19日(五)晚上10時30分至3月21日(日)晚上8時進行系統更新維護作業，屆時將暫停網站服務。</div>
+                <div id="bulletinClose" onclick="$('#bulletin').remove()"></div>
+            </div>
+            <script>
+                function bulletinMarquee( target ){
+                    let width = $(target).width()
+                    let speed = width * 16
+                    $(target).marquee({
+                        duration: speed,
+                        delayBeforeStart: -speed / 2,
+                        gap: width / 1.5,
+                        direction: 'left',
+                        duplicated: true
+                    })
+                    $(target).css('opacity', 1)
+                }
+                $(function(){
+                    bulletinMarquee('#bulletinMarquee')
+                })
+            </script>
+        </div>
+
+        <main>
+            <div class="index_top_backdrop"></div>
+
+            <section class="">
+                <div id="banner" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="row gx-0">
+                                <div class="col-lg-7">
+                                    <div class="banner_img img_full" style="background-image: url( https://picsum.photos/1200/800 );">
+                                        <div class="_info f-cap">新古典室內樂團「音樂舞台劇《阿嬤的歌本》2.0版」</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col_fit_container_xl">
+                                    <div class="banner_body">
+                                        <div class="banner_text banner_text--sliding v_text">
+                                            <div class="f-h1 js-banner-title">國藝會表演藝術評論人專表演藝術案徵件國藝會演案徵件中徵件中徵件中徵件中</div>
+                                            <div class="f-p js-banner-desc">週末已然來臨，雖然不在前往劇場的路上，我心依然嚮往我心依然嚮往，值此嚴峻時刻，不妨靜下心，持續閱讀、思考、書寫。我寫故我在評論不間斷國藝會表演藝術評論人專案不間斷國藝會表演徵件中</div>
+                                            <a class="btn_more btn f-btn" href="subject-detail1.html">深入了解</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row gx-0">
+                                <div class="col-lg-7">
+                                    <div class="banner_img img_full" style="background-image: url( https://picsum.photos/1200/800 );"></div>
+                                </div>
+                                <div class="col-lg-5 col_fit_container_xl">
+                                    <div class="banner_body">
+                                        <div class="banner_text banner_text--sliding v_text">
+                                            <div class="f-cap">梁家綺</div>
+                                            <div class="f-h1 js-banner-title">國藝會表演藝術評論人專表演藝術案徵件國藝會演案徵件中徵件中徵件中</div>
+                                            <a class="btn_more btn f-btn" href="comment-detail.html">深入了解</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination banner_pagination"></div>
+                </div>
+            </section>
+
+            <section class="py_18 py_md_40 py_lg_60 container-xl">
+                <div class="row gx-3 gx-xl-4">
+                    <div class="col-md-6" js-html-repeat="2">
+                        <div class="cardBox">
+                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a href="comment-detail.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardBox--body">
+                                <div class="cardBox--text">
+                                    <div class="f-cap"><a class="alink" href="character-detail.html">梁家綺</a></div>
+                                    <div class="f-h3 text-more-3"><a class="alink" href="comment-detail.html">面對土地或者其他：一場場反覆再反覆的告別式──從《拆除中：了後liáu-āu》到《後寮現地創作計畫＿發表面對土地或者其他</a></div>
+                                </div>
+                                <div class="cardBox--date">
+                                    <div class="dateBox_mDy mx-auto">
+                                        <div>DEC</div>
+                                        <div>26</div>
+                                        <div>2020</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gx-3 gx-xl-4">
+                    <div class="col-md-4" js-html-repeat="3">
+                        <div class="cardBox">
+                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a href="comment-detail.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardBox--body">
+                                <div class="cardBox--text">
+                                    <div class="f-cap"><a class="alink" href="character-detail.html">梁家綺</a></div>
+                                    <div class="f-h3 text-more-3"><a class="alink" href="comment-detail.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                </div>
+                                <div class="cardBox--date">
+                                    <div class="dateBox_mDy mx-auto">
+                                        <div>DEC</div>
+                                        <div>26</div>
+                                        <div>2020</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="subjectCover">
+                <div class="subjectCover--top">
+                    <div class="row gx-0">
+                        <div class="col-lg-5 col_fit_container_xl">
+                            <div class="subjectCover--top_left ms-auto">
+                                <div class="f-h1">當期<br>專題</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="subjectCover--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/1200/800);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subjectCover--bot">
+                    <div class="row gx-0 px-3 px-lg-0">
+                        <div class="col-lg-5 col_fit_container_xl">
+                            <div class="subjectCover--bot_left ms-auto">
+                                <div class="dateBox_Dym">
+                                    <div>07</div>
+                                    <div>2021</div>
+                                    <div>JUL</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col_fit_container_xl">
+                            <div class="subjectCover--text v_text">
+                                <div class="f-h2">實驗性展演的觀演關係</div>
+                                <div class="subjectCover--line"></div>
+                                <div class="f-p">權力究為何物？還是有權者－無權者循環之是有權者與權力究為何物與權力究為何物與權力究為何物？是有權者與權力究為力究為力究為何物？是有權者與權者與權力究為何物？是有權者與</div>
+                                <a class="btn_more btn f-btn" href="subject-detail1.html">進入專題</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb_18 mb_md_40 mb_lg_60 container-xl">
+                <div class="row gx-3 gx-xl-4">
+                    <div class="col-md-4" js-html-repeat="3">
+                        <div class="cardBox">
+                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardBox--body">
+                                <div class="cardBox--text">
+                                    <div class="f-h3 text-more-3"><a class="alink" href="subject-detail1.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-xl px-0 px_md_12">
+                <div class="row gx-0 gx-md-3 gx-xl-4">
+                    <div class="col-md-6">
+                        <div class="yellowBox">
+                            <div class="characterBox">
+                                <div class="characterBox--img img_full" style="background-image: url( https://picsum.photos/800/800 );">
+                                    <div class="characterBox--img_film">
+                                        <div id="mq" class="characterBox--img_text f-h2">
+                                            <span class="characterBox--char">人物1</span>
+                                            <span class="characterBox--char">人物2</span>
+                                            <span class="characterBox--char">人物3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="characterBox--text">
+                                    <div class="mb-3 f-cap">專案評論人</div>
+                                    <div class="mb-3 f-h3">張懿文</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 f-h3">
+                        <div class="olistBox">
+                            <div class="_list">
+                                <a href="character-detail.html"><div class="text-more-3">面對土地或者其他：</div></a>
+                                <a href="character-detail.html"><div class="text-more-3"> 面對土地或者其他：一場場反覆再反覆的告別式──從《拆除中：了後liáu-āu》到《後寮現地創作計畫計畫計畫後</div></a>
+                                <a href="character-detail.html"><div class="text-more-3"> 面對土地或者其他：一場場反覆再反覆的告別式──從《拆除中：了後liáu-āu》到《後寮現地創作計畫計畫計畫後</div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+        $(function(){
+            characterMarquee('#mq')
+
+            /* 輪播 */
+            var swiper_banner = new Swiper("#banner", {
+                loop: true,
+                speed: 1000,
+                autoHeight: true,
+                autoplay: {
+                    delay: 3500,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                on: {
+                    init: function () {
+                        sliceVerticalText()
+                    },
+                    slideChangeTransitionStart: function(){
+                        $('#banner .banner_text').addClass('banner_text--sliding')
+                        $('#banner .banner_img').removeClass('banner_img--sliding')
+                        let sto = setTimeout( ()=>{
+                            $('#banner .banner_img').addClass('banner_img--sliding')
+                            clearTimeout(sto)
+                        }, 10)
+                    },
+                    slideChangeTransitionEnd: function(){
+                        $('#banner .swiper-slide-active .banner_text').removeClass('banner_text--sliding')
+                        $('#banner .swiper-slide-duplicate-active .banner_text').removeClass('banner_text--sliding')
+                    }
+                },
+            })
+            $('#banner').on('mouseleave', function() {
+                swiper_banner.autoplay.start()
+            })
+        })
+    </script>
+</body>
+</html>

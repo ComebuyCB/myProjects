@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <script src="/myProjects/Yee/static/plugins/gsap-public/minified/gsap.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+
+        <main>
+
+            <div class="container-xl">
+                <div class="container_1000">
+                    <div class="cardBox">
+                        <div class="cardBox--body">
+                            <div class="cardBox--text">
+                                <div class="f-cap"><a class="alink" href="character-detail.html">梁家綺</a></div>
+                                <div class="f-h1 pe-sm-3">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</div>
+                            </div>
+                            <div class="cardBox--date">
+                                <div class="dateBox_mDy mx-auto">
+                                    <div>DEC</div>
+                                    <div>26</div>
+                                    <div>2020</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="w-100" src="https://picsum.photos/1200/800">
+                <div class="container_1000">
+                    <div class="py-3 f-cap">圖說：Reread也意在讓評論回到「文本」，增強它作為「生產者／作品」的面向，藉此，一方面呼應評論可供議論的公共性價值，並同步檢驗目前台灣評論文章的質素、差異、認同。</div>
+                </div>
+                <div class="py_40 ch_mb_3 pos_r">
+
+                    <div class="sideToolbox--pos mb_40">
+                        <div class="sideToolbox--grp">
+                            <div class="sideToolbox" js-toolbox>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Link.png" alt="Link"></a>
+                                </div>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Line-chat.png" alt="Line"></a>
+                                </div>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Facebook-f.png" alt="Facebook"></a>
+                                </div>
+                                <div class="sideToolbox--item">
+                                    <div class="sideToolbox--btn btn btn_outline js-toolbox-trigger"><img src="/myProjects/Yee/static/common/img/icon/Share.png" alt="分享"></div>
+                                </div>
+                            </div>
+
+                            <div class="sideToolbox" js-toolbox>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <div class="sideToolbox--btn btn btn_outline" js-font-size="sm"><img height="12" src="/myProjects/Yee/static/common/img/icon/FontSize.svg" alt="小"></div>
+                                </div>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <div class="sideToolbox--btn btn btn_outline" js-font-size="md"><img height="18" src="/myProjects/Yee/static/common/img/icon/FontSize.svg" alt="中"></div>
+                                </div>
+                                <div class="sideToolbox--item js-toolbox-item">
+                                    <div class="sideToolbox--btn btn btn_outline" js-font-size="lg"><img height="24" src="/myProjects/Yee/static/common/img/icon/FontSize.svg" alt="大"></div>
+                                </div>
+                                <div class="sideToolbox--item">
+                                    <div class="sideToolbox--btn btn btn_outline js-toolbox-trigger"><img src="/myProjects/Yee/static/common/img/icon/Font.png" alt="字體"></div>
+                                </div>
+                            </div>
+
+                            <div class="sideToolbox d-none d-lg-flex">
+                                <div class="sideToolbox--item">
+                                    <div class="sideToolbox--btn sideToolbox--btn_up btn btn_outline" onclick="toTop()"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container_800">
+
+                        <div class="f-cap mb_60">
+                            <div class="d-flex">
+                                <div class="me-3"><span class="me-1">1000</span>次瀏覽</div>
+                                <!-- 該區使用FB外掛 -->
+                                <div>
+                                    [讚 492 萬]
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="editorBox _font_lg">
+                            <p>以獨有的感性敏感地覺察、追蹤著最前沿的台灣社會變遷，王墨林迄今仍在劇場中鋒利地劃開文化場域中的政治論題，本次的「莎士比亞戲劇單人表演系列」亦不例外。轉《李爾王》的母親缺席為喻，鄭尹真改編、演出的《母親．李爾王》召喚母親現身，介入父親（舊國王）與女兒（新領主）之間已成定局的國家／權力爭奪戰，使得家國關係的糾纏矛盾在內縮空間內現形。藉《哈姆雷特》的為父復仇為引，楊奇殷編劇、演出的《王子・哈姆雷特》以哈姆雷特與進步青年的自我對話，重新開啟讓整個世代為之集體失語的學運／事件，並設想歷<a href="#" target="_blank">連結史軌跡若依王子的哈姆雷特</a>前進，未來終將走向如何的末日景致。</p>
+
+                            <div class="editorBox--quote_box f-h3">
+                                雖然發展主題和改編原著不同，兩部劇同樣操作了我們習以為常的政治觀念，令它們彼此對峙、較量，對撞直至湮滅，從而在一片後現代的論述、敘事與政治廢墟中，重新鍛造一套描述現況、勾勒理想的新語彙。
+                            </div>
+
+                            <h2>權力顯影術——《母親．李爾王》</h2>
+                            <p>
+                                權力的穩定性與循環性，在《母親・李爾王》的劇碼中位居核心。精煉的人物關係與空間設計，使論述空間廣袤地延展到國家與民眾的邊緣，卻又足以袖珍地收納在六張榻榻米上。
+                                <span class="editorBox--expand_btn f-cap" onclick="$('#note-1').toggle(); $(this).toggleClass('active')">〔註1〕</span>
+                                <div id="note-1" class="editorBox--note_box f-cap">註解內容註解內容一張榻榻米的尺寸為3尺×6尺（約91公分×182公分），而一般雙人床板（雙人彈簧床大小）約為5尺×6尺2（152公分×188公分）須二張2尺半×6尺2的榻榻米，但依房間所需尺寸大小所有榻榻米尺寸皆可製做及訂做。</div>
+                            </p>
+                            <p>冷言逐出父親、終使前者發狂的女兒，述說自己權謀籌劃所造就的家國裂解，不也是為權力而著迷的瘋狂之人嗎？瘋狂的虛像背後，手握權柄、舉旗揮舞如將領的父親，不正因為理性蒸發，成了對權力循環有著最透徹認識的清醒之人嗎？幽靜如冥府的燈籠燭光照耀下，作為無力干預現世的幽魂，母親只是看著。在原始故事中缺位，遠離而旁觀這一切循環的她，冷靜與慈祥並不指向父或女一方、甚至並非被召回的自己，但亦非指向無權者，而是權力支配範圍外的空處。空處的顯影，也讓權力之爭投下的陰影更為立體。</p>
+                            <p style="font-weight: bold;">權力究為何物？是有權者與無權者之間往復著亙古不變的階級鬥爭，還是有權者－無權者循環之中，有力奪得權冠之人間的戰爭遊戲？</p>
+                            <p>冷言逐出父親、終使前者發狂的女兒，述說自己權謀籌劃所造就的家國裂解，不也是為權力而著迷的瘋狂之人嗎？瘋狂的虛像背後，手握權柄、舉旗揮舞如將領的父親，不正因為理性蒸發，成了對權力循環有著最透徹認識的清醒之人嗎？幽靜如冥府的燈籠燭光照耀下，作為無力干預現世的幽魂，母親只是看著。在原始故事中缺位，遠離而旁觀這一切循環的她，冷靜與慈祥並不指向父或女一方、甚至並非被召回的自己，但亦非指向無權者，而是權力支配範圍外的空處。空處的顯影，也讓權力之爭投下的陰影更為立體。</p>
+
+                            <div class="editorBox--yellowBorder">
+                                <h3>《母親．李爾王》</h3>
+                                <p>
+                                    演出｜鄭尹真<br>
+                                    時間｜2021/04/18 20:00<br>
+                                    地點｜牯嶺街小劇場一樓實驗劇場
+                                </p>
+                            </div>
+                            <div class="editorBox--yellowBorder">
+                                <h3>《母親．李爾王》</h3>
+                                <p>
+                                    演出｜鄭尹真<br>
+                                    時間｜2021/04/18 20:00<br>
+                                    地點｜牯嶺街小劇場一樓實驗劇場
+                                </p>
+                            </div>
+
+                            <div class="tagBox my_60">
+                                <a class="tag_lv1" href="search.html?param=comment">戲劇</a>
+                                <a class="tag_lv2" href="search.html?param=comment">投稿</a>
+                                <a class="tag_lv2" href="search.html?param=comment">極短評</a>
+                                <a class="tag_lv2" href="search.html?param=comment">海外演評</a>
+                                <a class="tag_lv2" href="search.html?param=comment">線上</a>
+                            </div>
+
+                            <div class="bgc_light my_60 p-3 p_sm_40">
+                                <h2>你可能還想知道：</h2>
+                                <p>1. 以獨有的感性敏感地覺察、追蹤著最前沿的台灣社會變遷，王墨林迄今仍在劇場中鋒利地劃開文化場域中的政治論題，本次的「莎士比亞戲劇單人表演系列」亦不例外。轉《李爾王》的母親缺席為喻，鄭尹真改編、演出的《母親．李爾王》召喚母親現身，介入父親（舊國王）與女兒（新領主）之間已成定局的國家／權力爭奪戰，使得家國關係的糾纏矛盾在內縮空間內現形。藉《哈姆雷特》的為父復仇為引，楊奇殷編劇、演出的《王子・哈姆雷特》以哈姆雷特與進步青年</p>
+                                <p>2. 受難者記憶與遺言的背景音被放置在面貌全非的實景，產生疊合和交織，讓這趟經歷勢必折衝舊有的生活經驗，產生疏離；不僅如此，在河堤、小巷、岔口、通道等地，我們聽到內容似乎是來自於廣播頻道的播客</p>
+                            </div>
+                        </div>
+
+
+                        <div class="sideToolbox--pos my_40 d-lg-none">
+                            <div class="sideToolbox--grp">
+                                <div class="sideToolbox" js-toolbox>
+                                    <div class="sideToolbox--item js-toolbox-item">
+                                        <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Link.png" alt="Link"></a>
+                                    </div>
+                                    <div class="sideToolbox--item js-toolbox-item">
+                                        <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Line-chat.png" alt="Line"></a>
+                                    </div>
+                                    <div class="sideToolbox--item js-toolbox-item">
+                                        <a class="sideToolbox--btn btn btn_outline" href=""><img src="/myProjects/Yee/static/common/img/icon/Facebook-f.png" alt="Facebook"></a>
+                                    </div>
+                                    <div class="sideToolbox--item">
+                                        <div class="sideToolbox--btn btn btn_outline js-toolbox-trigger"><img src="/myProjects/Yee/static/common/img/icon/Share.png" alt="分享"></div>
+                                    </div>
+                                </div>
+
+                                <div class="sideToolbox">
+                                    <div class="sideToolbox--item">
+                                        <div class="sideToolbox--btn sideToolbox--btn_up btn btn_outline" onclick="toTop()"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 該區使用FB外掛 -->
+                        <div>
+                            Facebook 留言外掛程式
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <section class="py_40 py_xl_60">
+                <div class="container-xl">
+                    <div id="recommend1" class="swiper-container">
+                        <div class="flex_center_y">
+                            <div class="f-h2">推薦評論</div>
+                            <div class="swiper_round_navigation d-flex mt-3 mt-xl-0">
+                                <div class="prev me-3"></div>
+                                <div class="next"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" js-html-repeat="9">
+                                <div class="cardBox">
+                                    <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                        <div js-device="pc" class="js-follow-cursor-container">
+                                            <div class="js-follow-cursor">
+                                                <a href="#" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox--body">
+                                        <div class="cardBox--text">
+                                            <div class="f-cap"><a class="alink" href="character-detail.html">梁家綺</a></div>
+                                            <div class="f-h3 text-more-2 cardBox--title-height"><a class="alink" href="comment-detail.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                            <div class="f-p text-more-3 cardBox--desc-height">權力究為何物？是有權者與無權者之間往復著亙古不變的階級鬥爭，還是有權者－無權者循環之中，有力奪力奪</div>
+                                        </div>
+                                        <div class="cardBox--date">
+                                            <div class="dateBox_mDy mx-auto">
+                                                <div>DEC</div>
+                                                <div>26</div>
+                                                <div>2020</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox--foot">
+                                        <div class="tagBox cardBox--tags-height">
+                                            <a class="tag_lv1" href="search.html?param=comment">戲劇</a>
+                                            <a class="tag_lv2" href="search.html?param=comment">投稿</a>
+                                            <a class="tag_lv2" href="search.html?param=comment">極短評</a>
+                                            <a class="tag_lv2" href="search.html?param=comment">海外演評</a>
+                                            <a class="tag_lv2" href="search.html?param=comment">線上</a>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-eye"></i>
+                                            <span>999</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination pos_r"></div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+        $(function(){
+            new toolBoxAnimation();
+            new setFontSize('.editorBox');
+
+            let recommend1 = new Swiper("#recommend1", {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                autoHeight: true,
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 16,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 16,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 24,
+                    }
+                },
+                navigation: {
+                    nextEl: ".next",
+                    prevEl: ".prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        })
+
+        /**
+         * 置頂按鈕
+         */
+        function toTop(){
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        /**
+         * 區塊設定文字大小
+         * [js-font-size=sm|md|lg] to change all children font-size of target
+         */
+        class setFontSize {
+            constructor( target ){
+                this.target = target || console.error('you haven\'t set target.')
+                this.nowCls = ''
+                this.elements_Px = []
+                this.init()
+                this.listeners()
+            }
+
+            init(){
+                let This = this
+                $.each( $(This.target).find('*'), function(idx,ele){
+                    This.elements_Px.push( $(ele).css('font-size') )
+                })
+            }
+
+            to( num, cls = null ){
+                let This = this
+                if ( cls == null || this.nowCls !== cls ){
+                    This.nowCls = cls
+                    $.each( $(This.target).find('*'), function(idx,ele){
+                        $(ele).css('font-size', `calc( ${This.elements_Px[idx]} * ${num} )`)
+                    })
+                }
+            }
+
+            listeners(){
+                let This = this
+                $('[js-font-size]').on('click', function(){
+                    switch ( $(this).attr('js-font-size') ){
+                        case 'sm':
+                            This.to( 0.9, 'sm' )
+                        break
+                        case 'md':
+                            This.to( 1, 'md' )
+                        break
+                        case 'lg':
+                            This.to( 1.2, 'lg' )
+                        break
+                        default:
+                            This.to( 1, null )
+                        break
+                    }
+                })
+            }
+        }
+
+
+        /**
+         * 按鈕動畫
+         * .js-toolbox-trigger to trigger closest [js-toolbox]
+         */
+        class toolBoxAnimation {
+            constructor(){
+                this.TL = []
+                this.gsap_option = {
+                    duration: 0.3,
+                    x: 0,
+                    y: 0,
+                    stagger: 0.05,
+                    ease: 'back.in(1.3)'
+                }
+                this.init()
+                this.listeners()
+            }
+
+            init(){
+                $.each( $('[js-toolbox]'), function(idx,ele){
+                    $(ele).attr('js-toolbox',idx)
+                })
+                this.update()
+            }
+
+            update(){
+                if ( window.innerWidth >= 992 ){ // PC
+                    this.gsap_option.x = function(idx, target, targets) {
+                        let width = targets.slice( idx, targets.length ).reduce( (acc, item) => { // 計算各按鈕離最右邊的距離
+                            return acc + $(item).outerWidth()
+                        }, 0)
+                        return width
+                    }
+                    this.gsap_option.y = 0
+                } else { // M
+                    this.gsap_option.y = function(idx, target, targets) {
+                        let height = targets.slice( idx, targets.length ).reduce( (acc, item) => { // 計算各按鈕離最上邊的距離
+                            return acc - $(item).outerHeight()
+                        }, 0)
+                        return height
+                    }
+                    this.gsap_option.x = 0
+                }
+                let This = this
+                $.each( $('[js-toolbox]'), function(idx,ele){
+                    let item = $(`[js-toolbox=${idx}] .js-toolbox-item`)
+                    if ( This.TL[idx] ){
+                        TweenMax.set( item, {clearProps:'all'})
+                        This.TL[idx].kill()
+                    }
+                    This.TL[idx] = new TimelineMax()
+                    This.TL[idx].to( item, This.gsap_option )
+                    This.TL[idx].seek(1)
+                })
+            }
+
+            toggle(obj){
+                let This = this
+                if ( $(obj).hasClass('active') ){
+                    $(obj).removeClass('active')
+                    let idx = $(obj).closest('[js-toolbox]').attr('js-toolbox')
+                    This.TL[idx].play()
+                } else {
+                    $(obj).addClass('active')
+                    let idx = $(obj).closest('[js-toolbox]').attr('js-toolbox')
+                    This.TL[idx].reverse()
+                }
+            }
+
+            listeners(){
+                let This = this
+                $('.js-toolbox-trigger').on('click', function(){
+                    This.toggle(this)
+                })
+
+                window.matchMedia('(min-width: 992px)').addListener(function(evt){
+                    $('.js-toolbox-trigger').removeClass('active')
+                    This.update()
+                })
+            }
+        }
+    </script>
+</body>
+</html>

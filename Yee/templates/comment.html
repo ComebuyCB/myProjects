@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="main_title f-h1">評論</div>
+
+            <div class="container-xl">
+                <div class="mainTab">
+                    <!-- PC -->
+                    <div class="_tab d-none d-lg-flex">
+                        <a class="btn btn_tab1" href="#">全部</a>
+                        <a class="btn btn_tab1" href="#">音樂</a>
+                        <a class="btn btn_tab1 active" href="#">戲曲</a>
+                        <a class="btn btn_tab1" href="#">戲劇</a>
+                        <a class="btn btn_tab1" href="#">舞蹈</a>
+                        <a class="btn btn_tab1" href="#">非特定</a>
+                    </div>
+                    <!-- Mobile -->
+                    <div class="_tab d-lg-none">
+                        <select class="form-control">
+                            <option value="">全部</option>
+                            <option value="">音樂</option>
+                            <option value="" selected>戲曲</option>
+                            <option value="">戲劇</option>
+                            <option value="">舞蹈</option>
+                            <option value="">非特定</option>
+                        </select>
+                    </div>
+                    <button id="filterBox-btn" class="_filter btn btn_outline img_text" js-popTarget="#filterBox" js-popTargetMode="toggle">
+                        <img src="/myProjects/Yee/static/common/img/icon/Filter.png">篩選
+                    </button>
+                    <div id="filterBox" class="filterBox">
+                        <div class="_top">
+                            <button class="btn" js-popTarget="#filterBox" js-popTargetMode="toggle">
+                                <img src="/myProjects/Yee/static/common/img/icon/Menu-close.svg">
+                            </button>
+                        </div>
+                        <div class="_body">
+                            <div id="filter-source">
+                                <div class="_title">
+                                    <div class="f-p">來源</div>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-source', true)">全選</button>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-source', false)">全不選</button>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>投稿</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>專案</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>駐站</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>編輯推薦</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>客座</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter-cate">
+                                <div class="_title">
+                                    <div class="f-p">類別</div>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-cate', true)">全選</button>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-cate', false)">全不選</button>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>海外演評</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>觀點專欄</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>演出評論</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter-type">
+                                <div class="_title">
+                                    <div class="f-p">演出型態</div>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-type', true)">全選</button>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-type', false)">全不選</button>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>現場</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>線上</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter-length">
+                                <div class="_title">
+                                    <div class="f-p">長度</div>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-length', true)">全選</button>
+                                    <button type="button" class="btn btn_link" onclick="checkedAll('#filter-length', false)">全不選</button>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>極短評</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>短評</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 col-sm-4">
+                                        <label class="ckb">
+                                            <input type="checkbox">
+                                            <span class="_ckbIcon"></span>
+                                            <span>長評</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="_btns">
+                            <button class="btn btn_dark w-100 w-sm-auto">套用條件</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="container-xl">
+                <div class="row gx-3 gx-xl-4">
+                    <div class="col-md-6 col-lg-4" js-html-repeat="15">
+                        <div class="cardBox">
+                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a class="btn btn_circle hover_fadeIn--item" href="comment-detail.html">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardBox--body">
+                                <div class="cardBox--text">
+                                    <div class="f-cap"><a class="alink" href="character-detail.html">梁家綺</a></div>
+                                    <div class="f-h3 text-more-2 cardBox--title-height"><a class="alink" href="comment-detail.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                    <div class="f-p text-more-3 cardBox--desc-height">權力究為何物？是有權者與無權者之間往復著亙古不變的階級鬥爭，還是有權者－無權者循環之中，有力奪力奪</div>
+                                </div>
+                                <div class="cardBox--date">
+                                    <div class="dateBox_mDy mx-auto">
+                                        <div>DEC</div>
+                                        <div>26</div>
+                                        <div>2020</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cardBox--foot">
+                                <div class="tagBox cardBox--tags-height">
+                                    <a class="tag_lv1" href="search.html?param=comment">戲劇</a>
+                                    <a class="tag_lv2" href="search.html?param=comment">投稿</a>
+                                    <a class="tag_lv2" href="search.html?param=comment">極短評</a>
+                                    <a class="tag_lv2" href="search.html?param=comment">海外演評</a>
+                                    <a class="tag_lv2" href="search.html?param=comment">線上</a>
+                                </div>
+                                <div>
+                                    <i class="fas fa-eye"></i>
+                                    <span>999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a class="page-link prev" href="#" tabindex="-1"></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link next" href="#"></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+        $(function(){
+            new PopupTargets()
+            
+            $(document).on('click',function(){
+                if ( $('#filterBox').css('display') === 'none' ){
+                    $('#filterBox-btn').removeClass('active')
+                } else {
+                    $('#filterBox-btn').addClass('active')
+                }
+            })
+        })
+
+
+        function checkedAll( target, isCheckAll = true ){
+            if (isCheckAll){
+                $(target).find('input[type=checkbox]').prop('checked',true)
+            } else {
+                $(target).find('input[type=checkbox]').prop('checked',false)
+            }
+        }
+    </script>
+</body>
+</html>

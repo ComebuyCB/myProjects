@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body id="subject">
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <section class="subjectCover">
+                <div class="subjectCover--top">
+                    <div class="row gx-0">
+                        <div class="col-lg-5 col_fit_container_xl">
+                            <div class="subjectCover--top_left ms-auto">
+                                <div class="f-h1">當期<br>專題</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="subjectCover--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/1200/800);">
+                                <div js-device="pc" class="js-follow-cursor-container">
+                                    <div class="js-follow-cursor">
+                                        <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subjectCover--bot">
+                    <div class="row gx-0 px-3 px-lg-0">
+                        <div class="col-lg-5 col_fit_container_xl">
+                            <div class="subjectCover--bot_left ms-auto">
+                                <div class="dateBox_Dym">
+                                    <div>07</div>
+                                    <div>2021</div>
+                                    <div>JUL</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col_fit_container_xl">
+                            <div class="subjectCover--text v_text">
+                                <div class="f-h2">實驗性展演的觀演關係</div>
+                                <div class="subjectCover--line"></div>
+                                <div class="f-p">權力究為何物？還是有權者－無權者循環之是有權者與權力究為何物與權力究為何物與權力究為何物？是有權者與權力究為力究為力究為何物？是有權者與權者與權力究為何物？是有權者與</div>
+                                <a class="btn_more btn f-btn" href="subject-detail1.html">進入專題</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py_18 py_sm_40 py_xl_60 bgc_light">
+                <div class="container-xl">
+                    <div id="recommend" class="swiper-container">
+                        <div class="d-flex flex-column flex-xl-row align-items-center justify-content-between">
+                            <div class="f-h2">推薦專題</div>
+                            <div class="swiper_round_navigation d-flex mt-3 mt-xl-0">
+                                <div class="prev me-3"></div>
+                                <div class="next"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" js-html-repeat="5">
+                                <div class="cardBox">
+                                    <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                        <div js-device="pc" class="js-follow-cursor-container">
+                                            <div class="js-follow-cursor">
+                                                <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox--body">
+                                        <div class="cardBox--text">
+                                            <div class="f-h3 text-more-2"><a class="alink" href="subject-detail1.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                            <div class="f-p text-more-3">權力究為何物？是有權者與無權者之間往復著亙古不變的階級鬥爭，還是有權者－無權者循環之中，還是有權者－無權者循環之中，有力奪力奪</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination pos_r"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py_18 py_sm_40 py_xl_60">
+                <div class="container-xl">
+                    <div id="history" class="swiper-container">
+                        <div class="text-center">
+                            <div class="f-h2">歷年專題</div>
+                            <div class="swiper_round_navigation d-inline-flex mt-3">
+                                <div class="prev"></div>
+                                <div class="swiper_slide_pagination_box mx-2">
+                                    <div class="swiper-pagination swiper_slide_pagination"></div>
+                                </div>
+                                <div class="next"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" data-year="2021">
+                                <div class="row gx-3 gx-xl-4">
+                                    <div class="col-12 col-sm-6 col-lg-4" js-html-repeat="5">
+                                        <div class="cardBox">
+                                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                                <div js-device="pc" class="js-follow-cursor-container">
+                                                    <div class="js-follow-cursor">
+                                                        <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardBox--body">
+                                                <div class="cardBox--text">
+                                                    <div class="f-h3 text-more-2"><a class="alink" href="subject-detail1.html">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-year="2019">
+                                <div class="row gx-3 gx-xl-4">
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div class="cardBox">
+                                            <div class="cardBox--img img_full flex_center hover_fadeIn" style="background-image: url(https://picsum.photos/900/600);">
+                                                <div js-device="pc" class="js-follow-cursor-container">
+                                                    <div class="js-follow-cursor">
+                                                        <a href="subject-detail1.html" class="btn btn_circle hover_fadeIn--item">深入了解</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardBox--body">
+                                                <div class="cardBox--text">
+                                                    <div class="f-h3 text-more-2">讓台灣擁抱世界•讓世界聽見台灣—台灣音樂新風貌從2017-2019年創作</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide" data-year="2018">
+                                ...
+                            </div>
+                            <div class="swiper-slide" data-year="2017">
+                                ...
+                            </div>
+                            <div class="swiper-slide" data-year="2016">
+                                ...
+                            </div>
+                            <div class="swiper-slide" data-year="2015">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+        $(function(){
+            let recommend = new Swiper("#recommend", {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                autoHeight: true,
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 16,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 16,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 24,
+                    }
+                },
+                navigation: {
+                    nextEl: ".next",
+                    prevEl: ".prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            })
+    
+            let history = new Swiper("#history", {
+                autoHeight: true,
+                spaceBetween: 20,
+                allowTouchMove: false,
+                navigation: {
+                    nextEl: ".next",
+                    prevEl: ".prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        let year = $('#history').find('.swiper-slide').eq(index).data('year')
+                        return `
+                            <div class="px-2 ${ className }"> 
+                                <div class="btn btn_tab1 px-2">${ year }</div>
+                            </div>`
+                    },
+                }
+            })
+
+            slidePagination( history, '#history .swiper_slide_pagination' )
+        })
+
+        function slidePagination( swiper, target ){
+            let iw = 0          // 按鈕寬度
+            let show = 0        // 顯示幾個按鈕
+            let nowIdx = 0      // 現在位置 (往左幾格)
+            let total = $(target).children().length      // 總共幾個按紐
+
+            update()
+            function update(){
+                if ( window.innerWidth < 576 ){
+                    show = 2 < total ? 2 : total
+                }
+                if ( window.innerWidth >= 576 ){
+                    show = 3 < total ? 3 : total
+                }
+                if ( window.innerWidth >= 992 ){
+                    show = 5 < total ? 5 : total
+                }
+                iw = $(target).children().outerWidth()
+                
+                $(target).parent().css('width', iw*show )
+
+                computePrev()
+                computeNext()
+            }
+
+            // 取得 swiper-pagination-bullet-active 的位置
+            function getActiveIdx(){
+                let activeIdx = 0
+                $.each( $(target).children(), function( idx, ele ){
+                    if ( $(ele).hasClass('swiper-pagination-bullet-active') ){
+                        activeIdx = idx
+                    }
+                })
+                return activeIdx
+            }
+            function computePrev(){
+                let activeIdx = getActiveIdx()
+                if ( activeIdx < nowIdx ){
+                    nowIdx --
+                    $(target).css('left', -iw*nowIdx )
+                }
+            }
+            function computeNext(){
+                let activeIdx = getActiveIdx()
+                if ( activeIdx - nowIdx >= show ){
+                    nowIdx ++
+                    $(target).css('left', -iw*nowIdx )
+                }
+            }
+
+            // 監聽事件 ---
+            $(window).on('resize',function(){
+                update()
+            })
+            swiper.on('slidePrevTransitionStart',function(){
+                computePrev()
+            })
+            swiper.on('slideNextTransitionStart',function(){
+                computeNext()
+            })
+        }
+    </script>
+</body>
+</html>

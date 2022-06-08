@@ -1,0 +1,23 @@
+<div id="bulletin">
+    <div class="container-xl flex_center_y">
+        <div id="bulletinMarquee" style="opacity: 0">系統停機公告：110年3月19日(五)晚上10時30分至3月21日(日)晚上8時進行系統更新維護作業，屆時將暫停網站服務。</div>
+        <div id="bulletinClose" onclick="$('#bulletin').remove()"></div>
+    </div>
+    <script>
+        function bulletinMarquee( target ){
+            let width = $(target).width()
+            let speed = width * 16
+            $(target).marquee({
+                duration: speed,
+                delayBeforeStart: -speed / 2,
+                gap: width / 1.5,
+                direction: 'left',
+                duplicated: true
+            })
+            $(target).css('opacity', 1)
+        }
+        $(function(){
+            bulletinMarquee('#bulletinMarquee')
+        })
+    </script>
+</div>

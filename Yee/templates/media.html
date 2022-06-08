@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="main_title f-h1">影視音</div>
+
+            <div class="container-xl">
+                <div class="mainTab">
+                    <div class="mb-3 mb-lg-0">
+                        <!-- PC -->
+                        <div class="_tab d-none d-lg-flex">
+                            <a class="btn btn_tab1 active" href="media.html?param=podcast">Podcast</a>
+                            <a class="btn btn_tab1" href="media.html?param=video">Video</a>
+                        </div>
+                        <!-- Mobile -->
+                        <div class="_tab d-lg-none">
+                            <select class="form-control" onchange="window.location.href='media.html?param='+$(this).val()">
+                                <option value="podcast" selected>Podcast</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 mb-lg-0">
+                        <!-- PC -->
+                        <div class="_tab d-none d-lg-flex">
+                            <a class="btn btn_tab2 active" href="#">評論</a>
+                            <a class="btn btn_tab2" href="#">專訪</a>
+                            <a class="btn btn_tab2" href="#">其他</a>
+                        </div>
+                        <!-- Mobile -->
+                        <div class="_tab d-lg-none">
+                            <select class="form-control">
+                                <option value="" selected>評論</option>
+                                <option value="">專訪</option>
+                                <option value="">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="container-xl">
+                <div js-url-param="podcast" class="container_800">
+                    <div class="pt-4 flex_center_y justify-content-end ch_mr_3">
+                        <span>在其他平台收聽</span>
+                        <a href="https://podcasts.apple.com/podcast/id1526273688">
+                            <img src="/myProjects/Yee/static/common/img/icon/Apple.png" alt="Apple">
+                        </a>
+                        <a href="https://open.spotify.com/show/5dya2njlyeBB2SgcaR3rSC">
+                            <img src="/myProjects/Yee/static/common/img/icon/Spotify.png" alt="Spotify">
+                        </a>
+                        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9vcGVuLmZpcnN0b3J5Lm1lL3Jzcy91c2VyL2NrZGZsNTg2OHdxbzMwODA0azFhb3RmNXY?sa=X&ved=0CAMQ4aUDahcKEwiI5M-p2oDzAhUAAAAAHQAAAAAQAQ">
+                            <img src="/myProjects/Yee/static/common/img/icon/Google-play.png" alt="Google Play">
+                        </a>
+                    </div>
+                    <div class="row g-3 g-xl-4 pt-4 all_iframe_block">
+                        <div class="col-12" js-html-repeat="5">
+                            <iframe src="https://open.spotify.com/embed/episode/77yqTl36sOZBP7hQt3JUWK?theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link prev" href="#" tabindex="-1"></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link next" href="#"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div js-url-param="video">
+                    <div class="row g-3 g-xl-4 pt-4 all_iframe_block">
+                        <div class="col-12 col-sm-6 col-lg-4" js-html-repeat="12">
+                            <div class="ratio ratio-3x2">
+                                <iframe src="https://www.youtube.com/embed/t8yb8AMX9Fg" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            </div>
+                            <div class="py-3 ch_mb_3">
+                                <a href="#" class="alink f-h3 text-more-3">雲林五洲小桃源掌中劇團《天雷針》雲林五洲小桃源掌中劇團。雲林五洲小桃源掌中劇團《天雷針》雲林五洲小桃源掌中劇團。</a>
+                                <div class="f-cap pt-2">白斐嵐、紀慧玲</div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link prev" href="#" tabindex="-1"></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link next" href="#"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>

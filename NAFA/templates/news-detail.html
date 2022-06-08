@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/NAFA/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/NAFA/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <link href="/myProjects/NAFA/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/NAFA/static/plugins/Swiper-6.8.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/plugins/Swiper-6.8.4/swiper-bundle.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/NAFA/static/common/css/bootstrap-extra.css" rel="stylesheet">
+    <link href="/myProjects/NAFA/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/NAFA/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/NAFA/static/common/js/main.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="bgSection">
+            <script>$.get('include/bg.html', (res)=>{ $('#bgSection')[0].outerHTML=res; } )</script>
+        </div>
+
+        <header>
+            <script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script>
+        </header>
+
+        <main>
+            <div class="container-fluid">
+                <div class="title_with_date">
+                    <div js-url-param="news" class="sectionTitle">
+                        <div class="_en">NEWS</div>
+                        <div class="_tw">一般消息</div>
+                    </div>
+                    <div js-url-param="winner" class="sectionTitle">
+                        <div class="_en">WINNER'S<br>INFORMATION</div>
+                        <div class="_tw">得主動態</div>
+                    </div>
+                    <div js-url-param="ceremony" class="sectionTitle">
+                        <div class="_en">AWARDS<br>CEREMONY</div>
+                        <div class="_tw">贈獎典禮</div>
+                    </div>
+                    <div js-url-param="event" class="sectionTitle">
+                        <div class="_en">PROMOTING<br>EVENT</div>
+                        <div class="_tw">推廣活動</div>
+                    </div>
+                    <div>
+                        <div class="f-h6">2020.10.31</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-0" />
+            <div class="container-fluid">
+                <div js-url-param="winner" class="awardeeSection">
+                    <div class="awardeeSection--txt">
+                        <div>
+                            <div class="me-2">
+                                <div class="_title">第二十一屆獲獎藝術家</div>
+                                <a class="_name img_text" href="winner-detail.html">
+                                    <span>柯金源</span><img src="/myProjects/NAFA/static/common/img/icon/more.svg">
+                                </a>
+                            </div>
+                            <div class="_pro text-end">紀錄片導演<br>Documentary<br>Director</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div js-url-param="news||ceremony||event" class="py-3 newsTitle">
+                    第二十二屆國家文藝獎推薦作業<br>即日起至6月30日截止
+                </div>
+
+                <hr class="my-0 d-none d-lg-block" />
+
+                <div class="newsSection">
+                    <div class="newsSection--img order-lg-last">
+                        <div js-url-param="news||winner" class="ratio ratio-1x1 img" style="background-image: url(https://picsum.photos/600);"></div>
+                        <div js-url-param="ceremony" class="py-lg-4">
+                            <div class="ratio ratio-16x9 img" style="background-image: url(https://picsum.photos/600);"></div>
+                            <div class="f-h6 mt-2">（左起）文化部部長李永得、王墨林、古名伸、莊普、總統蔡英文、王秋華、陳中申、柯金源、黃惠信（代領人：黃娟三妹）、國藝會董事長林曼麗</div>
+                        </div>
+                        <div js-url-param="event" id="swiper-PROMOTING_EVENT" class="swiper-container w-100 py-lg-4">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/700)"></div>
+                                    <div class="f-h6 mt-2">（左起）文化部部長李永得、王墨林、古名伸、莊普、總統蔡英文、王秋華、陳中申、柯金源、黃惠信（代領人：黃娟三妹）、國藝會董事長林曼麗</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/800)"></div>
+                                    <div class="f-h6 mt-2">（左起）文化部部長李永得、王墨林、古名伸、莊普、總統蔡英文、王秋華、陳中申、柯金源、黃惠信（代領人：黃娟三妹）、國藝會董事長林曼麗</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="img ratio ratio-16x9" style="background-image: url(https://picsum.photos/900)"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination" style="position: relative; bottom: 0"></div>
+                        </div>
+
+                    </div>
+                    <div class="newsSection--txt">
+                        <div class="_scroll scrollBar">
+                            <div js-url-param="winner" class="f-h3 mb-3">
+                                國家文藝獎得獎者金希文指揮、<br>
+                                創作「生命與愛的河流」<br>
+                                巡演音樂會 3 月開跑
+                            </div>
+                            <div class="f-h4 mb-2">贈獎儀式1 - 建築類得主「王秋華」、頒獎人「阮慶岳」</div>
+                            <p class="f-h5">第21屆國家文藝獎贈獎典禮30日假淡水雲門劇場舉行，小說家黃娟、藝術家莊普、音樂家陳中申、舞蹈家古名伸、劇場創作者王墨林、建築師王秋華、紀錄片導演柯金源7位得獎者，在親友陪同下出席贈獎典禮，總統蔡英文、文化部長李永得，以及藝文界、駐台機構等逾兩百位貴賓出席贈獎典禮，共同分享得獎者的喜悅與榮耀。</p>
+                            <p class="f-h5">國家文化藝術基金會董事長林曼麗，代表主辦單位向每位得獎者致敬，林曼麗表示，今年我們以「用藝術向藝術致敬」為本屆贈獎典禮的主軸，邀請台灣中生代／新生代藝術創作者，創作7段演出，分別獻給7位得主。創作，是一個自我探尋的歷程，走過孤獨、掙扎，最後成就了壯麗動人的作品，透過這幾段演出，我們將一同向得主獻上藝術的禮讚。林曼麗向應邀出席的頒獎人與陪同出席的親友致謝，也</p>
+                            <p class="f-h5">國家文化藝術基金會董事長林曼麗，代表主辦單位向每位得獎者致敬，林曼麗表示，今年我們以「用藝術向藝術致敬」為本屆贈獎典禮的主軸，邀請台灣中生代／新生代藝術創作者，創作7段演出，分別獻給7位得主。創作，是一個自我探尋的歷程，走過孤獨、掙扎，最後成就了壯麗動人的作品，透過這幾段演出，我們將一同向得主獻上藝術的禮讚。林曼麗向應邀出席的頒獎人與陪同出席的親友致謝，也</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="my-0" />
+            </div>
+        </main>
+        
+        <footer>
+            <script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script>
+        </footer>
+    </div>
+    <script>
+        $(function(){
+            new Swiper('#swiper-PROMOTING_EVENT', {
+                loop: true,
+                autoplay: true,
+                spaceBetween: 8,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            })
+        })
+    </script>
+</body>
+</html>

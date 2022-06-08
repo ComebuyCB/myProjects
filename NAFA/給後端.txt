@@ -1,0 +1,31 @@
+1. 架構：
+    <body>
+        <div id="wrap">
+            <div id="bgSection" class="bgSection" />
+            <header />
+            <main />
+            <footer />
+        </div>
+    </body>
+
+2. 只有 index.html 的<body>有id
+
+3. 搜尋 js-url-param，這是為了示範，url?param= 給不同參數，讓畫面顯示不同。
+    news-detail.html 那頁，其實大概只分兩種：
+        1. 得主 ( winner )
+        2. 消息、典禮、活動 ( news || ceremony || event ) - 這三個只差在有沒有上圖而已，但為了demo所以分開。
+
+4. 搜尋 js-html-repeat，這是複製同樣東西，如for迴圈顯示幾次。
+
+5. winner.html頁，下拉式篩選我沒特別做，要做的東西大約長這樣：
+    屆期 ┐
+        --第21屆
+        --第20屆
+        --第19屆 ...
+    
+    藝術類別 ┐
+        --舞蹈家
+        --音樂家
+        --藝術家 ...
+
+6. 記得別漏掉 [閱讀更多]，這是手機板才有的連結按紐。

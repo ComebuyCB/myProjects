@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/Yee/static/common/img/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/myProjects/Yee/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/Yee/static/core/bootstrap-5.1.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/core/bootstrap-5.1.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- plugins -->
+    <link href="/myProjects/Yee/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/svg-inject-v1.2.3/svg-inject.min.js"></script>
+    <link href="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.3.1/jquery.marquee.min.js"></script>
+
+    <!-- main -->
+    <link href="/myProjects/Yee/static/common/css/simplify.css" rel="stylesheet">
+    <link href="/myProjects/Yee/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/Yee/static/common/js/main.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header><script>$.get('include/header.html', (res)=>{ $('header')[0].outerHTML=res } )</script></header>
+    
+        <main>
+            <div class="main_title f-h1">聯絡我們</div>
+            <hr />
+            <div class="container-xl">
+                <div class="container_600">
+                    <div class="formBox">
+                        <div class="ch_mb_4 mb_60">
+                            <div>
+                                <div class="formBox--label required">標題</div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <div class="formBox--label required">姓名或單位名稱</div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div>
+                                <div class="formBox--label required">Email</div>
+                                <input type="email" class="form-control">
+                            </div>
+                            <div>
+                                <div class="formBox--label required">內文</div>
+                                <textarea class="form-control" rows="6"></textarea>
+                            </div>
+                            <div>
+                                <div class="formBox--label required">驗證碼</div>
+                                <div class="row gy-3">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control h-100 w-50" value="1234" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn_dark w-100 w-sm-auto me-sm-3">送出訊息</button>
+                        <span class="d-inline-block formBox--note f-p error">資訊不完整，請檢查是否都已填寫</span>
+                        <!-- <span class="d-inline-block formBox--note f-p success">送出成功，將有專人針對您的需求回覆給您，謝謝。</span> -->
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </main>
+
+        <div id="modal"><script>$.get('include/modal.html', (res)=>{ $('#modal')[0].outerHTML=res } )</script></div>
+        <footer><script>$.get('include/footer.html', (res)=>{ $('footer')[0].outerHTML=res } )</script></footer>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>

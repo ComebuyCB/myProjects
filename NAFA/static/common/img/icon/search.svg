@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#262626}
+        </style>
+    </defs>
+    <g id="search" transform="translate(11519 4924)">
+        <g id="Group_53" data-name="Group 53" transform="translate(-11518.25 -4923.25)">
+            <circle id="Ellipse_12" data-name="Ellipse 12" class="cls-1" cx="7.322" cy="7.322" r="7.322" transform="translate(.25 .25)"/>
+            <path id="Path_254" data-name="Path 254" class="cls-1" d="m11 11 5.407 5.407" transform="translate(1.843 1.843)"/>
+        </g>
+        <path id="Rectangle_37" data-name="Rectangle 37" transform="translate(-11519 -4924)" style="fill:none" d="M0 0h20v20H0z"/>
+    </g>
+</svg>
