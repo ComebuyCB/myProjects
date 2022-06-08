@@ -1,3 +1,35 @@
+let gaKey = ''
+if ( window.location.origin === 'https://comebuycb.github.io' ){
+  gaKey = 'G-X0H8GHYWS9'
+} else {
+  gaKey = 'G-RK820WFQV2'
+}
+let gaScript = document.createElement('script')
+gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-' + gaKey
+document.documentElement.firstChild.appendChild(gaScript)
+gaScript.onload = function () {
+  let script = document.createElement('script')
+  script.type = 'text/javascript'
+  let code = `
+    var script = document.createElement("script");
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', '${gaKey}');
+
+    $.get('https://json.geoiplookup.io/?callback=?', res => {
+      gtag('event', 'localHost', {
+        'event_category': 'IP',
+        'event_label': new Date().toLocaleDateString() + ' ' + res.district + ' ' + res.ip,
+        'non_interaction': true
+      })
+    }, 'json')
+  `
+  script.appendChild( document.createTextNode(code) )
+  document.documentElement.firstChild.appendChild(script)
+}
+
+
 setWH()
 window.onresize = function(){
   setWH()
