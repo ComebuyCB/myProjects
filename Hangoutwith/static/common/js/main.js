@@ -19,7 +19,7 @@ gaScript.onload = function () {
 
     $.get('https://json.geoiplookup.io/?callback=?', res => {
       gtag('event', 'localHost', {
-        'event_category': 'IP',
+        'event_category': window.location.pathname,
         'event_label': new Date().toLocaleDateString() + ' ' + res.district + ' ' + res.ip,
         'non_interaction': true
       })
