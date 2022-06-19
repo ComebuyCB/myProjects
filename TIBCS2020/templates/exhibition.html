@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jQuery-3.5.1/jquery-3.5.1.min.js"></script>
+
+    <!-- jQuery-ui -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <!-- jQuery-ui-touch-punch (支援手機事件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- babel (支援ES6的套件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/polyfill.min.js"></script>
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/babel.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/css/bootstrap.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- fancybox -->
+    <!-- <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.js"></script> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/simplify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/plugins_modify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/custom.css">
+
+    <script src="/myProjects/TIBCS2020/static/common/js/custom.js"></script>
+</head>
+
+<body>
+    <style>
+        .posBtn_link { animation: bling2 1.2s infinite alternate; /*background-color: rgba(0,0,0,.6 );*/ }
+        @keyframes bling2{
+            0% {background-color :rgba(0,0,0,.15)}
+            100% {background-color :rgba(255,255,255,.45)}
+        }
+
+        /* 第1排 */
+        .posBtn_container > .posBtn_row:nth-child(1) > * { border-radius: 12px; height: calc( 4.1% * 1.777776 ); top: 58.7%; }
+        .posBtn_container > .posBtn_row:nth-child(1) > .posBtn_link:nth-child(1) { width: 10.8%; left: 7.45%; transform: skewX(28deg); }
+        .posBtn_container > .posBtn_row:nth-child(1) > .posBtn_link:nth-child(2) { width: 10.1%; left: 34.5%; transform: skewX(5deg); }
+        .posBtn_container > .posBtn_row:nth-child(1) > .posBtn_link:nth-child(3) { width: 10.1%; left: 61.4%; transform: skewX(-14deg); }
+        .posBtn_container > .posBtn_row:nth-child(1) > .posBtn_link:nth-child(4) { width: 10.8%; left: 87.8%; transform: skewX(-32deg); }
+
+        /* 第2排 */
+        .posBtn_container > .posBtn_row:nth-child(2) > * { border-radius: 9px; height: calc( 3.2% * 1.777776 ); top: 43.2%; }
+        .posBtn_container > .posBtn_row:nth-child(2) > .posBtn_link:nth-child(1) { width: 7.2%; left: 20.9%; transform: skewX(18deg); }
+        .posBtn_container > .posBtn_row:nth-child(2) > .posBtn_link:nth-child(2) { width: 7.0%; left: 39.3%; transform: skewX(4deg); }
+        .posBtn_container > .posBtn_row:nth-child(2) > .posBtn_link:nth-child(3) { width: 7.0%; left: 57.8%; transform: skewX(-8deg); }
+        .posBtn_container > .posBtn_row:nth-child(2) > .posBtn_link:nth-child(4) { width: 7.2%; left: 76.1%; transform: skewX(-18deg); }
+
+        /* 第3排 */
+        .posBtn_container > .posBtn_row:nth-child(3) > * { border-radius: 5px; height: calc( 1.8% * 1.777776 ); top: 38.35%; }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(1) { width: 3.9%; left: 28.9%; transform: skewX(12deg); }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(2) { width: 4.0%; left: 36.2%; transform: skewX(8deg); }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(3) { width: 4.0%; left: 43.7%; transform: skewX(3deg); }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(4) { width: 4.0%; left: 51.1%; transform: skewX(-2deg); }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(5) { width: 3.9%; left: 58.6%; transform: skewX(-8deg); }
+        .posBtn_container > .posBtn_row:nth-child(3) > .posBtn_link:nth-child(6) { width: 4.0%; left: 66.0%; transform: skewX(-13deg); }
+
+        /* 第4排 */
+        .posBtn_container > .posBtn_row:nth-child(4) > * { border-radius: 5px; height: calc( 1.7% * 1.777776 ); top: 35.1%; }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(1) { width: 3.4%; left: 27.9%; transform: skewX(12deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(2) { width: 3.4%; left: 34.5%; transform: skewX(8deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(3) { width: 3.4%; left: 41.1%; transform: skewX(3deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(4) { width: 3.4%; left: 47.7%; transform: skewX(1deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(5) { width: 3.4%; left: 54.35%; transform: skewX(-4deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(6) { width: 3.4%; left: 60.95%; transform: skewX(-10deg); }
+        .posBtn_container > .posBtn_row:nth-child(4) > .posBtn_link:nth-child(7) { width: 3.4%; left: 67.5%; transform: skewX(-14deg); }
+    </style>
+
+    <div id="wrap" class="exhibition">
+
+        <header>
+            <nav class="header_body container navbar navbar-expand-xl">
+                <a class="navbar-brand" href="index.html">
+                    <img class="d-none d-xxl-block" src="/myProjects/TIBCS2020/static/common/img/LOGO@2x.png">
+                    <img class="d-block d-xxl-none" src="/myProjects/TIBCS2020/static/common/img/LOGO320@3x.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="aria-expanded-true" src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                    <img class="aria-expanded-false" src="/myProjects/TIBCS2020/static/common/img/icon/icon_menu.png">
+                </button>
+
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="navbar-nav nav_links">
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="lecture_hall.html">Lecture Hall</a></li>
+                        <li><a href="poster.html">Poster</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="information.html">Information</a></li>
+                        <li><a href="survey.html">Survey</a></li>
+                        <li><a href="get_gift.html">Get Gift</a></li>
+                        <li><a href="login.html" class="c_red cur_p">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_login.png">
+                            <span class="pl_2">Log In</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        <main>
+            <div>
+                <!-- PC -->
+                <div id="resizeLobby" class="lobbyImg_box d-none d-lg-block">
+                    <div id="topNavButton" class="pos_f loc_t js-stickHeader" style="margin: 15px; z-index: 5; width: calc( 100% - 30px )">
+                        <button id="toggleNavButton" class="btn btn_dark btn-md pos_a loc_9 navbar-dark btn_with_img">
+                            <div class="d-inline-block" style="width: 18px;">
+                                <div class="mb_3" style="border: 1px solid #fff;"></div>
+                                <div class="mb_3" style="border: 1px solid #fff;"></div>
+                                <div class="" style="border: 1px solid #fff;"></div>
+                            </div>
+                            <span>Toggle Menu</span>
+                        </button>
+                    </div>
+                    <div id="imgFilm" class="">
+                        <img id="lobbyImg" class="d-block" src="/myProjects/TIBCS2020/static/common/img/exhibition/展場大廳_1026.jpg">
+                        <div id="hover-links-pc" class="posBtn_container">
+                            <div class="posBtn_row">
+                                <a class="posBtn_link" title="阿斯特捷利康" href="exhibition_stand.html?stand=3"></a>
+                                <a class="posBtn_link" title="諾華" href="exhibition_stand.html?stand=2"></a>
+                                <a class="posBtn_link" title="羅氏" href="exhibition_stand.html?stand=1"></a>
+                                <a class="posBtn_link" title="輝瑞" href="exhibition_stand.html?stand=4"></a>
+                            </div>
+                            <div class="posBtn_row">
+                                <a class="posBtn_link" title="安進" href="exhibition_stand.html?stand=5"></a>
+                                <a class="posBtn_link" title="北海康成" href="exhibition_stand.html?stand=7"></a>
+                                <a class="posBtn_link" title="禮來" href="exhibition_stand.html?stand=6"></a>
+                                <a class="posBtn_link" title="東洋" href="exhibition_stand.html?stand=8"></a>
+                            </div>
+                            <div class="posBtn_row">
+                                <a class="posBtn_link" title="賽特瑞恩" href="exhibition_stand.html?stand=13"></a>
+                                <a class="posBtn_link" title="行動基因" href="exhibition_stand.html?stand=11"></a>
+                                <a class="posBtn_link" title="武田" href="exhibition_stand.html?stand=9"></a>
+                                <a class="posBtn_link" title="賽諾菲" href="exhibition_stand.html?stand=10"></a>
+                                <a class="posBtn_link" title="禾利行" href="exhibition_stand.html?stand=12"></a>
+                                <a class="posBtn_link" title="史賽克" href="exhibition_stand.html?stand=14"></a>
+                            </div>
+                            <div class="posBtn_row">
+                                <a class="posBtn_link" title="友華" href="exhibition_stand.html?stand=15"></a>
+                                <a class="posBtn_link" title="博存" href="exhibition_stand.html?stand=19"></a>
+                                <a class="posBtn_link" title="永齡基金會" href="exhibition_stand.html?stand=21"></a>
+                                <a class="posBtn_link" title="美時化學" href="exhibition_stand.html?stand=18"></a>
+                                <a class="posBtn_link" title="台灣生資" href="exhibition_stand.html?stand=17"></a>
+                                <a class="posBtn_link" title="必帝" href="exhibition_stand.html?stand=16"></a>
+                                <a class="posBtn_link" title="芙爾摩莎" href="exhibition_stand.html?stand=20"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pos_f loc_b js-stickFooter">
+                        <div class="container">
+                            <button id="sponsorBtn" class="sponsor_btn btn btn_danger d-none d-lg-inline-block" data-toggle="modal" data-target="#sponsor_list">
+                                <div class="sponsor_btn--content">
+                                    <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_4-1.png">
+                                    <div class="sponsor_btn--text">
+                                        <div>Sponsor List</div>
+                                        <div><b>贊助廠商清單</b></div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- M -->
+                <div class="pos_r d-block d-lg-none">
+                    <img class="w-100 d-block" src="/myProjects/TIBCS2020/static/common/img/exhibition/展場大廳_1026.jpg">
+                    <div id="hover-links-m" class="posBtn_container"></div>
+                </div>
+
+                <div class="container d-lg-none">
+                    <div class="main_title main_title_padding ">
+                        <h1>Sponsor List</h1>
+                        <h2>贊助廠商清單</h2>
+                    </div>
+                    <div id="sponsorContainer">
+                        <div class="sponsorRow row"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal -->
+        <div class="modal fade" id="sponsor_list" tabindex="-1" role="dialog" aria-labelledby="sponsor_listTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                    </div>
+                    <div class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IE Alert Modal -->
+        <div class="modal fade" id="IE_notSupport" tabindex="-1" role="dialog" aria-labelledby="IE_notSupportTitle" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="fz_18">⚠ Unsupported Browser ⚠</div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fz_16">
+                            Sorry, Some features are not supported IE browser.<br>
+                            Try to use major browsers like Edge, Chrome, Firefox and Safari to get the best experience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer_top">
+                <a class="fixed_survey btn flex_center" href="survey.html">
+                    <div class="survey_content">
+                        <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_Survey.png">
+                        <div class="survey_text">
+                            <div>Survey</div>
+                            <div>問卷調查</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="fixed_backToTop btn">
+                    <img src="/myProjects/TIBCS2020/static/common/img/top.png">
+                </div>
+            </div>
+
+            <div class="footer_body container">
+                <div class="footer_row1">
+                    <div>Taiwan Breast Cancer Society
+                        <div class="d-block d-xxl-none"></div>
+                        © 2020 | All Rights Reserved.
+                    </div>
+                    <ul class="footer_contact">
+                        <li class="py-1 py-sm-0">TEL: <a href="tel:+886-2-25239118">+886-2-25239118</a></li>
+                        <li>EMAIL 1: <a href="mailto:bcst@ms46.hinet.net">bcst@ms46.hinet.net</a></li>
+                        <li>EMAIL 2: <a href="mailto:bcsttpe@gmail.com">bcsttpe@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer_row2 mt-3">
+                    <div>We recommend you use <span class="text-warning">Edge, Safari, FireFox or Chrome</span> to browse the site.</div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="text/babel">
+        var _da = []; // data，會從Ajax後得到資料。 搜尋: exhibition.json
+
+        // IE判斷
+        if ( IEVersion() && getCookie('exhibition') !='1'){
+            setCookie('exhibition','1', 1*24*60*60 )
+            $('#IE_notSupport').modal('show');
+        }
+
+        function renderLogo() {
+            let str = '';
+            $.each( _da, function (key,ele) {
+                if ( ele.id > 0 ){
+                    str += `
+                        <div class="sponsorCol col-12 col-sm-6 col-md-4 col-xl-3">
+                            <div class="sponsorItem">
+                                <div class="sponsorItem--logo">
+                                    <a href="exhibition_stand.html?stand=${ele.id}">
+                                        <img src="${ele.logo}">
+                                    </a>
+                                </div>
+                                <a class="sponsorItem--text" href="exhibition_stand.html?stand=${ele.id}">${ele.fullName}</a>
+                                <a class="sponsorItem--link d-sm-none" href="exhibition_stand.html?stand=${ele.id}">
+                                    <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_goto.png">
+                                </a>
+                            </div>
+                        </div>
+                    `
+                }
+            })
+            $('#sponsorContainer > .sponsorRow').html(str);
+        }
+
+        $(function () {
+            $('#sponsor_list').on('show.bs.modal', function (e) {
+                $('#sponsor_list').find('.modal-body').html($('#sponsorContainer').html());
+            });
+
+            var timer = setInterval(function () { // 偵測圖片是否已載好，故用timer迴圈
+                if ($('#lobbyImg').get(0).complete) {
+                    clearInterval(timer);
+                    const Promise_getStandData = new Promise(function (resolve) {
+                        $.get('/myProjects/TIBCS2020/static/common/doc/exhibition/exhibition.json', '', function (res) {
+                            _da = res;
+                            resolve();
+                        })
+                    })
+                    Promise_getStandData.then(function () {
+                        $('#hover-links-m').html( $('#hover-links-pc').html() );
+                        renderLogo();
+                        fullScreenSubNav('#resizeLobby');
+                        dragImgInBox('#resizeLobby', '#imgFilm', '#lobbyImg', { 'defaultPosition': [60, 75], 'cursorGrab': false, 'limitStrength': 50, });
+                        dealToggleNav('#toggleNavButton', 'slideUp', '992');
+                    })
+
+                    $(window).on('resize', function () {
+                        if (window.innerWidth >= '992') {
+                            fullScreenSubNav('#resizeLobby');
+                        } else {
+                            $('#resizeLobby').css({ 'width': '100%', 'height': 'auto' })
+                        }
+                    })
+                }
+            }, 10);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+[
+    {
+        "id": "0",
+        "fullName": "",
+        "logo": "",
+        "logoName": "",
+        "website": "",
+        "mail": "",
+        "img": [
+            ""
+        ],
+        "doc": [
+            {
+                "title": "",
+                "src": ""
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "1",
+        "fullName": "羅氏大藥廠股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/LOGO/01_roche.jpg",
+        "logoName": "Roche",
+        "website": "https://www.roche.com.tw/",
+        "mail": "thomas.cheng@roche.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/STAND/201020_羅氏左面.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/STAND/201020_羅氏正面.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/STAND/201020_羅氏右面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/PDF/1. 線上連結2020 Kadcyla病患用藥指引_PM-TW-3619-03-2020.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/PDF/2. 輸出 ad-FMI.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/01_羅氏/PDF/3. 線上連結 2020-3 Kadcyla eBC advertisement_Final Version.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "2",
+        "fullName": "台灣諾華股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/LOGO/02_novartis.jpg",
+        "logoName": "Novartis",
+        "website": "https://www.novartis.com.tw/",
+        "mail": "david_zy.yang@novartis.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/STAND/201020_諾華03.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/STAND/201020_諾華01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/STAND/201020_諾華02.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/PDF/1. Afinitor廣告稿final_2020.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/PDF/2. KISQALI健保廣告稿A4Final.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/02_諾華/PDF/3. Tykerb廣告稿202005-Final.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "3",
+        "fullName": "臺灣阿斯特捷利康股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/03_阿斯特捷利康/LOGO/03_astraZeneca.jpg",
+        "logoName": "AstraZeneca",
+        "website": "https://www.astrazeneca.com/country-sites/taiwan.html",
+        "mail": "https://reurl.cc/N6lxyp",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/03_阿斯特捷利康/STAND/201017_AZ正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/03_阿斯特捷利康/PDF/1.Zoladex-BC (3.6 mg)廣告稿(有效期限20210221).pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/03_阿斯特捷利康/PDF/2.Faslodex 廣告稿(有效期限20210514).pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/03_阿斯特捷利康/PDF/3.Zoladex BC 易拉展海報(TW-10933_ZOL_10022020).pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "4",
+        "fullName": "輝瑞生醫股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/LOGO/04_pfizer.jpg",
+        "logoName": "Pfizer",
+        "website": "https://www.pfizer.com.tw/",
+        "mail": "Emily.Chen1@pfizer.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/STAND/201019_輝瑞左面.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/STAND/201019_輝瑞正面.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/STAND/201019_輝瑞右面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/PDF/1. 輝瑞-ibrance_廣告稿更新042910-01.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/PDF/2. TALZENNA.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/PDF/3. HY2005210_荷陽益鴻_20200826_輝瑞-Ibrance-Visceral Disease DA3_完稿-01 - 複製.pdf"
+            },
+            {
+                "title": "Product4",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/04_輝瑞/PDF/4. 190502 AROMASIN廣告稿-01.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "5",
+        "fullName": "台灣安進藥品有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/LOGO/",
+        "logoName": "Amgen",
+        "website": "https://www.amgen.com.tw/",
+        "mail": "medinfo.JAPAC@amgen.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/STAND/201020_Amgen02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/STAND/201020_Amgen01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/STAND/201020_Amgen03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/PDF/1. XGEVA北市衛藥廣字第108110055號.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/05_安進/PDF/2. Kanjinti 廣告稿_2019Oct._only.pdf"
+            }
+        ],
+        "video": [
+            "https://vimeo.com/470147344"
+        ]
+    },
+    {
+        "id": "6",
+        "fullName": "台灣禮來股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/LOGO/06_lilly.jpg",
+        "logoName": "Lilly",
+        "website": "https://www.lilly.com.tw/",
+        "mail": "pan_amber@lilly.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/STAND/201020_禮來02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/STAND/201020_禮來01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/STAND/201020_禮來03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/PDF/1. MONARCH123試驗解讀常見不良反應處理.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/PDF/2. Verzenio於diarrhea的安全性資料.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/06_禮來/PDF/3. Verzenio與其他CDK4&6抑制劑有什麼不同.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "7",
+        "fullName": "北海康成醫藥股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/07_北海康成/LOGO/07_canbridge.jpg",
+        "logoName": "CANbridge",
+        "website": "",
+        "mail": "max.hung@canbridgepharma.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/07_北海康成/STAND/2.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/07_北海康成/STAND/1.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/07_北海康成/STAND/3.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/07_北海康成/PDF/Nerlynx主視覺-A4-ol.pdf"
+            }
+        ],
+        "video": [
+            "https://vimeo.com/470147684"
+        ]
+    },
+    {
+        "id": "8",
+        "fullName": "台灣東洋藥品工業股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/LOGO/",
+        "logoName": "TTY",
+        "website": "http://ch.tty.com.tw/",
+        "mail": "info@tty.com.tw",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/STAND/201020_東洋02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/STAND/201020_東洋01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/STAND/201020_東洋03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/PDF/P1.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/PDF/P2.pdf"
+            },
+            {
+                "title": "Product4",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/08_東洋/PDF/P4.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "9",
+        "fullName": "台灣武田藥品工業股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/LOGO/09_takeda.jpg",
+        "logoName": "Takeda",
+        "website": "https://www.takeda.com/zh-tw/",
+        "mail": "vivienne.li@takeda.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/STAND/201020_武田02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/STAND/201020_武田01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/STAND/201020_武田03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/PDF/1. Takeda Leuplin BC treatment PE Booklet-layout 8r(code updated).pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/09_武田/PDF/2. 2020 0408LEUPLIN.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "10",
+        "fullName": "賽諾菲股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/LOGO",
+        "logoName": "Sanofi",
+        "website": "https://www.sanofi.com.tw",
+        "mail": "pr-taiwan@sanofi.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/STAND/201020_賽諾菲02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/STAND/201020_賽諾菲01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/STAND/201020_賽諾菲03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/PDF/1. 0925.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/10_賽諾菲/PDF/2.1600924474963.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "11",
+        "fullName": "行動基因生技股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/LOGO/11_actGenomics.jpg",
+        "logoName": "ACT Genomics",
+        "website": "http://www.actgenomics.com/tw",
+        "mail": "service@actgenomics.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/STAND/201020_行動02.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/STAND/201020_行動01.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/STAND/201020_行動03.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/PDF/線上背板ALL20200925 pdf-1 compressed.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/PDF/線上背板ALL20201005 pdf-2 compressed.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/11_行動基因/PDF/線上背板ALL20200930 pdf-3 compressed.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "12",
+        "fullName": "禾利行股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/12_禾利行/LOGO/12_harvester.jpg",
+        "logoName": "Harvester",
+        "website": "https://www.helsinn.com/",
+        "mail": "kennyyang@harvester.com.tw",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/12_禾利行/STAND/201017_禾利行正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/12_禾利行/PDF/1與2與3.DA.pdf"
+            }
+        ],
+        "video": [
+            "https://vimeo.com/470918467"
+        ]
+    },
+    {
+        "id": "13",
+        "fullName": "台灣賽特瑞恩有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/13_賽特瑞恩/LOGO/13_celltrion.jpg",
+        "logoName": "Celltrion",
+        "website": "https://www.celltrionhealthcare.com/en-us",
+        "mail": "Edison.Liao@celltrionhc.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/13_賽特瑞恩/STAND/201019_賽特瑞恩_正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/13_賽特瑞恩/PDF/1.Celltrion Healthcare and Herzuma introduction.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/13_賽特瑞恩/PDF/2.Herzuma_HER2-positive early-stage breast cancer (EBC).pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/13_賽特瑞恩/PDF/3.ESMO 2019 Herzuma Poster (HER2 positive early breast cancer (EBC)).pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "14",
+        "fullName": "美商史賽克(遠東)有限公司台灣分公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/14_史賽克/LOGO/14_stryker.jpg",
+        "logoName": "Stryker",
+        "website": "https://www.stryker.com/",
+        "mail": "always.chen@stryker.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/14_史賽克/STAND/201017_STRYKER正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/14_史賽克/PDF/1.SPY_Fluorescence_Brochure_Breast_Recon.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/14_史賽克/PDF/2跟3.SPYPHI A4 Brochure.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "15",
+        "fullName": "友華生技醫藥股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/LOGO/15_OEP.jpg",
+        "logoName": "OEP",
+        "website": "https://www.oepgroup.com/zh-TW",
+        "mail": "oep@oepgroup.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/STAND/友華3.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/STAND/友華1.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/STAND/友華2.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/PDF/1. OEP Navelbine advertisement 1 (A4)- layout 4r(final).pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/PDF/2. OEP Navelbine advertisement 2 (A4)-layout 2r(final).pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/15_友華/PDF/3. OEP Navelbine advertisement 3 (A4)-layout 2r(final).pdf"
+            }
+        ],
+        "video": [
+            "https://vimeo.com/470918585"
+        ]
+    },
+    {
+        "id": "16",
+        "fullName": "新加坡商必帝股份有限公司台灣分公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/16_必帝/LOGO/16_bd.jpg",
+        "logoName": "BD",
+        "website": "https://www.bd.com/zh-tw",
+        "mail": "tai-cs@bd.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/16_必帝/STAND/201017_BD正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/16_必帝/PDF/1.Ultracor Twirl.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/16_必帝/PDF/2.BD-20074 Power Port_A4廣告_北市衛器廣字第108120406號_印刷用.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/16_必帝/PDF/3.BD-20075 BD Perfect Partners_A4-廣告稿-轉.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "17",
+        "fullName": "台灣生資科技股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/LOGO/17_biosim.jpg",
+        "logoName": "Biosim",
+        "website": "https://www.mylan.tw/",
+        "mail": "info@standard.com.tw",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/STAND/生資2.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/STAND/生資1.jpg",
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/STAND/生資3.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/PDF/1. Fulphila_HCP_Brochure.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/17_台灣生資/PDF/2. Ogivri_HCP_Brochure.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "18",
+        "fullName": "美時化學製藥股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/18_美時化學/LOGO/18_lotus.jpg",
+        "logoName": "Lotus",
+        "website": "https://www.lotuspharm.com.tw",
+        "mail": "info@lotuspharm.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/18_美時化學/STAND/201027_美時化學正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/18_美時化學/PDF/1.Ixempra logo.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/18_美時化學/PDF/2.IXEMPRA廣告稿-0828 (002).pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/18_美時化學/PDF/3.衛教手冊正面.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "19",
+        "fullName": "博存貿易有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/19_博存/LOGO/19_bortswen.jpg",
+        "logoName": "Bortswen",
+        "website": "http://www.bortswen.com/",
+        "mail": "bortswen@ms7.hinet.net",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/19_博存/STAND/201017_博存正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/19_博存/PDF/1.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/19_博存/PDF/2.齒博士牙齦膏_正面-上.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/19_博存/PDF/3.齒博士牙齦膏_正面-下.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "20",
+        "fullName": "芙爾摩莎股份有限公司",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/20_芙爾摩莎/LOGO/20_IMOSA.jpg",
+        "logoName": "IMOSA",
+        "website": "http://www.imosa.asia",
+        "mail": "imosatalk@gmail.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/20_芙爾摩莎/STAND/201017_IMOSA正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/20_芙爾摩莎/PDF/1與2與3.醫學會IMOSA.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": ""
+            },
+            {
+                "title": "Product3",
+                "src": ""
+            }
+        ],
+        "video": [
+            ""
+        ]
+    },
+    {
+        "id": "21",
+        "fullName": "永齡基金會",
+        "logo": "/myProjects/TIBCS2020/static/common/doc/exhibition/21_永齡基金會/LOGO/21_Yonglin.jpg",
+        "logoName": "Yonglin",
+        "website": "",
+        "mail": "sam.hsieh@healthconn.com",
+        "img": [
+            "/myProjects/TIBCS2020/static/common/doc/exhibition/21_永齡基金會/STAND/201019_永齡_正面.jpg"
+        ],
+        "doc": [
+            {
+                "title": "Product1",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/21_永齡基金會/PDF/1.Poster 右_2950 x 2500mmH.pdf"
+            },
+            {
+                "title": "Product2",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/21_永齡基金會/PDF/2.永齡PDF1.pdf"
+            },
+            {
+                "title": "Product3",
+                "src": "/myProjects/TIBCS2020/static/common/doc/exhibition/21_永齡基金會/PDF/3.Poster 左_2200 x 1600mmH.pdf"
+            }
+        ],
+        "video": [
+            ""
+        ]
+    }
+]

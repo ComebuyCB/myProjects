@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+	<script src="/myProjects/TIBCS2020/static/plugins/jQuery-3.5.1/jquery-3.5.1.min.js"></script>
+	
+    <!-- jQuery-ui -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <!-- jQuery-ui-touch-punch (支援手機事件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- babel (支援ES6的套件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/polyfill.min.js"></script>
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/babel.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/css/bootstrap.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- fancybox -->
+    <!-- <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.js"></script> -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/simplify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/plugins_modify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/custom.css">
+
+    <script src="/myProjects/TIBCS2020/static/common/js/custom.js"></script>
+</head>
+<body>
+    <style>
+        .posBtn_link[title *= "Information"] {
+            top: 61.8%; left: 5.7%;
+            width: 13.9%; height: calc( 14.7% * 1.777776 );
+            transform: skew(-8deg);
+            border-top-left-radius: 0% 0%;
+            border-top-right-radius: 0% 0%;
+            border-bottom-right-radius: 60% 20%;
+            border-bottom-left-radius: 0% 0%;
+        }
+        .posBtn_link[title *= "Speakers"] { 
+            top: 25.0%; left: 27.8%;
+            width: 10.6%; height: calc( 13.7% * 1.777776 );
+            transform: skew(-4deg, 4deg);
+            border-top-left-radius: 45% 17%;
+            border-top-right-radius: 55% 24%;
+            border-bottom-right-radius: 8% 4%;
+            border-bottom-left-radius: 0% 0%;
+        }
+        .posBtn_link.l0[title *= "Lecture Hall"] { 
+            top: 50.5%; left: 28.3%;
+            width: 11.2%; height: calc( 15.5% * 1.777776 );
+            transform: skew(-3deg);
+            border-top-left-radius: 45% 16%;
+            border-top-right-radius: 52% 19%;
+            border-bottom-right-radius: 70% 5%;
+            border-bottom-left-radius: 15% 2%;
+        }   
+        .posBtn_link[title *= "Poster"] {
+            top: 24.8%; left: 61.5%;
+            width: 10.8%; height: calc( 13.8% * 1.777776 );
+            transform: skew(4deg, -4deg);
+            border-top-left-radius: 60% 26%;
+            border-top-right-radius: 40% 19%;
+            border-bottom-right-radius: 5% 2%;
+            border-bottom-left-radius: 5% 2%;
+        }
+        .posBtn_link[title *= "Exhibition"] { 
+            top: 50.4%; left: 61.5%; 
+            width: 11.5%; height: calc( 16% * 1.777776 ); 
+            transform: skew(4deg);
+            border-top-left-radius: 55% 21%;
+            border-top-right-radius: 44% 16%;
+            border-bottom-right-radius: 18% 4%;
+            border-bottom-left-radius: 65% 8%;
+        }
+        .posBtn_link.l1 {
+            top: 14.0%; left: 2.9%;
+            width: 20.5%; height: calc( 26.6% * 1.777776 );
+            clip-path: polygon(19% 0%, 100% 24%, 90% 100%, 0% 99%);
+        }
+        .posBtn_link.l2 {
+            top: 16.1%; left: 74.1%;
+            width: 20.8%; height: calc( 27.8% * 1.777776 );
+            clip-path: polygon(0% 22%, 81.5% 0%, 100% 100%, 7% 98%);
+        }
+
+        .posBtn_link[title *= "Video"] { 
+            top: 23.4%; left: 42.7%; 
+            width: 15.8%; height: calc( 9.35% * 1.777776 );
+        }
+        .posBtn_link[title *= "Video"]:hover .play-button-bg {
+            transition: fill .1s;
+            fill: rgba(255,0,0,1);
+        }
+    </style>
+
+    <div id="wrap" class="index">
+
+        <header>
+            <nav class="header_body container navbar navbar-expand-xl">
+                <a class="navbar-brand" href="index.html">
+                    <img class="d-none d-xxl-block" src="/myProjects/TIBCS2020/static/common/img/LOGO@2x.png">
+                    <img class="d-block d-xxl-none" src="/myProjects/TIBCS2020/static/common/img/LOGO320@3x.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="aria-expanded-true" src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                    <img class="aria-expanded-false" src="/myProjects/TIBCS2020/static/common/img/icon/icon_menu.png">
+                </button>
+            
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="navbar-nav nav_links">
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="lecture_hall.html">Lecture Hall</a></li>
+                        <li><a href="poster.html">Poster</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="information.html">Information</a></li> 
+                        <li><a href="survey.html">Survey</a></li>
+                        <li><a href="get_gift.html">Get Gift</a></li>
+                        <li><a href="login.html" class="c_red cur_p">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_login.png">
+                            <span class="pl_2">Log In</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div>
+                <!-- PC -->
+                <div class="d-none d-lg-block">
+                    <div id="resizeLobby" class="lobbyImg_box">
+                        <div id="imgFilm">
+                            <img id="lobbyImg" class="d-block" src="/myProjects/TIBCS2020/static/common/img/BG_index.jpg">
+
+                            <div id="hover-links-pc" class="posBtn_container">
+                                <a class="posBtn_link" title="Information" href="information.html"></a>
+                                <a class="posBtn_link" title="Speakers" href="speakers.html"></a>
+                                <a class="posBtn_link l0" title="Lecture Hall" href="lecture_hall.html"></a>
+                                <a class="posBtn_link l1" title="Lecture Hall" href="lecture_hall.html"></a>
+                                <a class="posBtn_link l2" title="Lecture Hall" href="lecture_hall.html"></a>
+                                <a class="posBtn_link" title="Poster" href="poster.html"></a>
+                                <a class="posBtn_link" title="Exhibition" href="exhibition.html"></a>
+                                <a class="posBtn_link" title="Video" onclick="videoModal('https://player.vimeo.com/video/475757266')">
+                                    <svg class="pos_a loc_5" width="25%" height="25%" version="1.1" viewBox="0 0 68 48">
+                                        <path class="play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="rgba(0,0,0,0.65)"></path>
+                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile -->
+                <div class="pos_r d-block d-lg-none">
+                    <img class="w-100 d-block" src="/myProjects/TIBCS2020/static/common/img/BG_index.jpg">
+                    <div id="hover-links-m" class="posBtn_container"></div>
+                </div>
+
+                <div class="flex_center flex-wrap px-2 py-4 d-lg-none">
+                    <a class="btn btn_danger mobile_linkBtn" href="speakers.html">Speakers</a>
+                    <a class="btn btn_danger mobile_linkBtn" href="lecture_hall.html">Lecture Hall</a>
+                    <a class="btn btn_danger mobile_linkBtn" href="poster.html">Poster</a>
+                    <a class="btn btn_danger mobile_linkBtn" href="exhibition.html">Exhibition</a>
+                    <a class="btn btn_danger mobile_linkBtn" href="information.html">Information</a>
+                    <a class="btn btn_danger mobile_linkBtn" href="survey.html">Survey</a>
+                </div>
+            </div>
+
+            <div class="container pb-5 d-lg-none">
+                <div style="max-width: 720px;">
+                    <div class="aspect-ratio-16-9">
+                        <div class="aspect-ratio-content">
+                            <iframe class="w-100 h-100" src="https://player.vimeo.com/video/475757266" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- IE Alert Modal -->
+        <div class="modal fade" id="IE_notSupport" tabindex="-1" role="dialog" aria-labelledby="IE_notSupportTitle" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="fz_18">⚠ Unsupported Browser ⚠</div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fz_16">
+                            Sorry, Some features are not supported IE browser.<br>
+                            Try to use major browsers like Edge, Chrome, Firefox and Safari to get the best experience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VideoModal -->
+        <div class="modal fade" id="videoModal" style="z-index: 99995;" tabindex="-1" role="dialog" aria-labelledby="videoModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: -40px; right: 0;">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                        <div class="aspect-ratio-16-9">
+                            <div id="videoIframeContainer" class="aspect-ratio-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer_top">
+                <a class="fixed_survey btn flex_center" href="survey.html">
+                    <div class="survey_content">
+                        <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_Survey.png">
+                        <div class="survey_text">
+                            <div>Survey</div>
+                            <div>問卷調查</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="fixed_backToTop btn">
+                    <img src="/myProjects/TIBCS2020/static/common/img/top.png">
+                </div>
+            </div>
+        
+            <div class="footer_body container">
+                <div class="footer_row1">
+                    <div>Taiwan Breast Cancer Society
+                        <div class="d-block d-xxl-none"></div>
+                        © 2020 | All Rights Reserved.
+                    </div>
+                    <ul class="footer_contact">
+                        <li class="py-1 py-sm-0">TEL: <a href="tel:+886-2-25239118">+886-2-25239118</a></li>
+                        <li>EMAIL 1: <a href="mailto:bcst@ms46.hinet.net">bcst@ms46.hinet.net</a></li>
+                        <li>EMAIL 2: <a href="mailto:bcsttpe@gmail.com">bcsttpe@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer_row2 mt-3">
+                    <div>We recommend you use <span class="text-warning">Edge, Safari, FireFox or Chrome</span> to browse the site.</div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    
+    <script>
+        // IE判斷
+        if ( IEVersion() && getCookie('index') !='1'){
+            setCookie('index','1', 1*24*60*60 )
+            $('#IE_notSupport').modal('show');
+        }
+
+        $('#videoModal').on('hidden.bs.modal',function(){
+            $('#videoIframeContainer').html('');
+        });
+        
+        function videoModal( iframeUrl ){
+            $('#videoIframeContainer').html('<iframe class="w-100 h-100" src="'+iframeUrl+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+            $('#videoModal').modal();
+        }
+        
+        $(function(){
+            var timer = setInterval(function () {
+                if ( $('#lobbyImg').get(0).complete ){
+                    clearInterval(timer);
+                    fullScreenSubNav('#resizeLobby');
+                    dragImgInBox('#resizeLobby', '#imgFilm', '#lobbyImg', { limitStrength: 10 });
+                    dealToggleNav('','slideUp',992);
+                    $('#hover-links-m').html( $('#hover-links-pc').html() )
+
+                    $(window).on('resize', function () {
+                        if (window.innerWidth >= '992') {
+                            fullScreenSubNav('#resizeLobby');
+                        } else {
+                            $('#resizeLobby').css({ 'width': '100%', 'height': 'auto' })
+                        }
+                    })
+                }
+            }, 10);
+        })
+    </script>
+
+</body>
+</html>

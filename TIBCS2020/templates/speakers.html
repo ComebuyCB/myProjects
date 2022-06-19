@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jQuery-3.5.1/jquery-3.5.1.min.js"></script>
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/css/bootstrap.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- custom -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/simplify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/plugins_modify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/custom.css">
+
+    <script src="/myProjects/TIBCS2020/static/common/js/custom.js"></script>
+</head>
+<body>
+    <div id="wrap">
+
+        <header>
+            <nav class="header_body container navbar navbar-expand-xl">
+                <a class="navbar-brand" href="speakers.html">
+                    <img class="d-none d-xxl-block" src="/myProjects/TIBCS2020/static/common/img/LOGO@2x.png">
+                    <img class="d-block d-xxl-none" src="/myProjects/TIBCS2020/static/common/img/LOGO320@3x.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="aria-expanded-true" src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                    <img class="aria-expanded-false" src="/myProjects/TIBCS2020/static/common/img/icon/icon_menu.png">
+                </button>
+            
+                <div class="collapse navbar-collapse justify-content-end" id="nav_menu">
+                    <ul class="navbar-nav nav_links">
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <!-- <li><a href="lecture_hall.html">Lecture Hall</a></li> -->
+                        <li><a href="poster.html">Poster</a></li>
+                        <!-- <li><a href="exhibition.html">Exhibition</a></li> -->
+                        <!-- <li><a href="information.html">Information</a></li>  -->
+                        <!-- <li><a href="survey.html">Survey</a></li> -->
+                        <!-- <li><a href="get_gift.html">Get Gift</a></li> -->
+                        <li><a href="login.html" class="c_red cur_p">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_login.png">
+                            <span class="pl_2">Log In</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="speakers_container" style="background-image: url(/myProjects/TIBCS2020/static/common/img/BG2.png);">
+            <div class="container">
+                <div class="main_title main_title_padding text-white">
+                    <h1>Speakers</h1>
+                    <h2>講師</h2>
+                </div>
+                <div class="text-center">
+                    <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 speakers_row">
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_1.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Gabriel N. Hortobagyi</div>
+                                <div class="speakers_country">USA</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_2.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Adam M. Brufsky</div>
+                                <div class="speakers_country">USA</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_3.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Ingrid A. Mayer</div>
+                                <div class="speakers_country">USA</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_4.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Mien-Chie-Hung</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_5.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Hiroji Iwata</div>
+                                <div class="speakers_country">Japan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_6.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Chien-Feng Li</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_7.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Ming-Shen Dai</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_8.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Peter Schmid</div>
+                                <div class="speakers_country">UK</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_9.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Luca Gianni</div>
+                                <div class="speakers_country">Italy</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_10.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Marc Thill</div>
+                                <div class="speakers_country">Germany</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_11.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Po-Han Lin</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_12.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Shani D. Paluch-Shimon</div>
+                                <div class="speakers_country">Israel</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_13.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Chi-Cheng Huang</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_14.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Yen-Shen Lu</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_15.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Naoto T. Ueno</div>
+                                <div class="speakers_country">Japan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_16.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Shom Goel</div>
+                                <div class="speakers_country">Australia</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_17.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Ching-Hung Lin</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_18.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Ta-Chung Chao</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_19.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Chin-Sheng Hung</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_20.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Kung-Hao Liang</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_21.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Hsiu-Hsi Chen</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_22.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Chieh-Han Chuang</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_23.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Shin-Cheh Chen</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_24.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Jeong Eon Lee</div>
+                                <div class="speakers_country">Korea</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_25.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Jyh-Cherng Yu</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+                        <div class="speakers_col">
+                            <div class="rounded_avatar_lg speakers_avatar" data-toggle="modal" data-target="#speakers_detail" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_26.png);"></div>
+                            <div class="speakers_text">
+                                <div class="speakers_name">Wen-Chi Yang</div>
+                                <div class="speakers_country">Taiwan</div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Modal -->
+        <div class="modal fade backdrop_gray" id="speakers_detail" tabindex="-1" role="dialog" aria-labelledby="speakers_detailTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                    </div>
+                    <div class="modal-body speakersDetail">
+                        <div class="speakersDetail_detail">
+                            <div class="rounded_avatar_lg" style="background-image: url(/myProjects/TIBCS2020/static/common/img/avatar/temp_1.png);"></div>
+                            <div class="speakersDetail_detailText">
+                                <div class="fz_22 mb-1">Gabriel N. Hortobagyi</div>
+                                <div>Department of Breast Medical Oncology, <br>
+                                	Division of Cancer Medicine, <br>The University of Texas MD Anderson Cancer Center,</div>
+                                <div>Professor and Chair Emeritus</div>
+                            </div>
+                        </div>
+                        
+                        <div class="speakersDetail_autobiography">
+                            Gabriel Hortobagyi is Professor in the Department of Breast Medical Oncology at The University of Texas M.D. Anderson Cancer Center. His 40+ year oncology career has focused on clinical and translational research, teaching and mentoring the next generation of scientists and academic leadership. He is Past President of the American Society of Clinical Oncology (ASCO) and is one of the world's leading authorities on the management of breast cancer.<br>
+                            Dr. Hortobagyi is recipient of numerous prestigious awards. He has over 1100 full-length publications in peer-reviewed journals; and over 140 book chapters to his credit.<br>
+                            Dr. Hortobagyi served on various task forces and committees of the American Society of Clinical Oncology, served on the Board of Directors, and in 2005 was elected President. He served as President of the International Society of Senology, board member for the International Association for Breast Cancer Research, as a member of the U.S. National Committee for the International Union Against Cancer, the National Cancer Institute’s Breast Cancer Progress Review Group, and the Integration Panel of the Breast Cancer Research Program of the Department of Defense, chaired the Steering Committee of the Breast Health Global Initiative, the Health Advisory Board of the Susan G. Komen Breast Cancer Foundation and the NCI’s Operational Efficiency Working Group and the Breast Cancer Steering Committee. Dr. Hortobagyi was the Chair of the Southwest Oncology Group Breast Committee until June 2017 and is chair of the Executive Board of Scientific Advisors of The Breast Cancer Research Foundation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer_top">
+                <!-- <a class="fixed_survey btn flex_center" href="survey.html">
+                    <div class="survey_content">
+                        <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_Survey.png">
+                        <div class="survey_text">
+                            <div>Survey</div>
+                            <div>問卷調查</div>
+                        </div>
+                    </div>
+                </a> -->
+                <div class="fixed_backToTop btn">
+                    <img src="/myProjects/TIBCS2020/static/common/img/top.png">
+                </div>
+            </div>
+            <div class="footer_body container">
+                <div class="footer_row1">
+                    <div>Taiwan Breast Cancer Society
+                        <div class="d-block d-xxl-none"></div>
+                        © 2021 | All Rights Reserved.
+                    </div>
+                    <ul class="footer_contact">
+                        <li class="py-1 py-sm-0">TEL: <a href="tel:+886-2-25239118">+886-2-25239118</a></li>
+                        <li>EMAIL 1: <a href="mailto:bcst@ms46.hinet.net">bcst@ms46.hinet.net</a></li>
+                        <li>EMAIL 2: <a href="mailto:bcsttpe@gmail.com">bcsttpe@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+/*######### [Default Css] #########*/
+    /*====== [Root Css] ======*/
+    :root {
+        --white: #ffffff;
+        --rem: 16px;
+    }
+
+
+
+/*====== [Structure] ======*/
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 500; }
+    #wrap { display: flex; flex-direction: column; min-height: 100vh; margin-left: auto; margin-right: auto; }
+    main { flex-grow: 1; }
+
+
+    .bg_img { background: center top no-repeat; background-size: cover; }
+    .ch-mb-1 > *:not(:last-child) { margin-bottom: 4px; }
+    .link { text-decoration: none; position: relative; }
+    .link:hover { top: -4px }
+    .skill-table { white-space: nowrap; }
+    .skill-table > thead > tr > th:nth-child(1) { width: 100%; }
+    .skill-table > thead > tr > th:nth-child(2) { min-width: 90px; }
+    .skill-table > thead > tr > th:nth-child(3) { min-width: 60px; }
+
+    .hrefText::after { content: attr(href); display: inline; word-break: break-all; }

@@ -1,0 +1,47 @@
+<nav id="m-navbar" class="_m-navbar d-lg-none">
+    <div class="h-100 d-flex ai-c jc-sa us-n">
+        <div class="_link" js-popTarget="#m-navbar-language" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-language">
+            <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_language_m.svg">
+        </div>
+        <div class="_link" js-popTarget="#m-navbar-search" js-popTarget-mode="toggle" js-popTarget-function="$('#m-navbar-search').find('input').focus();" js-backdrop-bind="#m-navbar-search">
+            <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_search_m.svg" >
+        </div>
+        <div class="_contactUs" data-toggle="modal" data-target="#ContactUsModal">
+            <img class="mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_pen.png">
+            <span>聯繫我們</span>
+        </div>
+        <a class="_link" onclick="_toTop()">
+            <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_top_m.svg">
+        </a>
+        <div class="_link" js-popTarget="#m-navbar-menu" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-menu">
+            <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_menu_m.svg">
+        </div>
+    </div>
+
+    <div id="m-navbar-language" class="_dropdown" style="bottom: 100%; left: 0; display: none;">
+        <div class="active">繁體中文</div>
+        <div>ENGLISH</div>
+        <div>简体中文</div>
+        <div>日本語</div>
+    </div>
+
+    <div id="m-navbar-menu" class="_dropdown" style="bottom: 100%; right: 0; display: none;">
+        <a href="people.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_team.png" style="width: 22px;"><span>專業團隊</span></a>
+        <a href="expertise.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_service.png" style="width: 22px;"><span>服務領域</span></a>
+        <a href="information.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_news.png" style="width: 22px;"><span>最新消息</span></a>
+        <a href="information.html" class="active">成功案例</a>
+        <a href="information.html" class="active">榮耀與肯定</a>
+        <a href="information.html" class="active"><span class="badge badge-danger mr-1">報名中</span>研討會訊息</a>
+        <a href="information.html" class="active">公益活動</a>
+        <a href="about.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_group.png" style="width: 22px;"><span>關於常在</span></a>
+        <a href="foundation.html" class="active">常在法律文教基金會</a>
+        <a href="publication.html" class="active">常在出版品</a>
+        <a href="hiring.html" class="active">人才招募</a>
+        <a href="contactus.html" class="active">聯絡我們</a>
+    </div>
+
+    <div id="m-navbar-search" class="_m-search-container" style="display: none;">
+        <input type="search" class="form-control form-control-lg" placeholder="請輸入關鍵字">
+        <a class="btn btn-lg _btn-search" href="search.html"></a>
+    </div>
+</nav>

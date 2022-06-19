@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/TTLF/static/common/img/logo/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- core -->
+    <link href="/myProjects/TTLF/static/core/bootstrap-4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- plugins -->
+    <link href="/myProjects/TTLF/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    
+    <!-- main -->
+    <link href="/myProjects/TTLF/static/common/css/main.css" rel="stylesheet">
+
+    <style>
+        ._banner-img-1 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_1.jpg) }
+        ._banner-img-2 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_2.jpg) }
+        ._banner-img-3 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_3.jpg) }
+        ._banner-img-4 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_4.jpg) }
+        @media (max-width: 767.98px) {
+            ._banner-img-1 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_1_m.jpg) }
+            ._banner-img-2 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_2_m.jpg) }
+            ._banner-img-3 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_3_m.jpg) }
+            ._banner-img-4 { background-image: url(/myProjects/TTLF/static/uploads/banner/banner_4_m.jpg) }
+        }
+    </style>
+</head>
+
+<body id="index">
+    <div id="wrap" class="_wrap _page-full">
+        <main id="main" class="pos-r pb-5">
+            <section id="section-video">
+                <div class="_ar-1-f">
+                    <video id="video" class="_ar-cont" autoplay muted>
+                        <source src="/myProjects/TTLF/static/common/media/index.mp4" type="video/mp4"></source>
+                    </video>
+                    <img class="_video-logo" src="/myProjects/TTLF/static/common/img/logo/logo-square.png">
+                </div>
+            </section>
+
+            <section id="section-banner">
+                <header>
+                    <div class="_header container-fluid">
+                        <a href="/" class="">
+                            <img class="_logo" src="/myProjects/TTLF/static/common/img/logo/logo-line.png">
+                        </a>
+                        <nav class="d-none d-lg-block">
+                            <div class="_menu _menu-1">
+                                <a class="_link" href="about.html">關於常在</a>
+                                <a class="_link" href="foundation.html">常在法律文教基金會</a>
+                                <a class="_link" href="publication.html">常在出版品</a>
+                                <a class="_link" href="information.html"><span class="badge badge-danger mr-1">報名中</span>研討會訊息</a>
+                                <a class="_link" href="hiring.html">人才招募</a>
+                                <div class="pos-r">
+                                    <div class="_link px-2" js-popTarget="#header-language" js-popTarget-mode="toggle">
+                                        <img src="/myProjects/TTLF/static/common/img/icon/icon_language.svg">
+                                    </div>
+        
+                                    <div id="header-language" class="_dropdown" style="top: 100%; right: 0; display: none;">
+                                        <div class="active">繁體中文</div>
+                                        <div>ENGLISH</div>
+                                        <div>简体中文</div>
+                                        <div>日本語</div>
+                                    </div>
+                                </div>
+                                <a class="_link px-2" js-popTarget="#header-search" js-popTarget-function="$('#header-search').find('input').focus();">
+                                    <img src="/myProjects/TTLF/static/common/img/icon/icon_search.svg">
+                                </a>
+                            </div>
+                            <div class="_menu _menu-2">
+                                <a class="_link" href="people.html">專業團隊</a>
+                                <a class="_link" href="expertise.html">服務領域</a>
+                                <a class="_link" href="information.html">最新消息</a>
+                                <a class="_link" href="information.html">成功案例</a>
+                                <a class="_link" href="information.html">榮耀與肯定</a>
+                                <a class="_link" href="contactus.html">聯繫我們</a>
+                            </div>
+                            <div id="header-search" class="_search-container" style="display: none;">
+                                <input type="search" class="form-control form-control-lg" placeholder="請輸入關鍵字" style="width: 400px;">
+                                <a class="btn btn-lg _btn-search" href="search.html"></a>
+                            </div>
+                        </nav>
+                    </div>
+                </header>
+
+                <div id="banner" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide _img-full _bgc-d _h-100vh _banner-img-1" data-swiper-autoplay="4000"></div>
+                        <div class="swiper-slide _img-full _bgc-d _h-100vh _banner-img-2" data-swiper-autoplay="4000">
+                            <div class="_banner-text-pos">
+                                <div class="_banner-title" style="color: #d9c7b1;">2020台灣最佳律師事務所  Tier 1 Law Firm in Taiwan</div>
+                                <div class="_banner-content" style="color: #ffffff;">Legal 500公布最新排名，本所於資本市本所於場(Capital markets)/ 公司法務及併購(Corporate and M&A)/ 紛爭解決(Dispute Resolution)/ 智慧財產(IP)/ 勞資本所於糾紛(Labor and Employment)/ 科技法律(TMT)及稅務(TAX)等多項領域均獲評選為tier 1法律事務所。</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide _img-full _bgc-d _h-100vh _banner-img-3" data-swiper-autoplay="4000"></div>
+                        <div class="swiper-slide _img-full _bgc-d _h-100vh _banner-img-4" data-swiper-autoplay="4000">
+                            <div class="_banner-text-pos">
+                                <div class="_banner-title" style="color: #d9c7b1;">2020台灣最佳律師事務所  Tier 1 Law Firm in Taiwan</div>
+                                <div class="_banner-content" style="color: #ffffff;">Legal 500公布最新排名，本所於資本市本所於場(Capital markets)/ 公司法務及併購(Corporate and M&A)/ 紛爭解決(Dispute Resolution)/ 智慧財產(IP)/ 勞資本所於糾紛(Labor and Employment)/ 科技法律(TMT)及稅務(TAX)等多項領域均獲評選為tier 1法律事務所。</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="_circle-contactUs d-none d-lg-block" data-toggle="modal" data-target="#ContactUsModal">
+                    <div class="_text"><span>聯繫我們</span></div>
+                    <img class="_bg" src="/myProjects/TTLF/static/common/img/bg_contactus.png">
+                </div>
+            </section>
+
+            <section id="section-news">
+                <div class="_section container">
+                    <div class="_section-head">
+                        <div class="_section-title">
+                            <img src="/myProjects/TTLF/static/common/img/icon/icon_news.png">
+                            <h3>最新消息</h3>
+                        </div>
+                        <a class="_icon-right">
+                            <span class="pr-2">瞭解更多</span>
+                        </a>
+                    </div>
+
+                    <div class="px-md-3 px-xl-0">
+                        <div id="owl-carousel" class="owl-carousel owl-theme _owl-card-nav">
+                            <div class="item _card-container _hoverUp-card-container">
+                                <div class="card _info-card">
+                                    <div class="pos-r">
+                                        <img class="card-img-top" src="/myProjects/TTLF/static/common/img/news_pride.jpg">
+                                        <div class="_card-title">榮耀與肯定</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="_card-content">本所獲Leaders in Legal Business 2020評為World’s Largest and Leading Law Firm之一。</div>
+                                        <a href="information.html" class="_link-date _icon-right">2020.10.10</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="item _card-container _hoverUp-card-container">
+                                <div class="card _info-card">
+                                    <div class="pos-r">
+                                        <img class="card-img-top" src="/myProjects/TTLF/static/common/img/news_case.jpg">
+                                        <div class="_card-title">成功案例</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="_card-content">本所協助國巨股份有限公司成功簽約收購美國上市公司基美公司（Kemet）全部流通在外股分，本併購交易總金額約16.4億美元。
+                                            （<a href="profile.html" class="_link-text">陳正和</a>律師/<a href="profile.html" class="_link-text">林麗琦</a>律師/<a href="profile.html" class="_link-text">林秋琴</a>律師）</div>
+                                        <a href="information.html" class="_link-date _icon-right">2020.10.10</a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="item _card-container _hoverUp-card-container">
+                                <div class="card _info-card">
+                                    <div class="pos-r">
+                                        <img class="card-img-top" src="/myProjects/TTLF/static/common/img/news_probono.jpg">
+                                        <div class="_card-title">公益活動</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="_card-content">本所獲Leaders in Legal Business 2020評為World’s Largest and Leading Law Firm之一。</div>
+                                        <a href="information.html" class="_link-date _icon-right">2020.10.10</a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="item _card-container _hoverUp-card-container">
+                                <div class="card _info-card">
+                                    <div class="pos-r">
+                                        <img class="card-img-top" src="/myProjects/TTLF/static/common/img/news_seminar.jpg">
+                                        <div class="_card-title">研討會訊息</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="_card-content">本所獲Leaders in Legal Business 2020評為World’s Largest and Leading Law Firm之一。</div>
+                                        <a href="information.html" class="_link-date _icon-right">2020.10.10</a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="item _card-container _hoverUp-card-container">
+                                <div class="card _info-card">
+                                    <div class="pos-r">
+                                        <img class="card-img-top" src="/myProjects/TTLF/static/common/img/news_news.jpg">
+                                        <div class="_card-title">最新消息</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="_card-content">本所獲Leaders in Legal Business 2020評為World’s Largest and Leading Law Firm之一。</div>
+                                        <a href="information.html" class="_link-date _icon-right">2020.10.10</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-team">
+                <div class="container">
+                    <div class="row ai-c">
+                        <div class="col-lg-6">
+                            <div class="_section-head">
+                                <div class="_section-title">
+                                    <img src="/myProjects/TTLF/static/common/img/icon/icon_team.png">
+                                    <h3>專業團隊</h3>
+                                </div>
+                                <a class="_icon-right">
+                                    <span class="pr-2">瞭解更多</span>
+                                </a>
+                            </div>
+                            <div class="pb-3">
+                                我們的團隊擅長於法律執業領域和商業領域，以結合他們的集體知識和經驗。我們熟知客戶的需求，並提供精通商業的法律和稅務解決方案。
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-first">
+                            <img src="/myProjects/TTLF/static/uploads/banner/banner_3.jpg" class="w-100">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-team2">
+                <div class="container">
+                    <div class="px-lg-5">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">合夥人</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">資深顧問</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">初級合夥人</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">顧問</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">資深律師</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="people.html" class="_link-line">
+                                    <div class="_icon-right">智慧財產權顧問及資深專利工程師</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-service">
+                <div class="_section container">
+                    <div class="px-lg-5">
+                        <div class="_section-head">
+                            <div class="_section-title">
+                                <img src="/myProjects/TTLF/static/common/img/icon/icon_service.png">
+                                <h3>服務領域</h3>
+                            </div>
+                            <a href="expertise.html" class="_icon-right">
+                                <span class="pr-2">瞭解更多</span>
+                            </a>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">公司之合併及股權收購</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">訴訟與仲裁及爭議解決</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">跨國性投資法律服務</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">勞資關係</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">智慧財產權</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">工程及政府採購</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">電信及資訊科技</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">稅法及稅務規劃</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">銀行與融資</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">保險</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">證券及資本市場</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">遺產規劃及遺囑、信託</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">公平交易和消費者保護</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">海事法</div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 my-2">
+                                <a href="expertise_detail.html" class="_link-line">
+                                    <div class="_icon-right">其它方面</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-about">
+                <div class="container">
+                    <div class="row no-gutters ai-c">
+
+                        <div class="col-lg-9 pb-5 order-lg-2">
+                            <img src="/myProjects/TTLF/static/uploads/banner/banner_1.jpg" class="w-100">
+                        </div>
+                        
+                        <div class="col-lg-12 order-lg-3">
+                            <div class="_container-second">
+                                <div class="_section-head">
+                                    <div class="_section-title">
+                                        <img src="/myProjects/TTLF/static/common/img/icon/icon_group.png">
+                                        <h3>關於常在</h3>
+                                    </div>
+                                    <a href="about.html" class="_icon-right">
+                                        <span class="pr-2">瞭解更多</span>
+                                    </a>
+                                </div>
+                                <div class="pb-3">
+                                    常在國際法律事務所係由蔡六乘律師及蔡中曾律師父子於民國五十四年在台灣設立之國內大型法律事務所之一。常在一貫堅持，並以提供全方位及高品質之法律專業服務為客戶解決問題。憑著這樣的堅持，「常在」擁有豐厚的信譽及口碑。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 pb-5 order-lg-1 text-center">
+                            <img src="/myProjects/TTLF/static/common/img/logo/logo.png" class="mw-100 px-5">
+                        </div>
+
+                        <div class="col-lg-12 order-lg-4">
+                            <div class="_container-second">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a href="about.html" class="_link-line">
+                                            <div class="_icon-right">深入了解常在</div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a class="_link-line">
+                                            <div class="_icon-right">成功案例</div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a class="_link-line">
+                                            <div class="_icon-right">公益活動</div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a class="_link-line">
+                                            <div class="_icon-right">研討會訊息</div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a class="_link-line">
+                                            <div class="_icon-right">人才招募</div>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                                        <a class="_link-line">
+                                            <div class="_icon-right">常在法律文教基金會</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="_footer">
+                <div class="container _footer-padding">
+
+                    <div class="d-none d-lg-block _toTop">
+                        <img onclick="_toTop()" src="/myProjects/TTLF/static/common/img/icon/icon_top.png">
+                    </div>
+
+                    <div class="row jc-sb">
+                        <div class="order-last col-12 order-xl-first col-xl-4">
+                            <div class="text-center py-2">
+                                <img class="mb-3 w-100" src="/myProjects/TTLF/static/common/img/logo/logo-line.png" style="max-width: 302px;">
+                                <div class="mb-3 d-flex jc-c">
+                                    <a class="px-2">– 聯絡我們</a>
+                                    <a class="px-2">– 常在相關訊息</a>
+                                    <a class="px-2">– 公益活動</a>
+                                </div>
+                                <div class="fz-12">Copyright 2020 常在國際法律事務所  All Rights Reserved</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4 d-flex jc-c mb-4 mb-xl-0">
+                            <div class="_postcard">
+                                <div class="_postcard-title">台北本所</div>
+                                <table class="_table-form _table-va-t">
+                                    <tr>
+                                        <td class="_c-d9c7b1">地　址</td>
+                                        <td>台北市11073信義區松仁路100號11樓
+                                            <a href="https://g.page/TsarTsai?share"><img src="/myProjects/TTLF/static/common/img/icon/icon_map.png" class="ml-1 mb-1"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">E-mail</td>
+                                        <td>Law@tsartsai.com.tw</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">電　話</td>
+                                        <td><span class="us-a">886-2-66386999</span> or <span class="us-a">27814111</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">傳　真</td>
+                                        <td><span class="us-a">886-2-27213834</span> or <span class="us-a">27315581</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4 d-flex jc-c mb-4 mb-xl-0">
+                            <div class="_postcard">
+                                <div class="_postcard-title">新竹分所</div>
+                                <table class="_table-form _table-va-t">
+                                    <tr>
+                                        <td class="_c-d9c7b1">地　址</td>
+                                        <td>新竹市新竹科學園區力行一路1號3樓A6
+                                            <a href="https://goo.gl/maps/nidLJzFyT2DgcKh88"><img src="/myProjects/TTLF/static/common/img/icon/icon_map.png" class="ml-1 mb-1"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">E-mail</td>
+                                        <td>Law@tsartsai.com.tw</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">電　話</td>
+                                        <td><span class="us-a">886-3-563-3999</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">傳　真</td>
+                                        <td><span class="us-a">886-3-577-9965</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <nav id="m-navbar" class="_m-navbar d-lg-none">
+            <div class="h-100 d-flex ai-c jc-sa us-n">
+                <div class="_link" js-popTarget="#m-navbar-language" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-language">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_language_m.svg">
+                </div>
+                <div class="_link" js-popTarget="#m-navbar-search" js-popTarget-mode="toggle" js-popTarget-function="$('#m-navbar-search').find('input').focus();" js-backdrop-bind="#m-navbar-search">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_search_m.svg" >
+                </div>
+                <div class="_contactUs" data-toggle="modal" data-target="#ContactUsModal">
+                    <img class="mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_pen.png">
+                    <span>聯繫我們</span>
+                </div>
+                <a class="_link" onclick="_toTop()">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_top_m.svg">
+                </a>
+                <div class="_link" js-popTarget="#m-navbar-menu" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-menu">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_menu_m.svg">
+                </div>
+            </div>
+        
+            <div id="m-navbar-language" class="_dropdown" style="bottom: 100%; left: 0; display: none;">
+                <div class="active">繁體中文</div>
+                <div>ENGLISH</div>
+                <div>简体中文</div>
+                <div>日本語</div>
+            </div>
+        
+            <div id="m-navbar-menu" class="_dropdown" style="bottom: 100%; right: 0; display: none;">
+                <a href="people.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_team.png" style="width: 22px;"><span>專業團隊</span></a>
+                <a href="expertise.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_service.png" style="width: 22px;"><span>服務領域</span></a>
+                <a href="information.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_news.png" style="width: 22px;"><span>最新消息</span></a>
+                <a href="information.html" class="active">成功案例</a>
+                <a href="information.html" class="active">榮耀與肯定</a>
+                <a href="information.html" class="active"><span class="badge badge-danger mr-1">報名中</span>研討會訊息</a>
+                <a href="information.html" class="active">公益活動</a>
+                <a href="about.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_group.png" style="width: 22px;"><span>關於常在</span></a>
+                <a href="foundation.html" class="active">常在法律文教基金會</a>
+                <a href="publication.html" class="active">常在出版品</a>
+                <a href="hiring.html" class="active">人才招募</a>
+                <a href="contactus.html" class="active">聯絡我們</a>
+            </div>
+        
+            <div id="m-navbar-search" class="_m-search-container" style="display: none;">
+                <input type="search" class="form-control form-control-lg" placeholder="請輸入關鍵字">
+                <a class="btn btn-lg _btn-search" href="search.html"></a>
+            </div>
+        </nav>
+
+        <div id="modal">
+            <!-- contactUs Modal -->
+            <div class="modal _modal-contactUs fade" id="ContactUsModal" tabindex="-1" role="dialog" aria-labelledby="ContactUsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content _modal-content-contactUs">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TTLF/static/common/img/icon/icon_delete.png">
+                        </button>
+                        <div class="_form">
+                            <div class="text-center fz-18">LET'S GET STARTED</div>
+                            <table class="_table-form _table-form-padding font-weight-bold my-3">
+                                <tr>
+                                    <td>姓名</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>E-mail</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>主題</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                            </table>
+
+                            <div class="font-weight-bold mb-3">
+                                <div class="mb-2">詳細內容</div>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-light _btn-contactUs">送出</button>
+                            </div>
+
+                            <table class="_table-form mt-4">
+                                <tr>
+                                    <td><img src="/myProjects/TTLF/static/common/img/icon/icon_phone.png"></td>
+                                    <td>
+                                        <table class="_table-form _table-va-t">
+                                            <tr class="pb-2">
+                                                <td>台北本所</td>
+                                                <td>886-2-66386999 or 27814111</tr>
+                                            </tr>
+                                            <tr>
+                                                <td>新竹分所</td>
+                                                <td>886-3-563-3999</tr>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- core -->
+    <script src="/myProjects/TTLF/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="/myProjects/TTLF/static/core/bootstrap-4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/myProjects/TTLF/static/core/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- plugins -->
+    <script src="/myProjects/TTLF/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="/myProjects/TTLF/static/plugins/twbs-pagination-1.4.2/jquery.twbsPagination.min.js"></script>
+    
+    <!-- main -->
+    <script src="/myProjects/TTLF/static/common/js/main.js"></script>
+
+    <script>
+        $(function(){
+            new Swiper('#banner', {
+                // speed: 700,
+                spaceBetween: 30,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                effect: 'fade',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            $('#owl-carousel').owlCarousel({
+                items: 1,
+                dots: false,
+                nav: true,
+                margin: 20,
+                responsive:{
+                    0:{
+                        items:1,
+                        autoWidth: true,
+                    },
+                    414:{
+                        items:1,
+                        autoWidth: true,
+                        center: true,
+                    },
+                    576:{
+                        items:2,
+                        autoWidth: true,
+                    },
+                    768:{
+                        items:2,
+                    },
+                    992:{
+                        items:3,
+                    },
+                    1200:{
+                        items:4,
+                    }
+                },
+                navText : [
+                    "<i class='fa fa-chevron-left text-white fz-15'></i>",
+                    "<i class='fa fa-chevron-right text-white fz-15'></i>"
+                ]
+            })
+        
+            new _IndexVideo
+        })
+
+
+        // 首頁影片消失處理
+        class _IndexVideo {
+            constructor(){
+                this.ww = window.innerWidth
+                this.wh = window.innerHeight
+                this.doHide = true
+
+                this.mNavbarStatus('hide')
+                this.updateWindowSize()
+                this.updateVideoSize('#video',88,100)
+                this.listeners()
+            }
+
+            mNavbarStatus(stat){
+                if (stat == 'show'){
+                    $('#m-navbar').show().css('bottom', "0")
+                } else if (stat == 'hide') {
+                    $('#m-navbar').hide().css('bottom', "-50px")
+                }
+            }
+
+            updateWindowSize(){
+                this.ww = window.innerWidth
+                this.wh = window.innerHeight
+            }
+
+            // left、top 填寫比例0~100 (類似background-position)
+            updateVideoSize(vSel,x,y){
+                if ( $(vSel).length > 0 ){
+                    // 寬比
+                    let wScale = this.ww / this.wh
+                    let vScale = $(vSel)[0].videoWidth / $(vSel)[0].videoHeight
+
+                    // EX: 比寬時 3:1 > 2:1 | 比高時 6:2 < 6:3
+                    if ( vScale > wScale ) { // 影片寬 > 螢幕寬 ==> [影片寬]將會被裁切，[影片高]則要填滿螢幕
+                        $(vSel).css({'width':'','height':'100%'})
+                        let overLeftPos = (this.ww - $(vSel)[0].offsetWidth) / 100 * x
+                        $(vSel).css({'top': 0, 'left': overLeftPos } )
+                    } else if ( vScale < wScale ){ // 影片寬 < 螢幕寬 ==> [影片寬]要填滿螢幕，[影片高]將會被裁切
+                        $(vSel).css({'width':'100%','height':''})
+                        let overTopPos = (this.wh - $(vSel)[0].offsetHeight) / 100 * y
+                        $(vSel).css({'top': overTopPos,'left': 0 } )
+                    } else {
+                        $(vSel).css({'top': 0, 'left': 0 } )
+                    }
+
+                    $(vSel)[0].play()
+                    console.log( 'video layout update.' )
+                }
+            }
+
+            hideVideo(){
+                if ( this.doHide ){
+                    this.doHide = false
+                    let hideAction = function(){
+                        $('#main').css({'top':''})
+                        $('#wrap').removeClass('_page-full')
+                        $('#section-video').remove()
+                    }
+                    if ( window.location.hash.length > 1 ){
+                        hideAction()
+                    } else {
+                        $('#main').animate({ top: -this.wh }, 700, hideAction )
+                    }
+                    this.mNavbarStatus('show')
+                }
+            }
+
+            listeners(){
+                let This = this
+                $('#video').on('canplay play',function(){
+                    // 因為有hash 瀏覽器會直接跑到那id，無視overflow
+                    if ( window.location.hash.length > 1 ){
+                        This.hideVideo()
+                    } else {
+                        This.updateWindowSize()
+                        This.updateVideoSize('#video',88,100)
+                    }
+                })
+
+                $(window).on('resize', function(){
+                    This.updateWindowSize()
+                    This.updateVideoSize('#video',88,100)
+                })
+
+                $(window).one('mousedown mousewheel wheel touchmove', function(evt){
+                    This.hideVideo()
+                })
+
+                $('#video').on('ended',function(){
+                    This.hideVideo()
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

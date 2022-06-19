@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="/myProjects/TTLF/static/common/img/logo/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- core -->
+    <link href="/myProjects/TTLF/static/core/bootstrap-4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- plugins -->
+    <link href="/myProjects/TTLF/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/myProjects/TTLF/static/plugins/swiper-6.3.4/swiper-bundle.min.css" rel="stylesheet">
+    
+    <!-- main -->
+    <link href="/myProjects/TTLF/static/common/css/main.css" rel="stylesheet">
+</head>
+
+<body id="profile" data-spy="scroll" data-target="#profileMenu" data-offset="1">
+    <div id="wrap" class="_wrap">
+        <header>
+            <div class="_header container-fluid">
+                <a href="/" class="">
+                    <img class="_logo" src="/myProjects/TTLF/static/common/img/logo/logo-line.png">
+                </a>
+                <nav class="d-none d-lg-block">
+                    <div class="_menu _menu-1">
+                        <a class="_link" href="about.html">關於常在</a>
+                        <a class="_link" href="foundation.html">常在法律文教基金會</a>
+                        <a class="_link" href="publication.html">常在出版品</a>
+                        <a class="_link" href="information.html"><span class="badge badge-danger mr-1">報名中</span>研討會訊息</a>
+                        <a class="_link" href="hiring.html">人才招募</a>
+                        <div class="pos-r">
+                            <div class="_link px-2" js-popTarget="#header-language" js-popTarget-mode="toggle">
+                                <img src="/myProjects/TTLF/static/common/img/icon/icon_language.svg">
+                            </div>
+
+                            <div id="header-language" class="_dropdown" style="top: 100%; right: 0; display: none;">
+                                <div class="active">繁體中文</div>
+                                <div>ENGLISH</div>
+                                <div>简体中文</div>
+                                <div>日本語</div>
+                            </div>
+                        </div>
+                        <a class="_link px-2" js-popTarget="#header-search" js-popTarget-function="$('#header-search').find('input').focus();">
+                            <img src="/myProjects/TTLF/static/common/img/icon/icon_search.svg">
+                        </a>
+                    </div>
+                    <div class="_menu _menu-2">
+                        <a class="_link" href="people.html">專業團隊</a>
+                        <a class="_link" href="expertise.html">服務領域</a>
+                        <a class="_link" href="information.html">最新消息</a>
+                        <a class="_link" href="information.html">成功案例</a>
+                        <a class="_link" href="information.html">榮耀與肯定</a>
+                        <a class="_link" href="contactus.html">聯繫我們</a>
+                    </div>
+                    <div id="header-search" class="_search-container" style="display: none;">
+                        <input type="search" class="form-control form-control-lg" placeholder="請輸入關鍵字" style="width: 400px;">
+                        <a class="btn btn-lg _btn-search" href="search.html"></a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main class="_main">
+            <div class="_page-header d-print-none">
+                <h3 class="_page-header--title">個人檔案</h3>
+                <div class="_page-header--sub">
+                    <ul class="_page-header--list">
+                        <li><a href="">首頁</a></li>
+                        <li><a href="">個人檔案</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="_bgc-f5 _pb-8 _paper-padding-y _p-print-0">
+                <div class="container-md">
+                    <div class="row mx-n2">
+                        <div class="col-12 px-2 mb-3">
+                            <div class="_paper _profile-postcard">
+                                <div class="_profile-postcard-container">
+                                    <div id="profileInfo" class="d-flex flex-column flex-lg-row no-gutters">
+                                        <div class="_surface">
+                                            <img class="p-1" src="/myProjects/TTLF/static/uploads/people/img_people.jpg" style="max-width: 240px; width: 52vw;">
+                                            <button class="btn _contact-button d-none d-lg-inline-flex d-print-none ai-c mt-3" data-toggle="modal" data-target="#ContactLawyerModal">
+                                                <img src="/myProjects/TTLF/static/common/img/icon/icon_mail.svg">
+                                                <span style="flex:1">聯絡律師</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="_infos pl-lg-5">
+                                            <div class="text-center text-lg-left pos-r">
+                                                <div class="_title-text pt-3 pt-lg-2 pb-2">合夥人</div>
+                                                <div class="_name">陳吳林陳 律師</div>
+                                                <div class="_title-text py-3" style="color: #707070;">台北本所</div>
+                                                <div class="d-none d-md-block d-print-none pos-a t-0 r-0 py-2">
+                                                    <a href="" class="mr-1"><img src="/myProjects/TTLF/static/common/img/icon/icon_pdf.svg"></a>
+                                                    <a onclick="window.print()"><img src="/myProjects/TTLF/static/common/img/icon/icon_print.svg"></a>
+                                                </div>
+                                            </div>
+                                            <table class="_table-form w-100">
+                                                <tr>
+                                                    <td class="_title-text">語言</td>
+                                                    <td>
+                                                        <span class="mr-1">▪ 中文</span>
+                                                        <span class="mr-1">▪ ENGLISH</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="_title-text">專業領域</td>
+                                                    <td>
+                                                        <div class="my-n2">
+                                                            <div class="_expertise">公司之合併及股權收購</div>
+                                                            <div class="_expertise">稅法及稅務規劃</div>
+                                                            <div class="_expertise">證券及資本市場</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="_title-text">律師資格</td>
+                                                    <td>
+                                                        <span class="mr-1">中華民國</span>
+                                                        <span class="mr-1">美國德州</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="text-center d-print-none">
+                                                <button class="btn _contact-button d-inline-flex d-lg-none ai-c mt-3" data-toggle="modal" data-target="#ContactLawyerModal">
+                                                    <img src="/myProjects/TTLF/static/common/img/icon/icon_mail.svg">
+                                                    <span style="flex:1">聯絡律師</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="_arrows d-print-none">
+                                                <ul class="pagination d-flex jc-sb">
+                                                    <li class="page-item prev disabled">
+                                                        <a href="" class="page-link _lg">
+                                                            <i class="fa fa-chevron-left text-white fz-15"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item next">
+                                                        <a href="" class="page-link _lg">
+                                                            <i class="fa fa-chevron-right text-white fz-15"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="col-lg-4 col-xl-3 d-none d-lg-block px-2" id="profileMenu"></nav>
+                        <div class="col-12 col-lg-8 col-xl-9 px-2">
+                            <div class="_paper px-3 mx-n3 mx-md-0">
+                                <div id="profileContent" class="px-md-3 py-1 py-md-4 js-editor-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 聯絡律師 Modal -->
+            <div class="modal _modal-contactUs fade" id="ContactLawyerModal" tabindex="-1" role="dialog" aria-labelledby="ContactLawyerModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content _modal-content-contactUs _bgc-b9bcc7">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TTLF/static/common/img/icon/icon_delete.png">
+                        </button>
+                        <div class="_form">
+                            <div class="text-center fz-18">聯絡律師</div>
+                            <table class="_table-form _table-form-padding font-weight-bold my-3">
+                                <tr>
+                                    <td>聯絡</td>
+                                    <td><input class="form-control" value="陳吳陳林 律師" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>姓名</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>E-mail</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>主題</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                            </table>
+
+                            <div class="font-weight-bold mb-3">
+                                <div class="mb-2">詳細內容</div>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-light _btn-contactUs">送出</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="_footer">
+                <div class="container _footer-padding">
+
+                    <div class="d-none d-lg-block _toTop">
+                        <img onclick="_toTop()" src="/myProjects/TTLF/static/common/img/icon/icon_top.png">
+                    </div>
+
+                    <div class="row jc-sb">
+                        <div class="order-last col-12 order-xl-first col-xl-4">
+                            <div class="text-center py-2">
+                                <img class="mb-3 w-100" src="/myProjects/TTLF/static/common/img/logo/logo-line.png" style="max-width: 302px;">
+                                <div class="mb-3 d-flex jc-c">
+                                    <a class="px-2">– 聯絡我們</a>
+                                    <a class="px-2">– 常在相關訊息</a>
+                                    <a class="px-2">– 公益活動</a>
+                                </div>
+                                <div class="fz-12">Copyright 2020 常在國際法律事務所  All Rights Reserved</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4 d-flex jc-c mb-4 mb-xl-0">
+                            <div class="_postcard">
+                                <div class="_postcard-title">台北本所</div>
+                                <table class="_table-form _table-va-t">
+                                    <tr>
+                                        <td class="_c-d9c7b1">地　址</td>
+                                        <td>台北市11073信義區松仁路100號11樓
+                                            <a href="https://g.page/TsarTsai?share"><img src="/myProjects/TTLF/static/common/img/icon/icon_map.png" class="ml-1 mb-1"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">E-mail</td>
+                                        <td>Law@tsartsai.com.tw</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">電　話</td>
+                                        <td><span class="us-a">886-2-66386999</span> or <span class="us-a">27814111</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">傳　真</td>
+                                        <td><span class="us-a">886-2-27213834</span> or <span class="us-a">27315581</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-md-6 col-xl-4 d-flex jc-c mb-4 mb-xl-0">
+                            <div class="_postcard">
+                                <div class="_postcard-title">新竹分所</div>
+                                <table class="_table-form _table-va-t">
+                                    <tr>
+                                        <td class="_c-d9c7b1">地　址</td>
+                                        <td>新竹市新竹科學園區力行一路1號3樓A6
+                                            <a href="https://goo.gl/maps/nidLJzFyT2DgcKh88"><img src="/myProjects/TTLF/static/common/img/icon/icon_map.png" class="ml-1 mb-1"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">E-mail</td>
+                                        <td>Law@tsartsai.com.tw</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">電　話</td>
+                                        <td><span class="us-a">886-3-563-3999</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="_c-d9c7b1">傳　真</td>
+                                        <td><span class="us-a">886-3-577-9965</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <div id="right-panel">
+            <div class="_circle-contactUs _side d-none d-lg-block">
+                <img class="_close" src="/myProjects/TTLF/static/common/img/icon/icon_delete.png" onclick="$(this).closest('#right-panel').hide()">
+                <div data-toggle="modal" data-target="#ContactUsModal">
+                    <div class="_text"><span>聯繫我們</span></div>
+                    <img class="_bg" src="/myProjects/TTLF/static/common/img/bg_contactus.png">
+                </div>
+            </div>
+        </div>
+
+        <nav id="m-navbar" class="_m-navbar d-lg-none">
+            <div class="h-100 d-flex ai-c jc-sa us-n">
+                <div class="_link" js-popTarget="#m-navbar-language" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-language">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_language_m.svg">
+                </div>
+                <div class="_link" js-popTarget="#m-navbar-search" js-popTarget-mode="toggle" js-popTarget-function="$('#m-navbar-search').find('input').focus();" js-backdrop-bind="#m-navbar-search">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_search_m.svg" >
+                </div>
+                <div class="_contactUs" data-toggle="modal" data-target="#ContactUsModal">
+                    <img class="mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_pen.png">
+                    <span>聯繫我們</span>
+                </div>
+                <a class="_link" onclick="_toTop()">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_top_m.svg">
+                </a>
+                <div class="_link" js-popTarget="#m-navbar-menu" js-popTarget-mode="toggle" js-backdrop-bind="#m-navbar-menu">
+                    <img class="pos-a _loc-5" src="/myProjects/TTLF/static/common/img/icon/icon_menu_m.svg">
+                </div>
+            </div>
+        
+            <div id="m-navbar-language" class="_dropdown" style="bottom: 100%; left: 0; display: none;">
+                <div class="active">繁體中文</div>
+                <div>ENGLISH</div>
+                <div>简体中文</div>
+                <div>日本語</div>
+            </div>
+        
+            <div id="m-navbar-menu" class="_dropdown" style="bottom: 100%; right: 0; display: none;">
+                <a href="people.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_team.png" style="width: 22px;"><span>專業團隊</span></a>
+                <a href="expertise.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_service.png" style="width: 22px;"><span>服務領域</span></a>
+                <a href="information.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_news.png" style="width: 22px;"><span>最新消息</span></a>
+                <a href="information.html" class="active">成功案例</a>
+                <a href="information.html" class="active">榮耀與肯定</a>
+                <a href="information.html" class="active"><span class="badge badge-danger mr-1">報名中</span>研討會訊息</a>
+                <a href="information.html" class="active">公益活動</a>
+                <a href="about.html"><img class="ml-n2 mr-2" src="/myProjects/TTLF/static/common/img/icon/icon_group.png" style="width: 22px;"><span>關於常在</span></a>
+                <a href="foundation.html" class="active">常在法律文教基金會</a>
+                <a href="publication.html" class="active">常在出版品</a>
+                <a href="hiring.html" class="active">人才招募</a>
+                <a href="contactus.html" class="active">聯絡我們</a>
+            </div>
+        
+            <div id="m-navbar-search" class="_m-search-container" style="display: none;">
+                <input type="search" class="form-control form-control-lg" placeholder="請輸入關鍵字">
+                <a class="btn btn-lg _btn-search" href="search.html"></a>
+            </div>
+        </nav>
+
+        <div id="modal">
+            <!-- contactUs Modal -->
+            <div class="modal _modal-contactUs fade" id="ContactUsModal" tabindex="-1" role="dialog" aria-labelledby="ContactUsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content _modal-content-contactUs">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TTLF/static/common/img/icon/icon_delete.png">
+                        </button>
+                        <div class="_form">
+                            <div class="text-center fz-18">LET'S GET STARTED</div>
+                            <table class="_table-form _table-form-padding font-weight-bold my-3">
+                                <tr>
+                                    <td>姓名</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>E-mail</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>主題</td>
+                                    <td><input class="form-control"></td>
+                                </tr>
+                            </table>
+
+                            <div class="font-weight-bold mb-3">
+                                <div class="mb-2">詳細內容</div>
+                                <textarea class="form-control" rows="5"></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-light _btn-contactUs">送出</button>
+                            </div>
+
+                            <table class="_table-form mt-4">
+                                <tr>
+                                    <td><img src="/myProjects/TTLF/static/common/img/icon/icon_phone.png"></td>
+                                    <td>
+                                        <table class="_table-form _table-va-t">
+                                            <tr class="pb-2">
+                                                <td>台北本所</td>
+                                                <td>886-2-66386999 or 27814111</tr>
+                                            </tr>
+                                            <tr>
+                                                <td>新竹分所</td>
+                                                <td>886-3-563-3999</tr>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- core -->
+    <script src="/myProjects/TTLF/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="/myProjects/TTLF/static/core/bootstrap-4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/myProjects/TTLF/static/core/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- plugins -->
+    <script src="/myProjects/TTLF/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    <script src="/myProjects/TTLF/static/plugins/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="/myProjects/TTLF/static/plugins/twbs-pagination-1.4.2/jquery.twbsPagination.min.js"></script>
+    
+    <!-- main -->
+    <script src="/myProjects/TTLF/static/common/js/main.js"></script>
+    <script>
+        $(function(){
+            /* TODO: to後端 - ajax資料在這邊~ */
+            // $.post('url','',function(resData){
+                let resData = [
+                    { title: '簡介', content: '1920px 大圖測試!!!。<img src="https://picsum.photos/1920/1080">'},
+                    { title: '榮譽', content: '600px 小圖測試!!!!。<img src="https://picsum.photos/600/300">'},
+                    { title: '學歷', content: '壞圖測試!!!!。<img src="TestErrorImg">'},
+                    { title: '經歷', content: '吳律師為常在國際法律事務所資深合夥人，有30年的執業經驗，擅長領域包括: 仲裁及爭端解決、經貿投資、不動產開發、工程、BOT及政府採購、金融、專案融資、企業併購、能源等。朱律師處理的建設計畫包括大眾捷運系統、台灣南北高速鐵路、高速公路電子收費系統、電廠、台北世貿中心國際觀光旅館。朱律師並經常提供客戶有關國際仲裁、經貿投資規劃、技術合作、交易架構與談判策略的法律諮詢。朱律師亦經常受邀出席國內外會議發表有關仲裁及糾紛解決、經貿投資、專案融資之講演。 朱律師目前為財團法人民間司法改革基金會董事、中華民國國際經濟合作協會常務監事、中華民國仲裁協會理事。朱律師曾擔任台北律師公會監事(1990年至1993年)及常務理事(1993年至1996年) ，並於2003年至2005年間擔任行政院公共工程委員會採購申訴審議委員會諮詢委員。'},
+                    { title: '資格', content: '吳律師為常在國際法律事務所資深合夥人，有30年的執業經驗，擅長領域包括: 仲裁及爭端解決、經貿投資、不動產開發、工程、BOT及政府採購、金融、專案融資、企業併購、能源等。朱律師處理的建設計畫包括大眾捷運系統、台灣南北高速鐵路、高速公路電子收費系統、電廠、台北世貿中心國際觀光旅館。朱律師並經常提供客戶有關國際仲裁、經貿投資規劃、技術合作、交易架構與談判策略的法律諮詢。朱律師亦經常受邀出席國內外會議發表有關仲裁及糾紛解決、經貿投資、專案融資之講演。 朱律師目前為財團法人民間司法改革基金會董事、中華民國國際經濟合作協會常務監事、中華民國仲裁協會理事。朱律師曾擔任台北律師公會監事(1990年至1993年)及常務理事(1993年至1996年) ，並於2003年至2005年間擔任行政院公共工程委員會採購申訴審議委員會諮詢委員。'},
+                    { title: '會員資格', content: '吳律師為常在國際法律事務所資深合夥人，有30年的執業經驗，擅長領域包括: 仲裁及爭端解決、經貿投資、不動產開發、工程、BOT及政府採購、金融、專案融資、企業併購、能源等。朱律師處理的建設計畫包括大眾捷運系統、台灣南北高速鐵路、高速公路電子收費系統、電廠、台北世貿中心國際觀光旅館。朱律師並經常提供客戶有關國際仲裁、經貿投資規劃、技術合作、交易架構與談判策略的法律諮詢。朱律師亦經常受邀出席國內外會議發表有關仲裁及糾紛解決、經貿投資、專案融資之講演。 朱律師目前為財團法人民間司法改革基金會董事、中華民國國際經濟合作協會常務監事、中華民國仲裁協會理事。朱律師曾擔任台北律師公會監事(1990年至1993年)及常務理事(1993年至1996年) ，並於2003年至2005年間擔任行政院公共工程委員會採購申訴審議委員會諮詢委員。'},
+                    { title: '著作', content: '吳律師為常在國際法律事務所資深合夥人，有30年的執業經驗，擅長領域包括: 仲裁及爭端解決、經貿投資、不動產開發、工程、BOT及政府採購、金融、專案融資、企業併購、能源等。朱律師處理的建設計畫包括大眾捷運系統、台灣南北高速鐵路、高速公路電子收費系統、電廠、台北世貿中心國際觀光旅館。朱律師並經常提供客戶有關國際仲裁、經貿投資規劃、技術合作、交易架構與談判策略的法律諮詢。朱律師亦經常受邀出席國內外會議發表有關仲裁及糾紛解決、經貿投資、專案融資之講演。 朱律師目前為財團法人民間司法改革基金會董事、中華民國國際經濟合作協會常務監事、中華民國仲裁協會理事。朱律師曾擔任台北律師公會監事(1990年至1993年)及常務理事(1993年至1996年) ，並於2003年至2005年間擔任行政院公共工程委員會採購申訴審議委員會諮詢委員。'},
+                    { title: '演講', content: '吳律師為常在國際法律事務所資深合夥人，有30年的執業經驗，擅長領域包括: 仲裁及爭端解決、經貿投資、不動產開發、工程、BOT及政府採購、金融、專案融資、企業併購、能源等。朱律師處理的建設計畫包括大眾捷運系統、台灣南北高速鐵路、高速公路電子收費系統、電廠、台北世貿中心國際觀光旅館。朱律師並經常提供客戶有關國際仲裁、經貿投資規劃、技術合作、交易架構與談判策略的法律諮詢。朱律師亦經常受邀出席國內外會議發表有關仲裁及糾紛解決、經貿投資、專案融資之講演。 朱律師目前為財團法人民間司法改革基金會董事、中華民國國際經濟合作協會常務監事、中華民國仲裁協會理事。朱律師曾擔任台北律師公會監事(1990年至1993年)及常務理事(1993年至1996年) ，並於2003年至2005年間擔任行政院公共工程委員會採購申訴審議委員會諮詢委員。'},
+                ]
+                templateRender_content(resData)
+            // })
+
+            toggleNext()
+        })
+
+        let AREI = new _AutoResizeEditorImg('.js-editor-content')
+        
+        function toggleNext(){
+            $('body').on('click','[js-toggle-next]',function(){
+                $(this).next().toggle()
+                $(this).find('.fa').toggleClass('fa-chevron-up')
+            })
+        }
+
+        function templateRender_content(data){
+            let str_menu = ''
+            let str_content = ''
+            $.each( data, function(index,elem){
+                let vMenuId = 'section-' + index
+                let vTitle = elem.title
+                let vContent = elem.content
+
+                str_menu += `
+                    <li class="nav-item">
+                        <a class="nav-link ${index===0?'active':''}" href="#${vMenuId}">${vTitle}</a>
+                    </li>
+                `
+                str_content += `
+                    <section id="${vMenuId}" class="pgbi-av">
+                        <div class="_title-line _profile-content--title py-3 py-lg-4 us-n" js-toggle-next>
+                            <h2 class="_title">${vTitle}</h2>
+                            <div class="_line"></div>
+                            <i class="fa fa-chevron-down ${index===0?'':'fa-chevron-up'} _c-d9c7b1 pl-3 d-lg-none d-print-none"></i>
+                        </div>
+                        <p class="py-2 py-lg-0 mb-4 d-lg-block d-print-block" style="${index===0?'':'display:none'}">${vContent}</p>
+                    </section>
+                `
+            })
+            $('#profileMenu').html(`<ul class="nav flex-column _scrollspy-menu _paper"> ${str_menu} </ul>`)
+            $('#profileContent').html( str_content )
+            AREI.update()
+        }
+    </script>
+</body>
+</html>

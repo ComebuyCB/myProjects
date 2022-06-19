@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="icon" href="/myProjects/Pearson/static/common/img/PEARSON.png">
+  <title></title>
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- core -->
+  <script src="/myProjects/Pearson/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+  <link href="/myProjects/Pearson/static/core/bootstrap-5.1.3/css/bootstrap-custom.css" rel="stylesheet">
+  <script src="/myProjects/Pearson/static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- plugins -->
+  <link href="/myProjects/Pearson/static/plugins/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <!-- main -->
+  <link href="/myProjects/Pearson/static/common/css/main.css" rel="stylesheet">
+  <script src="/myProjects/Pearson/static/common/js/main.js"></script>
+
+  <!-- data -->
+  <script src="/myProjects/Pearson/static/common/js/data.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <header>
+      <nav id="header-navbar" class="navbar navbar-dark">
+        <div class="container-xl">
+          <a class="navbar-brand" href="#twMap"><img src="/myProjects/Pearson/static/common/img/logo1@2x.png" height="48"></a>
+          <ul id="header-navbar-nav" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#section1">公司簡介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section2">網路<br class="d-sm-none">民調中心</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section3">大數據<br class="d-sm-none">中心</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section4">新聞稿</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section5">聯絡我們</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="twMap">
+        <div id="map">
+          <div id="svgBox" style="transform: translate(0px,0px) scale(1)">
+            <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="pattern1" x="0" y="0" width="1" height="1" patternUnits="userSpaceOnUse">
+                  <rect id="pattern1_rect1" width="1" height="1" fill="currentColor"></rect>
+                  <line x1="0" y1="1" x2="1" y2="0" stroke="rgba(0,0,0,0.25)" stroke-width="0.15"></line>
+                  <line x1="0" y1="0" x2="1" y2="1" stroke="rgba(255,255,255,0.25)" stroke-width="0.15"></line>
+                </pattern>
+                <pattern id="pattern2" x="0" y="0" width="1" height="1" patternUnits="userSpaceOnUse">
+                  <rect id="pattern2_rect1" width="1" height="1" fill="currentColor" stroke="rgba(255,255,255,0.25)" stroke-width="0.25"></rect>
+                  <line x1="0" y1="1" x2="1" y2="0" stroke="rgba(0,0,0,0.25)" stroke-width="0.15"></line>
+                </pattern>
+              </defs>
+            </svg>
+          </div>
+
+          <div id="cursor-hover">
+            <h6 id="cursor-county"></h6>
+            <small id="cursor-town"></small>
+          </div>
+        </div>
+  
+        <div id="mapUI-top">
+          <div id="twMap-choose">
+            <div class="whs-nw">
+              <img src="/myProjects/Pearson/static/common/img/search-solid.png" class="me-2">數據主題
+            </div>
+            <select id="twMap-select" class="form-select ms-3 w-auto">
+              <option value="1">議員好感度黨籍比例</option>
+              <option value="2">市長施政滿意度</option>
+            </select>
+          </div>
+
+          <div id="twMap-backBtn" class="btn btn-secondary" style="display: none">
+            <img src="/myProjects/Pearson/static/common/img/icon_back.png" class="mb-1"><span>回上層</span>
+          </div>
+
+          <div id="twMap-infoBox">
+            <div class="infoBox">
+              <span>
+                請於 <span class="c_info">下拉選單</span> 選擇你有興趣的數據主題，
+                並且 <span class="c_info">點擊地圖上的縣市</span> 檢視資料。
+              </span>
+            </div>
+          </div>
+
+          <div id="twMap-zoomBtn">
+            <div id="zoomIn" class="btn mb-1"></div>
+            <div id="zoomOut" class="btn"></div>
+          </div>
+        </div>
+
+        <div id="twMap-legend">
+          <table id="legend-1">
+            <tr>
+              <td colspan="3">國民黨</td>
+            </tr>
+            <tr>
+              <td><div id="ppbMin" class="px-1">低</div></td>
+              <td><div id="ppbClr" style="padding: 7px 50px"></div></td>
+              <td><div id="ppbMax" class="px-1">高</div></td>
+            </tr>
+            <tr>
+              <td colspan="3">民進黨</td>
+            </tr>
+            <tr>
+              <td><div id="ppgMin" class="px-1">低</div></td>
+              <td><div id="ppgClr" style="padding: 7px 50px"></div></td>
+              <td><div id="ppgMax" class="px-1">高</div></td>
+            </tr>
+          </table>
+          <table id="legend-2" style="display: none;">
+            <tr>
+              <td colspan="3">滿意度</td>
+            </tr>
+            <tr>
+              <td><div id="sfMin" class="px-1">差</div></td>
+              <td><div id="sfClr" style="padding: 7px 50px"></div></td>
+              <td><div id="sfMax" class="px-1">好</div></td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="twMap-detail" style="display: none">
+          <div id="twMap-detail-head">
+            <div class="d-flex">
+              <h5 id="twMap-location" class="mb-1 me-2"></h5>
+              <div id="twMap-noCharts" style="display: none">(無資料)</div>
+            </div>
+            <button id="twMap-toggle-detail-body" class="btn border-secondary text-secondary py-0 pos-a loc-9 m-3" onclick="toggleDetailBody()">
+              <i class="fa fa-angle-down"></i>
+            </button>
+          </div>
+          <div id="twMap-detail-body" style="display: none">
+            <div>
+              <div class="mb-2">選區最受歡迎議員前三名</div>
+              <div id="twMap-chart1" class="-my-3"></div>
+            </div>
+            <div>
+              <div class="mb-2">議員好感度黨籍比例</div>
+              <div id="twMap-chart2" class="-my-3"></div>
+            </div>
+            <div>
+              <div class="mb-2">市長施政滿意度</div>
+              <div id="twMap-chart3" class="-my-3"></div>
+            </div>
+            <div>
+              <div class="mb-2">政黨傾向</div>
+              <div id="twMap-chart4" class="-my-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="index_sections">
+        <section class="section">
+          <div id="section1" class="hashTag"></div>
+          <div class="container-xl d-flex flex-column flex-md-row">
+            <div class="text-center">
+              <div class="v_text me-5">公司簡介</div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <div class="card card_primary mb-3">
+                  發展與時俱進的網路調技術服務，協助掌握公眾現況。
+                </div>
+                <div class="card card_primary">
+                  發展與時俱進的網路調技術服務，協助掌握公眾現況。
+                </div>
+              </div>
+              <div class="col-md-8 ps-md-5 lh-2">
+                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
+                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
+                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
+                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section class="section bg_primary text-white">
+          <div id="section2" class="hashTag"></div>
+          <div class="container-xl d-flex">
+            <div class="v_text me-5">網路民調中心</div>
+            <div>
+              近年由於國內電信業的4G
+            </div>
+          </div>
+        </section>
+  
+        <section class="section bg-primary text-white">
+          <div id="section3" class="hashTag"></div>
+          <div class="container-xl d-flex">
+            <div style="flex: 1">
+              讓看得懂的動態數據指標
+            </div>
+            <div class="v_text ms-5">大數據中心</div>
+          </div>
+        </section>
+  
+        <section class="section">
+          <div id="section4" class="hashTag"></div>
+          <div class="container-xl d-flex">
+            <div class="v_text me-5">新聞稿</div>
+            <div style="flex: 1">
+              讓看得懂的動態數據指標
+            </div>
+          </div>
+        </section>
+  
+        <section class="section">
+          <div id="section5" class="hashTag"></div>
+          <div class="container-xl d-flex">
+            <div style="flex: 1">
+              
+            </div>
+            <div class="v_text ms-5">聯絡我們</div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="container-xl py-3">
+            All copyrights reserved 2022皮爾森數據
+          </div>
+        </footer>
+      </div>
+
+    </main>
+  </div>
+  
+  <script>
+    /* evt = show || hide */
+    function toggleDetailBody( evt ){
+      function _toShow(){
+        $('#twMap-detail-body').slideDown('fast')
+        $('#twMap-toggle-detail-body').find('.fa').removeClass('fa-angle-up')
+      }
+      function _toHide(){
+        $('#twMap-detail-body').slideUp('fast')
+        $('#twMap-toggle-detail-body').find('.fa').addClass('fa-angle-up')
+      }
+
+      if ( evt == 'show' ){
+        _toShow()
+      } else if ( evt === 'hide' ) {
+        _toHide()
+      }
+      if ( evt ) { return }
+
+      if ( $('#twMap-detail-body').css('display') === 'none' ){
+        _toShow()
+      } else {
+        _toHide()
+      }
+    }
+
+    $('#twMap').click( function(){
+      $('#twMap-infoBox').fadeOut('fast')
+    })
+
+    class Use_interactJs {
+      constructor( target ){
+        this.target = target
+        this.gDis = 0
+        this.init()
+      }
+
+      init(){
+        this.gesturable( true )
+        this.draggable( false )
+      }
+
+      gesturable( bool = true ){
+        let This = this
+        if ( bool === false ){
+          interact(This.target).gesturable(false)
+        } else {
+          interact(This.target)
+            .gesturable({
+              listeners: {
+                start (event) {
+                  This.gDis = event.distance
+                },
+                move (event) {
+                  if ( Math.abs(This.gDis - event.distance) > 1){
+                    event.scale > 1.01 ? zoomMap( scaleValue*scaleAmp ) : ''
+                    event.scale < 0.99 ? zoomMap( scaleValue/scaleAmp ) : ''
+                  }
+                  
+                  This.dragMoveListener(event)
+                  This.gDis = event.distance
+                },
+                end () {
+                }
+              }
+            })
+        }
+      }
+
+      draggable( bool = true ){
+        let This = this
+        if ( bool === false ){
+          $(This.target).css('touch-action','auto')
+          interact(This.target).draggable(false)
+        } else {
+          $(This.target).css('touch-action','none')
+          interact(This.target)
+            .draggable({
+              inertia: true,
+              modifiers: [
+                interact.modifiers.restrictRect({
+                  restriction: 'parent',
+                  endOnly: true
+                })
+              ],
+              listeners: {
+                start (){
+                  onDrag = true
+                },
+                move (event) {
+                  This.dragMoveListener(event)
+                },
+                end () {
+                  let st = setTimeout(()=>{
+                    onDrag = false
+                    clearTimeout(st)
+                  }, 0)
+                }
+              }
+            })
+        }
+      }
+
+      dragMoveListener( event ) {
+        let trans = getTransXYS( event.target )
+        let x = (parseFloat(trans.x) || 0) + event.dx
+        let y = (parseFloat(trans.y) || 0) + event.dy
+  
+        $(event.target).css('transform', `translate(${x}px, ${y}px) scale(${trans.s})`)
+      }
+    }
+
+    var mapW = window.innerWidth
+    var mapH = window.innerHeight
+    var onDrag = false
+    var onZoom = false
+    var scaleValue = 1
+    var scaleAmp = 2
+
+    // var blueClrArr = ['#C8EBFD','#5AC3FA','#00A4FC','#0178BA','#004F81']
+    var blueClrArr = ['#41aad4','#0086c5','#005ca5','#003c72','#092352']
+    var blueDomain
+    var blueColor = d3.scale.linear().domain( d3.range( blueClrArr.length ) ).range( blueClrArr )
+
+    // var greenClrArr = ['#73E5AA','#57D690','#3CC471','#32A55F','#24854E']
+    var greenClrArr = ['#98c46b','#67a937','#00932f','#006c2e','#004e30']
+    var greenDomain
+    var greenColor = d3.scale.linear().domain( d3.range( greenClrArr.length ) ).range( greenClrArr )
+
+    var sfClrArr = ['#ff5555','#ff9977','#66aa44','#44cc66']
+    var sfDomain
+    var sfColor = d3.scale.linear().domain( d3.range( sfClrArr.length ) ).range( sfClrArr )
+
+    var data
+    var touch = false
+
+    var interactJs = new Use_interactJs('#svgBox')
+      interactJs.draggable(false)
+    
+    function getTransXYS( elem ){
+      let style = window.getComputedStyle( elem )
+      let matrix = new WebKitCSSMatrix(style.transform)
+      let {a,b,c,d,e,f} = matrix
+      // console.log(a,b,c,d,e,f)
+      return {x: e, y: f, s: a}
+    }
+
+    getMixedData( promiseGetMapData(), promiseGetSurveyData(), resData => {
+      data = resData
+
+      let svB = {
+        "國民黨籍議員好感度比例Min": 100, "國民黨籍議員好感度比例Max": 0,
+        "民進黨籍議員好感度比例Min": 100, "民進黨籍議員好感度比例Max": 0,
+        "市長施政滿意比例Min": 100, "市長施政滿意比例Max": 0,
+        "市長施政不滿意比例Min": 100, "市長施政不滿意比例Max": 0,
+      }
+      data.features.forEach( obj => {
+        if ( !obj.sv ) { return true }
+        if ( obj.sv['國民黨籍議員好感度比例'] > obj.sv['民進黨籍議員好感度比例'] ){
+          svB['國民黨籍議員好感度比例Max'] = Math.max( svB['國民黨籍議員好感度比例Max'], obj.sv['國民黨籍議員好感度比例'] )
+          svB['國民黨籍議員好感度比例Min'] = Math.min( svB['國民黨籍議員好感度比例Min'], obj.sv['國民黨籍議員好感度比例'] )
+        } else if ( obj.sv['國民黨籍議員好感度比例'] <= obj.sv['民進黨籍議員好感度比例'] ) {
+          svB['民進黨籍議員好感度比例Max'] = Math.max( svB['民進黨籍議員好感度比例Max'], obj.sv['民進黨籍議員好感度比例'] )
+          svB['民進黨籍議員好感度比例Min'] = Math.min( svB['民進黨籍議員好感度比例Min'], obj.sv['民進黨籍議員好感度比例'] )
+        }
+
+        svB['市長施政滿意比例Max'] = Math.max( svB['市長施政滿意比例Max'], obj.sv['市長施政滿意比例'] )
+        svB['市長施政滿意比例Min'] = Math.min( svB['市長施政滿意比例Min'], obj.sv['市長施政滿意比例'] )
+        svB['市長施政不滿意比例Max'] = Math.max( svB['市長施政不滿意比例Max'], obj.sv['市長施政不滿意比例'] )
+        svB['市長施政不滿意比例Min'] = Math.min( svB['市長施政不滿意比例Min'], obj.sv['市長施政不滿意比例'] )
+
+        if ( obj['市長施政滿意比例'] > obj['市長施政不滿意比例'] ){
+          svB['市長施政滿意比例Max'] = Math.max( svB['市長施政滿意比例Max'], (obj['市長施政滿意比例'] - obj['市長施政不滿意比例']).toFixed(2) )
+        } else if ( obj['市長施政滿意比例'] <= obj['市長施政不滿意比例'] ) {
+          svB['市長施政滿意比例Min'] = Math.min( svB['市長施政滿意比例Min'], (obj['市長施政滿意比例'] - obj['市長施政不滿意比例']).toFixed(2) )
+        }
+      })
+      data.svBoundary = svB
+
+      blueDomain = d3.scale.linear().domain([svB['國民黨籍議員好感度比例Min'], svB['國民黨籍議員好感度比例Max']]).range([0,blueClrArr.length-1])
+      greenDomain = d3.scale.linear().domain([svB['民進黨籍議員好感度比例Min'], svB['民進黨籍議員好感度比例Max']]).range([0,greenClrArr.length-1])
+      sfDomain = d3.scale.linear().domain([svB['市長施政滿意比例Min'], svB['市長施政滿意比例Max']]).range([0,sfClrArr.length-1])
+      
+      create_InfoColor('#ppbClr', blueClrArr )
+      create_InfoColor('#ppgClr', greenClrArr )
+      create_InfoColor('#sfClr', sfClrArr )
+      create_D3GeoMap(data)
+    })
+
+    function create_InfoColor( tg, clrArr ){
+      let str = ''
+      $.each( clrArr, (idx ,item) => {
+        let p1 = (idx / clrArr.length) * 100 + '%'
+        let p2 = ( (idx+1) / clrArr.length) * 100 + '%'
+        str += `,${item} ${p1}, ${item} ${p2}`
+      })
+      $(tg).css('background',`linear-gradient( to right ${str} )`).css('box-shadow','0 0 2px #f5f5f5')
+    }
+
+    function create_D3GeoMap(data){
+      // 讓d3抓svg，並寫入寬高
+      $('#svgBox').css({ width: mapW, height: mapH})
+      $('#svg').attr('width', mapW).attr('height', mapH).attr('viewBox', `0 0 ${mapW} ${mapH}`)
+
+      function getWindowScale(){
+        let s = mapW > mapH ? mapH : mapW // contain
+        let mBW = data.mapBoundary.maxX - data.mapBoundary.minX
+        let mBH = data.mapBoundary.maxY - data.mapBoundary.minY
+        // let sr = ( mapW / mapH > mBW / mBH ) ? 13 : 16.5
+        let sr = ( mapW / mapH > mBW / mBH ) ? 12 : 16
+        return s * sr
+      }
+
+      let projection = d3.geo.mercator()
+        .center([120.8, 23.9])
+        .scale(getWindowScale())
+        .translate([mapW/2, mapH/2])
+      
+      let path = d3.geo.path().projection( projection )
+
+      d3.select('#svg')
+        .selectAll('path')
+        .data( data.features )
+        .enter()
+        .append('path')
+        .attr('d', path)
+        .attr({
+          countyId: (d) => d.properties.COUNTYID,
+          countyCode: (d) => d.properties.COUNTYCODE,
+          countyName: (d) => d.properties.COUNTYNAME,
+          townId: (d) => d.properties.TOWNID || null,
+          townCode: (d) => d.properties.TOWNCODE || null,
+          townName: (d) => d.properties.TOWNNAME || null,
+          mainId: (d) => d.properties.TOWNID || d.properties.COUNTYID,
+          mainCode: (d) => d.properties.TOWNCODE || d.properties.COUNTYCODE,
+          mainName: (d) => d.properties.TOWNNAME || d.properties.COUNTYNAME,
+          indexNo: (d,i) => i,
+          class: (d) => d.properties.TOWNID ? 'town' : 'county',
+          // filter: d=> 'url(#mm)'
+        })
+        .style({
+          // fill: (d) => 'url(#mm)'
+          // fill: (d) => { return 'rgba(255,255,255,1)' }
+        })
+        .on('mouseenter', d => {
+          if (onDrag) { return }
+          $('#cursor-county').text( d.properties.COUNTYNAME )
+          $('#cursor-town').text( d.properties.TOWNNAME || '' )
+        })
+        .on('click', d => {
+          if (onDrag) { return } 
+        })
+
+      changeThemeColor()
+    }
+
+    $('#twMap-select').change(()=>{
+        changeThemeColor()
+    })
+
+    function changeThemeColor(){
+      $.each( data.features, (idx,d)=>{
+        let color = 'rgba(255,255,255,1)'
+
+        if (d.sv){
+          let selectVal = $('#twMap-select').val()
+          switch ( selectVal ){
+            case '1':
+              let blue = d.sv['國民黨籍議員好感度比例']
+              let green = d.sv['民進黨籍議員好感度比例']
+              if ( blue > green ){
+                color = blueColor( blueDomain(blue).toFixed(0) )
+              } else if ( blue <= green ) {
+                color = greenColor( greenDomain(green).toFixed(0) )
+              }
+            break
+            case '2':
+              // let sfR = (d.sv['市長施政滿意比例'] - d.sv['市長施政不滿意比例']).toFixed(2)
+              let sfR = d.sv['市長施政滿意比例']
+              color = sfColor( sfDomain( sfR ).toFixed(0) )
+            break
+          }
+
+          $('[id*=legend-]').hide()
+          $('#legend-'+ selectVal ).show()
+        }
+
+        if ( d.properties.TOWNID === undefined ){
+          $(`path[countyID=${d.properties.COUNTYID}][mainID=${d.properties.COUNTYID}]`).css('fill', color).attr('fill', color)
+        } else {
+          $(`path[countyID=${d.properties.COUNTYID}][mainID=${d.properties.TOWNID}]`).css('fill', color).attr('fill', color)
+        }
+      })
+    }
+
+    function zoomMap( newScale, pathXY ){
+      if (onZoom){ return }
+      onZoom = true
+
+      let trans = getTransXYS( $('#svgBox')[0] )
+      let oS = scaleValue
+      let nS = newScale
+
+      nS = nS > 20 ? 20 : nS
+      nS = nS < 1 ? 1 : nS
+
+      // 邊界 ( 因為scale 是由中心放大，故/2 => 例如1000寬*2=>2000，左右各+500寬 => 邊界從左右 [0,0] => [500,-500] )
+      let bx = (mapW*nS - mapW) / 2
+      let by = (mapH*nS - mapH) / 2
+
+      let x = trans.x * nS / oS
+      let y = trans.y * nS / oS
+
+      if ( pathXY ){ // 地圖區塊點擊
+        let px = pathXY.x + ( pathXY.width / 2 )
+        let py = pathXY.y + ( pathXY.height / 2 )
+
+        x = (mapW/2 - px) * nS
+        y = (mapH/2 - py) * nS
+
+        if ( window.matchMedia('(min-width: 768px)').matches ){ //PC
+          x -= $('#twMap-detail').width() / 2
+        } else {
+          y -= +$('#twMap-detail').css('max-height').replace('px','') / 2
+          // y -= $('#twMap-detail').height() / 2
+        }
+
+      } else if ( event.deltaY ){ // 滑鼠滾輪
+        x = (mapW/2 - event.offsetX) * nS + (event.clientX - mapW/2)
+        y = (mapH/2 - event.offsetY) * nS + (event.clientY - mapH/2)
+      }
+
+      x = ( x > bx ) ? bx : x
+      x = ( x < -bx ) ? -bx : x
+      y = ( y > by ) ? by : y
+      y = ( y < -by ) ? -by : y
+
+      gsap.fromTo('#svgBox', 0.4, { x: trans.x, y: trans.y, scale: oS }, { x: x, y: y, scale: nS, ease: 'power2.out', 
+        onComplete: ()=>{ onZoom = false }
+      })
+
+      if ( nS === 1 ){
+        interactJs.draggable(false)
+        // $('#map').removeClass('zoomIn')
+        $('#mapUI-top').css('top','')
+        $('header').slideDown('fast')
+        $('#header-navbar-nav').slideDown('fast')
+        $('#index_sections').show()
+      } else {
+        interactJs.draggable(true)
+        // $('#map').addClass('zoomIn')
+        $('#mapUI-top').css('top',0)
+        $('header').slideUp('fast')
+        $('#header-navbar-nav').slideUp('fast')
+        $('#index_sections').hide()
+      }
+
+      scaleValue = nS
+      return nS
+    }
+
+
+  /* ====== listeners ====== */
+    // $(window).on('resize', ()=>{
+    //   mapW = window.innerWidth
+    //   mapH = window.innerHeight
+    //   create_D3GeoMap(data)
+    // })
+
+    $('#svgBox').on('mousewheel',() => {
+      if( event.ctrlKey == true ){
+          event.preventDefault()
+          event.deltaY < 0 ? zoomMap( scaleValue*scaleAmp ) : zoomMap( scaleValue/scaleAmp )
+      }
+    })
+    $('#zoomIn').on('click',() => {
+      zoomMap( scaleValue*scaleAmp )
+    })
+    $('#zoomOut').on('click',() => {
+      zoomMap( scaleValue/scaleAmp )
+    })
+
+    var chart1 = null
+    var chart2 = null
+    var chart3 = null
+    var chart4 = null
+    $('#svg').on('click', function(event){
+      if ( onDrag ) { return }
+      let $TG = $(event.target)
+
+      // 刪除圖表
+      if ( chart1 ) { chart1.destroy() }
+      if ( chart2 ) { chart2.destroy() }
+      if ( chart3 ) { chart3.destroy() }
+      if ( chart4 ) { chart4.destroy() }
+
+      // 點擊某縣市
+      if ( $TG[0].nodeName === 'path' ){
+        const indexNo = $TG.attr('indexNo')
+        const sv = data.features[indexNo]['sv']
+
+        interactJs.draggable(true)
+        $('#twMap-backBtn').show()
+        $('#twMap-detail').show()
+        
+        // 若點擊county，需刪除其他county； 若點擊town，則保留county。
+        if ( $TG.hasClass('county') ){
+          $('#svg').find('.county.active').removeClass('active')
+        }
+        $('#svg').find('.town.active').removeClass('active')
+        $TG.addClass('active')
+
+        $('#svg').css('color', $TG.attr('fill') )
+        // $('#linearGradient_001').find('stop[offset="50%"]').attr('stop-color', $TG.attr('fill') )
+
+        // twMap-detail 顯示標題
+        let countyName = $TG.attr('countyName')
+        let townName = $TG.attr('townName') ? ' - ' + $TG.attr('townName') : ''
+        $('#twMap-location').text( countyName + townName )
+
+        // 如果有資料，生成圖表
+        if ( sv ){
+          toggleDetailBody('show')
+          $('#twMap-noCharts').hide()
+
+          let color_KMT = blueClrArr[2] // 國民黨
+          let color_DPP = greenClrArr[2] // 民進黨
+          let color_nop = '#a9a9a9' // 無
+
+          let mpColors = [sv['第一名議員'], sv['第二名議員'], sv['第三名議員']].map( item => {
+            if ( item.indexOf('國民黨') > -1 ) return color_KMT
+            if ( item.indexOf('民進黨') > -1 ) return color_DPP
+            if ( item.indexOf('無黨籍') > -1 ) return color_nop
+            return color_nop
+          })
+
+          chart1 = new ApexCharts( $("#twMap-chart1")[0], {
+            xaxis: {
+              categories: [sv['第一名議員'],sv['第二名議員'],sv['第三名議員']],
+              labels: {
+                show: false,
+                formatter: function (val) {
+                  return val + "%"
+                }
+              },
+            },
+            series: [{
+              name: '',
+              data: [sv['第一名議員好感度'],sv['第二名議員好感度'],sv['第三名議員好感度']],
+            }],
+            dataLabels: {
+              formatter: function (val, opt) {
+                return val + '%'
+              },
+            },
+            chart: {
+              type: 'bar',
+              height: 140,
+              // width: 360,
+              toolbar: {
+                show: false,
+              },
+            },
+            legend: {
+              show: false,
+            },
+            colors: mpColors,
+            tooltip: {
+              y: {
+                formatter: function (val) {
+                  return val + "%"
+                }
+              }
+            },
+            plotOptions: {
+              bar: {
+                distributed: true,
+                horizontal: true,
+              }
+            },
+            tooltip: {
+              enabled: false,
+            },
+          })
+          chart1.render()
+
+          chart2 = new ApexCharts( $("#twMap-chart2")[0], {
+            series: [
+              { name: '國民黨', data: [sv['國民黨籍議員好感度比例']] },
+              { name: '民進黨', data: [sv['民進黨籍議員好感度比例']] },
+              { name: '其他(無黨籍、其他政黨、未表態)', data: [sv['其他黨籍議員好感度比例']] },
+            ],
+            colors: [ color_KMT, color_DPP, color_nop ],
+            chart: {
+              type: 'bar',
+              stacked: true,
+              stackType: '100%',
+              // width: 360,
+              height: 100,
+              toolbar: {
+                show: false,
+              }
+            },
+            plotOptions: {
+              bar: {
+                horizontal: true,
+              },
+            },
+            xaxis: {
+              categories: [''],
+              labels: {
+                show: false
+              },
+            },
+            yaxis: {
+              labels: {
+                show: false
+              },
+            },
+            responsive: [{
+              breakpoint: 388,
+              options: {
+                chart: {
+                  height: 130,
+                },
+              }
+            }],
+            legend: {
+              position: 'top',
+              horizontalAlign: 'left',
+              offsetX: -8,
+              offsetY: 15
+            },
+            tooltip: {
+              enabled: false,
+            },
+          })
+          chart2.render()
+
+          chart3 = new ApexCharts( $("#twMap-chart3")[0], {
+            series: [
+              { name: '滿意', data: [sv['市長施政滿意比例']] },
+              { name: '不滿意', data: [sv['市長施政不滿意比例']] },
+              { name: '無意見', data: [sv['市長施政無意見比例']] },
+            ],
+            colors: [ sfClrArr[3], sfClrArr[0], color_nop ],
+            chart: {
+              type: 'bar',
+              stacked: true,
+              stackType: '100%',
+              // width: 360,
+              height: 100,
+              toolbar: {
+                show: false,
+              }
+            },
+            plotOptions: {
+              bar: {
+                horizontal: true,
+              },
+            },
+            xaxis: {
+              categories: [''],
+              labels: {
+                show: false
+              },
+            },
+            yaxis: {
+              labels: {
+                show: false
+              },
+            },
+            legend: {
+              position: 'top',
+              horizontalAlign: 'left',
+              offsetX: -8,
+              offsetY: 15
+            },
+            tooltip: {
+              enabled: false,
+            },
+          })
+          chart3.render()
+          
+          chart4 = new ApexCharts( $("#twMap-chart4")[0], {
+            labels: ['國民黨','民進黨','民眾黨','時代力量','基進黨','中間選民','其他政黨'],
+            series: [sv['政黨比例-國民黨'],sv['政黨比例-民進黨'],sv['政黨比例-民眾黨'],sv['政黨比例-時代力量'],sv['政黨比例-基進黨'],sv['政黨比例-中間選民'],sv['政黨比例-其他政黨']],
+            colors: [color_KMT,color_DPP,'#F9B927','#D30877','#FC0B19',color_nop,'#28B2F4'],
+            chart: {
+              type: 'pie',
+              // width: 360,
+              height: 220,
+              toolbar: {
+                show: false,
+              }
+            },
+            legend: {
+              offsetY: -10
+            }
+          })
+          chart4.render()
+        } else {
+          toggleDetailBody('hide')
+          $('#twMap-noCharts').show()
+        }
+
+        let rect = $TG[0].getBoundingClientRect()
+        let xs = mapW / rect.width
+        let ys = mapH / rect.height
+        let scale = xs > ys ? ys : xs
+        scale = $TG.hasClass('county') ? scale * 0.6 : scale * 0.3
+
+        zoomMap( scaleValue * scale, $TG[0].getBBox() )
+        // console.log(rect, sv, '放大:' + scale )
+      } else {
+        toggleDetailBody('hide')
+      }
+    })
+
+    $('#twMap-backBtn').on('click touch', function(){
+      if (onZoom){ return }
+      let $Town = $('#svg').find('.town.active')
+      let $County = $('#svg').find('.county.active')
+
+      if ( $Town.length > 0 ){
+        let cId = $Town.attr('countyId')
+        $Town.removeClass('active')
+        $(`[mainId=${cId}]`).click()
+      } else if ( $County.length > 0 && $Town.length === 0 ){
+        $('#svg').click()
+        $County.removeClass('active')
+        interactJs.draggable(false)
+        $('#twMap-backBtn').hide()
+        zoomMap(1)
+      } else {
+        zoomMap(1)
+      }
+    })
+
+    $('#svg').on('mouseenter', 'path', function(evt){
+      if (touch){ return }
+      $('#cursor-hover').show()
+    })
+    $('#svg').on('mousemove', 'path', function(evt){
+      $('#cursor-hover').css({left: `${evt.clientX + 10}px`, top: `${evt.clientY + 15}px`})
+    })
+    $('#svg').on('mouseleave', 'path', function(evt){
+      $('#cursor-hover').hide()
+    })
+    $('#svg').on('touchstart', function(evt){
+      touch = true
+    })
+  </script>
+</body>
+</html>

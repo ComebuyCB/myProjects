@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="icon_search" transform="translate(.32)">
+        <g id="Group_1033" transform="translate(1.717 2.037)">
+            <g id="Group_491">
+                <circle id="Ellipse_1" cx="7.918" cy="7.918" r="7.918" class="cls-1"/>
+                <path id="Line_1" d="M0 0L4.381 4.381" class="cls-1" transform="translate(13.789 13.79)"/>
+            </g>
+        </g>
+        <path id="Rectangle_614" fill="none" d="M0 0H22V22H0z" transform="translate(-.32)"/>
+    </g>
+</svg>

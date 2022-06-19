@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jQuery-3.5.1/jquery-3.5.1.min.js"></script>
+    
+    <!-- jQuery-ui -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    
+    <!-- jQuery-ui-touch-punch (支援手機事件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js"></script>
+    
+    <!-- jQuery-confirm mailTo -->
+    <script src="/myProjects/TIBCS2020/static/plugins/jquery-confirmMailto/confirm.min.js"></script>
+
+    <!-- babel (支援ES6的套件) -->
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/polyfill.min.js"></script>
+    <script src="/myProjects/TIBCS2020/static/plugins/babel/babel.min.js"></script>
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/css/bootstrap.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/bootstrap-4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- fancybox (瀏覽圖片套件) -->
+    <!-- <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/fancybox-master/dist/jquery.fancybox.min.js"></script> -->
+    
+    <!-- swiper (輪播套件) 參考資料: https://www.jqueryscript.net/slider/Responsive-Flexible-Mobile-Touch-Slider-Swiper.html -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/plugins/swiper-6.3.4/swiper-bundle.min.css">
+    <script src="/myProjects/TIBCS2020/static/plugins/swiper-6.3.4/swiper-bundle.min.js"></script>
+    
+    <!-- custom -->
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/simplify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/plugins_modify.css">
+    <link rel="stylesheet" href="/myProjects/TIBCS2020/static/common/css/custom.css">
+    <script src="/myProjects/TIBCS2020/static/common/js/custom.js"></script>
+</head>
+<body>
+    <style>
+        .posBtn_container > .posBtn_link { width: 100%; height: calc( 100% * 1.777776 ); left: 0; top: 0; }
+        .posBtn_container > .posBtn_link.posBtn_pdf1 { width: 12.4%; height: calc( 11.1% * 1.777776 ); left: 59.4%; top: 42.0%; clip-path: polygon( 0% 0%, 99% 0%, 100% 100%, 0.5% 100%); }
+        .posBtn_container > .posBtn_link.posBtn_pdf2 { width: 7.6%; height: calc( 6.9% * 1.777776 ); left: 41.5%; top: 41.1%; }
+        .posBtn_container > .posBtn_link.posBtn_pdf3 { width: 7.6%; height: calc( 7.0% * 1.777776 ); left: 41.5%; top: 53.6%; }
+        .posBtn_container > .posBtn_link.posBtn_logo { width: 50.9%; height: calc( 8.1% * 1.777776 ); left: 22.2%; top: 12.1%; transform: skewY(6.5deg); clip-path: polygon(0.3% 0%, 0% 100%, 80% 84%, 100% 48%, 100% 0%); }
+        .posBtn_container > .posBtn_link.posBtn_mail { width: 12.8%; height: calc( 9.1% * 1.777776 ); left: 57.8%; top: 70.8%; transform: skewY(5.5deg); clip-path: polygon(0% 0%, 0% 89%, 100% 100%, 100% 0%);}
+
+        .posBtn_link.noLink, .posBtn_link.noLink:hover {
+            background-color: #adadad !important;
+            border: 4px solid #D6D7D7;
+            cursor: auto;
+            pointer-events: none;
+        }
+
+
+    </style>
+    <div id="wrap" class="exhibition exhibition_detail">
+        
+        <header>
+            <nav class="header_body container navbar navbar-expand-xl">
+                <a class="navbar-brand" href="index.html">
+                    <img class="d-none d-xxl-block" src="/myProjects/TIBCS2020/static/common/img/LOGO@2x.png">
+                    <img class="d-block d-xxl-none" src="/myProjects/TIBCS2020/static/common/img/LOGO320@3x.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="nav_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="aria-expanded-true" src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                    <img class="aria-expanded-false" src="/myProjects/TIBCS2020/static/common/img/icon/icon_menu.png">
+                </button>
+                
+                <div class="collapse navbar-collapse" id="nav_menu">
+                    <ul class="navbar-nav nav_links">
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="lecture_hall.html">Lecture Hall</a></li>
+                        <li><a href="poster.html">Poster</a></li>
+                        <li><a href="exhibition.html">Exhibition</a></li>
+                        <li><a href="information.html">Information</a></li> 
+                        <li><a href="survey.html">Survey</a></li>
+                        <li><a href="get_gift.html">Get Gift</a></li>
+                        <li><a href="login.html" class="c_red cur_p">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_login.png">
+                            <span class="pl_2">Log In</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <!-- PC -->
+            <div class="d-none d-lg-block" style="background-color: #444;">
+                <div id="swiper-container-pc" class="swiper-container ">
+                    <div id="topNavButton" class="pos_f loc_t js-stickHeader" style="margin: 15px; z-index: 5; width: calc( 100% - 30px )">
+                        <button class="btn btn_danger btn-md rounded-pill pos_a loc_7" onclick="historyBack('exhibition.html')">← Back to exhibition</button>
+                        <div class="d-flex flex-column pos_a loc_9">
+                            <button id="toggleNavButton" class="btn btn_dark btn-md navbar-dark btn_with_img">
+                                <div class="d-inline-block" style="width: 18px;">
+                                    <div class="mb_3" style="border: 1px solid #fff;"></div>
+                                    <div class="mb_3" style="border: 1px solid #fff;"></div>
+                                    <div class="" style="border: 1px solid #fff;"></div>
+                                </div>
+                                <span>Toggle Menu</span>
+                            </button>
+                            <a href="" class="btn btn_pink btn-md mt-2">Online Learning</a>
+                        </div>
+                    </div>
+                    <div id="swiper-wrapper-pc" class="swiper-wrapper"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="d-block d-lg-none">
+                <div id="swiper-container-m" class="swiper-container">
+                    <div id="swiper-wrapper-m" class="swiper-wrapper"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div id="stand-links-m" class="flex_center flex-wrap px-2 py-4"></div>
+                <div class="text-center"><a href="" class="btn btn_pink btn-lg mt-2">Online Learning</a></div>
+                <button class="btn btn_gray btn-md rounded-pill pos_f loc_2 mb_15" style="white-space: nowrap;" onclick="historyBack('exhibition.html')">← Back to exhibition</button>
+            </div>
+        </main>
+        
+        <!-- Activity Modal -->
+        <div class="modal fade" id="missionModal" tabindex="-1" aria-labelledby="missionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="flex_center flex-column" style="min-height: 200px;">
+                            <div class="c_pink font-weight-bold fz_22 mb-3">已完成任務獲得點數</div>
+                            <div class="">獲得1點，恭喜您！</div>
+                            <div class="action-row mt-4">
+                                <a href="" class="btn btn_outline_pink font-weight-bold" style="width: 140px;">返回活動頁面</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IE Alert Modal -->
+        <div class="modal fade" id="IE_notSupport" tabindex="-1" role="dialog" aria-labelledby="IE_notSupportTitle" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="fz_18">⚠ Unsupported Browser ⚠</div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_close.png">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fz_16">
+                            Sorry, Some features are not supported IE browser.<br>
+                            Try to use major browsers like Edge, Chrome, Firefox and Safari to get the best experience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer_top">
+                <a class="fixed_survey btn flex_center" href="survey.html">
+                    <div class="survey_content">
+                        <img src="/myProjects/TIBCS2020/static/common/img/icon/icon_Survey.png">
+                        <div class="survey_text">
+                            <div>Survey</div>
+                            <div>問卷調查</div>
+                        </div>
+                    </div>
+                </a>
+                <div class="fixed_backToTop btn">
+                    <img src="/myProjects/TIBCS2020/static/common/img/top.png">
+                </div>
+            </div>
+            
+            <div class="footer_body container">
+                <div class="footer_row1">
+                    <div>Taiwan Breast Cancer Society
+                        <div class="d-block d-xxl-none"></div>
+                        © 2020 | All Rights Reserved.
+                    </div>
+                    <ul class="footer_contact">
+                        <li class="py-1 py-sm-0">TEL: <a href="tel:+886-2-25239118">+886-2-25239118</a></li>
+                        <li>EMAIL 1: <a href="mailto:bcst@ms46.hinet.net">bcst@ms46.hinet.net</a></li>
+                        <li>EMAIL 2: <a href="mailto:bcsttpe@gmail.com">bcsttpe@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer_row2 mt-3">
+                    <div>We recommend you use <span class="text-warning">Edge, Safari, FireFox or Chrome</span> to browse the site.</div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+    
+    <script type="text/babel">
+        if (1){
+            $('#missionModal').modal('show');
+        }
+
+        const s = getUrlParameter('stand'); // 此連結參數值
+
+        var swiper_pc = ''; // swiper套件
+        var swiper_m = ''; // swiper套件
+
+        var _da = []; // data，會從Ajax後得到資料。 搜尋: exhibition.json
+        var stand_posHtml = []; // return getStand_posHtml() 之值;
+        
+        function getStand_posHtml(){
+            const src = '/myProjects/TIBCS2020/static/common/doc/exhibition'
+            
+            switch (s) {
+                case '1':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}" 
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 10.1%;
+                    height: calc( 19.4% * 1.777776 );
+                    left: 38.5%;
+                    top: 43.3%;
+                    clip-path: polygon( 0% 6%, 100% 0, 100% 100%, 0% 91%);" 
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 11.0%;
+                    height: calc( 6.5% * 1.777776 );
+                    left: 57.2%;
+                    top: 40.5%;
+                    clip-path: polygon(0% 0%, 14% 0%, 14% 10%, 88% 10%, 88% 2%, 100% 2%, 100% 100%, 0% 100%);" 
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 11.6%;
+                    height: calc( 10.5% * 1.777776 );
+                    left: 28.7%;
+                    top: 69.5%; 
+                    clip-path: polygon(10% 0%, 100% 0, 100% 16%, 96% 19%, 96% 90%, 90% 100%, 4% 100%, 5% 21%, 0 21%, 0% 6%)" 
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 4.8%;
+                    height: calc( 8.4% * 1.777776 );
+                    left: 36.6%;
+                    top: 48.9%;"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}" 
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="width: 12.6%;
+                    height: calc( 13.9% * 1.777776 );
+                    left: 54.9%;
+                    top: 59.1%;
+                    clip-path: polygon( 0% 0%, 100% 1%, 100% 100%, 0% 88%);" 
+                    ></a>
+                    `,
+                },
+                ]
+                break;
+                case '2':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 20.6%;
+                    height: calc( 7.1% * 1.777776 );
+                    left: 58.2%;
+                    top: 23.3%;
+                    clip-path: polygon( 0% 17%, 99% 1%, 99% 90%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 19.7%;
+                    height: calc( 16.3% * 1.777776 );
+                    left: 20.9%;
+                    top: 62.3%;
+                    clip-path: polygon( 2% 0%, 79% 0%, 100% 2%, 99.5% 96%, 70% 100%, 35% 100%, 11% 96%, 0% 91%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 12.2%;
+                    height: calc( 23.4% * 1.777776 );
+                    left: 67.4%;
+                    top: 34.8%;
+                    clip-path: polygon( 0% 2%, 92% 0, 100% 100%, 6% 93.5%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}"
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="
+                    width: 3.8%;
+                    height: calc( 6.6% * 1.777776 );
+                    left: 79.3%;
+                    top: 34.5%;
+                    clip-path: polygon( 0% 3%, 94% 0%, 100% 96%, 7% 100%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link"
+                    style="
+                    width: 12.4%;
+                    height: calc( 5.5% * 1.777776 );
+                    left: 25.8%;
+                    top: 37.4%;
+                    clip-path: polygon(0% 0%, 0% 82%, 100% 100%, 100% 24%)"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 12.8%;
+                    height: calc( 5.5% * 1.777776 );
+                    left: 64.4%;
+                    top: 37.2%;
+                    clip-path: polygon( 0% 27%, 99% 0, 100% 85%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 13.4%;
+                    height: calc( 11.8% * 1.777776 );
+                    left: 20.5%;
+                    top: 68.2%;
+                    clip-path: polygon( 2% 9%, 20% 4%, 100% 0, 99% 79%, 85% 87%, 64% 93%, 0% 104%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 14.2%;
+                    height: calc( 11.8% * 1.777776 );
+                    left: 70.5%;
+                    top: 68.2%;
+                    clip-path: polygon( 0% 0%, 80% 4%, 98% 9%, 100% 102%, 52% 97%, 15% 87%, 1% 79%);"
+                    ></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 9.7%;
+                    height: calc( 6.9% * 1.777776 );
+                    left: 24.1%;
+                    top: 49.6%;
+                    clip-path: polygon( 3% 0%, 99.5% 13%, 98% 99.5%, 0% 97%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}" 
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="
+                    width: 3.8%;
+                    height: calc( 6.3% * 1.777776 );
+                    left: 19.7%;
+                    top: 39.8%;
+                    clip-path: polygon( 6% 1%, 96% 6%, 90% 100%, 0% 96%);"
+                    ></a>
+                    `,
+                }
+                ]
+                break;
+                case '3':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `,
+                }
+                ]
+                break;
+                case '4':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 9.6%;
+                    height: calc( 5.5% * 1.777776 );
+                    left: 28.6%;
+                    top: 20.3%;
+                    border-top-left-radius: 117px 63px;
+                    border-top-right-radius: 53px 34px;
+                    border-bottom-right-radius: 111px 62px;
+                    border-bottom-left-radius: 55px 36px;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 12.8%;
+                    height: calc( 21.5% * 1.777776 );
+                    left: 27.3%;
+                    top: 35.2%;
+                    clip-path: polygon( 5% 0%, 100% 0%, 98% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 16.3%;
+                    height: calc( 12.4% * 1.777776 );
+                    left: 22.6%;
+                    top: 69.2%;
+                    clip-path: polygon( 3% 0%, 100% 0%, 99% 93%, 70% 99%, 50% 100%, 20% 99%, 1% 94%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[3].title}"
+                    href="${_da[s].doc[3].src}"
+                    class="posBtn_link" style="
+                    width: 4.2%;
+                    height: calc( 13.3% * 1.777776 );
+                    left: 18.8%;
+                    top: 66.8%;
+                    clip-path: polygon( 8% 18%, 30% 0%, 100% 0%, 89% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}"
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="
+                    width: 14.9%;
+                    height: calc( 20.5% * 1.777776 );
+                    left: 60.4%;
+                    top: 42.4%;
+                    clip-path: polygon( 0% 0%, 96% 0%, 100% 100%, 2% 100%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 6.0%;
+                    height: calc( 6.1% * 1.777776 );
+                    left: 41.9%;
+                    top: 43.9%;
+                    clip-path: polygon( 1% 0%, 100% 3%, 100% 100%, 0% 98%);"
+                    ></a>
+                    `,
+                }
+                ]
+                break;
+                case '5':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 26.7%;
+                    height: calc( 4.5% * 1.777776 );
+                    left: 30.9%;
+                    top: 32.4%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    border-top-left-radius: 280px 50px;
+                    border-top-right-radius: 280px 50px;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 24%;
+                    height: calc( 18.1% * 1.777776 );
+                    left: 16.3%;
+                    top: 41.9%;
+                    clip-path: polygon( 2% 0%, 66% 0%, 100% 49%, 99% 68%, 80% 97%, 0.5% 83%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 27.2%;
+                    height: calc( 22.4% * 1.777776 );
+                    left: 47.2%;
+                    top: 42.3%;
+                    clip-path: polygon( 0% 39%, 1% 53%, 36% 100%, 99.5% 100% ,98% 0%, 31% 0% );"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="影片"
+                    href="${_da[s].video[0]}"
+                    class="posBtn_link" style="
+                    width: 12.0%;
+                    height: calc( 7.1% * 1.777776 );
+                    left: 74.7%;
+                    top: 50.3%;
+                    clip-path: polygon( 0% 6%, 98% 0%, 100% 100%, 1% 94%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 15.6%;
+                    height: calc( 9.4% * 1.777776 );
+                    left: 63.2%;
+                    top: 71.1%;
+                    clip-path: polygon( 0% 2%, 26% 0%, 99% 11%, 100% 100%, 62% 98%, 33% 92%, 12% 83%, 1% 74%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    `,
+                },
+                ]
+                break;
+                case '6':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 20.7%;
+                    height: calc( 28.4% * 1.777776 );
+                    left: 65.0%;
+                    top: 30.0%;
+                    clip-path: polygon( 0% 18%, 92.5% 0%, 100% 100%, 2% 90.5%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 26.9%;
+                    height: calc( 26.9% * 1.777776 );
+                    left: 29.7%;
+                    top: 37.4%;
+                    clip-path: polygon( 0% 7%, 100% 7%, 100% 90%, 0% 90%);
+                    border-radius: 100%;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 13.8%;
+                    height: calc( 6.2% * 1.777776 );
+                    left: 36.2%;
+                    top: 33.0%;
+                    clip-path: ellipse(50% 49% at 50% 50%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 15.9%;
+                    height: calc( 12.3% * 1.777776 );
+                    left: 15.7%;
+                    top: 69.6%;
+                    clip-path: polygon(19% 0%, 100% 0%, 100% 10%, 98% 13%, 97.5% 87%, 87% 100%, 0.5% 100%, 2.5% 16%, 0% 16%, 0% 6%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}"
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="
+                    width: 17.7%;
+                    height: calc( 27.3% * 1.777776 );
+                    left: 19.6%;
+                    top: 31.9%;
+                    clip-path: polygon( 5.5% 0%, 100% 15.5%, 100% 88.5%, 0% 100%);"
+                    ></a>
+                    `,
+                }
+                ]
+                break;
+                case '7':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 20.7%;
+                    height: calc( 6.1% * 1.777776 );
+                    left: 42.6%;
+                    top: 23.0%;
+                    border-radius: 24px;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 40.4%;
+                    height: calc( 24.8% * 1.777776 );
+                    left: 21.4%;
+                    top: 31.5%;
+                    clip-path: polygon( 0.5% 0%, 100% 0%, 100% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 12.4%;
+                    height: calc( 11.5% * 1.777776 );
+                    left: 11.6%;
+                    top: 63.2%;
+                    clip-path: polygon( 1% 3%, 19% 0%, 92% 0%, 92% 17%, 100% 15%, 99% 85%, 75% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="影片"
+                    href="${_da[s].video[0]}"
+                    class="posBtn_link" style="
+                    width: 9.5%;
+                    height: calc( 6.0% * 1.777776 );
+                    left: 66.1%;
+                    top: 47.4%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 1% 100%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    `,
+                },
+                ]
+                break;
+                case '8':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 17.2%;
+                    height: calc( 4.5% * 1.777776 );
+                    left: 42.5%;
+                    top: 37.5%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 14.3%;
+                    height: calc( 14.3% * 1.777776 );
+                    left: 32.5%;
+                    top: 50.8%;
+                    border-radius: 100%;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 7.2%;
+                    height: calc( 7.2% * 1.777776 );
+                    left: 47.5%;
+                    top: 57.7%;
+                    border-radius: 100%;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}"
+                    href="${_da[s].doc[2].src}"
+                    class="posBtn_link" style="
+                    width: 7.2%;
+                    height: calc( 7.2% * 1.777776 );
+                    left: 55.1%;
+                    top: 57.7%;
+                    border-radius: 100%;"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 10.4%;
+                    height: calc( 9.7% * 1.777776 );
+                    left: 23.4%;
+                    top: 69.6%;
+                    clip-path: polygon( 1% 0%, 100% 0%, 100% 58%, 93% 62%, 93% 98%, 5% 100%, 5% 84%, 0% 84%);
+                    border-radius: 8px"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    `,
+                },
+                ]
+                break;
+                case '9':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `,
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網"
+                    href="${_da[s].website}"
+                    class="posBtn_link" style="
+                    width: 62.0%;
+                    height: calc( 13.0% * 1.777776 );
+                    left: 19.2%;
+                    top: 11.7%;
+                    clip-path: polygon( 0% 24%, 5.5% 11.5%, 15% 4%, 30% 0%, 45% 1%, 67% 9%, 77% 9%, 92% 3%, 99.5% 3.5%, 100% 91%, 46% 86%, 14% 93%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}"
+                    href="${_da[s].doc[0].src}"
+                    class="posBtn_link" style="
+                    width: 43.7%;
+                    height: calc( 22.5% * 1.777776 );
+                    left: 27.1%;
+                    top: 35.9%;
+                    clip-path: polygon( 1% 0%, 99% 0%, 100% 100%, 0% 100%);"
+                    ></a>
+                    
+                    <a target="_blank"
+                    title="信箱"
+                    href="mailto:${_da[s].mail}"
+                    class="posBtn_link" style="
+                    width: 19.6%;
+                    height: calc( 12.5% * 1.777776 );
+                    left: 62.0%;
+                    top: 66.4%;
+                    clip-path: polygon( 0% 0%, 23% 0%, 52% 6%, 86% 7%, 98.5% 12%, 100% 100%, 58% 99%, 36% 93%, 0.5% 70%);"
+                    ></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}"
+                    href="${_da[s].doc[1].src}"
+                    class="posBtn_link" style="
+                    width: 15.4%;
+                    height: calc( 24.5% * 1.777776 );
+                    left: 20.4%;
+                    top: 21.6%;
+                    clip-path: polygon( 6% 0%, 100% 24%, 97.5% 96.5%, 0% 100%);"
+                    ></a>
+                    `,
+                },
+                ]
+                break;
+                case '10':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網" 
+                    href="${_da[s].website}" 
+                    class="posBtn_link" style="
+                    width: 20.2%;
+                    height: calc( 4.5% * 1.777776 );
+                    left: 27.5%;
+                    top: 33.5%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}" 
+                    href="${_da[s].doc[1].src}" 
+                    class="posBtn_link" style="
+                    width: 20.3%;
+                    height: calc( 15.5% * 1.777776 );
+                    left: 27.5%;
+                    top: 41.8%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}" 
+                    href="${_da[s].doc[0].src}" 
+                    class="posBtn_link" style="
+                    width: 15.6%;
+                    height: calc( 22.3% * 1.777776 );
+                    left: 49.5%;
+                    top: 43.5%;
+                    clip-path: polygon( 0% 0%, 98% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="信箱" 
+                    href="mailto:${_da[s].mail}" 
+                    class="posBtn_link" style="
+                    width: 15.7%;
+                    height: calc( 12.7% * 1.777776 );
+                    left: 55.6%;
+                    top: 69.6%;
+                    clip-path: polygon( 0% 4%, 20% 0%, 68% 0%, 99% 4%, 100% 91%, 72% 97.5%, 53% 99%, 27% 97%, 0% 91%);
+                    "></a>
+                    `,
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    `
+                },
+                ]
+                break;
+                case '11':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}" 
+                    href="${_da[s].doc[1].src}" 
+                    class="posBtn_link" style="
+                    width: 14.6%;
+                    height: calc( 33.9% * 1.777776 );
+                    left: 58.0%;
+                    top: 23.2%;
+                    clip-path: polygon( 0% 13.5%, 93% 0%, 100% 100%, 3% 92%);
+                    "></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網" 
+                    href="${_da[s].website}" 
+                    class="posBtn_link" style="
+                    width: 19.6%;
+                    height: calc( 4.4% * 1.777776 );
+                    left: 35.7%;
+                    top: 29.1%;
+                    clip-path: polygon( 0% 0%, 63% 0%, 100% 100%, 0% 100%);
+                    border-top-left-radius: 6% 22%;
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}" 
+                    href="${_da[s].doc[2].src}" 
+                    class="posBtn_link" style="
+                    width: 13.5%;
+                    height: calc( 18.6% * 1.777776 );
+                    left: 39.6%;
+                    top: 43.5%;
+                    transform: rotateZ(-21deg);
+                    border-top-right-radius: 54% 42%;
+                    border-top-left-radius: 58% 48%;
+                    border-bottom-right-radius: 56% 70%;
+                    border-bottom-left-radius: 56% 64%;
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}" 
+                    href="${_da[s].doc[0].src}" 
+                    class="posBtn_link" style="
+                    width: 8.7%;
+                    height: calc( 16.6% * 1.777776 );
+                    left: 51.8%;
+                    top: 47.0%;
+                    transform: rotateZ(4deg);
+                    border-top-right-radius: 48% 28%;
+                    border-top-left-radius: 48% 28%;
+                    border-bottom-right-radius: 48% 28%;
+                    border-bottom-left-radius: 48% 28%;
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="信箱" 
+                    href="mailto:${_da[s].mail}" 
+                    class="posBtn_link" style="
+                    width: 15.0%;
+                    height: calc( 13.7% * 1.777776 );
+                    left: 29.1%;
+                    top: 68.7%;
+                    clip-path: polygon( 0.5% 5%, 14% 0%, 100% 0%, 100% 12%, 96% 17.5%, 92.5% 17.5%, 92% 89%, 88% 100%, 9.5% 100%, 10.5% 17.5%, 0.5% 17.5%);
+                    "></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    `
+                },
+                ]
+                break;
+                case '12':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="Video" href="${_da[s].video[0]}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3 noLink" title="" href=""></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                case '13':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                case '14':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3 noLink" title="" href=""></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                case '15':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    `
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網" 
+                    href="${_da[s].website}" 
+                    class="posBtn_link" style="
+                    width: 26.0%;
+                    height: calc( 5.6% * 1.777776 );
+                    left: 37.0%;
+                    top: 28.4%;
+                    clip-path: polygon( 0.5% 0%, 99.5% 2%, 100% 100%, 0% 98%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}" 
+                    href="${_da[s].doc[0].src}" 
+                    class="posBtn_link" style="
+                    width: 10.5%;
+                    height: calc( 13.4% * 1.777776 );
+                    left: 34.3%;
+                    top: 39.1%;
+                    clip-path: polygon( 2% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}" 
+                    href="${_da[s].doc[1].src}" 
+                    class="posBtn_link" style="
+                    width: 10.5%;
+                    height: calc( 13.4% * 1.777776 );
+                    left: 44.7%;
+                    top: 39.1%;
+                    clip-path: polygon( 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="${_da[s].doc[2].title}" 
+                    href="${_da[s].doc[2].src}" 
+                    class="posBtn_link" style="
+                    width: 10.5%;
+                    height: calc( 13.4% * 1.777776 );
+                    left: 55.1%;
+                    top: 39.1%;
+                    clip-path: polygon( 0% 0%, 97% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="信箱" 
+                    href="mailto:${_da[s].mail}" 
+                    class="posBtn_link" style="
+                    width: 19.6%;
+                    height: calc( 17.7% * 1.777776 );
+                    left: 55.8%;
+                    top: 58.0%;
+                    clip-path: polygon( 0% 0%, 97% 0%, 100% 100%, 6% 100%, 0.5% 85%);
+                    "></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="影片" 
+                    href="${_da[s].video[0]}" 
+                    class="posBtn_link" style="
+                    width: 3.8%;
+                    height: calc( 5.7% * 1.777776 );
+                    left: 23.7%;
+                    top: 18.8%;
+                    clip-path: polygon( 8% 2%, 25% 0%, 100% 28%, 95% 97%, 85% 100%, 2% 77%);
+                    "></a>
+                    `
+                },
+                ]
+                break;
+                case '16':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                case '17':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[0].title}" 
+                    href="${_da[s].doc[0].src}" 
+                    class="posBtn_link" style="
+                    width: 19.6%;
+                    height: calc( 20.4% * 1.777776 );
+                    left: 51.4%;
+                    top: 27.6%;
+                    clip-path: polygon( 0% 31%, 23% 31%, 43% 28%, 55% 24%, 93.4% 2%, 99.5% 100%, 0.5% 99%);
+                    "></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[1]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="官網" 
+                    href="${_da[s].website}" 
+                    class="posBtn_link" style="
+                    width: 23.8%;
+                    height: calc( 8.4% * 1.777776 );
+                    left: 31.1%;
+                    top: 19.3%;
+                    clip-path: polygon( 1.5% 1%, 73% 0%, 88% 8%, 96% 20%, 99.5% 30%, 100% 100%, 99% 100%, 97% 90%, 89% 79%, 72% 71%, 0% 71%);
+                    "></a>
+                    
+                    <a target="_blank"
+                    title="信箱" 
+                    href="mailto:${_da[s].mail}" 
+                    class="posBtn_link" style="
+                    width: 26.6%;
+                    height: calc( 17.2% * 1.777776 );
+                    left: 46.2%;
+                    top: 61.1%;
+                    clip-path: polygon( 1% 0%, 96.5% 0%, 100% 100%, 0% 100%);
+                    "></a>
+                    `
+                },
+                {
+                    image: `${_da[s].img[2]}`,
+                    posBtn: `
+                    <a target="_blank"
+                    title="${_da[s].doc[1].title}" 
+                    href="${_da[s].doc[1].src}" 
+                    class="posBtn_link" style="
+                    width: 31.2%;
+                    height: calc( 21.5% * 1.777776 );
+                    left: 27.2%;
+                    top: 24.1%;
+                    clip-path: polygon( 3.5% 3%, 28% 25%, 36% 27%, 86.5% 21%, 94% 23.5%, 99% 28%, 100% 99%, 35% 100%, 0% 94%);
+                    "></a>
+                    `
+                },
+                ]
+                break;
+                case '18':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                case '19':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                case '20':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                case '21':
+                return [
+                {
+                    image: `${_da[s].img[0]}`,
+                    posBtn: `
+                    <a target="_blank" class="posBtn_link posBtn_logo" title="官網" href="${_da[s].website}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf1" title="${_da[s].doc[0].title}" href="${_da[s].doc[0].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf2" title="${_da[s].doc[1].title}" href="${_da[s].doc[1].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_pdf3" title="${_da[s].doc[2].title}" href="${_da[s].doc[2].src}"></a>
+                    <a target="_blank" class="posBtn_link posBtn_mail" title="信箱" href="mailto:${_da[s].mail}"></a>
+                    `
+                },
+                ]
+                break;
+                default:
+                return [
+                {
+                    image: '/myProjects/TIBCS2020/static/common/img/exhibition/基本攤位.jpg',
+                    posBtn: `
+                    <span class="posBtn_link posBtn_logo">
+                        <div class="pos_a loc_5" style="font-size: 5vmax;">404</div>
+                    </span>
+                    `
+                }
+                ]
+                break;
+            }
+        }
+        
+        var renderStand = {
+            PC: function (renderSel) {
+                var str = '';
+                $.each( stand_posHtml, function( idx, ele ){
+                    str += `
+                    <div class="swiper-slide">
+                        <div id="dragBox-${idx}" class="lobbyImg_box">
+                            <div id="imgFilm-${idx}">
+                                <img id="dragImg-${idx}" src="${ele.image}">
+                                <div id="hover-links-pc${idx}" class="posBtn_container">
+                                    ${ele.posBtn}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                })
+                $( renderSel ).html( str );
+            },
+            M: function (renderSel) {
+                var str = '';
+                $.each( stand_posHtml, function( idx, ele ){
+                    str += `
+                        <div class="swiper-slide">
+                            <img class="w-100 d-block" src="${ele.image}">
+                            <div id="hover-links-m${idx}" class="posBtn_container">
+                    `
+                    str += $(`#hover-links-pc${idx}`).html();
+                    str += `
+                            </div>
+                        </div>
+                    `
+                })
+                $( renderSel ).html( str );
+            },
+            M_links: function(renderSel){
+                var str = '';
+                if ( _da[s].mail ){
+                    str += `<a target="_blank" class="btn btn_danger mobile_linkBtn" href="mailto:${_da[s].mail}">Contact us</a>`
+                }
+                if ( _da[s].doc ){
+                    $.each( _da[s].doc, function( key, ele ){
+                        str += `<a target="_blank" class="btn btn_danger mobile_linkBtn" href="${ele.src}">${ele.title}</a>`
+                    })
+                }
+                if ( _da[s].video[0] ){
+                    $.each( _da[s].video, function( key, ele ){
+                        str += `<a target="_blank" class="btn btn_danger mobile_linkBtn" href="${ele}">Video</a>`
+                    })
+                }
+                if ( _da[s].website ){
+                    str += `<a target="_blank" class="btn btn_danger mobile_linkBtn" href="${_da[s].website}">Website</a>`
+                }
+                $( renderSel ).html( str );
+            }
+        }
+        
+        var renderStandAfter = {
+            fullScreenSubNav: function(){
+                $.each( stand_posHtml, function( idx, ele ){
+                    fullScreenSubNav('#dragBox-' + idx);
+                })
+            },
+            dragImgInBox: function(){
+                $.each( stand_posHtml, function( idx, ele ){
+                    dragImgInBox('#dragBox-' + idx, '#imgFilm-' + idx, '#dragImg-' + idx, { 'limitStrength': 1, 'defaultPosition': [50,55], 'swiper': true, 'cursorGrab': false } );
+                })
+            },
+            plugins: function(){
+                // 輪播套件
+                swiper_pc = new Swiper('#swiper-container-pc', {
+                    pagination: {
+                        el:'.swiper-pagination',
+                        type:'progressbar',
+                    },
+                    navigation: {
+                        nextEl:'.swiper-button-next',
+                        prevEl:'.swiper-button-prev',
+                    },
+                    scrollbar: {
+                        el:'.swiper-scrollbar',
+                        hide: true,
+                    },
+                    allowTouchMove: false,
+                    effect: 'fade',
+                    preventClicks: false,
+                    noSwiping: true,
+                });
+                
+                swiper_m = new Swiper('#swiper-container-m', {
+                    pagination: {
+                        el:'.swiper-pagination',
+                        type:'progressbar',
+                    },
+                    navigation: {
+                        nextEl:'.swiper-button-next',
+                        prevEl:'.swiper-button-prev',
+                    },
+                    scrollbar: {
+                        el:'.swiper-scrollbar',
+                        hide: true,
+                    },
+                    noSwiping: true,
+                });
+            }
+        }
+        
+        
+        $(function () {
+            $('#swiper-container-pc').css({'opacity':'0'})
+            const Promise_getStandData = new Promise(function(resolve, reject) {
+                $.get('/myProjects/TIBCS2020/static/common/doc/exhibition/exhibition.json','',function(res){
+                    _da = res;
+                    resolve();
+                })
+            });
+            
+            Promise_getStandData.then( function(){
+                stand_posHtml = getStand_posHtml();
+                // console.log( stand_posHtml )
+                renderStand.PC('#swiper-wrapper-pc');
+                renderStand.M('#swiper-wrapper-m');
+                renderStand.M_links('#stand-links-m');
+                $('a').confirmMailto();
+
+                var timer = setInterval(function () { // 偵測圖片是否已載好，故用timer迴圈
+                    var allImgDone = stand_posHtml.length; // 總共有幾個攤位圖
+                    $.each( stand_posHtml, function( idx, ele ){
+                        if ( $('#dragImg-'+idx).get(0).complete ){
+                            allImgDone --;
+                            if ( allImgDone === 0 ){
+                                allImgDone = true;
+                            }
+                        }
+                    })
+                    
+                    if ( allImgDone === true ){ // 當所有圖都載好時
+                        clearInterval(timer);
+                        renderStandAfter.fullScreenSubNav();
+                        renderStandAfter.dragImgInBox();
+                        renderStandAfter.plugins();
+
+                        if ( stand_posHtml.length > 2){ // 如果照片大於兩張，預設顯示第二張(中間那張)。
+                            swiper_pc.slideTo(1,0);
+                            swiper_m.slideTo(1,0);
+                        }
+
+                        dealToggleNav('#toggleNavButton','slideUp','992');
+                        $('#swiper-container-pc').animate({'opacity':'1'}, 750);
+                        
+                        $(window).on('resize', function () {
+                            if (window.innerWidth >= '992') {
+                                renderStandAfter.fullScreenSubNav();
+                            }
+                        })
+                    }
+                }, 10);
+            })        
+        })
+
+        /* 按左右鍵切換圖片 */
+        $(document).on('keydown',function(event){
+            if (event.keyCode==37){ // 左
+                swiper_pc.slidePrev();
+            }
+            if (event.keyCode==39){ // 右
+                swiper_pc.slideNext();
+            }
+        })
+        
+        // IE判斷
+        if ( IEVersion() && getCookie('exhibition_stand') !='1'){
+            setCookie('exhibition_stand','1', 1*24*60*60 )
+            $('#IE_notSupport').modal('show');
+        }
+    </script>
+    
+</body>
+</html>

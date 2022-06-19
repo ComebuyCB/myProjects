@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#5b6175;stroke-linecap:round}
+        </style>
+    </defs>
+    <g id="icon_menu" transform="translate(-6607 -592)">
+        <path id="Rectangle_962" fill="none" d="M0 0H22V22H0z" transform="translate(6607 592)"/>
+        <g id="Group_15309" transform="translate(6608 596)">
+            <g id="Group_15290">
+                <path id="Path_197676" d="M6722.875 532.422h20" class="cls-2" transform="translate(-6722.875 -532.422)"/>
+                <path id="Path_197677" d="M6722.875 532.422h20" class="cls-2" transform="translate(-6722.875 -525.422)"/>
+                <path id="Path_197678" d="M6722.875 532.422h20" class="cls-2" transform="translate(-6722.875 -518.422)"/>
+            </g>
+        </g>
+    </g>
+</svg>

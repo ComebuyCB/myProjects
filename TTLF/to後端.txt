@@ -1,0 +1,32 @@
+1. 架構：
+    <body id="該頁html名">
+        <div id="wrap" class="_wrap">
+            <header/>
+            <main/>
+            <footer/>
+            <div #right-panel/>
+            <nav #m-navbar/>
+            <div #modal/>
+        </div>
+    </body>
+
+
+2. 共用內容:
+    <header/> <footer/> <div #right-panel/> <nav #m-navbar/> <div #modal/>
+    以上5個，大部分頁面的內容與擺放位置均相同，放在include資料夾內。
+
+
+3. 例外頁面：
+    * index.html：
+        1. <header> 擺放位置例外
+        2. <div id="wrap" class="_wrap _page-full">
+        3. <div id="right-panel"> 沒有這一塊
+
+    * profile.html: 
+        1. <body id="profile" data-spy="scroll" data-target="#profileMenu" data-offset="1">
+        
+    * contactus.html:
+        1. <div id="right-panel"> 沒有這一塊
+
+4. 請搜尋: to後端
+    
