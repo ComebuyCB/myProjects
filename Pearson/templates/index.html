@@ -32,14 +32,14 @@
   <div id="wrap">
     <header>
       <nav id="header-navbar" class="navbar navbar-dark">
-        <div class="container-xl">
+        <div class="container-lg">
           <a class="navbar-brand" href="#twMap"><img src="/myProjects/Pearson/static/common/img/logo1@2x.png" height="48"></a>
           <ul id="header-navbar-nav" class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="#section1">公司簡介</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section2">網路<br class="d-sm-none">民調中心</a>
+              <a class="nav-link" href="#section2">網路<br class="d-sm-none">調查中心</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#section3">大數據<br class="d-sm-none">中心</a>
@@ -80,10 +80,10 @@
           </div>
         </div>
   
-        <div id="mapUI-top">
+        <div id="twMap-mapUI-top">
           <div id="twMap-choose">
-            <div class="whs-nw">
-              <img src="/myProjects/Pearson/static/common/img/search-solid.png" class="me-2">數據主題
+            <div class="whs-nw fw-bold">
+              <img src="/myProjects/Pearson/static/common/img/icon/search-solid.png" class="me-2">數據主題
             </div>
             <select id="twMap-select" class="form-select ms-3 w-auto">
               <option value="1">議員好感度黨籍比例</option>
@@ -92,11 +92,11 @@
           </div>
 
           <div id="twMap-backBtn" class="btn btn-secondary" style="display: none">
-            <img src="/myProjects/Pearson/static/common/img/icon_back.png" class="mb-1"><span>回上層</span>
+            <img src="/myProjects/Pearson/static/common/img/icon/icon_back.png" class="mb-1"><span>回上層</span>
           </div>
 
           <div id="twMap-infoBox">
-            <div class="infoBox">
+            <div class="twMap-infoBox">
               <span>
                 請於 <span class="c_info">下拉選單</span> 選擇你有興趣的數據主題，
                 並且 <span class="c_info">點擊地圖上的縣市</span> 檢視資料。
@@ -141,7 +141,7 @@
           </table>
         </div>
         
-        <div id="twMap-detail" style="display: none">
+        <div id="twMap-detail" class="scrollBar prevent_mobile_refresh" style="display: none">
           <div id="twMap-detail-head">
             <div class="d-flex">
               <h5 id="twMap-location" class="mb-1 me-2"></h5>
@@ -173,74 +173,356 @@
       </div>
 
       <div id="index_sections">
+        <section>
+          <div id="section0" class="hashTag"></div>
+          <div class="p-1">
+            <div class="section0_bg">
+              <div>
+                <img class="mb-4" src="/myProjects/Pearson/static/common/img/logo2@2x.png" width="192">
+                <div class="section0_streamer mb-3">網路衝擊力分析方案</div>
+                <div class="section0_desc">
+                  協助您在網路的市場動態競爭中<br>
+                  藉由我們的數據分析方案滾動調整
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="section">
           <div id="section1" class="hashTag"></div>
-          <div class="container-xl d-flex flex-column flex-md-row">
-            <div class="text-center">
-              <div class="v_text me-5">公司簡介</div>
+          <div class="container-lg section_container">
+            <div class="section_title">
+              <div>公司簡介</div>
             </div>
-            <div class="row align-items-center">
-              <div class="col-md-4">
-                <div class="card card_primary mb-3">
-                  發展與時俱進的網路調技術服務，協助掌握公眾現況。
-                </div>
-                <div class="card card_primary">
-                  發展與時俱進的網路調技術服務，協助掌握公眾現況。
-                </div>
-              </div>
-              <div class="col-md-8 ps-md-5 lh-2">
-                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
-                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
-                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
-                皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，皮爾森數據成立2021年，
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section class="section bg_primary text-white">
-          <div id="section2" class="hashTag"></div>
-          <div class="container-xl d-flex">
-            <div class="v_text me-5">網路民調中心</div>
             <div>
-              近年由於國內電信業的4G
+              <div class="section1_intro">
+                <div class="section1_cards">
+                  <div class="card mb-3">
+                    發展與時俱進的網路調研技術服務，協助掌握公眾與受眾現況。
+                  </div>
+                  <div class="card">
+                    在市場變化過程與目標滾動調整中，一起從網路找出新的活路。
+                  </div>
+                </div>
+                <div class="section1_desc">
+                  皮爾森數據成立於 2021 年，機構成員擁有 6 至 10 年台灣與東南亞跨國數據分析經驗，
+                  是市場研究與數據分析行業的指標先驅，在古典資料分析技術與現代網路資料科學交融的時代中，
+                  針對現代重大公共議題或產業生態中的動態競爭之決策需求，發展獨家且創新的市場研究的技術服務，
+                  是當前國內網路市場調查技術服務完備度最高的選擇，目前服務的客戶亦遍及國內外。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-lg section_container pt-5">
+            <div class="row gy-5 gx-lg-5" style="flex: 1">
+              <div class="col-lg-6">
+                <div class="section1_memberBlock">
+                  <div class="_pic">
+                    <img src="/myProjects/Pearson/static/common/img/羅棋駿.jpg" class="w-100">
+                  </div>
+                  <div>
+                    <div class="_title">營運長</div>
+                    <div class="_name">羅棋駿</div>
+                    <div class="_blocks">
+                      <div>
+                        10 年網路數據分析、市場研究、社會研究經驗，擅長結合質量化分析方式，
+                        提供全局視野的觀察，讓決策單位擁有更充分的依據。
+                      </div>
+                      <div>
+                        <div class="_title">學歷</div>
+                        <div>臺灣師範大學社會教育碩士</div>
+                      </div>
+                      <div>
+                        <div class="_title">經歷</div>
+                        <div>思為策略、映雲科技</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="section1_memberBlock">
+                  <div class="_pic">
+                    <img src="/myProjects/Pearson/static/common/img/劉威廷.jpg" class="w-100">
+                  </div>
+                  <div class="_text">
+                    <div class="_title">網路調查中心總監</div>
+                    <div class="_name">劉威廷</div>
+                    <div class="_blocks">
+                      <div>
+                        10年統計分析、問卷設計與市場調查經驗，擅長整理多元數據，並分析建立模型，
+                        包含消費者行為預測、選舉投票行為預估模型、中間選民意向預測及新聞熱度生命週期預測等數據模型。
+                      </div>
+                      <div>
+                        <div class="_title">學歷</div>
+                        <div>臺北大學統計研究碩士</div>
+                      </div>
+                      <div>
+                        <div class="_title">經歷</div>
+                        <div>思為策略、酷錢行銷</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="section1_memberBlock">
+                  <div class="_pic">
+                    <img src="/myProjects/Pearson/static/common/img/蕭雅云.jpg" class="w-100">
+                  </div>
+                  <div class="_text">
+                    <div class="_title">大數據中心總監</div>
+                    <div class="_name">蕭雅云</div>
+                    <div class="_blocks">
+                      <div>
+                        7 年數據研究經驗，擅長聚焦目標，設計動態指標與模型，提供兼顧討論與執行可能性的數據研究，
+                        作為候選人選舉佈局、品牌形象規劃、產品行銷、競品研究等資源投入的決策參考。
+                      </div>
+                      <div>
+                        <div class="_title">學歷</div>
+                        <div>天主教輔仁大學法律學系</div>
+                      </div>
+                      <div class="d-lg-none">
+                        <div class="_title">公開發表之委託研究</div>
+                        <div class="mb-2">
+                          <div>2019 年，台灣網路資訊中心委託研究，</div>
+                          <a class="alink" href="https://report.twnic.tw/disinformation/">《不實資訊的傳播源頭識別：以 COVID-19 為例》</a>
+                        </div>
+                        <div class="mb-2">
+                          <div>2018 年，民主基金會委託研究，</div>
+                          <a class="alink" href="http://www.taiwandemocracy.org.tw/export/sites/tfd/files/download/TFD-report_updated.pdf">《Information Operations on Facebook – Taiwan's Experience and Challenges》</a>
+                        </div>
+                        <div class="">
+                          <div>2018 年，台灣數位外交協會委託研究，</div>
+                          <a class="alink" href="https://medium.com/@yayun1414/%E7%94%A8%E6%95%B8%E6%93%9A%E6%8F%8F%E8%BF%B0%E6%84%9F%E8%A6%BA-%E4%BA%94%E6%AC%A1%E6%96%B7%E4%BA%A4%E6%98%AF%E5%90%A6%E8%AE%93%E7%A4%BE%E7%BE%A4%E8%B6%8A%E4%BE%86%E8%B6%8A%E9%BA%BB%E6%9C%A8-%E4%B8%8A-9c7128119af">《用數據驗證感覺，五次斷交讓社群麻木了嗎》</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 d-none d-lg-block" style="align-self: flex-end;">
+                <div class="section1_memberBlock">
+                  <div class="_text">
+                    <div class="_blocks">
+                      <div>
+                        <div class="_title">公開發表之委託研究</div>
+                        <div class="mb-2">
+                          <div>2019 年，台灣網路資訊中心委託研究，</div>
+                          <a class="alink" href="https://report.twnic.tw/disinformation/">《不實資訊的傳播源頭識別：以 COVID-19 為例》</a>
+                        </div>
+                        <div class="mb-2">
+                          <div>2018 年，民主基金會委託研究，</div>
+                          <a class="alink" href="http://www.taiwandemocracy.org.tw/export/sites/tfd/files/download/TFD-report_updated.pdf">《Information Operations on Facebook – Taiwan's Experience and Challenges》</a>
+                        </div>
+                        <div class="">
+                          <div>2018 年，台灣數位外交協會委託研究，</div>
+                          <a class="alink" href="https://medium.com/@yayun1414/%E7%94%A8%E6%95%B8%E6%93%9A%E6%8F%8F%E8%BF%B0%E6%84%9F%E8%A6%BA-%E4%BA%94%E6%AC%A1%E6%96%B7%E4%BA%A4%E6%98%AF%E5%90%A6%E8%AE%93%E7%A4%BE%E7%BE%A4%E8%B6%8A%E4%BE%86%E8%B6%8A%E9%BA%BB%E6%9C%A8-%E4%B8%8A-9c7128119af">《用數據驗證感覺，五次斷交讓社群麻木了嗎》</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section_title _right">
+              <div>核心成員</div>
             </div>
           </div>
         </section>
   
-        <section class="section bg-primary text-white">
-          <div id="section3" class="hashTag"></div>
-          <div class="container-xl d-flex">
-            <div style="flex: 1">
-              讓看得懂的動態數據指標
+        <section class="section section2_bg">
+          <div id="section2" class="hashTag"></div>
+          <div class="container-lg section_container">
+            <div class="section_title">
+              <div>網路民調中心</div>
             </div>
-            <div class="v_text ms-5">大數據中心</div>
+            <div>
+              <div class="row gy-4 gx-lg-5 lh-2">
+                <div class="col-md-6">
+                  近年由於國內電信業的4G行動上網與5G行動上網推動，行動寬頻與行動電話數量已經近乎於100%同步。
+                  手機與行動裝置的主要功能，已經從接聽電話轉變為網路資訊接收裝置。透過網路執行分層隨機抽樣調查，其反應現況的能力也越來越扎實。
+                </div>
+                <div class="col-md-6">
+                  皮爾森數據結合網路通訊技術、數位行銷科技知識，以及抽樣調查統計等三項專業知識，開始發展網路分層隨機抽樣的系統與管理模式為，
+                  透過整合跨平台的網路廣告技術、資料管理平台技術、抽樣條件比對與分析等應用，並透過選舉結果，進行事後比較與技術驗證。
+                </div>
+              </div>
+              <div class="mt-5">
+                <img src="/myProjects/Pearson/static/common/img/img1@2x.png" class="w-100 d-none d-lg-block">
+                <img src="/myProjects/Pearson/static/common/img/img1_320@2x.png" class="w-100 d-block d-lg-none mx-auto" style="max-width: 400px;">
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <section class="section section3_bg text-white">
+          <div id="section3" class="hashTag"></div>
+          <div class="container-lg section_container">
+            <div class="section3">
+              <div class="_text">
+                <div class="_text1">
+                  讓看得懂的動態數據指標<br>
+                  協助您決定重要策略
+                </div>
+                <div class="_text2">
+                  大數據｜聲量研究｜語意分析｜社群媒體觀測｜口碑行銷｜形象分析｜議題追蹤｜風險控制｜策略競爭
+                </div>
+                <div class="_text3">
+                  <div><i class="fa fa-check me-1"></i> 具備深入研究能力，提出最能夠應對變化的數據方案</div>
+                  <div><i class="fa fa-check me-1"></i> 設計動態指標模型，分析結果具討論空間與執行可能</div>
+                  <div><i class="fa fa-check me-1"></i> 提供看得懂的數據分析說明，多年來使我們備受讚譽</div>
+                  <div><i class="fa fa-check me-1"></i> 能夠探討文獻、提出研究方法，發現機會、掌握風險</div>
+                </div>
+                <div class="d-lg-none mb-4">
+                  <div class="_imgBlock mb-4">
+                    <img src="/myProjects/Pearson/static/common/img/img3-1@2x.png" class="w-100">
+                    <div>研究成果公開於網域機構網站，超過 166 萬筆數據</div>
+                  </div>
+                  <div class="_imgBlock">
+                    <img src="/myProjects/Pearson/static/common/img/img3-2@2x.png" class="w-100">
+                    <div>研究成果經英文翻譯後公開於智庫網站</div>
+                  </div>
+                </div>
+                <div class="_text4">
+                  <div class="mb-2">
+                    「發現機會」是數據分析被賦予的期待，能根據目標開展思考脈絡、提出研究方法，才是分析能力優劣的關鍵。
+                    皮爾森數據團隊，為統計學、數學、社會學、政治學及法律背景，分析師具產業經驗、媒體經驗、中研院研究經驗與公共事務經驗，
+                    6-10 年間，執行 400 件以上台灣與東南亞跨國品牌數據分析，擅長對您想達成的目標抽絲剝繭，從數據中提煉具備討論與執行可能的方向。
+                  </div>
+                  <div>
+                    曾協助政治人物、倡議團體、企業品牌、NGO、智庫等研究機構，
+                    提出選舉策略與議題方向、規劃資源投入、研究企業形象、促成社群溝通、分析產品與競品市場。
+                  </div>
+                </div>
+              </div>
+              <div class="_img d-none d-lg-block">
+                <div class="_imgBlock mb-4">
+                  <img src="/myProjects/Pearson/static/common/img/img3-1@2x.png" class="w-100">
+                  <div>研究成果公開於網域機構網站，超過 166 萬筆數據</div>
+                </div>
+                <div class="_imgBlock">
+                  <img src="/myProjects/Pearson/static/common/img/img3-2@2x.png" class="w-100">
+                  <div>研究成果經英文翻譯後公開於智庫網站</div>
+                </div>
+              </div>
+            </div>
+            <div class="section_title _right">
+              <div>大數據中心</div>
+            </div>
           </div>
         </section>
   
         <section class="section">
           <div id="section4" class="hashTag"></div>
-          <div class="container-xl d-flex">
-            <div class="v_text me-5">新聞稿</div>
-            <div style="flex: 1">
-              讓看得懂的動態數據指標
+          <div class="container-lg section_container">
+            <div class="section_title">
+              <div>新聞稿</div>
+            </div>
+            <div class="section4">
+              <div class="row _newsRow g-3 g-sm-4 g-lg-5">
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pb-3">
+                  <div class="ratio ratio-16x9 bg_img" style="background-image: url(/myProjects/Pearson/static/common/img/banner@2x.jpg)"></div>
+                  <div class="_line1">
+                    <div class="_type">政策提延</div>
+                    <div class="_time">2022/02/18</div>
+                  </div>
+                  <div class="_desc">
+                    皮爾森數據具備深入研究能力 提出最能夠應對變化的數據方案
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
   
         <section class="section">
           <div id="section5" class="hashTag"></div>
-          <div class="container-xl d-flex">
-            <div style="flex: 1">
-              
+          <div class="container-lg section_container">
+            <div class="section5">
+              <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3614.808191382623!2d121.504047!3d25.0405826!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9082b6a36bd%3A0x9a66adb802b371d6!2zMTA45Y-w5YyX5biC6JCs6I-v5Y2A6ZW35rKZ6KGX5LqM5q61NjbomZ8!5e0!3m2!1szh-TW!2stw!4v1652107825811!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="_text">
+                <div class="_infos">
+                  <a class="img_text">
+                    <i class="fa fa-envelope c_primary"></i>
+                    <span>service@pdata.info</span>
+                  </a>
+                  <a class="img_text">
+                    <i class="fa fa-phone c_primary"></i>
+                    <span>02-77302090</span>
+                  </a>
+                  <a class="img_text">
+                    <i class="fa fa-map-marker-alt c_primary"></i>
+                    <span>108 台北市萬華區長沙街二段66號4樓</span>
+                  </a>
+                </div>
+                <div class="_FB">
+                  <a class="img_text" href="https://www.facebook.com/PearsonData/">
+                    <i class="fab fa-facebook-square c_primary fs-3"></i><span>FACEBOOK</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="v_text ms-5">聯絡我們</div>
+            <div class="section_title _right">
+              <div>聯絡我們</div>
+            </div>
           </div>
         </section>
 
         <footer>
-          <div class="container-xl py-3">
-            All copyrights reserved 2022皮爾森數據
+          <div class="container-lg py-3">
+            All copyrights reserved © 2022皮爾森數據 
           </div>
         </footer>
       </div>
@@ -250,34 +532,6 @@
   
   <script>
     /* evt = show || hide */
-    function toggleDetailBody( evt ){
-      function _toShow(){
-        $('#twMap-detail-body').slideDown('fast')
-        $('#twMap-toggle-detail-body').find('.fa').removeClass('fa-angle-up')
-      }
-      function _toHide(){
-        $('#twMap-detail-body').slideUp('fast')
-        $('#twMap-toggle-detail-body').find('.fa').addClass('fa-angle-up')
-      }
-
-      if ( evt == 'show' ){
-        _toShow()
-      } else if ( evt === 'hide' ) {
-        _toHide()
-      }
-      if ( evt ) { return }
-
-      if ( $('#twMap-detail-body').css('display') === 'none' ){
-        _toShow()
-      } else {
-        _toHide()
-      }
-    }
-
-    $('#twMap').click( function(){
-      $('#twMap-infoBox').fadeOut('fast')
-    })
-
     class Use_interactJs {
       constructor( target ){
         this.target = target
@@ -367,26 +621,30 @@
     var scaleValue = 1
     var scaleAmp = 2
 
-    // var blueClrArr = ['#C8EBFD','#5AC3FA','#00A4FC','#0178BA','#004F81']
     var blueClrArr = ['#41aad4','#0086c5','#005ca5','#003c72','#092352']
     var blueDomain
     var blueColor = d3.scale.linear().domain( d3.range( blueClrArr.length ) ).range( blueClrArr )
 
-    // var greenClrArr = ['#73E5AA','#57D690','#3CC471','#32A55F','#24854E']
     var greenClrArr = ['#98c46b','#67a937','#00932f','#006c2e','#004e30']
     var greenDomain
     var greenColor = d3.scale.linear().domain( d3.range( greenClrArr.length ) ).range( greenClrArr )
 
-    var sfClrArr = ['#ff5555','#ff9977','#66aa44','#44cc66']
+    var sfClrArr = ['#ff5555','#ff9977','#77aa44','#44cc66']
     var sfDomain
     var sfColor = d3.scale.linear().domain( d3.range( sfClrArr.length ) ).range( sfClrArr )
 
     var data
     var touch = false
 
+    var chart1 = null
+    var chart2 = null
+    var chart3 = null
+    var chart4 = null
+
     var interactJs = new Use_interactJs('#svgBox')
-      interactJs.draggable(false)
-    
+        interactJs.draggable(false)
+
+
     function getTransXYS( elem ){
       let style = window.getComputedStyle( elem )
       let matrix = new WebKitCSSMatrix(style.transform)
@@ -394,6 +652,7 @@
       // console.log(a,b,c,d,e,f)
       return {x: e, y: f, s: a}
     }
+
 
     getMixedData( promiseGetMapData(), promiseGetSurveyData(), resData => {
       data = resData
@@ -437,6 +696,7 @@
       create_D3GeoMap(data)
     })
 
+
     function create_InfoColor( tg, clrArr ){
       let str = ''
       $.each( clrArr, (idx ,item) => {
@@ -446,6 +706,7 @@
       })
       $(tg).css('background',`linear-gradient( to right ${str} )`).css('box-shadow','0 0 2px #f5f5f5')
     }
+
 
     function create_D3GeoMap(data){
       // 讓d3抓svg，並寫入寬高
@@ -504,9 +765,6 @@
       changeThemeColor()
     }
 
-    $('#twMap-select').change(()=>{
-        changeThemeColor()
-    })
 
     function changeThemeColor(){
       $.each( data.features, (idx,d)=>{
@@ -536,12 +794,13 @@
         }
 
         if ( d.properties.TOWNID === undefined ){
-          $(`path[countyID=${d.properties.COUNTYID}][mainID=${d.properties.COUNTYID}]`).css('fill', color).attr('fill', color)
+          $(`path[countyId=${d.properties.COUNTYID}][mainId=${d.properties.COUNTYID}]`).css('fill', color).attr('fill', color)
         } else {
-          $(`path[countyID=${d.properties.COUNTYID}][mainID=${d.properties.TOWNID}]`).css('fill', color).attr('fill', color)
+          $(`path[countyId=${d.properties.COUNTYID}][mainId=${d.properties.TOWNID}]`).css('fill', color).attr('fill', color)
         }
       })
     }
+
 
     function zoomMap( newScale, pathXY ){
       if (onZoom){ return }
@@ -585,67 +844,68 @@
       y = ( y > by ) ? by : y
       y = ( y < -by ) ? -by : y
 
-      gsap.fromTo('#svgBox', 0.4, { x: trans.x, y: trans.y, scale: oS }, { x: x, y: y, scale: nS, ease: 'power2.out', 
+      gsap.fromTo('#svgBox', 0.3, { x: trans.x, y: trans.y, scale: oS }, { x: x, y: y, scale: nS, ease: 'power2.out', 
         onComplete: ()=>{ onZoom = false }
       })
 
       if ( nS === 1 ){
         interactJs.draggable(false)
-        // $('#map').removeClass('zoomIn')
-        $('#mapUI-top').css('top','')
+        $('#twMap-backBtn').hide()
+        $('#twMap-mapUI-top').css('top','')
         $('header').slideDown('fast')
         $('#header-navbar-nav').slideDown('fast')
         $('#index_sections').show()
       } else {
         interactJs.draggable(true)
-        // $('#map').addClass('zoomIn')
-        $('#mapUI-top').css('top',0)
+        $('#twMap-backBtn').show()
+        $('#twMap-mapUI-top').css('top', 0)
         $('header').slideUp('fast')
         $('#header-navbar-nav').slideUp('fast')
         $('#index_sections').hide()
       }
-
       scaleValue = nS
       return nS
     }
 
 
-  /* ====== listeners ====== */
-    // $(window).on('resize', ()=>{
-    //   mapW = window.innerWidth
-    //   mapH = window.innerHeight
-    //   create_D3GeoMap(data)
-    // })
-
-    $('#svgBox').on('mousewheel',() => {
-      if( event.ctrlKey == true ){
-          event.preventDefault()
-          event.deltaY < 0 ? zoomMap( scaleValue*scaleAmp ) : zoomMap( scaleValue/scaleAmp )
+    function toggleDetailBody( evt ){
+      function _toShow(){
+        $('#twMap-detail-body').slideDown('fast')
+        $('#twMap-toggle-detail-body').find('.fa').removeClass('fa-angle-up')
       }
-    })
-    $('#zoomIn').on('click',() => {
-      zoomMap( scaleValue*scaleAmp )
-    })
-    $('#zoomOut').on('click',() => {
-      zoomMap( scaleValue/scaleAmp )
-    })
+      function _toHide(){
+        $('#twMap-detail-body').slideUp('fast')
+        $('#twMap-toggle-detail-body').find('.fa').addClass('fa-angle-up')
+      }
 
-    var chart1 = null
-    var chart2 = null
-    var chart3 = null
-    var chart4 = null
-    $('#svg').on('click', function(event){
+      if ( evt == 'show' ){
+        _toShow()
+      } else if ( evt === 'hide' ) {
+        _toHide()
+      }
+      if ( evt ) { return }
+
+      if ( $('#twMap-detail-body').css('display') === 'none' ){
+        _toShow()
+      } else {
+        _toHide()
+      }
+    }
+
+
+  /* ====== listeners ====== */
+    $('#svg').on('click touch', function(event){
       if ( onDrag ) { return }
       let $TG = $(event.target)
 
       // 刪除圖表
-      if ( chart1 ) { chart1.destroy() }
-      if ( chart2 ) { chart2.destroy() }
-      if ( chart3 ) { chart3.destroy() }
-      if ( chart4 ) { chart4.destroy() }
-
+      
       // 點擊某縣市
       if ( $TG[0].nodeName === 'path' ){
+        if ( chart1 ) { chart1.destroy() }
+        if ( chart2 ) { chart2.destroy() }
+        if ( chart3 ) { chart3.destroy() }
+        if ( chart4 ) { chart4.destroy() }
         const indexNo = $TG.attr('indexNo')
         const sv = data.features[indexNo]['sv']
 
@@ -659,9 +919,7 @@
         }
         $('#svg').find('.town.active').removeClass('active')
         $TG.addClass('active')
-
         $('#svg').css('color', $TG.attr('fill') )
-        // $('#linearGradient_001').find('stop[offset="50%"]').attr('stop-color', $TG.attr('fill') )
 
         // twMap-detail 顯示標題
         let countyName = $TG.attr('countyName')
@@ -867,7 +1125,7 @@
       }
     })
 
-    $('#twMap-backBtn').on('click touch', function(){
+    $('#twMap-backBtn').on('click', function(){
       if (onZoom){ return }
       let $Town = $('#svg').find('.town.active')
       let $County = $('#svg').find('.county.active')
@@ -885,6 +1143,30 @@
       } else {
         zoomMap(1)
       }
+    })
+
+    // $(window).on('resize', ()=>{
+    //   mapW = window.innerWidth
+    //   mapH = window.innerHeight
+    //   create_D3GeoMap(data)
+    // })
+
+    $('#twMap').click( () => {
+      $('#twMap-infoBox').fadeOut('fast')
+    })
+    $('#twMap-select').change(() => {
+        changeThemeColor()
+    })
+    $('#svgBox').on('mousewheel',() => {
+      if ( event.ctrlKey !== true ){ return }
+      event.preventDefault()
+      event.deltaY < 0 ? zoomMap( scaleValue*scaleAmp ) : zoomMap( scaleValue/scaleAmp )
+    })
+    $('#zoomIn').on('click',() => {
+      zoomMap( scaleValue*scaleAmp )
+    })
+    $('#zoomOut').on('click',() => {
+      zoomMap( scaleValue/scaleAmp )
     })
 
     $('#svg').on('mouseenter', 'path', function(evt){

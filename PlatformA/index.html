@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="" />
+    <meta name="language" content="zh-tw">
+    <title>會員專區 | platform A</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/images/Favicon_32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="resources/images/Favicon_96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/images/Favicon_16.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/slick-theme.css">
+    <link rel="stylesheet" href="resources/css/slick.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+    
+    <script src="resources/js/vue.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script src="resources/js/popper.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/slick.js"></script>
+    <script src="resources/js/interact.min.js"></script>
+    <script src="resources/js/dom-to-image.js"></script>
+    <script src="resources/js/main.js"></script>
+
+    <style>
+        body:not(.index) main { margin-top: 0; }
+        .display-setting { padding-top: 30px; }
+        [v-cloak] { display: none; }
+        .pos-s { position: static !important; }
+        .pos-a { position: absolute !important; }
+        .pos-r { position: relative !important; }
+        .pos-f { position: fixed !important; }
+        .loc-full { left:0; right:0; top:0; bottom:0; }
+
+        .img-full { background-repeat: no-repeat; background-position: center center; background-size: cover; }
+        .img-contain { background-size: contain !important; }
+        #dragContainer { overflow: hidden; user-select: none; }
+        .bg-wrapper.active { outline: 4px solid rgb(0,128,255) }
+        .bg-grid-line {
+            background: center center;
+            background-size: 100px 100px;
+            background-image:
+            linear-gradient(to right, rgba(255,255,255,1) 1px, rgba(0,0,0,1) 2px, transparent 1px, transparent 49%, rgba(240,240,240,0.25) 1px, rgba(199,199,199,0.25) 2px, transparent 50%),
+            linear-gradient(to bottom, rgba(255,255,255,1) 1px, rgba(0,0,0,1) 2px, transparent 1px, transparent 49%, rgba(240,240,240,0.25) 1px, rgba(199,199,199,0.25) 2px, transparent 50%);
+            /* pointer-events: none; */
+        }
+        .js-draggable-bg, .js-draggable-paint { touch-action: none; position: absolute; }
+        .draggable-paint { animation: 0.25s showP forwards; box-shadow: 0 0 4px rgba(0,0,0,0.2); }
+        @keyframes showP {
+            0% { transform: translate( -50%, 1000px ); }
+        }
+
+        #ruler-scaleRange[type="range"]{ -webkit-appearance: none; border-radius: 2px; height: 4px; box-shadow: inset #ebb 0 0 5px; outline: none; }
+        #ruler-scaleRange[type="range"]::-webkit-slider-thumb{ -webkit-appearance: none; width: 20px; height: 20px; background: #23d2b4; border-radius: 50%; }
+
+        .fileHidden { opacity: 0; width: 0; height: 0; position: absolute; }
+        .text_white_shadow { text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white; }
+
+        #capturedBox { position: relative; overflow: hidden; }
+        .capturingBlock { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: none; align-items: center; justify-content: center; background-color: rgba(35,210,180,1); color: #fff; font-size: 18px; z-index: 100; }
+        .capturingBlock.active { display: flex }
+
+        .btn-outline { height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 4px 8px; }
+
+        @media screen and (max-width: 767.98px){
+            .btn-filled { width: auto; }
+        }
+        @media screen and (max-width: 575.98px){
+            .btn-filled { width: 100%; }
+        }
+    </style>
+</head>
+
+<body class="member">
+
+<main>
+    <section class="member-main">
+        <div class="container" style="max-width: 800px">
+            <div id="vue_field" v-cloak>
+                <h1 class="text-dimGray mb-2">模擬展示</h1>
+                <div id="capturedBox" class="mb-3">
+                    <div class="capturingBlock" :class="{ active: capturing }">儲存圖片中...</div>
+                    <div id="capturedMe" class="embed-responsive embed-responsive-16by9">
+                        <div id="dragContainer" class="embed-responsive-item">
+                            <div id="BG-drag" class="js-draggable-bg" :data-id="bg['view'].id"
+                                :data-x="bg['view'].x" :data-y="bg['view'].y"
+                                :style="`transform: translate(${bg['view'].x}px,${bg['view'].y}px);`">
+                                <img id="BG-img" :src="bg['view'].src" @load="initPosition( fixPaintPosition_toMid )"
+                                :style="`
+                                    width: ${ bg['view'].px_w * bgScale }px; 
+                                    height: ${ bg['view'].px_h * bgScale }px;`
+                                ">
+                
+                                <div id="paint-dragBox" class="pos-a loc-full">
+                                <img v-for="(pItem, pIdx) of paint.add" :key="pItem.id" class="draggable-paint js-draggable-paint" :data-id="pItem.id"
+                                    :data-x="pItem.x" :data-y="pItem.y" :src="pItem.src"
+                                    :style="`transform: translate(${pItem.x}px, ${pItem.y}px);
+                                    width: ${ pItem.cm_w * paintScale }px;
+                                    height: ${ pItem.cm_h * paintScale }px;`
+                                ">
+                                </div>
+                            </div>
+                
+                            <div v-show="paint.scaleRange.show" id="paint-ruler" class="bg-grid-line pos-a js-draggable-bg"
+                                :data-x="-container.w * 0.5" :data-y="-container.h * 0.5"
+                                :style="`transform: translate( ${-container.w * 0.5}px, ${-container.h * 0.5}px); 
+                                background-size: ${100 * paintScale}px ${100 * paintScale}px; 
+                                width: ${container.w * 2}px; height: ${container.h * 2}px;`
+                            "></div>
+
+                            <div v-show="paint.scaleRange.show" class="pos-a text_white_shadow" style="right: 8px; bottom: 0; font-size: 14px;">比例尺 (1格=1公尺)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fcsb flex-sm-row mb-3">
+                    <div class="fccc flex-sm-row justify-content-sm-between w-100 my-2" style="flex: 1">
+                        <button v-if="bg.view.name === 'custom'" type="button" class="btn-filled btn-success text-nowrap mr-md-2" :class="{ 'filled-darkGreen': paint.scaleRange.show }" @click="paint.scaleRange.show = !paint.scaleRange.show">
+                            {{ paint.scaleRange.show ? '鎖定比例尺' : '顯示比例尺'}}
+                        </button>
+                        <div v-show="paint.scaleRange.show" id="rangeCont-paint" class="w-100" style="flex: 1;">
+                            <div class="d-flex py-3">
+                            <!-- <i id="ruler-scaleDown" class="fa fa-minus px-1"></i> -->
+                            <input id="ruler-scaleRange" type="range" 
+                                :min="paint.scaleRange.min" :max="paint.scaleRange.max" step="0.001" 
+                                class="w-100" v-model.number="paint.scaleRange.val" @input="scale_after_center_paint()"
+                                :style="`background-image: linear-gradient( to right, #23d2b4 0%, #23d2b4 ${paintRangePercent}%, #fff ${paintRangePercent}%, #fff 100%)`">
+                            <!-- <i id="ruler-scaleUp" class="fa fa-plus px-1"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" v-show="!paint.scaleRange.show" class="btn-filled my-2" @click="downloadDisplay()" :disabled="capturing">儲存圖片</button>
+                </div>
+
+                <div class="display-setting" v-show="!paint.scaleRange.show">
+                    <nav class="mb-5 fcsb flex-md-row">
+                        <div class="nav setting-steps frcs" id="nav-tab" role="tablist">
+                            <a class="setting-steps-item btn-step active" id="display1-tab" href="#display1" data-toggle="tab" role="tab" aria-controls="display1" aria-selected="true">
+                                <div class="num">1</div>
+                                <span>選擇背景</span>
+                            </a>
+                            <div class="mx-3">
+                                <div class="next">
+                                    <img src="resources/images/icon/chevron-right_b.svg" alt="">
+                                </div>
+                            </div>
+                            <a class="setting-steps-item btn-step" id="display2-tab" href="#display2" data-toggle="tab" role="tab" aria-controls="display2" aria-selected="false">
+                                <div class="num">2</div>
+                                <span>選擇作品</span>
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="display1" role="tabpanel" aria-labelledby="display1-tab">
+                            <div class="row align-items-stretch">
+                                <div class="col-6 col-sm-4 col-md-3 mb-5">
+                                    <div class="fcss">
+                                        <div class="cover w-100">
+                                            <div class="bg-wrapper pos-r">
+                                                <div class="pos-a loc-full d-flex frcc flex-shrink-0">
+                                                    <label type="button" class="btn-outline mb-0 w-100"><span>自行上傳背景</span>
+                                                        <input type="file" accept="image/*" @change="upload_BG" class="fileHidden"/>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-sm-4 col-md-3 mb-5" v-for="(bItem,bIdx) of bg.custom">
+                                    <div class="fcss">
+                                        <div class="cover w-100" @click="list_change_Bg( 'custom', bIdx )">
+                                            <div class="bg-wrapper" :class="{ active: bItem.id === bg.view.id }" :style="`background-image: url(${bItem.src})`"></div>
+                                        </div>
+                                        <div class="mt-2 frcb w-100">
+                                            <div>自訂背景 {{bIdx + 1}}</div>
+                                            <label class="mb-0" role="button" style="color: var(--bg-primary)" @click="remove_BG( bIdx )">刪除</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-sm-4 col-md-3 mb-5" v-for="(bItem,bIdx) of bg.list">
+                                    <div class="fcss">
+                                        <div class="cover w-100" @click="list_change_Bg( 'list', bIdx )">
+                                            <div class="bg-wrapper" :class="{ active: bItem.id === bg.view.id }" :style="`background-image: url(${bItem.src})`"></div>
+                                        </div>
+                                        <div class="mt-2 frcb">
+                                            <div>{{bItem.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="display2" role="tabpanel" aria-labelledby="display2-tab">
+                            <div class="displayArtSlider">
+                                <div class="slider-item position-relative" v-for="(pItem,pIdx) of paint.list">
+                                    <div class="slider-item-wrapper artCard pt-1" @click="list_toggle_Paint( pIdx )">
+                                        <div class="cover bg-wrapper" :class="{ active: pItem.added }">
+                                            <img class="img-fluid w-100" :src="pItem.src">
+                                        </div>
+                                        <div class="card-info mt-2">
+                                            <h6 class="zh">{{pItem.name}}</h6>
+                                            <h6 class="en">{{pItem.artist}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    function dragMoveListener(event) {
+      let $TG = $(event.target)
+      let x = ( (+$TG.attr('data-x') ) || 0) + event.dx
+      let y = ( (+$TG.attr('data-y') ) || 0) + event.dy
+      $TG.attr('data-x', x)
+      $TG.attr('data-y', y)
+      $TG.css('transform', 'translate('+x+'px, '+y+'px)')
+    }
+    
+    new Vue({
+        el: '#vue_field',
+        data: {
+            capturing: false,
+            container: {
+                w: window.innerWidth,
+                h: window.innerHeight,
+                ratio: window.innerWidth / window.innerHeight
+            },
+            bg: {
+                mode: 'cover',
+                scaleRange: {
+                    min: 0,
+                    max: 10,
+                    val: 1,
+                    oldVal: null,
+                },
+                list: [
+                    { id: '1005', name: '客廳', scaleRange: 0.2, src: 'resources/images/temp/bg7.png', },
+                    { id: '1001', name: '接待區', scaleRange: 0.18, src: 'resources/images/temp/bg1.jpg', },
+                    { id: '1002', name: '餐廳', scaleRange: 0.2, src: 'resources/images/temp/bg2.jpg', },
+                    { id: '1003', name: '主臥', scaleRange: 0.18, src: 'resources/images/temp/bg3.jpg', },
+                    { id: '1004', name: '客廳', scaleRange: 0.16, src: 'resources/images/temp/bg4.jpg', },
+                    { id: '1006', name: '書房', scaleRange: 0.12, src: 'resources/images/temp/bg6.jpg', },
+                ],
+                custom: [
+                    { id: 'c001', name: 'custom', scaleRange: 0.25, src: 'resources/images/temp/bg5.jpg', },
+                ],
+                view: { 
+                    id: '', src: '',
+                    px_w: 100, px_h: null,
+                    nat_w: null, nat_h: null, ratio: null,
+                    fit_w: null, fit_h: null, fit_s: null, pre_fit_s: null, // fit: 圖片到該容器時的寬高，cover、contain會有所變化。
+                    x: 0, y: 0,
+                },
+            },
+            paint: {
+                scaleRange: {
+                    show: false,
+                    min: 0.05,
+                    max: 0.5,
+                    val: 0.25,
+                    oldVal: null,
+                },
+                list: [
+                    { id: '1011', cm_w: 60, cm_h: 60, name: 'City', artist: 'Amy Siber', src: 'resources/images/temp/art1.png', added: false },
+                    { id: '1022', cm_w: 70, cm_h: 70, name: 'Store', artist: 'Ben Su', src: 'resources/images/temp/art2.png', added: false },
+                    { id: '1033', cm_w: 50, cm_h: 75, name: 'Life', artist: 'Kay Lee', src: 'resources/images/temp/art3.png', added: false },
+                    { id: '1044', cm_w: 100, cm_h: 100, name: 'Tree', artist: 'Amy Siber', src: 'resources/images/temp/art4.png', added: false },
+                    { id: '1055', cm_w: 40, cm_h: 80, name: 'Mont', artist: 'Amy Siber', src: 'resources/images/temp/art5.png', added: false },
+                    { id: '1066', cm_w: 60, cm_h: 40, name: 'Face', artist: 'Sam Lu', src: 'resources/images/temp/art6.png', added: false },
+                    { id: '1077', cm_w: 75, cm_h: 50, name: 'Mont', artist: 'Amy Siber', src: 'resources/images/temp/art7.png', added: false },
+                    { id: '1088', cm_w: 90, cm_h: 90, name: 'Mont', artist: 'Amy Siber', src: 'resources/images/temp/art8.png', added: false },
+                ],
+                add: [],
+            }
+        },
+        computed: {
+            bgScale(){
+                let V = this
+                return V.bg.view.fit_s * V.bg.scaleRange.val
+            },
+            paintScale(){
+                let V = this
+                return V.bg.view.fit_s * V.bg.scaleRange.val * V.paint.scaleRange.val
+            },
+            paintRangePercent(){
+                let V = this
+                return ( V.paint.scaleRange.val - V.paint.scaleRange.min ) / ( V.paint.scaleRange.max - V.paint.scaleRange.min ) * 100
+            }
+        },
+        methods: {
+            init(){
+                let V = this
+                let useData = V.bg.custom.length > 0 ? 'custom' : 'list'
+                V.list_change_Bg( useData, 0 )
+            },
+
+            // 背景-位置調整置中，之後觸發fn
+            initPosition( fn ){
+                let V = this
+                    V.bg.scaleRange.val = 1
+                
+                let Img = $('#BG-img')[0]
+                let BG = V.bg.view
+                    BG.nat_w = Img.naturalWidth
+                    BG.nat_h = Img.naturalHeight
+                    BG.ratio = BG.nat_w / BG.nat_h // 圖片長寬比
+                    BG.px_w = 100 // 寬100px為固定100公分。 定義100px = 100公分
+                    BG.px_h = BG.px_w / BG.ratio // 寬100公分(px) / 高x公分(px)
+
+                let CONT = V.container
+                    CONT.w = $('#dragContainer').width() || window.innerWidth
+                    CONT.h = $('#dragContainer').height() || window.innerHeight
+                    CONT.ratio = CONT.w / CONT.h // 寬/高比
+
+                let modeBool = V.bg.mode === 'cover' ? BG.ratio > CONT.ratio : BG.ratio < CONT.ratio
+
+                if ( modeBool ){ // 寬/高比: 圖片 > 容器 (cover)
+                    BG.fit_h = CONT.h
+                    BG.fit_w = CONT.h * BG.ratio
+                    BG.x = -( BG.fit_w - CONT.w ) / 2
+                    BG.y = 0
+                } else {
+                    BG.fit_w = CONT.w
+                    BG.fit_h = CONT.w / BG.ratio
+                    BG.x = 0
+                    BG.y = -( BG.fit_h - CONT.h ) / 2
+                }
+
+                BG.pre_fit_s = BG.fit_s
+                BG.fit_s = BG.fit_w / BG.px_w
+
+                fn()
+            },
+
+        // 畫作 - 隨背景置中
+        fixPaintPosition_toMid(){
+            this.paint.add.forEach((e)=>{
+                e.x = this.bg.view.fit_w / 2 - e.cm_w * this.paintScale / 2
+                e.y = this.bg.view.fit_h / 2 - e.cm_h * this.paintScale / 2
+            })
+            this.$forceUpdate()
+        },
+
+        // 畫作 - 隨背景縮放
+        fixPaintPosition_scale(){
+            this.paint.add.forEach((e)=>{
+                e.x *= this.bg.view.fit_s / this.bg.view.pre_fit_s
+                e.y *= this.bg.view.fit_s / this.bg.view.pre_fit_s
+            })
+            this.$forceUpdate()
+        },
+
+        // 背景 - 上傳圖
+        upload_BG(evt){
+            let V = this
+            let target = evt.target
+            if (target.files && target.files[0]) {
+                var reader = new FileReader()
+                reader.readAsDataURL(target.files[0])
+                reader.onload = function() {
+                    let base64 = this.result
+                    V.bg.custom.unshift({ id: new Date().getTime(), name: 'custom', scaleRange: 0.2, src: base64, })
+                    V.list_change_Bg( 'custom', 0 )
+                }
+            }
+        },
+        // 背景 - 移除自訂圖
+        remove_BG(idx){
+            this.bg.custom.splice(idx,1)
+        },
+
+        // 清單 - 更換背景
+        list_change_Bg( data, idx ){
+            let V = this
+            let { id, scaleRange, src, name } = V.bg[data][idx]
+
+            V.bg.view.id = id
+            V.bg.view.src = src
+            V.bg.view.name = name
+            V.paint.scaleRange.val = scaleRange
+        },
+
+        // 清單 - 更換畫作
+        list_toggle_Paint( idx ){
+            let V = this
+            let List = V.paint.list
+            let Add = V.paint.add
+
+            if ( List[idx].added === false ){ // paint => will add to container
+                List[idx].added = true
+                List[idx].x = V.bg.view.fit_w / 2 - List[idx].cm_w * V.paintScale / 2
+                List[idx].y = V.bg.view.fit_h / 2 - List[idx].cm_h * V.paintScale / 2
+                Add.push( List[idx] )
+            } else { // paint in container => will delete
+                List[idx].added = false
+                let delIdx = Add.findIndex( item => item.id == List[idx].id )
+                Add.splice(delIdx,1)
+            }
+        },
+
+        // 背景 - 調整縮放後置中 (因x,y是由左上角出發) --此專案暫時用不到。
+        scale_after_center_BG(){
+            let V = this
+            let { view:BG_V, scaleRange:BG_S } = V.bg
+            let oldValue = +BG_S.oldVal || +BG_S.val
+            let newValue = +BG_S.val
+
+            BG_V.x -= BG_V.fit_w * ( newValue - oldValue ) / 2
+            BG_V.y -= BG_V.fit_h * ( newValue - oldValue ) / 2
+            
+            let amp = newValue / oldValue
+            V.paint.add.forEach( p => {
+                p.x = p.x * amp
+                p.y = p.y * amp
+            }) 
+            
+            BG_S.oldVal = newValue
+        },
+
+        // 畫作 - 調整縮放後置中 (因x,y是由左上角出發)
+        scale_after_center_paint(){
+            let V = this
+            let pScale = V.paint.scaleRange
+            let oldValue = +pScale.oldVal || +pScale.val
+            let newValue = +pScale.val
+
+            let oS = V.bgScale * oldValue
+            let nS = V.bgScale * newValue
+            V.paint.add.forEach( p => {
+                p.x -= p.cm_w * (nS - oS) / 2
+                p.y -= p.cm_h * (nS - oS) / 2
+            })
+
+            if ( V.bg.view.name === 'custom' ){
+                let idx = V.bg.custom.findIndex( e => e.id === V.bg.view.id )
+                V.bg.custom[idx].scaleRange = +pScale.val
+            }
+
+            pScale.oldVal = newValue
+        },
+
+        // 下載圖片
+        downloadDisplay(){
+            let V = this
+            let target = $('#capturedMe')[0]
+
+            isCapturing( true )
+            domtoimage.toPng( target )
+                .then( function (dataUrl) {
+                    isCapturing( false )
+                    let img = new Image()
+                    img.src = dataUrl
+                    let a = document.createElement('a')
+                    a.href = dataUrl
+                    a.download = new Date().getTime() + '.jpg'
+                    a.click()
+                    // document.body.appendChild(img)
+                })
+                .catch(function (error) {
+                console.error('something went wrong!', error)
+                })
+
+            function isCapturing( bool ){
+                if ( bool ){
+                    V.capturing = true
+                    $('#capturedBox').css('max-height', $(target).height() )
+                    $(target).width('1280px')
+                } else {
+                    V.capturing = false
+                    $('#capturedBox').css('max-height', 'unset')
+                    $(target).width('auto')
+                }
+
+                V.initPosition( V.fixPaintPosition_scale )
+            }
+        }
+    },
+    mounted() {
+        let V = this
+        V.init()
+        $(window).on('resize',()=>{
+            V.initPosition( V.fixPaintPosition_scale )
+        })
+
+        // 選擇圖片的滑動套件
+        $('#display2-tab').on('shown.bs.tab', function (e) {
+            $('.displayArtSlider').slick('setPosition')
+        })
+        $('.displayArtSlider').slick({
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: false,
+            autoplay: false,
+            dots: false,
+            arrows: true,
+            prevArrow: '<div class="slide-arrow slick-prev fccc"><img class="slide-arrow-btn img-fluid" src="resources/images/icon/chevron-left_gray.svg"></div>',
+            nextArrow: '<div class="slide-arrow slick-next fccc"><img class="slide-arrow-btn img-fluid" src="resources/images/icon/chevron-right_gray.svg"></div>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        rows: 2,
+                        slidesPerRow: 2
+                    }
+                }
+            ]
+        })
+
+        // 背景抓取套件
+        interact('.js-draggable-bg').draggable({
+            listeners: {
+                start(event) {
+                },
+                move(event) {
+                    dragMoveListener( event )
+                },
+                end(event) {
+                    var $target = $(event.target)
+                    var id = $target.attr('data-id')
+
+                    let BGv = V.bg.view
+                    if ( BGv.id == id ){
+                        BGv.x = +$target.attr('data-x')
+                        BGv.y = +$target.attr('data-y')
+                    }
+                }
+            },
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: $('#dragContainer')[0],
+                    endOnly: true,
+                })
+            ],
+        })
+
+        // 畫作抓取套件
+        interact('.js-draggable-paint').draggable({
+            listeners: {
+                start(event) {
+                },
+                move(event) {
+                    dragMoveListener( event )
+                },
+                end(event) {
+                    var $target = $(event.target)
+                    var id = $target.attr('data-id')
+                    V.paint.add.forEach( (ele, idx, arr)=>{
+                        if ( ele.id == id ){
+                            arr[idx].x = +$target.attr('data-x')
+                            arr[idx].y = +$target.attr('data-y')
+                        }
+                    })
+                }
+            },
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                restriction: $('#BG-drag')[0],
+                endOnly: true,
+                })
+            ],
+        })
+    },
+})
+</script>
+</body>
+
+</html>
