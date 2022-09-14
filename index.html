@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="static/js/apexCharts.min.js"></script>
 
     <link href="static/css/main.css" rel="stylesheet">
 
@@ -18,17 +18,20 @@
     <div id="wrap">
         <main>
             <div class="container">
-                
-
                 <section class="my-5">
                     <h1 class="fw-bold">周俊宇 
                         <span class="h4 fw-bold">/ {{age}}歲</span>
                         <span class="h4 fw-bold">/ 前端工程師</span>
                     </h1>
                     <hr>
-                    <h3 class="pb-2 mt-4">個人技能樹:</h3>
-                    <div class="row gx-4">
-                        <div class="col-12 col-lg-6" v-for="skill in skills">
+
+                    <div class="d-flex align-items-center mb-3 mt-4">
+                        <h3 class="mb-0">個人技能樹:</h3>
+                        <button class="btn ms-2" :class="[ skillChartMode ? 'btn-dark' : 'btn-primary' ]" @click="skillChartMode = !skillChartMode">{{skillChartMode ? '切換清單': '切換圖表' }}</button> </h3>
+                    </div>
+
+                    <div v-show="!skillChartMode" class="row gx-4">
+                        <div class="col-12" v-for="skill in skills">
                             <table class="table thead-dark table-striped table-sm table-light skill-table">
                                 <thead>
                                     <tr>
@@ -40,17 +43,21 @@
                                 <tbody>
                                     <tr v-for="td in skill.list">
                                         <td>{{td.name}}</td>
-                                        <td>{{td.exp}}</td>
+                                        <td>{{monthsToYearString(td.exp)}}</td>
                                         <td>{{td.desc}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
+                    <div v-show="skillChartMode" v-for="(val, key) in skills">
+                        <div :id="'chart-'+key"></div>
+                    </div>
                 </section>
 
                 <section class="my-5">
-                    <h3 class="pb-2">工作作品集: (時間近→遠)</h3>
+                    <h3 class="pb-2">特色工作作品: (時間近→遠) (Demo頁)</h3>
                     <div class="row g-3 ps-3">
                         <div class="col-12 col-lg-6 col-xl-4" v-for="items in works">
                             <a class="card link" :href="items.url" target="_blank">
@@ -69,9 +76,12 @@
                 </section>
 
                 <section class="my-5">
-                    <h3 class="pb-2">其他工作作品:</h3>
+                    <h3 class="pb-2">其他工作作品: (近兩年) (正式連結)</h3>
                     <ul>
-                        <li v-for="item in otherWorks">{{item}}</li>
+                        <li v-for="item in otherWorks">
+                            <a v-if="item.link !== ''" :href="item.link" target="_blank">{{item.name}}</a>
+                            <span v-else>{{item.name}}</span>
+                        </li>
                     </ul>
                 </section>
 
@@ -89,33 +99,34 @@
             el: '#wrap',
             data: {
                 age: Math.floor( ( new Date() - new Date('1993-10-31') )/1000/60/60/24/365 ),
+                skillChartMode: true,
                 skills: {
                     frontEnd: {
-                        title: '基礎 & 主題套件/框架',
+                        title: '基礎 / 主題套件',
                         list: [
                             {
                                 name: 'HTML、CSS、JS',
-                                exp: '4年',
+                                exp: 48,
                                 desc: '熟悉',
                             },
                             {
                                 name: 'jQuery',
-                                exp: '4年',
+                                exp: 48,
                                 desc: '熟悉',
                             },
                             {
                                 name: 'Bootstrap',
-                                exp: '4年',
+                                exp: 48,
                                 desc: '熟悉',
                             },
                             {
                                 name: 'Tailwind',
-                                exp: '半年',
+                                exp: 6,
                                 desc: '普通',
                             },
                             {
-                                name: 'Canvas',
-                                exp: '3月 (自學)',
+                                name: 'Canvas (自學)',
+                                exp: 3,
                                 desc: '略懂',
                             },
                         ],
@@ -125,22 +136,22 @@
                         list: [
                             {
                                 name: 'Angular (cdn)',
-                                exp: '半年',
+                                exp: 6,
                                 desc: '普通',
                             },
                             {
                                 name: 'Vue (cdn)',
-                                exp: '1年',
+                                exp: 12,
                                 desc: '普通',
                             },
                             {
-                                name: 'Vue (cli)',
-                                exp: '3月 (自學)',
+                                name: 'Vue (cli) (自學)',
+                                exp: 3,
                                 desc: '略懂',
                             },
                             {
                                 name: 'React、Redux',
-                                exp: '3月',
+                                exp: 3,
                                 desc: '略懂',
                             },
                         ],
@@ -150,17 +161,17 @@
                         list: [
                             {
                                 name: 'GSAP',
-                                exp: '半年',
+                                exp: 6,
                                 desc: '普通',
                             },
                             {
-                                name: 'Three',
-                                exp: '3月 (自學)',
+                                name: 'Three (自學)',
+                                exp: 3,
                                 desc: '略懂',
                             },
                             {
                                 name: 'D3',
-                                exp: '3月',
+                                exp: 3,
                                 desc: '略懂',
                             },
                         ],
@@ -170,17 +181,17 @@
                         list: [
                             {
                                 name: 'SQL',
-                                exp: '1年',
+                                exp: 12,
                                 desc: '普通',
                             },
                             {
                                 name: 'GIT',
-                                exp: '1年',
+                                exp: 12,
                                 desc: '普通',
                             },
                             {
                                 name: 'SVN',
-                                exp: '1年半',
+                                exp: 24,
                                 desc: '普通',
                             },
                         ]
@@ -197,7 +208,7 @@
                     },
                     {
                         title: 'Platform A',
-                        img: 'static/img/PlatformA.png',
+                        img: 'static/img/PlatformA.PNG',
                         url: 'PlatformA/index.html',
                         core: 'Bootstrap、jQuery、Vue',
                         plugins: '無',
@@ -237,30 +248,107 @@
                     },
                 ],
                 otherWorks: [
-                    '台灣癌症聯合學術年會 (TJCC)',
-                    '中華民國美容醫學醫學會 (CSCSM)',
-                    '生物醫學聯合學術年會 (JACBS)',
-                    '台灣乳房醫學會 (TIBCS)',
-                    '中華牙醫學會 (ADS)',
-                    '生活驚嘆號',
-                    '典亮基金會',
-                    'HangoutWith (交友網站)',
-                    'NCDR Line活動頁面',
-                    'STPI 知識服務平台',
-                    'STPI 科產平台',
-                    'STPI 科創平台',
-                    'STPI 計畫管考系統',
-                    '老師好! 樂齡課程人力媒合平台',
-                    '教育部教學實踐研究計畫',
-                    '雲豹 - 沙崙基地訪客預約系統',
+                    { name: '台灣癌症聯合學術年會 (TJCC)', link: ''},
+                    { name: '中華民國美容醫學醫學會 (CSCSM)', link: ''},
+                    { name: '生物醫學聯合學術年會 (JACBS)', link: ''},
+                    { name: '台灣乳房醫學會 (TIBCS)', link: ''},
+                    { name: '中華牙醫學會 (ADS)', link: ''},
+                    { name: '生活驚嘆號', link: ''},
+                    { name: '典亮基金會', link: 'https://www.dianliang.org.tw/'},
+                    { name: 'HangoutWith (交友網站)', link: ''},
+                    { name: 'NCDR Line活動頁面', link: ''},
+                    { name: 'STPI 知識服務平台', link: ''},
+                    { name: 'STPI 科產平台', link: ''},
+                    { name: 'STPI 科創平台', link: ''},
+                    { name: 'STPI 計畫管考系統', link: ''},
+                    { name: '老師好! 樂齡課程人力媒合平台', link: ''},
+                    { name: '教育實踐研究計畫成果交流平台', link: 'https://tpr.moe.edu.tw/achievement/'},
+                    { name: '雲豹 - 沙崙基地訪客預約系統', link: 'https://visitor.secpaas.org.tw/rental'},
                 ]
             },
             methods: {
+                monthsToYearString( num ){
+                    if ( num < 12 ){ return num + '月' }
+                    return (num / 12).toFixed(0) + '年' 
+                },
+
+                monthsToYear( num ){
+                    return (num / 12).toFixed(1)
+                },
+
+                objectSameKeysToArray( array ){
+                    let obj = {}
+                    array.forEach( e => {
+                        for (let [key,val] of Object.entries(e) ){
+                            if ( !obj[key] ){
+                                obj[key] = []
+                            }
+                            obj[key].push(val) 
+                        }
+                    })
+                    return obj
+                }
 
             },
             mounted() {
-                ApexChart( $('#')[0], {
-                    
+                let V = this
+
+                Object.entries( V.skills ).forEach( ([key, val])=>{
+                    let data = V.objectSameKeysToArray( val.list )
+
+                    var chart = new ApexCharts( $(`#chart-${key}`)[0], {
+                        series: [{
+                            name: '經驗(年)',
+                            data: data.exp.map( m => (m/12).toFixed(2)) 
+                        }],
+                        title: {
+                            offsetY: 16,
+                            style: {
+                                fontSize: 20
+                            },
+                            text: val.title
+                        },
+                        chart: {
+                            type: 'bar',
+                            height: '300px',
+                            toolbar: {
+                                show: false
+                            }
+                        },
+                        plotOptions: {
+                            bar: {
+                                borderRadius: 2,
+                                horizontal: true,
+                                dataLabels: {
+                                    position: 'top',
+                                },
+                            }
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            offsetX: -6,
+                            style: {
+                                fontSize: '12px',
+                                colors: ['#fff']
+                            },
+                            formatter: function (val) {
+                                return val + " 年"
+                            }
+                        },
+                        xaxis: {
+                            categories: data.name.map( (e,i) => `${e} [${data.desc[i]}]` ),
+                            // max: 4,
+                            decimalsInFloat: 0,
+                        },
+                        yaxis: {
+                            labels: {
+                                style: {
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    })
+                    chart.render()
                 })
             },
         })
