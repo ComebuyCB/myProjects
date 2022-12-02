@@ -22,7 +22,6 @@
     .link:hover { top: -4px }
     .skill-table { white-space: nowrap; }
     .skill-table > thead > tr > th:nth-child(1) { width: 100%; }
-    .skill-table > thead > tr > th:nth-child(2) { min-width: 90px; }
-    .skill-table > thead > tr > th:nth-child(3) { min-width: 60px; }
+    .skill-table > thead > tr > th:nth-child(2) { min-width: 50px; }
 
     .hrefText::after { content: attr(href); display: inline; word-break: break-all; }
