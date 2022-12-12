@@ -15,11 +15,18 @@
     main { flex-grow: 1; }
     .container { max-width: 1140px; }
 
+    .table { margin-bottom: 0; }
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+    .flex-center-a { display: flex; align-items: center; }
 
     .bg_img { background: center top no-repeat; background-size: cover; }
-    .ch-mb-1 > *:not(:last-child) { margin-bottom: 4px; }
+    .ch-gy-1 > *:not(:last-child) { margin-bottom: 4px; }
     .link { text-decoration: none; position: relative; }
     .link:hover { top: -4px }
+
+    .section-title { display: flex; align-items: center; margin-bottom: 1rem; }
+    .section-title::before { content: '◆'; display: inline-block; font-size: 14px; margin-right: 0.5em; }
+
     .skill-table { white-space: nowrap; }
     .skill-table > thead > tr > th:nth-child(1) { width: 100%; }
     .skill-table > thead > tr > th:nth-child(2) { min-width: 50px; }

@@ -24,13 +24,11 @@
                         <span class="h4 fw-bold">/ {{age}}歲</span>
                         <span class="h4 fw-bold">/ 前端工程師</span>
                     </h1>
-                    <hr>
 
-                    <div class="d-flex align-items-center mb-3 mt-4">
-                        <h3 class="mb-0">個人技能樹：</h3>
-                    </div>
-
-                    <div class="row gx-3">
+                    <hr class="mb-4">
+                    
+                    <h3 class="section-title">個人技能樹：</h3>
+                    <div class="row g-3">
                         <div class="col-12 col-sm-6 col-md-3" v-for="skill in skills">
                             <table class="table thead-dark table-striped table-sm skill-table">
                                 <thead>
@@ -53,18 +51,20 @@
                 </section>
 
                 <section class="my-5">
-                    <h3 class="pb-2">特色工作作品：(Demo頁)</h3>
-                    <div class="row g-3 ps-3">
-                        <div class="col-12 col-lg-6 col-xl-4" v-for="items in works">
-                            <a class="card link" :href="items.url" target="_blank">
-                                <div class="card-header">
-                                    <div class="bg_img ratio ratio-16x9" :style="`background-image: url( ${items.img} )`"></div>
+                    <h3 class="section-title">特色工作作品：(Demo頁)</h3>
+                    <div class="row g-3">
+                        <div class="col-12 col-xl-6" v-for="items in works">
+                            <a class="card flex-sm-row link h-100" :href="items.url" target="_blank">
+                                <div class="card-header p-2 flex-center" style="min-width: 240px">
+                                    <div class="bg_img ratio ratio-4x3" :style="`background-image: url( ${items.img} )`"></div>
                                 </div>
-                                <div class="card-body ch-mb-1">
-                                    <div class="fs-4 text-dark fw-bold mb-2"> {{ items.title }}</div>
-                                    <div class="fs-6 text-primary">主要框架： {{ items.core }}</div>
-                                    <div class="fs-6 text-success">大型套件： {{ items.plugins }}</div>
-                                    <div class="fs-6 text-danger">特色說明： {{ items.spec }}</div>
+                                <div class="card-body flex-center-a">
+                                    <div class="ch-gy-1">
+                                        <div class="fs-4 text-dark fw-bold mb-2"> {{ items.title }}</div>
+                                        <div class="fs-6 text-primary">主要框架： {{ items.core }}</div>
+                                        <div class="fs-6 text-success">大型套件： {{ items.plugins }}</div>
+                                        <div class="fs-6 text-danger">特色說明： {{ items.spec }}</div>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -72,7 +72,7 @@
                 </section>
 
                 <section class="my-5">
-                    <h3 class="pb-2">其他工作作品：(近兩年) (正式連結)</h3>
+                    <h3 class="section-title">其他工作作品：(近兩年) (正式連結)</h3>
                     <ul>
                         <li v-for="item in otherWorks">
                             <a v-if="item.link !== ''" :href="item.link" target="_blank">{{item.name}}</a>
@@ -82,9 +82,14 @@
                 </section>
 
                 <section class="my-5">
-                    <h3 class="pb-2">LeetCode中難度刷題記錄:</h3>
+                    <h3 class="section-title">LeetCode中難度刷題記錄:</h3>
                     <div class="mb-3 ps-3">
-                        <a class="hrefText" href="https://hackmd.io/L1Jf61E5QuaFxYsL9zXsIQ?view" target="_blank"></a>
+                        <div>
+                            0001 ~ 1999 題: <a class="hrefText" href="https://hackmd.io/V_NP67KSRKuCvlhOBmTMWA?view" target="_blank"></a>
+                        </div>
+                        <div>
+                            2000 ~ 2500 題: <a class="hrefText" href="https://hackmd.io/L1Jf61E5QuaFxYsL9zXsIQ?view" target="_blank"></a>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -101,7 +106,7 @@
                         title: '基礎 / 主題',
                         list: [
                             {
-                                name: 'HTML、CSS、JS',
+                                name: 'Html、Css、Js',
                                 exp: 48,
                                 desc: '熟悉',
                             },
@@ -217,7 +222,7 @@
                         url: 'TIBCS2020/templates/index.html',
                         core: 'Bootstrap、jQuery',
                         plugins: '無',
-                        spec: '首頁、Exhibition 切圖連結',
+                        spec: '首頁、Exhibition 切圖',
                     },
                 ])
 
