@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="96x96" href="">
+
+    <title></title>
+
+    <!-- core -->
+    <script src="/myProjects/CMUH/static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="/myProjects/CMUH/static/core/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/myProjects/CMUH/static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="/myProjects/CMUH/static/core/vue-3.2.45/vue.global.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script> -->
+
+    <!-- plugins -->
+    <link href="/myProjects/CMUH/static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+
+    <!-- main -->
+    <link href="/myProjects/CMUH/static/common/css/main.css" rel="stylesheet">
+    <script src="/myProjects/CMUH/static/common/js/main.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+        <main id="main" class="fullscreen-panel-container" v-cloak>
+            <div class="main-panel" style="width: 1200px" @click="detPopupEvt().unlock()">
+                <div class="panel-head">
+                    <a href="map.html"><img class="logo" src="/myProjects/CMUH/static/common/img/logo/logo_n@2x.png" alt="logo"></a>
+                    <div class="logo-text">AB-BNCT</div>
+                    <div class="ms-auto" style="width: 530px">
+                        <select class="form-select fs-20 fw-bold" v-model="floorSelected" @change="zoneSelected = floorSelected">
+                            <option v-for="floor in floors" :value="floor">{{floor}}</option>
+                        </select>
+
+                        <!-- <select class="form-select fs-20 fw-bold" v-model="zoneSelected">
+                            <optgroup v-for="(floor, fKey) in zones2" :label="fKey">
+                                <option v-for="(zone, zKey) in floor" :value="zKey">{{ zone }}</option>
+                            </optgroup>
+                        </select> -->
+                    </div>
+                </div>
+                <div class="panel-body bg-dark flex-center">
+                    <div v-show="map.show" id="map" class="map" :style="`background-image: url(${mapTargetData.map})`">
+                        <!-- rooms -->
+                        <template v-for="(room,rKey) in mapTargetData.data" :key="rKey">
+                            <!-- room text -->
+                            <div v-show="room.show === undefined || room.show === true" class="map-item map-item-location" :class="itemRender().itemClass( room )" :style="itemRender().itemStyle( room )">
+                                <div class="map-text map-text--room" :class="itemRender().iconClass( room )" :style="itemRender().textStyle( room )">{{ room?.text?.val || '' }}</div>
+                            </div>
+                            
+                            <!-- items -->
+                            <template v-for="(item,key) in room.items" :key="key">
+                                <!-- button, light, door... -->
+                                <template v-if="item.popup === undefined">
+                                    <div v-show="item.show === undefined || item.show === true" class="map-item map-item-location" :class="itemRender().itemClass( item )" :style="itemRender().itemStyle( item )">
+                                        <div class="map-icon" :class="itemRender().iconClass( item )" :style="itemRender().iconStyle( item )">
+                                            <div v-for="rect in item.rect" class="map-icon-inner" :style="itemRender().rectStyle( rect )"></div>
+                                        </div>
+                                        <div class="map-text" :class="itemRender().textClass( item )" :style="itemRender().textStyle( item )">{{ item?.text?.val || '' }}</div>
+                                    </div>
+                                </template>
+
+                                <!-- detector -->
+                                <template v-if="item.popup !== undefined">
+                                    <div v-show="item.show === undefined || item.show === true" class="map-item map-item-location cursor-pointer" :class="itemRender().itemClass( item )" :style="itemRender().itemStyle( item )" 
+                                        @click.stop="detPopupEvt().toggleLock( item.popup )" 
+                                        @mouseEnter="detPopupEvt().show( $event, item.popup )" 
+                                        @mouseLeave="detPopupEvt().hide( item.popup )">
+                                        <div class="map-icon" :class="itemRender().iconClass( item )" :style="itemRender().iconStyle( item )">
+                                            <div class="map-icon-inner"></div>
+                                        </div>
+                                        <div class="map-text" :class="itemRender().textClass( item )" :style="itemRender().textStyle( item )">{{ item?.text?.val || '' }}</div>
+                                    </div>
+                                </template>
+                            </template>
+                        </template>
+
+                        <!-- detector Popup -->
+                        <template v-for="(popup,gKey) in map.detPopup" :key="gKey">
+                            <template v-if="popup.show || popup.showLock">
+                                <div class="map-popup" :style="{ 'left': popup.style.x + 'px', 'top': popup.style.y + 'px'}" @click.stop="">
+                                    <div class="flex-center">
+                                        <div class="map-popup-det-title">{{ gKey }}</div>
+                                    </div>
+                                    <template v-for="(item,key,idx) in mapCurrentItems">
+                                        <template v-if="item.popup === gKey">
+                                            <div v-if="item.type === 'ND' || item.type === 'PD'" :class="itemRender().detPopupClass( item )">
+                                                <div class="ch">{{ item.type === 'ND' ? '中子偵測器' : '光子偵測器' }}</div>
+                                                <div class="en">{{ item.type === 'ND' ? 'Neutron Detector' : 'Photon Detector' }}</div>
+                                                <div class="val"><div>{{item.percent}}</div></div>
+                                                <div class="unit">mSv/hr</div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+
+                    <div class="mapRoom-buttons-box ch-gx-2 mt-2">
+                        <template v-for="(val, key) in zones">
+                            <label v-if="key.indexOf( floorSelected ) > -1">
+                                <input type="radio" hidden name="zones" :value="key" v-model="zoneSelected">
+                                <div class="btn btn-gray btn-sm rounded-pill" :class="{ 'active': zoneSelected === key }">{{val}}</div>
+                            </label>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-panel">
+                <div class="panel-head">{{zones[zoneSelected]}}</div>
+                <div class="panel-body">
+                    <div class="row gx-3 row-cols-2">
+                        <div class="d-flex">
+                            <div class="dataCard ch-gy-2 flex-center-a">
+                                <div class="ch-gy-2" v-if="map.allItems['BEAM-218'] && map.allItems['BEAM-208'] && map.allItems['BEAM-214']">
+                                    <button class="btn rounded-0 w-100" :class="beamLightOn( map.allItems['BEAM-218'], [1,true,'on'] )">Beam On</button>
+                                    <button class="btn rounded-0 w-100" :class="beamLightOn( map.allItems['BEAM-218'], [2,true,'ready'] )">Beam Ready</button>
+                                    <button class="btn rounded-0 w-100" :class="beamLightOn( map.allItems['BEAM-218'], [0,false,'off'] )">Beam Off</button>
+                                    <div class="d-flex ch-gx-2">
+                                        <button class="btn rounded-0 w-100" :class="beamLightOn( map.allItems['BEAM-208'], [1,true,'on'] )">208</button>
+                                        <button class="btn rounded-0 w-100" :class="beamLightOn( map.allItems['BEAM-214'], [1,true,'on'] )">214</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="row gy-2 align-items-stretch">
+                                <div class="d-flex">
+                                    <div v-if="dataPanel.radDet" class="dataCard" style="flex: 1;">
+                                        <div class="fs-20 mb-1">{{dataPanel.radDet.text}}</div>
+                                        <div class="row gx-2 row-cols-2">
+                                            <div v-for="item in dataPanel.radDet.items">
+                                                <div class="detBar" :class="{ 'danger': isDetDanger( item.percent, 'PD' ) }">
+                                                    <div class="detBar--PD" :style="`--percent:${item.percent}%`"></div>
+                                                </div>
+                                                <div>{{item.text}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div v-if="dataPanel.waterPond" class="dataCard" style="flex: 1;">
+                                        <div class="fs-20 mb-1">{{dataPanel.waterPond.text}}</div>
+                                        <div class="row gx-2 row-cols-2">
+                                            <div v-for="item in dataPanel.waterPond.items">
+                                                <div class="detBar" :class="{ 'danger': isDetDanger( item.percent, 'WP' ) }">
+                                                    <div class="detBar--WP" :style="`--percent:${item.percent}%`"><div>{{ item.percent + '%' }}</div></div>
+                                                </div>
+                                                <div>{{item.text}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logTable-container mt-5 h-100">
+                        <table class="table logTable w-100">
+                            <thead>
+                                <tr>
+                                    <th>發生時間</th>
+                                    <th>log訊息</th>
+                                    <th>位置</th>
+                                    <th>復歸時間</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="log in dataPanel.logs">
+                                    <td>{{log.time}}</td>
+                                    <td>{{log.log}}</td>
+                                    <td>{{log.location}}</td>
+                                    <td>{{log.resetTime}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script type="module">
+        import JS_map_B1 from '/myProjects/CMUH/static/common/js/map/map-b1.js'
+        import JS_map_B2 from '/myProjects/CMUH/static/common/js/map/map-b2.js'
+        import JS_map_208 from '/myProjects/CMUH/static/common/js/map/map-208.js'
+        import JS_map_214 from '/myProjects/CMUH/static/common/js/map/map-214.js'
+        import JS_map_BF from '/myProjects/CMUH/static/common/js/map/map-bf.js'
+
+        const url = new URL( window.location.href )
+
+        const VM = {
+            data() {
+                return {
+                    danger: {
+                        ND: { // Neutron Detector
+                            operator: '>=',
+                            rightVal: 50,
+                        },
+                        PD: { // Photon Detector
+                            operator: '>=',
+                            rightVal: 50,
+                        },
+                        WP: { // Waste Water Pond
+                            operator: '<=',
+                            rightVal: 50,
+                        },
+                    },
+                    floors: {
+                        B1: 'B1',
+                        B2: 'B2',
+                        BF: 'BF',
+                    },
+                    floorSelected: '',
+                    zones: {
+                        'B1': 'B1全區',
+                        'B2': 'B2全區',
+                        'B2-gas': 'B2儀器與醫療用氣體系統',
+                        'B2-208': '治療室208',
+                        'B2-214': '治療室214',
+                        'BF': 'BF全區',
+                    },
+                    // zones2: {
+                    //     'B1': {
+                    //         'B1': 'B1全區',
+                    //     },
+                    //     'B2': {
+                    //         'B2': 'B2全區',
+                    //         'B2-gas': 'B2儀器與醫療用氣體系統',
+                    //         'B2-208': '治療室208',
+                    //         'B2-214': '治療室214',
+                    //     },
+                    //     'BF': {
+                    //         'BF': 'BF全區',
+                    //     },
+                    // },
+                    zoneSelected: '',
+                    map: {
+                        show: true,
+                        useData: 'map_B1',
+                        mapData: {
+                            map_B1: JS_map_B1,
+                            map_B2: JS_map_B2,
+                            map_208: JS_map_208,
+                            map_214: JS_map_214,
+                            map_BF: JS_map_BF,
+                        },
+                        resData: {},
+                        allItems: {},
+                        detPopup: {},
+                    },
+                    dataPanel: {
+                        waterPond: {
+                            text: '廢水池',
+                            items: {
+                                'WP-01': { text: '廢水池一', percent: 50, },
+                                'WP-02': { text: '廢水池二', percent: 100, },
+                            },
+                        },
+                        radDet: { // radiation Detectors
+                            text: 'B1輻防偵測器',
+                            items: {
+                                'RD-01': { text: '光子偵測器19', percent: 80, },
+                                'RD-02': { text: '光子偵測器20', percent: 20, },
+                            },
+                        },
+                        logs: [
+                            { time: '2022/11/24 09:05:00', log: '廢水槽一 滿水位', location: 'BF', resetTime: '2022/10/24 11:38:00' },
+                            { time: '2022/11/25 09:05:00', log: '廢水槽一 滿水位', location: 'B2', resetTime: '2022/10/25 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                            { time: '2022/11/26 09:05:00', log: '廢水槽一 滿水位', location: 'B1', resetTime: '2022/10/26 11:38:00' },
+                        ],
+                    },
+                }
+            },
+            computed: {
+                mapTargetData(){ // 目前Map使用的Data
+                    return this.map.mapData[this.map.useData]
+                },
+
+                mapCurrentItems(){ // 目前Map顯示中的原件 ID: { items }
+                    let OBJ = {}
+                    $.each( this.mapTargetData.data, (rKey, room)=>{
+                        Object.assign( OBJ, room.items || {} )
+                    })
+                    return OBJ
+                },
+            },
+            watch: {
+                'zoneSelected': {
+                    handler ( val ){
+                        this.switchMap( val )
+                        url.searchParams.set('zone', val )
+                        window.history.replaceState( null, this.zones[this.zoneSelected], url.search )
+                    }
+                },
+                'map.useData': {
+                    handler ( val ){
+                        let This = this
+                        let img = new Image()
+                        img.src = This.mapTargetData.map
+                        this.map.show = false
+                        img.onload = () => {
+                            This.map.show = true
+                        }
+
+                        this.updateData( this.map.allItems, this.map.resData )
+                        this.updateItems()
+                    }
+                },
+            },
+            methods: {
+                itemRender(){ // Map中的元件渲染
+                    let This = this
+                    return {
+                        itemClass( item ){ // mapItem 的 style="..."
+                            let cType = 'map-item-location--' + item.type
+                            return [ cType ]
+                        },
+                        itemStyle( item ){ // mapItem 的 style="..."
+                            let x = item?.style?.x ? item.style.x : 0
+                            let y = item?.style?.y ? item.style.y : 0
+                            return [ `left: ${x}%`, `top: ${y}%` ]
+                        },
+                        iconClass( item ){ // icon圖片 的 class="..."
+                            let statItem = item
+                            if ( item.statusBy !== undefined ){
+                                statItem = This.mapCurrentItems[item.statusBy]
+                            }
+
+                            let cType = 'map-icon--' + item.type
+                            let cStat = ( [true,1,'on'].some((e)=> statItem.status === e) ) ? '_on' : '_off'
+                            if ( statItem.status === -1 ){
+                                cStat += ' opacity-25'
+                            }
+                            let danger = This.isDetDanger( item.percent, item.type ) ? 'danger' : ''
+                            if ( statItem.percent === -1 ){
+                                danger = ' opacity-25'
+                            }
+
+                            return [ cType, cStat, danger ]
+                        },
+                        iconStyle( item ){ // icon圖片 的 style="..."
+                            let rotate = (item.style.rotate !== undefined) ? `--rotate: ${item.style.rotate}deg` : ''
+                            let det = ( item.type === 'ND' || item.type === 'PD' ) ? `--percent: ${item.percent || 0}%` : ''
+                            let zoom = `--zoom: ${This.mapTargetData.zoom}`
+
+                            let width = null
+                            let height = null
+                            if ( item?.rect?.[0] !== undefined ){
+                                let boundary = {
+                                    left: Infinity,
+                                    right: -Infinity,
+                                    top: Infinity,
+                                    bottom: -Infinity,
+                                }
+                                item.rect.forEach( (e) => {
+                                    boundary.left = Math.min( boundary.left, e.x || 0 )
+                                    boundary.right = Math.max( boundary.right, e.x + e.w || e.w )
+                                    boundary.top = Math.min( boundary.top, e.y || 0 )
+                                    boundary.bottom = Math.max( boundary.bottom, e.y + e.h || e.h )
+                                })
+                                width = `width: ${boundary.right - boundary.left}px`
+                                height = `height: ${boundary.bottom - boundary.top}px`
+                            }
+                            return [ rotate, det, zoom, width || '', height || '' ]
+                        },
+                        textClass( item ){ // icon文字 的 class="..."
+                            if ( isEmpty(item.text) ){ return '' }
+                            let str1 = item.text?.loc?.split(',')?.[0]?.substring(0,1) || ''
+                            let str2 = item.text?.loc?.split(',')?.[1]?.substring(0,1) || ''
+                            return '_' + str1 + str2
+                        },
+                        textStyle( item ){ // icon文字 的 style="..."
+                            return [ `--zoom: ${This.mapTargetData.zoom}` ]
+                        },
+                        rectStyle( rect ){ // 廢水池正方體
+                            return [ `left: ${rect.x}px`, `top: ${rect.y}px`, `width: ${rect.w}px`, `height: ${rect.h}px` ]
+                        },
+                        detPopupClass( item ){ // detector Popup 的 class="..."
+                            let cType = 'map-popup-det--' + item.type
+                            let danger = This.isDetDanger( item.percent, item.type ) ? 'danger' : ''
+                            if ( item.percent === -1 ){
+                                danger = ' opacity-25'
+                            }
+                            return [ cType, danger ]
+                        },
+                    }
+                },
+
+                detPopupEvt(){ // detector 跳出的小視窗
+                    let This = this
+                    return {
+                        show( evt, gKey ){
+                            let rect = evt.target.getBoundingClientRect()
+                            let bd_bottom = rect.bottom - window.innerHeight + 380
+                            This.map.detPopup[gKey].style.x = rect.right
+                            This.map.detPopup[gKey].style.y = ( bd_bottom > 0 ) ? rect.top - bd_bottom : rect.top
+                            This.map.detPopup[gKey].show = true
+                        },
+                        hide( gKey ){
+                            This.map.detPopup[gKey].show = false
+                        },
+                        toggleLock( gKey ){ // 切換鎖定
+                            This.map.detPopup[gKey].showLock = !This.map.detPopup[gKey].showLock
+                        },
+                        unlock(){ // 解除鎖定
+                            $.each( This.map.detPopup, (key, popup)=>{
+                                This.map.detPopup[key].showLock = false
+                            })
+                        },
+                    }
+                },
+
+                isDetDanger( val, type ){ // detector 是否為危險狀態?
+                    if ( this?.danger?.[type] === undefined ){ return false }
+                    let { operator, rightVal } = this.danger[type]
+                    switch ( operator ){
+                        case '>':
+                            return val > rightVal
+                        break;
+                        case '>=':
+                            return val >= rightVal
+                        break;
+                        case '<':
+                            return val < rightVal
+                        break;
+                        case '<=':
+                            return val <= rightVal
+                        break;
+                        case '=':
+                        case '==':
+                        case '===':
+                            return val === rightVal
+                        break;
+                        default: 
+                            return false
+                        break;
+                    }
+                },
+
+                beamLightOn( item, stats = [true] ){ // 不同狀態對應是否亮燈
+                    let bool = stats.some( (e)=> item.status === e )
+                    let str = ( bool === true ) ? 'text-white bg-danger cursor-default' : 'bg-secondary disabled'
+                    return [str]
+                },
+
+                updateData( mapTarget, newData ){ // 更新資料，即把 resData 塞回目標資料。
+                    $.each( newData, (key, item) => {
+                        try {
+                            Object.assign( mapTarget[key], item )
+                        } catch {
+                            console.error('資料錯誤，找不到ID: ' + key )
+                        }
+                    })
+                },
+
+                updateItems(){ // 更新Map中的item，即把 allItems 全部塞回 mapCurrentItems。
+                    let This = this
+                    $.each( This.map.allItems, ( key, val ) => {
+                        if ( This.mapCurrentItems[key] === undefined ){ return true }
+                        Object.assign( This.mapCurrentItems[key], val )
+                    })
+                },
+
+                getInitAjaxData(){ // 初始化時，需給Map裡全部狀態的資料。
+                    let This = this
+                    $.get( '/myProjects/CMUH/static/common/js/demoFirstAjaxData.json', function(res){
+                        This.map.resData = res
+                        This.updateData( This.map.allItems, This.map.resData )
+                        This.updateItems()
+
+                        // get data per 3s
+                        setInterval( () => {
+                            This.getSwitchedAjaxData()
+                        }, 3000)
+                    })
+                },
+
+                getSwitchedAjaxData(){ // 不斷更新的資料 (Ajax)
+                    let This = this
+
+                    /*=== 左側Map全部元件 ===*/
+                    let getData_ITEMS = { // 請參考這邊 demo 208房中兩個物件 (Ajax回來的資料形式)
+                        'EB|1-2': { status: 0, },
+                        'ND|208': { percent: 100, },
+                    }
+
+                    $.each( This.map.resData, (key, val) => { // demo 全部元件隨機變化，將我移除看實際變化
+                        if ( val.status !== undefined ){
+                            getData_ITEMS[key] = { status: new Date().getSeconds() % 2 }
+                        }
+                        if ( val.percent !== undefined ){
+                            getData_ITEMS[key] = { percent: parseInt(Math.random() * 101) }
+                        }
+                    })
+                    
+                    This.map.resData = getData_ITEMS
+                    This.updateData( This.map.allItems, This.map.resData )
+                    This.updateItems()
+
+
+                    /*=== 右側資訊欄 ===*/
+                    let resData_PANEL = { // 畫面右側資料 (Ajax回來的資料形式)
+                        RD: {
+                            'RD-01': { percent: 100, },
+                            'RD-02': { percent: 100, },
+                        },
+                        WP: {
+                            'WP-01': { percent: 100, },
+                            'WP-02': { percent: 100, },
+                        },
+                        LOG: {
+                            time: new Date().toISOString().split('.')[0], log: '廢水槽一 滿水位', location: 'B2', resetTime: '2022/10/24 11:38:00',
+                        }
+                    }
+
+                    // dealData - radiation Detectors (B1輻防偵測器)
+                    $.each( This.dataPanel.radDet.items, (key, val) => { // demo "B1輻防偵測器"隨機變化，將我移除看實際變化
+                        resData_PANEL.RD[key] = { percent: parseInt(Math.random() * 101) }
+                    })
+                    This.updateData( This.dataPanel.radDet.items, resData_PANEL.RD )
+
+                    // dealData - waste water pond (廢水池)
+                    $.each( This.dataPanel.waterPond.items, (key, val) => { // demo "廢水池"隨機變化，將我移除看實際變化
+                        resData_PANEL.WP[key] = { percent: parseInt(Math.random() * 2 + 1) * 50 }
+                    })
+                    This.updateData( This.dataPanel.waterPond.items, resData_PANEL.WP )
+
+                    // dealData - logs 
+                    This.dataPanel.logs.unshift( resData_PANEL.LOG )
+                    if ( This.dataPanel.logs.length > 20 ){ This.dataPanel.logs.pop() }
+                },
+
+                typesToShow( types = [] ){ // 哪些type要show出來? (用了這fn，沒寫的將全數隱藏)
+                    $.each( this.mapCurrentItems, (key, item) => {
+                        item.show = ( types.findIndex((e) => e === item.type ) > -1 ) ? true : false
+                    })
+                },
+
+                switchMap( val ){ // 切換地圖
+                    let This = this
+                    const organizeData = () => { // 將所有元素生成 show & 生成新的 detector popup
+                        This.map.detPopup = {}
+                        $.each( This.mapTargetData.data, (rKey, room) => {
+                            $.each( room.items, (k, item) => {
+                                item.show = item.show ? item.show : true
+                                if ( item.popup === undefined ){ return true }
+                                This.map.detPopup[ item.popup ] = {
+                                    show: false, 
+                                    showLock: false, 
+                                    style: { x: 0, y: 0, }, 
+                                }
+                            })
+                        })
+                    }
+
+                    switch (val){
+                        case 'B1':
+                            this.map.useData = 'map_B1'
+                            organizeData()
+                        break
+                        case 'B2':
+                            this.map.useData = 'map_B2'
+                            organizeData()
+                            this.typesToShow( ['CB','EB','FB','WL','DL','LB','L','RD-1','RD-2','SD','ND','PD','BEAM-M','BEAM-L','BEAM-R','WP'] )
+                        break
+                        case 'B2-gas':
+                            this.map.useData = 'map_B2'
+                            organizeData()
+                            this.typesToShow( ['RD-1','RD-2','SD','BEAM-M','BEAM-L','BEAM-R','PA','N2','JO-2'] )
+                        break
+                        case 'B2-208':
+                            this.map.useData = 'map_208'
+                            organizeData()
+                        break
+                        case 'B2-214':
+                            this.map.useData = 'map_214'
+                            organizeData()
+                        break
+                        case 'BF':
+                            this.map.useData = 'map_BF'
+                            organizeData()
+                        break
+                        default:
+                        break
+                    }
+                },
+            },
+            beforeMount(){
+                let This = this
+                let param = url.searchParams.get("zone")
+                this.floorSelected = param ? param.split('-')[0] : 'B1'
+                this.zoneSelected = param ? param : 'B1'
+                
+                $.each( this.map.mapData, ( dKey, data ) => {
+                    $.each( data.data, ( rKey, room ) => {
+                        $.each( room.items, ( key, item ) => {
+                            This.map.allItems[key] = {}
+                        })
+                    })
+                })
+
+                This.getInitAjaxData()
+            },
+            mounted(){
+            },
+        }
+        Vue.createApp(VM).mount('#main')
+
+        // 測試用，抓取xy位置。
+        if ( isLocalhost() ) {
+            $('#map').on('click', function(e){
+                let x = String(e.offsetX / $('#map').width() * 100 ).substring(0,4)
+                let y = String(e.offsetY / $('#map').height() * 100 ).substring(0,4)
+                console.log( e.offsetX, e.offsetY, x, y )
+                navigator.clipboard.writeText( `x: ${x}, y: ${y},` )
+            })
+        }
+    </script>
+</body>
+</html>
