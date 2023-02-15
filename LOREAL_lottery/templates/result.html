@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="96x96" href="">
+
+    <title></title>
+
+    <!-- core -->
+    <script src="../static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="../static/core/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../static/plugins/vue-3.2.45/vue.global.min.js"></script>
+    <link href="../static/plugins/Swiper-7.3.1/swiper-bundle.min.css" rel="stylesheet">
+    <script src="../static/plugins/Swiper-7.3.1/swiper-bundle.min.js"></script>
+    <link href="../static/plugins/dat.gui-0.7.9/dat.gui.css" rel="stylesheet">
+    <script src="../static/plugins/dat.gui-0.7.9/dat.gui.min.js"></script>
+
+    <!-- main -->
+    <link href="../static/common/css/main.css" rel="stylesheet">
+    <script src="../static/common/js/main.js"></script>
+
+    <style>
+        .mainPanel { position: absolute; inset: 0; color: white; z-index: 1; display: flex; align-items: center; justify-content: center; }
+
+        .awardsBox { margin: auto; width: 67.6vw; text-align: center; }
+        .awardsTitle { font-size: 3.12vw; font-weight: 400; }
+        .awardsName { font-size: 7.8vw; font-weight: 700; word-break: break-all; }
+
+        .ribbonBox { position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+        .ribbon { --width: 50px; --height: var(--width); --ratio: 1vh / 1vw;
+            image-rendering: -webkit-optimize-contrast; width: var(--width); height: calc( var(--height) * var(--ratio) );
+            position: absolute; z-index: 1; left: calc(-1 * (var(--width) / 2)); top: calc(-1 * var(--height));
+        }
+
+        .winnersBoxContainer { margin-block: 2.49vw; }
+        .winnersBox { margin: 0 auto; height: 23.4vw; width: 72.8vw; font-size: 2.49vw; }
+        .winner { display: flex; align-items: center; }
+        .winner > .winner-id { white-space: nowrap; margin-right: 20px; }
+        .winner > .winner-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        .swiper-pagination-bullet { --swiper-pagination-bullet-inactive-color: #fff; --swiper-pagination-bullet-inactive-opacity: 0.4; }
+        .swiper-pagination-bullet-active { --swiper-pagination-color: #fff; }
+
+        #winners-pagination.swiper-pagination-vertical.swiper-pagination-bullets { position: static; width: 100%; transform: translate3d(0,0,0); display: flex; justify-content: center; margin-top: 1.5rem }
+        #winners-pagination.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet { margin: 0 0.5vw; --swiper-pagination-bullet-width: 1.1vw; --swiper-pagination-bullet-height: 1.1vw; }
+
+        #imgFilm { animation: slides 1s; }
+        @keyframes slides {
+            from { transform: translateX(50%); }
+            to { transform: translateX(0); }
+        }
+
+        .dg :is(button, select, input) { line-height: normal; font-size: 13.33px; }
+        .dg * { box-sizing: content-box; }
+        .dg.ac{ z-index: 100; }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="darkRed-bg">
+        <a class="btn btn-light" style="position: fixed; left: 0; top: 0; z-index: 10;" href="index.html">結束</a>
+        <a class="btn btn-light" style="position: fixed; left: 0; top: 40px; z-index: 10;" href="search.html">查詢頁</a>
+
+        <main id="imgBox" class="img_container">
+            <div id="imgFilm">
+                <img id="imgShow" src="../static/common/img/bg4.png">
+                
+                <div id="shineBox"></div>
+                
+                <div id="awards" class="mainPanel">
+                    <div>
+                        <div class="awardsBox">
+                            <div class="awardsTitle">{{awards.title}}</div>
+                            <div class="awardsName" :style="`font-size: ${awards.nameSize}vw`">{{awards.name}}</div>
+                            <!-- 偵測寬度 -->
+                            <svg width="0" height="0">
+                                <text id="svgTxt" :style="`font-size: ${awards.nameSize}vw`">{{awards.name}}</text>
+                            </svg>
+                        </div>
+    
+                        <div class="winnersBoxContainer">
+                            <div id="winners-swiper" class="winnersBox swiper" :style="winnerBoxHeight()">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="(grp,idx) in winnersGroup" :data-swiper-autoplay="idx === 0 ? 6000 : 5000">
+                                        <div class="row gx-4 gy-3">
+                                            <div class="col-6 winner" v-for="winner in grp" :class="winnerClass()">
+                                                <div class="winner-id">{{winner.id}}</div>
+                                                <div class="winner-name">{{winner.name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="winners-pagination" class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="ribbons" class="ribbonBox">
+            <img v-for="item in ribbons" :key="item.id" class="ribbon" :src="`../static/common/img/ribbon${item.src}.png`" 
+            :style="`transform: translate(${item.p.x}px, ${item.p.y}px) rotateX(${item.p.rx}deg) rotateY(${item.p.ry}deg) rotateZ(${item.p.rz}deg); --width: ${item.p.w}px`">
+        </div>
+    </div>
+
+    <script type="module">
+        let ANIMATE = true
+            // ANIMATE = false
+
+        const gui = new dat.gui.GUI()
+
+        JS_dragImgInBox('#imgBox', '#imgFilm', '#imgShow', { 
+            draggable: false, 
+            scrollable: false, 
+            onInit( obj ){
+                if (ANIMATE){
+                    setInterval(()=>{
+                        let [x,y] = JS_randomDegForXY({total: 52, radius: 44.4, interval: [[0,7],[19,35],[43,51]]})
+                        JS_renderShine({
+                            x,
+                            y,
+                            width: 24,
+                            mid: { x: 50.1, y: 57, },
+                            ratio: obj.ratio,
+                            maxQty: 30,
+                        })
+                    }, 30 )
+                }
+            }
+        })
+
+        const ribbons = {
+            name: 'Ribbons',
+            data(){
+                return {
+                    // *: 代表可變動。
+                    timer: {
+                        id: null,
+                        fpsTicker: 0,
+                        fps: 52, // *
+                        fpsPerCreate: 6, // *
+                        fpsPerSubMax: 30,
+                    },
+                    qty: {
+                        min: 5,
+                        init: 50,  // *
+                        max: 60,  // *
+                    },
+                    idForKey: 0,
+                    ribbons: [],
+                    vRange: { // *
+                        v: 2,
+                        max: 18,
+                        initY: -20,
+                        initV: 10,
+                    },
+                    wRange: {  // *
+                        v: 1,
+                        min: 40,
+                        max: 60,
+                        init: 50,
+                        initRange: 8,
+                    },
+                }
+            },
+            methods: {
+                init(){
+                    let This = this
+                    for (let i=0; i<this.qty.init; i++){
+                        this.create()
+                    }
+                    let qmin = gui.add(this.qty, 'min').name('最少彩帶數').min(0).max(this.qty.max).step(5).listen()
+                    gui.add(this.qty, 'max').name('最大彩帶數').min(10).max(250).step(5).listen().onChange((e)=>{
+                        this.qty.min = 10
+                        qmin.max(this.qty.max)
+                    })
+                    gui.add(this.timer, 'fpsPerCreate').name('每N禎 產1彩帶').min(0).max(10).step(1).onChange((e)=>{})
+                    gui.add(this.timer, 'fpsPerSubMax').name('每N禎 減max彩帶').min(1).max(60).step(1).onChange((e)=>{})
+
+                    this.startTimer()
+                },
+
+                create(){
+                    let This = this
+                    const obj = {
+                        id: This.idForKey,
+                        src: Math.floor( Math.random() * 5 + 1 ),
+                        p: { x: 0, y: 0, w: 0, rx: 0, ry: 0, rz: 0, }, // position 位置
+                        v: { x: 0, y: 1, w: 0, rx: 0, ry: 0, rz: 0, }, // velocity 速率
+                    }
+
+                    let wR = This.wRange
+                    obj.p.w = (Math.random() * wR.initRange) - (wR.initRange/2) + wR.init // -w ~ w
+                    obj.v.w = (Math.random() * wR.v) - (wR.v/2)
+                    
+                    let vR = This.vRange
+                    obj.p.x = Math.random() * window.innerWidth
+                    obj.v.x = (Math.random() * vR.initV) - (vR.initV/2)
+                    
+                    obj.p.y = Math.random() * (vR.initV/2) + vR.initY
+                    obj.v.y = Math.random() * (vR.initV/2)
+
+                    This.idForKey ++
+                    this.ribbons.push( obj )
+                },
+
+                createV(val, m = 1, maxM = 1){ // 製造 x,y,rotate速度
+                    let {v, max} = this.vRange
+                    const newV = Math.random()*v*m - (v*m/2) + val
+                    return ( Math.abs(newV) < max*maxM ) ? +(newV).toFixed(2) : val
+                },
+
+                createW(val){ // 製造 width速度
+                    let {v, max, min} = this.wRange
+                    const newV = Math.random()*v - (v/2) + val
+                    return ( min < Math.abs(newV) && Math.abs(newV) < max ) ? +(newV).toFixed(2) : val
+                },
+
+                update(){
+                    let This = this
+                    this.ribbons = this.ribbons.map((e) => {
+                        e.v.w = This.createW(e.v.w)
+                        e.v.x = This.createV(e.v.x, 0.5, 0.5)
+                        e.v.y = This.createV(e.v.y)
+                        e.v.rx = This.createV(e.v.rx)
+                        e.v.ry = This.createV(e.v.ry)
+                        e.v.rz = This.createV(e.v.rz, 0.5)
+
+                        let W = Math.abs(e.p.w + e.v.w)
+                        e.p.w += ( W < This.wRange.min || W > This.wRange.max ) ? 0 : e.v.w
+                        e.p.x += (e.p.x + e.v.x < -100 || e.p.x + e.v.x > window.innerWidth + 100 ) ? -e.v.x : e.v.x
+                        e.p.y += (e.v.y * 1.2 > 1) ? e.v.y * 1.2 : 1
+                        e.p.rx += e.v.rx
+                        e.p.ry += e.v.ry
+                        e.p.rz += e.v.rz
+
+                        return e
+                    })
+                },
+
+                remove(){
+                    this.ribbons = this.ribbons.filter( (e) => e.p.y < window.innerHeight + 100 )
+                },
+
+                startTimer(){
+                    let This = this
+                    let tm = this.timer
+
+                    if ( tm.id !== null ){ return }
+                    tm.id = setInterval(()=>{
+                        tm.fpsTicker ++
+                        tm.fpsPerSubMax
+                        This.update()
+                        
+                        if ( This.ribbons.length > This.qty.min ){
+                            if ( tm.fpsTicker % tm.fpsPerSubMax === 0 && This.qty.max > This.qty.min ){
+                                This.qty.max --
+                            }
+                            This.remove()
+                        }
+                        if ( This.ribbons.length > This.qty.max ){ return true }
+                        if ( tm.fpsTicker % tm.fpsPerCreate !== 0 ){ return true }
+                        This.create()
+                    }, ~~(1000 / tm.fps) )
+                },
+
+                stopTimer(){
+                    clearInterval( this.timer.id )
+                    this.timer.id = null
+                },
+            },
+            mounted(){
+                this.init()
+            },
+        }
+        
+        if (ANIMATE){
+            Vue.createApp(ribbons).mount('#ribbons')
+        }
+
+        const awards = {
+            name: 'Awards',
+            data(){
+                return {
+                    awards: {
+                        title: '五獎 / 100名',
+                        name: 'NT$ 10,000',
+                        nameSize: 7.8,
+                    },
+                    winners: [
+                        { id: 'PR 108213', name: 'Linda Wang', },
+                        { id: 'PM 108218', name: 'David King', },
+                        { id: 'PM 108221', name: 'Jacqueline LongName', },
+                        { id: 'PM 108221', name: 'Jacqueline LongName', },
+                        { id: 'PR 108221', name: 'David King', },
+                        { id: 'PR 108221', name: 'David King', },
+                        { id: 'PM 108221', name: 'David King', },
+                        { id: 'PR 108213', name: 'Linda Wang', },
+                        { id: 'PM 108218', name: 'David King', },
+                        { id: 'PM 108221', name: 'Jacqueline Wu', },
+                        { id: 'PM 108221', name: 'Jacqueline Wu', },
+                        { id: 'PR 108213', name: 'Linda Wang', },
+                        { id: 'PM 108218', name: 'David King', },
+                        { id: 'PM 108221', name: 'Jacqueline LongName', },
+                        { id: 'PM 108221', name: 'Jacqueline LongName', },
+                        { id: 'PR 108221', name: 'David King', },
+                        { id: 'PR 108221', name: 'David King', },
+                        { id: 'PR 108213', name: 'Linda Wang', },
+                        { id: 'PM 108218', name: 'David King', },
+                        { id: 'PM 108221', name: 'Jacqueline Wu', },
+                        { id: 'PM 108221', name: 'Jacqueline Wu', },
+                    ],
+                }
+            },
+            computed: {
+                winnersGroup() {
+                    const group = 10
+                    const grpArr = []
+                    for( let i=0; i<this.winners.length; i+=group ){
+                        grpArr.push( this.winners.slice(i,i+group) )
+                    }
+                    return grpArr
+                },
+            },
+            methods: {
+                winnerBoxHeight(){
+                    let len = this.winners.length
+
+                    return { 
+                        'height': (len <= 5) ? `${(5-len)*0.2 + (len*4.68)}vw` : (len < 10) ? `${Math.ceil(len/2)*4.68}vw` : '',
+                        'fontSize': (len < 5) ? `${(5-len)*0.2 + 2.49}vw` : '',
+                    }
+                },
+
+                winnerClass(){
+                    let len = this.winners.length
+
+                    return {
+                        'offset-1 col-10': len <= 5,
+                        'justify-content-center': len <= 5,
+                    }
+                },
+                
+                titleWidth(){
+                    let This = this
+                    while( This.awards.nameSize > 3.6 ){
+                        let w = $('#svgTxt')[0].getBoundingClientRect().width
+                        if ( w < window.innerWidth / 100 * 60 ){ return false }
+                        This.awards.nameSize -= 0.1
+                        $('#svgTxt').css('fontSize', This.awards.nameSize + 'vw')
+                    }
+                },
+            },
+            mounted(){
+                let This = this
+                // const is_less_5_winners = (this.winners.length <= 5) ? true : false
+
+                new Swiper('#winners-swiper', {
+                    speed: 2000,
+                    direction: "vertical",
+                    slidesPerView: 1,
+                    spaceBetween: 8,
+                    effect: "slide",
+                    // centeredSlides: is_less_5_winners,
+                    // loop: true,
+                    autoplay: {
+                        // delay: 3000,
+                        // stopOnLastSlide: true,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: "#winners-pagination",
+                        // type: "fraction",
+                    },
+                });
+
+                this.titleWidth()
+            },
+        }
+        Vue.createApp(awards).mount('#awards')
+    </script>
+</body>
+</html>

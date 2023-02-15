@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="96x96" href="">
+
+    <title></title>
+
+    <!-- core -->
+    <script src="../static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="../static/core/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../static/plugins/vue-3.2.45/vue.global.min.js"></script>
+    <link href="../static/plugins/jquery-ui-1.13.2/jquery-ui.min.css" rel="stylesheet">
+    <script src="../static/plugins/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+
+    <!-- main -->
+    <link href="../static/common/css/main.css" rel="stylesheet">
+    <script src="../static/common/js/main.js"></script>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <main id="imgBox" class="img_container">
+            <div id="imgFilm">
+                <img id="imgShow" src="../static/common/img/bg1.png">
+                <a class="btn big-btn" href="lottory.html" style="top: 77%; left: 50%;">START!</a>
+
+                <div id="shineBox"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        JS_dragImgInBox('#imgBox', '#imgFilm', '#imgShow', { 
+            draggable: false,
+            scrollable: false,
+            onInit( obj ){
+                let cnt = 0
+                setInterval(()=>{
+                    let x, y, width
+                    if ( cnt <= 3 ){
+                        [x,y] = JS_randomDegForXY({total: 52, radius: 28, interval: [[0,51]]})
+                        width = 24
+                    } else if ( cnt <= 6 ) {
+                        [x,y] = JS_randomDegForXY({total: 52, radius: 37, interval: [[0,9],[17,35],[43,51]]})
+                        width = 28
+                    } else if ( cnt <= 8 ){
+                        [x,y] = JS_randomDegForXY({total: 52, radius: 48, interval: [[0,6],[20,32],[46,51]]})
+                        width = 32
+                    }
+
+                    JS_renderShine({
+                        x,
+                        y,
+                        width,
+                        ratio: obj.ratio,
+                        maxQty: 60,
+                    })
+                    cnt = (cnt === 8) ? 0 : cnt + 1
+                }, 10 )
+            },
+            onResize( obj ){
+                console.log( obj )
+            },
+        })
+    </script>
+</body>
+</html>

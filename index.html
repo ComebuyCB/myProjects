@@ -8,12 +8,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script> -->
+    <link href="static/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
     <script src="https://unpkg.com/vue@3.2.41/dist/vue.global.js"></script>
-    <!-- <script src="static/js/apexCharts.min.js"></script> -->
 
     <link href="static/css/main.css" rel="stylesheet">
-
 </head>
 <body>
     <div id="wrap">
@@ -27,47 +25,26 @@
                     <hr class="mb-4">
                     
                     <h3 class="section-title">個人技能樹：</h3>
-                    <div class="row g-3" style="max-width: 1000px">
-                        <div v-for="skill in skills" class="col-12 col-sm-6 col-lg-4">
-                            <table class="table table-striped table-bordered skill-table">
-                                <thead>
-                                    <tr>
-                                        <th>{{skill.title}}：</th>
-                                        <th>經驗</th>
-                                        <!-- <th>備註</th> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="td in skill.list">
-                                        <td>{{td.name}}</td>
-                                        <td>{{monthsToYearString(td.exp)}}</td>
-                                        <!-- <td>{{td.desc}}</td> -->
-                                    </tr>
-                                </tbody>
+                    <ul style="max-width: 280px">
+                        <li v-for="skill in skills" class="mb-3">
+                            <div class="h6">{{skill.title}}：</div>
+                            <table class="table table-sm">
+                                <tr v-for="td in skill.list">
+                                    <td>{{td.name}}</td> 
+                                    <td class="text-end">{{monthsToYearString(td.exp)}}</td>
+                                </tr>
                             </table>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </section>
 
                 <section class="my-5">
                     <h3 class="section-title">特色工作作品：(Demo頁)</h3>
-                    <div class="row g-3">
-                        <div class="col-12 col-xl-6" v-for="items in works">
-                            <a class="card flex-sm-row link hover-scale h-100" :href="items.url" target="_blank">
-                                <div class="card-header p-2 flex-center" style="min-width: 240px">
-                                    <div class="bg_img ratio ratio-4x3" :style="`background-image: url( ${items.img} )`"></div>
-                                </div>
-                                <div class="card-body flex-center-a">
-                                    <div class="ch-gy-1">
-                                        <div class="fs-4 text-dark fw-bold mb-2"> {{ items.title }}</div>
-                                        <div class="fs-6 text-primary">主要框架： {{ items.core }}</div>
-                                        <div class="fs-6 text-success">大型套件： {{ items.plugins }}</div>
-                                        <div class="fs-6 text-danger">特色說明： {{ items.spec }}</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <ul>
+                        <li v-for="item in works">
+                            <a :href="item.url" target="_blank">{{item.title}} ({{item.spec}})</a>
+                        </li>
+                    </ul>
                 </section>
 
                 <section class="my-5">
@@ -107,6 +84,15 @@
                     </ul>
                 </section>
 
+                <section class="my-5">
+                    <h3 class="section-title">Phaser.js 自製遊戲：</h3>
+                    <ul class="mb-3">
+                        <li v-for="item in phaser">
+                            <a :href="item.href" target="_blank">{{item.title}}</a>
+                        </li>
+                    </ul>
+                </section>
+
             </div>
         </main>
         <footer>
@@ -130,10 +116,10 @@
                         title: '基礎 / 主題',
                         class: 'col-lg-4',
                         list: [
-                            { name: 'HTML / CSS / JavaScript', exp: 48, },
+                            { name: 'HTML / CSS / JS (ES6)', exp: 48, },
                             { name: 'jQuery / Bootstrap', exp: 48, },
                             { name: 'Tailwind', exp: 6, },
-                            { name: 'Canvas [自學]', exp: 3, },
+                            { name: 'Canvas', exp: 3, },
                         ],
                     },
                     frameworks: {
@@ -141,7 +127,7 @@
                         class: 'col-lg-4',
                         list: [
                             { name: 'Vue2 / Vue3 (cdn)', exp: 12, },
-                            { name: 'Vue-router / Vuex (cli) [自學]', exp: 3, },
+                            { name: 'Vue-router / Vuex (cli)', exp: 3, },
                             { name: 'Angular (cdn)', exp: 6, },
                             { name: 'React', exp: 3, },
                         ],
@@ -153,15 +139,16 @@
                             { name: 'GSAP 3', exp: 6, },
                             { name: 'Three.js', exp: 3, },
                             { name: 'D3.js', exp: 3, },
+                            { name: 'Phaser.js', exp: 3, },
                         ],
                     },
                     others: {
                         title: '其他',
                         class: 'col-lg-2',
                         list: [
-                            { name: 'SQL', exp: 12, },
-                            { name: 'GIT', exp: 12, },
                             { name: 'SVN', exp: 24, },
+                            { name: 'GIT', exp: 12, },
+                            { name: 'SQL', exp: 12, },
                         ]
                     }
                 })
@@ -197,27 +184,35 @@
                         url: 'CMUH/templates/map.html',
                         core: 'Bootstrap、jQuery、Vue',
                         plugins: '無',
-                        spec: 'Vue整理資料渲染畫面',
+                        spec: 'Vue 整理資料渲染畫面',
+                    },
+                    {
+                        title: 'LOREAL 春酒抽獎',
+                        img: '',
+                        url: 'LOREAL_lottery/templates/index.html',
+                        core: 'jQuery、Vue',
+                        plugins: '無',
+                        spec: '數學運算、模擬物理',
                     },
                 ])
 
                 const otherWorks = reactive([
-                    { name: '台灣癌症聯合學術年會 (TJCC)', link: '' },
-                    { name: '中華民國美容醫學醫學會 (CSCSM)', link: '' },
-                    { name: '生物醫學聯合學術年會 (JACBS)', link: '' },
-                    { name: '台灣乳房醫學會 (TIBCS)', link: '' },
-                    { name: '中華牙醫學會 (ADS)', link: '' },
-                    { name: '生活驚嘆號', link: '' },
-                    { name: 'InsHangout (交友網站)', link: '' },
-                    { name: 'NCDR Line 活動頁面', link: '' },
-                    { name: 'STPI 知識服務平台 / 科產平台 / 科創平台 / 計畫管考系統', link: '' },
-                    { name: '老師好! 樂齡課程人力媒合平台', link: '' },
                     { name: '典亮基金會', link: 'https://www.dianliang.org.tw/' },
                     { name: '常在法律事務所', link: 'https://www.tsartsai.com.tw/index' },
                     { name: '教育實踐研究計畫成果交流平台', link: 'https://tpr.moe.edu.tw/achievement/' },
                     { name: '雲豹 - 沙崙基地訪客預約系統', link: 'https://visitor.secpaas.org.tw/rental' },
                     { name: '表演藝術評論台 (特色作品)', link: 'https://pareviews.ncafroc.org.tw/' },
                     { name: '國藝會 - 國家文藝獎 (特色作品)', link: 'https://www.ncafroc.org.tw/artsaward/index' },
+                    { name: '台灣癌症聯合學術年會 (TJCC)', link: '' },
+                    { name: '台灣乳房醫學會 (TIBCS)', link: '' },
+                    { name: '中華民國美容醫學醫學會 (CSCSM)', link: '' },
+                    { name: '中華牙醫學會 (ADS)', link: '' },
+                    { name: '生物醫學聯合學術年會 (JACBS)', link: '' },
+                    { name: 'InsHangout (交友網站)', link: '' },
+                    { name: 'NCDR Line 活動頁面', link: '' },
+                    { name: 'STPI 知識服務平台 / 科產平台 / 科創平台 / 計畫管考系統', link: '' },
+                    { name: '老師好! 樂齡課程人力媒合平台', link: '' },
+                    { name: '生活驚嘆號', link: '' },
                 ])
                 
                 const leetCode = reactive([
@@ -237,6 +232,10 @@
                         { title: '課程18 - 小精靈',  href: 'https://codepen.io/comebuycb/pen/NWRYeBB', },
                     ]
                 })
+
+                const phaser = reactive([
+                    { title: 'Phaser 自製遊戲', href: 'https://comebuycb.github.io/playPhaser/', },
+                ])
 
                 const monthsToYearString = ( num ) => {
                     if ( num < 12 ){ return num + ' 月' }
@@ -261,15 +260,16 @@
                 }
 
                 onMounted(()=>{
-                    let path = document.querySelector('#comebuySvg path')
-                    let pathLen = path.getTotalLength()
+                    let path = document.querySelector('#comebuySvg path');
+                    let pathLen = path.getTotalLength();
                     path.style.strokeDasharray = pathLen + ' ' + pathLen;
                     path.style.strokeDashoffset = pathLen;
-                    scrollShowSvg( 2060 )
+                    
+                    scrollShowSvg( pathLen - window.innerHeight )
 
                     function scrollShowSvg( endLen ){
                         window.addEventListener('scroll', ()=>{
-                            let start = 600
+                            let start = 0
                             let dd = document.documentElement
                             let SP = ( dd.scrollTop + document.body.scrollTop - start ) / ( dd.scrollHeight - dd.clientHeight - start );
                             let drawLen = (pathLen - endLen) * SP
@@ -287,20 +287,15 @@
                     otherWorks,
                     leetCode,
                     codePen,
+                    phaser,
                     monthsToYearString,
                     monthsToYear,
                     objectSameKeysToArray,
                 }
             }
-
         }
 
-        Vue.createApp(App).mount('#wrap')
-
-
-        
-
-
+        Vue.createApp(App).mount('#wrap');
     </script>
 </body>
 </html>

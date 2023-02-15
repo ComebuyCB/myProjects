@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="96x96" href="">
+
+    <title></title>
+
+    <!-- core -->
+    <script src="../static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="../static/core/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/core/bootstrap-5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../static/plugins/vue-3.2.45/vue.global.min.js"></script>
+
+    <!-- main -->
+    <link href="../static/common/css/main.css" rel="stylesheet">
+    <script src="../static/common/js/main.js"></script>
+
+    <style>
+        .priceTitle{ font-size: 48px; font-weight: 400; }
+        .priceName{ font-size: 120px; font-weight: 700; }
+
+        .spotlight {
+            --width: 30%; --height: var(--width); --imgRatio: 1.77;
+            width: var(--width); height: calc( var(--height) * var(--imgRatio) );
+            position: absolute; z-index: 1; transform-origin: center bottom; 
+            animation: spotlight 3s ease-in-out alternate infinite;
+        }
+
+        @keyframes spotlight {
+            0% {transform: rotate(-45deg);}
+            100% {transform: rotate(45deg);}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="darkRed-bg">
+        <main id="imgBox" class="img_container">
+            <div id="imgFilm">
+                <img id="imgShow" src="../static/common/img/bg2.png">
+                
+                <div class="pos-abs loc-5 text-white text-center" style="top: 46%">
+                    <div class="priceTitle">五獎 / 100名</div>
+                    <div class="priceName">NT$ 10,000</div>
+                </div>
+
+                <a class="btn big-btn" href="cutscene.html" style="top: 74%; left: 50%;">開始抽獎</a>
+
+                <div id="shineBox"></div>
+
+                <img class="spotlight" src="../static/common/img/spotlight1.png" style="--width: 15%; --height: 90%; bottom: -6%; left: 4%; animation-delay: -3s;">
+                <img class="spotlight" src="../static/common/img/spotlight1.png" style="--width: 15%; --height: 90%; bottom: -6%; right: 4%;">
+            </div>
+        </main>
+    </div>
+
+    <script>
+        JS_dragImgInBox('#imgBox', '#imgFilm', '#imgShow', { 
+            draggable: false, 
+            scrollable: false, 
+            onInit( obj ){
+                setInterval(()=>{
+                    let [x,y] = JS_randomDegForXY({total: 52, radius: 35.2, interval: [[0,2],[24,52]]})
+                    JS_renderShine({
+                        x,
+                        y,
+                        width: 24,
+                        mid: { x: 50.2, y: 69, },
+                        ratio: obj.ratio,
+                        maxQty: 26,
+                    })
+                }, 30 )
+            }
+        })
+    </script>
+</body>
+</html>
