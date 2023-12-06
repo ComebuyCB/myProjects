@@ -6,27 +6,174 @@
     <link rel="icon" href="">
     <title></title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link href="static/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/vue@3.2.41/dist/vue.global.js"></script>
+    <link href="static/plugins/bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="static/plugins/jquery-3.5.1/jquery.min.js"></script>
 
-    <link href="static/css/main.css" rel="stylesheet">
+    <link href="static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+
+    <script src="static/plugins/vue-3.2.45/vue.global.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+
+    <link href="static/common/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <div id="wrap">
+    <div id="wrap" v-cloak>
         <main>
-            <div class="container pb-3">
-                <section class="my-5">
-                    <h2 class="fw-bold">周俊宇 
-                        <span class="h5 fw-bold">/ {{age}}歲 / 前端工程師</span>
+            <div id="animatePage" v-show="animatePage">
+                <div>
+                    <div style="position: sticky; top: 0; overflow: hidden;">
+                        <div id="loading" class="flex-center pb-5" style="position: fixed; inset: 0;"></div>
+                        <div id="canvasContainer" style="transform: translateX(100vw);"></div>
+                    </div>
+                    <div id="animatePage-content" class="rel-z1" style="margin-top: -100vh;">
+                        <section id="m0" style="height: 150vh;">
+                            <mark>m0</mark>
+                            <h3 class="d-flex align-items-end justify-content-center text-center" style="height: 20vh;">Scroll Down<br>↓</h3>
+                        </section>
+                        <section id="m1" style="height: 150vh;">
+                            <mark>m1</mark>
+                            <div style="height: 50vh"></div>
+                            <div class="row g-0 px-3">
+                                <div class="col-12 col-sm-5 col-lg-7"></div>
+                                <div class="col-12 col-sm-7 col-lg-5">
+                                    <div style=" position: sticky; top: 10vh;">
+                                        <div>
+                                            <div class="bgImg wood">
+                                                <h3 class="section-title">個人技能樹：</h3>
+                                                <div class="row g-xl-4 row-cols-xl-2 ps-4">
+                                                    <div v-for="skill in data.skills" class="mb-3">
+                                                        <div class="h6">{{skill.title}}：</div>
+                                                        <table class="table table-sm">
+                                                            <tr v-for="td in skill.list" class="text-light">
+                                                                <td>{{td.name}}</td> 
+                                                                <td class="text-end">{{monthsToYearString(td.exp)}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="height: 100vh;"></div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="m2" style="height: 150vh;">
+                            <mark>m2</mark>
+                        </section>
+                        <section id="m2-2" style="height: 100vh;">
+                            <mark>m2-2</mark>
+                            <div style="height: 400px;"></div>
+                            <div class="row g-0 px-3">
+                                <div class="col-12 col-sm-7 col-lg-5">
+                                    <div>
+                                        <section class="bgImg stone_va links-light" style="position: sticky; top: 20px;">
+                                            <h3 class="section-title">特色工作作品：(Demo頁)</h3>
+                                            <ul class="">
+                                                <li v-for="item in data.works_demo">
+                                                    <a :href="item.url" target="_blank">{{item.title}} ({{item.spec}})</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                        <div style="height: 100vh;"></div>
+                                        <section class="bgImg stone_va links-light" style="position: sticky; bottom: 20px;">
+                                            <h3 class="section-title">其他工作作品：(正式連結頁)</h3>
+                                            <ul class="">
+                                                <li v-for="item in data.works_other" v-show="item.obvious || (!item.obvious && otherWorks_showMore)">
+                                                    <a v-if="item.link !== ''" :href="item.link" target="_blank">{{item.name}}</a>
+                                                    <span v-else>{{item.name}}</span>
+                                                </li>
+                                                <li class="list-unstyled">
+                                                    <button @click="otherWorks_showMore = !otherWorks_showMore" class="btn btn-light btn-sm mt-1">{{ otherWorks_showMore ? '－ hide' : 'More...'}}</button>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="m2-3" style="height: 100vh;">
+                            <mark>m2-3</mark>
+                        </section>
+                        <section id="m3" style="min-height: 250vh;">
+                            <mark>m3</mark>
+                            <div id="m3-in1" style="height: 150vh;">
+                                <mark>m3-in1</mark>
+                            </div>
+                            <div id="m3-in2" style="height: 100vh;">
+                                <mark>m3-in2</mark>
+                            </div>
+                        </section>
+                        <section id="m4" style="height: 100vh;">
+                            <mark>m4</mark>
+                        </section>
+                        <section id="m5" style="height: 200vh;">
+                            <mark>m5</mark>
+                            <section style="position: sticky; top: calc(50vh - 300px); overflow: hidden;">
+                                <div id="m5-c1" class="flex-center-a ml_vw links-dark py-2" style="--vw: 50vw">
+                                    <div class="bgImg stone stone1">
+                                        <h3 class="section-title">codePen 自製功能/工具:</h3>
+                                        <ul class="mb-0">
+                                            <li v-for="item in data.codePen.tool">
+                                                <a :href="item.href" target="_blank">{{item.title}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="m5-c2" class="flex-center-a ml_vw links-dark py-2" style="--vw: 42vw;">
+                                    <div class="bgImg stone stone2">
+                                        <h3 class="section-title">Canvas 學習作業：</h3>
+                                        <ul class="mb-0">
+                                            <li v-for="item in data.codePen.canvas">
+                                                <a :href="item.href" target="_blank">{{item.title}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="m5-c3" class="flex-center-a ml_vw links-dark py-2" style="--vw: 55vw; margin-top: -2vw;">
+                                    <div class="bgImg stone stone3">
+                                        <h3 class="section-title">Phaser.js 自製遊戲：</h3>
+                                        <ul class="mb-0">
+                                            <li v-for="item in data.phaser">
+                                                <a :href="item.href" target="_blank">{{item.title}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            <div style="height: 150vh;"></div>
+                        </section>
+                        <section id="m6" style="height: 150vh;">
+                            <mark>m6</mark>
+                        </section>
+                    </div>
+                </div>
+                <div class="rel-z1" style="height: 100vh; margin-top: -30vh; background: linear-gradient(to bottom, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 70%); color: black">
+                    <div class="rel-z1 py-5 container">
+                        使用技術：
+                        <ul>
+                            <li>Three.js</li>
+                            <li>Gsap.js</li>
+                            <li>Vue.js</li>
+                            <li>css sticky</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="normalPage" v-show="!animatePage" class="container py-4 ch-gy-5 gsapAni4" style="overflow: hidden;">
+                <section class="gsapAni3">
+                    <h2 class="d-flex align-items-end">
+                        <div class="fw-bold me-1">周俊宇 </div>
+                        <div class="h5 mb-0 fw-bold">/ {{age}}歲 / 前端工程師</div>
+                        <button class="btn btn-danger btn-sm ms-auto" @click.once="switchToAnimatePage(true)">這頁面沒特色<br>我要切換畫面</button>
                     </h2>
 
                     <hr class="mb-4">
                     
-                    <h3 class="section-title">個人技能樹：</h3>
-                    <ul style="max-width: 280px">
-                        <li v-for="skill in skills" class="mb-3">
+                    <h3 class="section-title gsapAni2">個人技能樹：</h3>
+                    <div class="row g-md-4 row-cols-md-2 row-cols-lg-4 ps-4">
+                        <div v-for="skill in data.skills" class="mb-3 gsapAni1">
                             <div class="h6">{{skill.title}}：</div>
                             <table class="table table-sm">
                                 <tr v-for="td in skill.list">
@@ -34,214 +181,851 @@
                                     <td class="text-end">{{monthsToYearString(td.exp)}}</td>
                                 </tr>
                             </table>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">特色工作作品：(Demo頁)</h3>
-                    <ul>
-                        <li v-for="item in works">
+                <section class="">
+                    <h3 class="section-title gsapAni2">特色工作作品：(Demo頁)</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.works_demo">
                             <a :href="item.url" target="_blank">{{item.title}} ({{item.spec}})</a>
                         </li>
                     </ul>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">其他工作作品：(近兩年) (正式連結頁)</h3>
-                    <ul>
-                        <li v-for="item in otherWorks">
+                <section class="">
+                    <h3 class="section-title gsapAni2">其他工作作品：(正式連結頁)</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.works_other" v-show="item.obvious || (!item.obvious && otherWorks_showMore)">
                             <a v-if="item.link !== ''" :href="item.link" target="_blank">{{item.name}}</a>
                             <span v-else>{{item.name}}</span>
                         </li>
+                        <li class="list-unstyled">
+                            <button @click="otherWorks_showMore = !otherWorks_showMore" class="btn btn-light btn-sm mt-1">{{ otherWorks_showMore ? '－ hide' : 'More...'}}</button>
+                        </li>
                     </ul>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">LeetCode [難度Medium] 刷題記錄：(約150題)</h3>
-                    <ul class="mb-3">
-                        <li v-for="item in leetCode">
+                <section class="">
+                    <h3 class="section-title gsapAni2">LeetCode 刷題記錄：(Medium約150題)</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.leetCode">
                             <a :href="item.href" target="_blank">{{item.title}}</a>
                         </li>
                     </ul>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">CodePen 自製實用功能 / 工具：</h3>
-                    <ul class="mb-3">
-                        <li v-for="item in codePen.tool">
+                <section class="">
+                    <h3 class="section-title gsapAni2">CodePen 自製實用功能 / 工具：</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.codePen.tool">
                             <a :href="item.href" target="_blank">{{item.title}}</a>
                         </li>
                     </ul>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">Canvas 學習作業：</h3>
-                    <ul class="mb-3">
-                        <li v-for="item in codePen.canvas">
+                <section class="">
+                    <h3 class="section-title gsapAni2">Canvas 學習作業：</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.codePen.canvas">
                             <a :href="item.href" target="_blank">{{item.title}}</a>
                         </li>
                     </ul>
                 </section>
-
-                <section class="my-5">
-                    <h3 class="section-title">Phaser.js 自製遊戲：</h3>
-                    <ul class="mb-3">
-                        <li v-for="item in phaser">
+                <section class="">
+                    <h3 class="section-title gsapAni2">Phaser.js 自製遊戲：</h3>
+                    <ul class="gsapAni1">
+                        <li v-for="item in data.phaser">
                             <a :href="item.href" target="_blank">{{item.title}}</a>
                         </li>
                     </ul>
                 </section>
-
+                <div class="d-md-none" style="height: 150px;"></div>
             </div>
         </main>
-        <footer>
-            <div class="position-fixed" style="position: sticky; left: 0; bottom: 15px; width: 100%; z-index: -1;">
-                <div class="container text-end">
-                    <svg style="width: clamp(240px,50%,550px); stroke-width: 3px;" id="comebuySvg" viewBox="-4 -4 417 331" fill="none" preserveAspectRatio="xMidYMax meet">
-                        <path style="stroke-dashoffset: 3030; stroke-dasharray: 3030 3030; stroke: #0cb" d="M82.5 15.4995C-16.5001 -14.0005 -36.5 213.499 82.5 172.999L135.5 134.999M135.5 134.999C135.5 115.499 97.5 95.9995 82.5 134.999C80 147.666 82.1 172.999 110.5 172.999C127.289 166.329 133.237 158.558 135.5 134.999ZM135.5 134.999L139.5 114.999V174.999C136.3 130.999 162.748 67.9995 168 174.999C160.5 92.9995 196 104.999 193.5 174.999L243.5 144.499C215.5 94.9995 191 131.499 199.5 155.499C210.94 176.491 221.076 179.591 243.5 174.999C272.17 161.141 292.546 91.526 293 13.4995C292.161 -4.73876 284.512 -0.500014 279.5 13.4995C266.265 46.9767 255.797 94.5457 254.693 130M254.693 130C253.67 162.855 260.689 185.307 281 176.5C313.668 159.215 313 130 254.693 130ZM254.693 130C253.78 133.113 260.693 134.178 312 132.5C308.384 216.118 356.102 170.106 349.5 132.5C344.537 222.061 400 161 385.5 132.5C385.188 269.566 385.73 350.425 354.5 314.5L385.5 308L349.5 297.5L391 292L344.5 277.5L398.5 269L339.5 251L406.5 241.5H328.5M328.5 241.5L349.5 324.5H388L412 217.5H344.5M328.5 241.5C312 239 302.5 232.5 300 217.5C298 187 344.5 187 344.5 217.5M328.5 241.5L325.5 229.5M344.5 217.5H333.5M333.5 217.5H322.5L325.5 229.5M333.5 217.5L339.5 212H328.5L330.5 204.5L322.5 209.5L316.5 201.5V212H307L314.5 217.5L307 223.5H316.5L314.5 231L322.5 226V233.5L325.5 229.5" stroke="#0a0"/>
-                    </svg>
-                </div>
+        <div class="position-fixed" style="position: sticky; left: 0; bottom: 15px; width: 100%; z-index: -1;">
+            <div class="container text-end">
+                <svg style="width: clamp(240px,50%,550px); stroke-width: 3px;" id="comebuySvg" viewBox="-4 -4 417 331" fill="none" preserveAspectRatio="xMidYMax meet">
+                    <path style="stroke-dashoffset: 3030; stroke-dasharray: 3030 3030; stroke: #0cb" d="M82.5 15.4995C-16.5001 -14.0005 -36.5 213.499 82.5 172.999L135.5 134.999M135.5 134.999C135.5 115.499 97.5 95.9995 82.5 134.999C80 147.666 82.1 172.999 110.5 172.999C127.289 166.329 133.237 158.558 135.5 134.999ZM135.5 134.999L139.5 114.999V174.999C136.3 130.999 162.748 67.9995 168 174.999C160.5 92.9995 196 104.999 193.5 174.999L243.5 144.499C215.5 94.9995 191 131.499 199.5 155.499C210.94 176.491 221.076 179.591 243.5 174.999C272.17 161.141 292.546 91.526 293 13.4995C292.161 -4.73876 284.512 -0.500014 279.5 13.4995C266.265 46.9767 255.797 94.5457 254.693 130M254.693 130C253.67 162.855 260.689 185.307 281 176.5C313.668 159.215 313 130 254.693 130ZM254.693 130C253.78 133.113 260.693 134.178 312 132.5C308.384 216.118 356.102 170.106 349.5 132.5C344.537 222.061 400 161 385.5 132.5C385.188 269.566 385.73 350.425 354.5 314.5L385.5 308L349.5 297.5L391 292L344.5 277.5L398.5 269L339.5 251L406.5 241.5H328.5M328.5 241.5L349.5 324.5H388L412 217.5H344.5M328.5 241.5C312 239 302.5 232.5 300 217.5C298 187 344.5 187 344.5 217.5M328.5 241.5L325.5 229.5M344.5 217.5H333.5M333.5 217.5H322.5L325.5 229.5M333.5 217.5L339.5 212H328.5L330.5 204.5L322.5 209.5L316.5 201.5V212H307L314.5 217.5L307 223.5H316.5L314.5 231L322.5 226V233.5L325.5 229.5" stroke="#0a0"/>
+                </svg>
             </div>
-        </footer>
+        </div>
     </div>
-    <script>
-        const { ref, reactive, onMounted } = Vue;
+    <!-- Import maps polyfill, Remove this when import maps will be widely supported -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./static/plugins/three/build/three.module.js",
+                "three/addons/": "./static/plugins/three/jsm/"
+            }
+        }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import Stats from 'three/addons/libs/stats.module.js';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+        import { Water } from 'three/addons/objects/Water.js';
+        import { Sky } from 'three/addons/objects/Sky.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { MapControls } from 'three/addons/controls/MapControls.js';
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        let container, stats, canvasWidth, worldSize = 20000;
+        let camera, scene, renderer;
+        let controls, water, water2, sky, sun, plane, board, cube;
+        let manager, mountain, boat, airplane, eagle, christ;
+
+        function init() {
+            canvasWidth = Math.min(window.innerWidth, 1920);
+            container = document.getElementById( 'canvasContainer' );
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( canvasWidth, window.innerHeight );
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 0.5;
+            container.appendChild( renderer.domElement );
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera( 55, canvasWidth / window.innerHeight, 1, 15000 );
+            scene.fog = new THREE.Fog( 0xdddddd, 3000, 5000 );
+            camera.position.set( -500, 100, 500 );
+            // camera.rotation.x = 0.5;
+            sun = new THREE.Vector3();
+
+
+            // Water
+            function createMesh__water(){
+                const waterGeometry = new THREE.PlaneGeometry( worldSize, worldSize );
+                return new Water(
+                    waterGeometry,
+                    {
+                        textureWidth: 512,
+                        textureHeight: 512,
+                        waterNormals: new THREE.TextureLoader().load( './static/plugins/three/textures/waternormals.jpg', function ( texture ) {
+                            texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+                        } ),
+                        sunDirection: new THREE.Vector3(),
+                        sunColor: 0xffffff,
+                        waterColor: 0x001e0f,
+                        distortionScale: 3.7,
+                        fog: scene.fog !== undefined
+                    }
+                );
+            }
+            water = createMesh__water();
+            water.rotation.x = - Math.PI / 2;
+            scene.add( water );
+
+            water2 = createMesh__water();
+            water2.position.y = -1;
+            water2.rotation.x = - Math.PI / 2;
+            water2.rotation.y = Math.PI;
+            scene.add( water2 );
+
+            
+            // plane
+            function createMesh__plane(){
+                const geometry = new THREE.PlaneGeometry( worldSize, worldSize );
+				const material = new THREE.MeshLambertMaterial( { color: 0xcccccc } );
+				return new THREE.Mesh( geometry, material );
+            }
+            plane = createMesh__plane();
+            plane.position.set(0, -1000, 0);
+            plane.rotation.x = -Math.PI / 2;
+			plane.receiveShadow = true;
+            scene.add( plane );
+
+            // Skybox
+            const skyParam = {
+                elevation: 25,
+                azimuth: 154
+            };
+            sky = new Sky();
+            sky.scale.setScalar( worldSize );
+            scene.add( sky );
+
+            const skyUniforms = sky.material.uniforms;
+            skyUniforms[ 'turbidity' ].value = 10;
+            skyUniforms[ 'rayleigh' ].value = 2;
+            skyUniforms[ 'mieCoefficient' ].value = 0.005;
+            skyUniforms[ 'mieDirectionalG' ].value = 0.8;
+            
+            const pmremGenerator = new THREE.PMREMGenerator( renderer );
+            let renderTarget;
+            function updateSun() {
+                const phi = THREE.MathUtils.degToRad( 90 - skyParam.elevation );
+                const theta = THREE.MathUtils.degToRad( skyParam.azimuth );
+                sun.setFromSphericalCoords( 1, phi, theta );
+                sky.material.uniforms[ 'sunPosition' ].value.copy( sun );
+                water.material.uniforms[ 'sunDirection' ].value.copy( sun ).normalize();
+                if ( renderTarget !== undefined ) renderTarget.dispose();
+                renderTarget = pmremGenerator.fromScene( sky );
+                scene.environment = renderTarget.texture;
+            }
+            updateSun();
+
+
+            // board
+            function createMesh__board(){
+                const boardSize = {width: 3500, height: 500};
+                const textCanvas = document.createElement("canvas");
+                textCanvas.width = boardSize.width;
+                textCanvas.height = boardSize.height;
+                let ctx = textCanvas.getContext("2d");
+                ctx.fillStyle = "#EC762F";
+                ctx.fillRect(0, 0, textCanvas.width, textCanvas.height);
+                ctx.font = `bold ${boardSize.height/2}px 微軟正黑體`;
+                ctx.textAlign = "center";
+                ctx.textBaseline = 'middle'; 
+                ctx.fillStyle = "black";
+                ctx.fillText(`周俊宇 / ${Math.floor( ( new Date() - new Date('1993-10-31') )/1000/60/60/24/365 )}歲 / 前端工程師`, textCanvas.width/2, textCanvas.height/2);
+                const txtTexture = new THREE.CanvasTexture(textCanvas);
+                const pGeo = new THREE.PlaneGeometry(boardSize.width, boardSize.height);
+                const pMat = new THREE.MeshBasicMaterial( {side: THREE.DoubleSide, map: txtTexture} );
+                return new THREE.Mesh( pGeo, pMat );
+            }
+            board = createMesh__board();
+            board.position.set(-1000,240,-2500);
+            scene.add( board );
+
+
+            // cube
+            function createMesh__cube(){
+                const textureLoader = new THREE.TextureLoader();
+                const geometry = new THREE.BoxGeometry( 200, 200, 200 );
+                const material = [];
+                for(let i=0; i<6; i++){
+                    let imgSrc = (i==0 || i==1) ? './static/common/img/GitHubLogo.png' : './static/common/img/GitHubLogo2.png'
+                    material.push( new THREE.MeshStandardMaterial( { roughness: 10, map: textureLoader.load(imgSrc), }) )
+                }
+                // const material = new THREE.MeshStandardMaterial( { roughness: 10, } );
+                return new THREE.Mesh( geometry, material );
+            }
+            cube = createMesh__cube();
+            cube.baseY = 1000;
+            cube.position.set(-2500, cube.baseY, -2500);
+            scene.add( cube );
+
+
+            function createGLTF( url, callBack ){
+                const loader = new GLTFLoader(manager || '').setPath(url);
+                loader.load( 'scene.gltf', function(gltf){
+                    callBack( gltf );
+                })
+            }
+
+
+            // LoadingManager
+            function createLoadingManager(){
+                const manager = new THREE.LoadingManager();
+                manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+                    $('#loading').text('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+                };
+                manager.onLoad = function ( ) {
+                    $('#loading').text('Loading complete!');
+                    gsap.to('#canvasContainer', {
+                        duration: 1,
+                        x: 0,
+                        onFinish(idx){
+                            $('#animatePage').removeClass('onAnimating');
+                            setTimeout(()=>{
+                                svgAnimate().scroll(document.documentElement.scrollHeight - window.innerHeight - (window.innerHeight / 2));
+                            }, 1000)
+                        },
+                    })
+                    // THREE_render()
+                    $('#loading').fadeOut( 1000, function(){
+                        $(this.remove());
+                    })
+                };
+                manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+                    $('#loading').text('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+                };
+                manager.onError = function ( url ) {
+                    console.log('There was an error loading ' + url);
+                };
+                return manager;
+            }
+            manager = createLoadingManager();
+
+
+            // _cb
+            // controls = new MapControls( camera, renderer.domElement );
+            // controls.maxPolarAngle = Math.PI * 0.495;
+            // controls.target.set( 0, 10, 0 );
+            // controls.minDistance = 40.0;
+            // controls.maxDistance = 200.0;
+            // controls.update();
+            
+
+            // mountain
+            createGLTF('./static/common/3D/grassy_mountains_with_lakes/', function(gltf){
+                mountain = gltf.scene;
+                let scale = 1000;
+                mountain.scale.set(scale,scale,scale);
+                mountain.position.set(-3000,200,-7500);
+                scene.add( mountain );
+            })
+
+            
+            // airplane
+            createGLTF('./static/common/3D/plane_boeing_787/', function(gltf){
+                airplane = gltf.scene;
+
+                const scale = 30;
+                airplane.scale.set(scale,scale,scale);
+                // airplane.rotation.y = Math.PI * -0.5;
+                airplane.position.set(-1000,700,-10000);
+
+                tl3_in1.to( airplane.position, {
+                    z: -2000,
+                }, 'm3-in1')
+                tl3_in1.to( airplane.position, {
+                    ease: "back.in(3)",
+                    y: 200,
+                    x: -2600,
+                }, 'm3-in1')
+                tl3_in1.to( airplane.rotation, {
+                    ease: "back.in(2)",
+                    y: Math.PI / -8,
+                }, 'm3-in1')
+
+                scene.add( airplane );
+
+                const folderAirplane = gui.addFolder( 'Airplane' );
+                    folderAirplane.add( airplane.position, 'x', -10000, 10000, 10 ).listen();
+                    folderAirplane.add( airplane.position, 'y', -10000, 10000, 10 ).listen();
+                    folderAirplane.add( airplane.position, 'z', -10000, 10000, 10 ).listen();
+            })
+
+
+            // eagle
+            createGLTF('./static/common/3D/white_eagle_animation_fast_fly/', function(gltf){
+                eagle = gltf.scene;
+                // eagle.animations = gltf.animations;
+                eagle.mixer = new THREE.AnimationMixer(eagle);
+                const Ani = gltf.animations[0];
+                const action = eagle.mixer.clipAction( Ani );
+                action.play();
+
+                const scale = 4;
+                eagle.scale.set(scale,scale,scale);
+                eagle.rotation.y = Math.PI * 0.5;
+                eagle.position.set(-750,10,600);
+                scene.add( eagle );
+
+                tl1.to( eagle.position, {
+                    x: -100,
+                    y: 450,
+                    z: -1500,
+                }, 'm1')
+                tl2.to( eagle.position, {
+                    z: -5000,
+                }, 'm2')
+                tl2.to( eagle.position, {
+                    ease: "back.in(3)",
+                    x: 5500,
+                    // onUpdate(){
+                    //     camera.lookAt(eagle.position);
+                    // }
+                }, 'm2')
+                tl2.to( eagle.position, {
+                    ease: "back.in(1)",
+                    y: 2500,
+                }, 'm2')
+            })
+
+
+            // boat
+            createGLTF('./static/common/3D/boat_27/', function(gltf){
+                boat = gltf.scene;
+
+                let scale = 50;
+                boat.scale.set(scale,scale,scale);
+                boat.rotation.y = Math.PI * 0.6;
+                boat.position.set(-1000,20,-3600);
+                scene.add( boat );
+                tl1.to( boat.position, {
+                    x: -200,
+                    z: -350,
+                }, 'm1')
+                gsap.to( boat.rotation, {
+                    x: 0,
+                    y: Math.PI * 0.8,
+                    z: 0,
+                    scrollTrigger: {
+                        trigger: '#m1',
+                        start: '50% top',
+                        end: '95% top',
+                        scrub: 1,
+                    },
+                })
+                tl2.to( boat.position, {
+                    x: 500,
+                    z: 250,
+                }, 'm2')
+                const folderBoat = gui.addFolder( 'Boat' );
+                    folderBoat.add( boat.position, 'x', -10000, 10000, 10 ).listen();
+                    folderBoat.add( boat.position, 'y', -10000, 10000, 10 ).listen();
+                    folderBoat.add( boat.position, 'z', -10000, 10000, 10 ).listen();
+            })
+
+
+            // christ
+            createGLTF('./static/common/3D/christ_of_the_abyss/', function(gltf){
+                christ = gltf.scene;
+                // christ.animations = gltf.animations;
+                christ.mixer = new THREE.AnimationMixer(christ);
+                const Anis = gltf.animations;
+                const Ani = THREE.AnimationClip.findByName( Anis, 'Take 01' );
+                const action = christ.mixer.clipAction( Ani );
+                christ.mixer.timeScale = 90;
+                console.log( christ.mixer, action )
+                action.play();
+
+                const scale = 160;
+                christ.scale.set(scale,scale,scale);
+                christ.position.set(-1700,-920,-1980)
+                scene.add( christ );
+            })
+
+            let tl0, tl1, tl2, tl22, tl3, tl3_in1, tl3_in2, tl4;
+            gsap_animation_starter();
+            function gsap_animation_starter(){
+                tl0 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m0',
+                        start: 'top top',
+                        end: 'bottom 50%',
+                        scrub: 1,
+                    },
+                })
+                tl0.addLabel('m0');
+                tl0.from( camera.position, { 
+                    x: 2500,
+                    z: 2500,
+                }, 'm0')
+                tl1 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m1',
+                        start: 'top top',
+                        end: 'bottom 50%',
+                        scrub: 1,
+                    },
+                })
+                tl1.addLabel('m1');
+                tl1.from( camera.rotation, { 
+                    x: 0,
+                }, 'm1')
+                tl1.to( camera.position, { 
+                    x: 30,
+                    z: 100,
+                }, 'm1')
+                tl1.to( board.position, { 
+                    x: -7500,
+                }, 'm1')
+                tl1.to( cube, { 
+                    baseY: 5000,
+                }, 'm1')
+                
+                tl2 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m2',
+                        start: 'top top',
+                        end: 'bottom -50%',
+                        scrub: 1,
+                    },
+                })
+
+                tl22 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m2-2',
+                        start: 'top top',
+                        end: 'bottom -50%',
+                        scrub: 1,
+                    },
+                })
+                tl22.addLabel('m22');
+                tl22.to( camera.position, {
+                    x: -1500,
+                    z: -1500,
+                }, 'm22')
+
+                tl3 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m3',
+                        start: '20% top',
+                        end: 'bottom top',
+                        scrub: 1,
+                    },
+                })
+                tl3.addLabel('m3');
+                tl3.to( camera.rotation, {
+                    ease: "back.out(4)",
+                    x: -0.65,
+                }, 'm3')
+
+                // const p1 = { elevation: 25 }
+                // gsap.to( p1, {
+                //     elevation: 2,
+                //     scrollTrigger: {
+                //         trigger: '#m2',
+                //         start: '20% top',
+                //         end: 'bottom top',
+                //         scrub: 1,
+                //     },
+                //     onUpdate(){ 
+                //         skyParam.elevation = p1.elevation;
+                //         updateSun();
+                //     },
+                // })
+
+                tl3_in1 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m3-in1',
+                        start: 'top bottom',
+                        end: '110% top',
+                        scrub: 1,
+                    },
+                })
+                tl3_in1.addLabel('m3-in1');
+
+                tl3_in2 = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#m3-in2',
+                        start: 'top top',
+                        end: 'bottom -50%',
+                        scrub: 1,
+                    },
+                })
+                tl3_in2.addLabel('m3-in2');
+                tl3_in2.to( camera.position, {
+                    y: -400,
+                }, 'm3-in2')
+                
+                gsap.from('#m5-c1',{
+                    x: canvasWidth,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: '#m5',
+                        start: '10% 50%',
+                        end: '50% 50%',
+                        toggleActions: "play play reverse reverse",
+                    },
+                })
+                gsap.from('#m5-c2',{
+                    x: -canvasWidth,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: '#m5',
+                        start: '20% 50%',
+                        end: '60% 50%',
+                        toggleActions: "play play reverse reverse",
+                    },
+                })
+                gsap.from('#m5-c3',{
+                    x: canvasWidth,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: '#m5',
+                        start: '30% 50%',
+                        end: '70% 50%',
+                        toggleActions: "play play reverse reverse",
+                    },
+                })
+                const p2 = { elevation: 25 }
+                gsap.to( p2, {
+                    elevation: -5,
+                    scrollTrigger: {
+                        trigger: '#m6',
+                        start: 'top bottom',
+                        end: '50% top',
+                        scrub: true,
+                    },
+                    onUpdate(){ 
+                        skyParam.elevation = p2.elevation;
+                        updateSun();
+                    },
+                })
+            }
+
+            // FPS
+            // stats = new Stats();
+            // container.appendChild( stats.dom );
+
+            // GUI
+            const gui = new GUI();
+            gui.close();
+            const folderCamera = gui.addFolder( 'Camera' );
+            const folderCameraPos = folderCamera.addFolder( 'position' );
+                folderCameraPos.add( camera.position, 'x', -10000, 10000, 10 ).listen();
+                folderCameraPos.add( camera.position, 'y', -10000, 10000, 10 ).listen();
+                folderCameraPos.add( camera.position, 'z', -10000, 10000, 10 ).listen();
+            const folderCameraRot = folderCamera.addFolder( 'rotation' );
+                folderCameraRot.add( camera.rotation, 'x', Math.PI * -1, Math.PI * 1, 0.01 ).listen();
+                folderCameraRot.add( camera.rotation, 'y', Math.PI * -1, Math.PI * 1, 0.01 ).listen();
+                folderCameraRot.add( camera.rotation, 'z', Math.PI * -1, Math.PI * 1, 0.01 ).listen();
+            const folderSky = gui.addFolder( 'Sky' );
+                folderSky.add( skyParam, 'elevation', -20, 90, 0.1 ).onChange( updateSun ).listen();
+                folderSky.add( skyParam, 'azimuth', - 180, 180, 0.1 ).onChange( updateSun );
+            const folderWater = gui.addFolder( 'Water' );
+                folderWater.add( water.material.uniforms.distortionScale, 'value', 0, 8, 0.1 ).name( 'distortionScale' );
+                folderWater.add( water.material.uniforms.size, 'value', 0.1, 1, 0.01 ).name( 'size' );
+            gui.hide();
+
+            // addEventListeners
+            window.addEventListener( 'resize', onWindowResize );
+            window.addEventListener( 'pointermove', onPointerMove );
+            window.addEventListener( 'click', onClick );
+        }
+
+        function onWindowResize() {
+            canvasWidth = Math.min(window.innerWidth, 1920);
+            camera.aspect = canvasWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( canvasWidth, window.innerHeight );
+        }
+
+        // 雷射相關
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+        let selectedObject;
+        function onPointerMove( event ) {
+            if ( selectedObject ) {
+                for (let m of selectedObject.material){
+                    m.color.set('#fff');
+                }
+                // selectedObject.material.color.set('#fff');
+                selectedObject = null;
+                document.body.style.cursor = '';
+            }
+            let left = renderer.domElement.getBoundingClientRect().left - (window.innerWidth - canvasWidth);
+            let top = renderer.domElement.getBoundingClientRect().top;
+            pointer.x = ((event.clientX + left) / canvasWidth) * 2 - 1;
+            pointer.y = - ((event.clientY - top) / window.innerHeight) * 2 + 1;
+            raycaster.setFromCamera( pointer, camera );
+            const intersects = raycaster.intersectObject( cube, true );
+            if ( intersects.length > 0 ) {
+                const res = intersects.filter((res) => res && res.object)[0];
+                if ( res && res.object ) {
+                    selectedObject = res.object;
+                    console.log( selectedObject )
+                    for (let m of selectedObject.material){
+                        m.color.set('rgba(222,222,222,0.2)');
+                    }
+                    // selectedObject.material.color.set('rgba(255,200,0,0.1)');
+                    document.body.style.cursor = 'pointer';
+                }
+            }
+        }
+
+        function onClick(){
+            if ( selectedObject ) {
+                window.location.href = '';
+            }
+        }
+
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame( animate );
+
+            if (airplane?.mixer){
+                airplane.mixer.update(clock.getDelta());
+            }
+            if (eagle?.mixer){
+                eagle.mixer.update(clock.getDelta());
+            }
+            if (christ?.mixer){
+                christ.mixer.update(clock.getDelta());
+            }
+
+            render();
+
+            if (controls){
+                controls.update();
+            }
+            // stats.update();
+        }
+
+        function render() {
+            const time = performance.now() * 0.001;
+            cube.position.y = Math.sin( time ) * 60 + cube.baseY;
+            cube.rotation.x = time * 0.5;
+            cube.rotation.z = time * 0.51;
+            water.material.uniforms[ 'time' ].value += 1.0 / 60.0;
+            water2.material.uniforms[ 'time' ].value += 1.0 / 60.0;
+            renderer.render( scene, camera );
+        }
+        
+
+        /*======*/
+        function svgAnimate(){
+            let path = document.querySelector('#comebuySvg path');
+            let pathLen = path.getTotalLength();
+            path.style.strokeDasharray = pathLen + ' ' + pathLen;
+            path.style.strokeDashoffset = pathLen;
+
+            function scrollShowSvg(start = 0, endLen = pathLen - window.innerHeight){
+                console.log(start)
+                $(window).on('scroll', ()=>{
+                    let dd = document.documentElement;
+                    let SP = (dd.scrollTop + document.body.scrollTop - start) / (dd.scrollHeight - dd.clientHeight - start);
+                    let drawLen = (pathLen - endLen) * SP;
+
+                    path.style.strokeDashoffset = Math.min(pathLen, pathLen - drawLen);
+                    console.log(pathLen, drawLen, path.style.strokeDashoffset);
+                })
+            }
+
+            return {
+                scroll(bool = true){
+                    if ( bool ){
+                        scrollShowSvg(typeof(bool) === 'number' ? bool : 0);
+                    } else {
+                        $(window).off('scroll');
+                        path.style.strokeDashoffset = '0';
+                    }
+                },
+            }
+        }
+
+        const { ref, reactive, computed, onMounted } = Vue;
         const App = {
             setup(){
-                const age = ref( Math.floor( ( new Date() - new Date('1993-10-31') )/1000/60/60/24/365 ) )
-
-                const skills = reactive({
-                    frontEnd: {
-                        title: '基礎 / 主題',
-                        class: 'col-lg-4',
-                        list: [
-                            { name: 'HTML / CSS / JS (ES6)', exp: 48, },
-                            { name: 'jQuery / Bootstrap', exp: 48, },
-                            { name: 'Tailwind', exp: 6, },
-                            { name: 'Canvas', exp: 3, },
-                        ],
+                const animatePage = ref(false);
+                const isAnimate = ref(false);
+                const data = reactive({
+                    skills: {
+                        frontEnd: {
+                            title: '基礎 / 主題',
+                            class: 'col-lg-4',
+                            list: [
+                                { name: 'HTML / CSS / JS (ES6)', exp: 60, },
+                                { name: 'Jquery / Bootstrap', exp: 60, },
+                                { name: 'Tailwind', exp: 6, },
+                                { name: 'Canvas', exp: 3, },
+                            ],
+                        },
+                        frameworks: {
+                            title: '三大框架',
+                            class: 'col-lg-4',
+                            list: [
+                                { name: 'Vue2 / Vue3 (cdn)', exp: 24, },
+                                { name: 'Vue-router / Vuex (cli)', exp: 3, },
+                                { name: 'Angular (cdn)', exp: 6, },
+                                { name: 'React', exp: 3, },
+                            ],
+                        },
+                        plugins: {
+                            title: '大型套件',
+                            class: 'col-lg-2',
+                            list: [
+                                { name: 'GSAP 3', exp: 12, },
+                                { name: 'Three.js', exp: 3, },
+                                { name: 'D3.js', exp: 3, },
+                                { name: 'Phaser.js', exp: 3, },
+                            ],
+                        },
+                        others: {
+                            title: '其他',
+                            class: 'col-lg-2',
+                            list: [
+                                { name: 'SVN', exp: 24, },
+                                { name: 'GIT', exp: 12, },
+                                { name: 'SQL', exp: 12, },
+                            ]
+                        }
                     },
-                    frameworks: {
-                        title: '三大框架',
-                        class: 'col-lg-4',
-                        list: [
-                            { name: 'Vue2 / Vue3 (cdn)', exp: 12, },
-                            { name: 'Vue-router / Vuex (cli)', exp: 3, },
-                            { name: 'Angular (cdn)', exp: 6, },
-                            { name: 'React', exp: 3, },
-                        ],
-                    },
-                    plugins: {
-                        title: '大型套件',
-                        class: 'col-lg-2',
-                        list: [
-                            { name: 'GSAP 3', exp: 6, },
-                            { name: 'Three.js', exp: 3, },
-                            { name: 'D3.js', exp: 3, },
-                            { name: 'Phaser.js', exp: 3, },
-                        ],
-                    },
-                    others: {
-                        title: '其他',
-                        class: 'col-lg-2',
-                        list: [
-                            { name: 'SVN', exp: 24, },
-                            { name: 'GIT', exp: 12, },
-                            { name: 'SQL', exp: 12, },
-                        ]
-                    }
-                })
-                
-                const works = reactive([
-                    {
-                        title: '皮爾森數據',
-                        img: 'static/img/Pearson.jpg',
-                        url: 'Pearson/templates/index.html',
-                        core: 'Bootstrap、jQuery',
-                        plugins: 'GSAP、D3',
-                        spec: '自製地圖縮放與互動',
-                    },
-                    {
-                        title: 'Platform A',
-                        img: 'static/img/PlatformA.PNG',
-                        url: 'PlatformA/index.html',
-                        core: 'Bootstrap、jQuery、Vue',
-                        plugins: '無',
-                        spec: '模擬場景放置畫作',
-                    },
-                    {
-                        title: '台北國際乳癌研討會',
-                        img: 'static/img/TIBCS2020.jpg',
-                        url: 'TIBCS2020/templates/index.html',
-                        core: 'Bootstrap、jQuery',
-                        plugins: '無',
-                        spec: '首頁、Exhibition 切圖',
-                    },
-                    {
-                        title: '中國醫藥大學設備圖',
-                        img: 'static/img/cmuh.jpg',
-                        url: 'CMUH/templates/map.html',
-                        core: 'Bootstrap、jQuery、Vue',
-                        plugins: '無',
-                        spec: 'Vue 整理資料渲染畫面',
-                    },
-                    {
-                        title: 'LOREAL 春酒抽獎',
-                        img: '',
-                        url: 'LOREAL_lottery/templates/index.html',
-                        core: 'jQuery、Vue',
-                        plugins: '無',
-                        spec: '數學運算、模擬物理',
-                    },
-                ])
-
-                const otherWorks = reactive([
-                    { name: '典亮基金會', link: 'https://www.dianliang.org.tw/' },
-                    { name: '常在法律事務所', link: 'https://www.tsartsai.com.tw/index' },
-                    { name: '教育實踐研究計畫成果交流平台', link: 'https://tpr.moe.edu.tw/achievement/' },
-                    { name: '雲豹 - 沙崙基地訪客預約系統', link: 'https://visitor.secpaas.org.tw/rental' },
-                    { name: '表演藝術評論台 (特色作品)', link: 'https://pareviews.ncafroc.org.tw/' },
-                    { name: '國藝會 - 國家文藝獎 (特色作品)', link: 'https://www.ncafroc.org.tw/artsaward/index' },
-                    { name: '台灣癌症聯合學術年會 (TJCC)', link: '' },
-                    { name: '台灣乳房醫學會 (TIBCS)', link: '' },
-                    { name: '中華民國美容醫學醫學會 (CSCSM)', link: '' },
-                    { name: '中華牙醫學會 (ADS)', link: '' },
-                    { name: '生物醫學聯合學術年會 (JACBS)', link: '' },
-                    { name: 'InsHangout (交友網站)', link: '' },
-                    { name: 'NCDR Line 活動頁面', link: '' },
-                    { name: 'STPI 知識服務平台 / 科產平台 / 科創平台 / 計畫管考系統', link: '' },
-                    { name: '老師好! 樂齡課程人力媒合平台', link: '' },
-                    { name: '生活驚嘆號', link: '' },
-                ])
-                
-                const leetCode = reactive([
-                    { title: '0001 題 ~ 2000 題', href: 'https://hackmd.io/V_NP67KSRKuCvlhOBmTMWA?view', },
-                    { title: '2001 題 ~ 2500 題', href: 'https://hackmd.io/L1Jf61E5QuaFxYsL9zXsIQ?view', },
-                ])
-
-                const codePen = reactive({
-                    tool: [
-                        { title: '功能 - 下拉選單連動 年 / 月 / 日', href: 'https://codepen.io/comebuycb/pen/mdqNRZQ', },
-                        { title: '功能 - 壓縮圖片(可多張)，並回傳 base64 or blob', href: 'https://codepen.io/comebuycb/pen/VwBLwbN', },
-                        { title: '工具 - 用正規表達式找 class & jquery', href: 'https://codepen.io/comebuycb/pen/BaojGdz', },
+                    works_demo: [
+                        // {
+                        //     title: '皮爾森數據',
+                        //     img: 'static/common/img/works/Pearson.jpg',
+                        //     url: 'Pearson/templates/index.html',
+                        //     core: 'Bootstrap、jQuery',
+                        //     plugins: 'GSAP、D3',
+                        //     spec: '自製地圖縮放與互動',
+                        // },
+                        {
+                            title: '台北國際乳癌研討會',
+                            img: 'static/common/img/works/TIBCS2020.jpg',
+                            url: 'TIBCS2020/templates/index.html',
+                            core: 'Bootstrap、jQuery',
+                            plugins: '無',
+                            spec: '★首頁、Exhibition 切圖',
+                        },
+                        {
+                            title: '中國醫藥大學設備圖',
+                            img: 'static/common/img/works/cmuh.jpg',
+                            url: 'CMUH/templates/map.html',
+                            core: 'Bootstrap、jQuery、Vue',
+                            plugins: '無',
+                            spec: '★Vue 整理資料渲染畫面',
+                        },
+                        {
+                            title: 'LOREAL 春酒抽獎',
+                            img: '',
+                            url: 'LOREAL_lottery/templates/index.html',
+                            core: 'jQuery、Vue',
+                            plugins: '無',
+                            spec: '★數學運算、模擬彩帶掉落',
+                        },
+                        {
+                            title: 'Platform A',
+                            img: 'static/common/img/works/PlatformA.PNG',
+                            url: 'PlatformA/index.html',
+                            core: 'Bootstrap、jQuery、Vue',
+                            plugins: '無',
+                            spec: '★模擬場景、根據比例放置畫作',
+                        },
                     ],
-                    canvas: [
-                        { title: '課程14 - Agar.io',  href: 'https://codepen.io/comebuycb/pen/JjRrjXX', },
-                        { title: '課程16 - 小朋友下樓梯',  href: 'https://codepen.io/comebuycb/pen/GRjyoWG', },
-                        { title: '課程18 - 小精靈',  href: 'https://codepen.io/comebuycb/pen/NWRYeBB', },
-                    ]
+                    works_other: [
+                        { name: '皮爾森數據 (★特色作品-自製地圖縮放與互動)', link: 'https://pdata.info/', obvious: true, },
+                        { name: '表演藝術評論台 (★特色作品-特色輪播與跟隨按鈕)', link: 'https://pareviews.ncafroc.org.tw/', obvious: true, },
+                        { name: '國藝會 - 國家文藝獎 (★特色作品-首頁動畫)', link: 'https://www.ncafroc.org.tw/artsaward/index', obvious: true, },
+                        { name: '教育實踐研究計畫成果交流平台', link: 'https://tpr.moe.edu.tw/achievement/', obvious: true, },
+                        { name: '常在法律事務所', link: 'https://www.tsartsai.com.tw/index', obvious: true, },
+                        { name: '典亮基金會', link: 'https://www.dianliang.org.tw/', obvious: false, },
+                        { name: '雲豹 - 沙崙基地訪客預約系統', link: 'https://visitor.secpaas.org.tw/rental', obvious: false, },
+                        { name: '凱基證券 - 快e開', link: 'https://eoa.kgi.com.tw/OOA/WFNewAcckind.aspx', obvious: false, },
+                        { name: '台灣癌症聯合學術年會 (TJCC)', link: '', obvious: false, },
+                        { name: '台灣放射腫瘤學會 (PTCOG)', link: 'https://ptcog-ao2023.org/', obvious: false, },
+                        { name: '台灣乳房醫學會 (TIBCS)', link: 'https://www.tibcs.org.tw/', obvious: false, },
+                        { name: '台灣腎臟醫學會 (TSN)', link: '', obvious: false, },
+                        { name: '中華牙醫學會 (ADS)', link: '', obvious: false, },
+                        { name: '中華民國美容醫學醫學會 (CSCSM)', link: '', obvious: false, },
+                        { name: '生物醫學聯合學術年會 (JACBS)', link: '', obvious: false, },
+                        { name: 'InsHangout (交友網站)', link: '', obvious: false, },
+                        { name: 'NCDR Line 活動頁面', link: '', obvious: false, },
+                        { name: '生活驚嘆號', link: '', obvious: false, },
+                        { name: 'STPI 知識服務平台 & 科產平台 & 科創平台 & 計畫管考系統', link: '', obvious: false, },
+                        { name: '老師好! 樂齡課程人力媒合平台', link: '', obvious: false, },
+                        { name: '商研院 - 線上招商報名平台', link: '', obvious: false, },
+                    ],
+                    leetCode: [
+                        { title: '0001 題 ~ 2000 題', href: 'https://hackmd.io/V_NP67KSRKuCvlhOBmTMWA?view', },
+                        { title: '2001 題 ~ 2500 題', href: 'https://hackmd.io/L1Jf61E5QuaFxYsL9zXsIQ?view', },
+                    ],
+                    codePen: {
+                        tool: [
+                            { title: '功能 - 下拉選單連動 年 / 月 / 日', href: 'https://codepen.io/comebuycb/pen/mdqNRZQ', },
+                            { title: '功能 - 壓縮圖片(可多張)，並回傳 base64 or blob', href: 'https://codepen.io/comebuycb/pen/VwBLwbN', },
+                            { title: '工具 - 用正規表達式找 class & jquery', href: 'https://codepen.io/comebuycb/pen/BaojGdz', },
+                        ],
+                        canvas: [
+                            { title: '課程14 - Agar.io',  href: 'https://codepen.io/comebuycb/pen/JjRrjXX', },
+                            { title: '課程16 - 小朋友下樓梯',  href: 'https://codepen.io/comebuycb/pen/GRjyoWG', },
+                            { title: '課程18 - 小精靈',  href: 'https://codepen.io/comebuycb/pen/NWRYeBB', },
+                        ]
+                    },
+                    phaser: [
+                        { title: 'Phaser 自製遊戲', href: 'https://comebuycb.github.io/playPhaser/', },
+                    ],
                 })
-
-                const phaser = reactive([
-                    { title: 'Phaser 自製遊戲', href: 'https://comebuycb.github.io/playPhaser/', },
-                ])
+                const age = ref( Math.floor( ( new Date() - new Date('1993-10-31') )/1000/60/60/24/365 ) );
+                const otherWorks_showMore = ref(false);
 
                 const monthsToYearString = ( num ) => {
                     if ( num < 12 ){ return num + ' 月' }
                     return Number((num / 12).toFixed(1)) + ' 年'
                 }
-
                 const monthsToYear = ( num ) => {
                     return (num / 12).toFixed(1)
                 }
@@ -259,38 +1043,75 @@
                     return obj
                 }
 
+                const switchToAnimatePage = (bool = false)=>{
+                    isAnimate.value = bool;
+                    let tl = gsap.timeline();
+                    svgAnimate().scroll(false);
+                    tl.addLabel('FadeOut');
+                    tl.to('.gsapAni1', {
+                        stagger: 0.2,
+                        duration: 1.5,
+                        alpha: 0,
+                        rotation: 360,
+                        filter: 'blur(20px)',
+                        onFinish(idx){
+                            $('.gsapAni1').eq(idx).css('pointer-events','none');
+                        }
+                    }, 'FadeOut');
+                    tl.to('.gsapAni2', {
+                        delay: 0.5,
+                        stagger: 0.2,
+                        x: -100,
+                        duration: 2,
+                        alpha: 0,
+                        onFinish(idx){
+                            $('.gsapAni2').eq(idx).css('pointer-events','none');
+                            $('#normalPage').css('height','100vh');
+                        }
+                    }, 'FadeOut');
+
+                    tl.addLabel('FadeOut3');
+                    tl.to('.gsapAni3', {
+                        duration: 2,
+                        y: -300,
+                        alpha: 0,
+                        onFinish(idx){
+                            $('.gsapAni3').eq(idx).css('pointer-events','none');
+                            let sto1 = setTimeout(()=>{
+                                showAnimatePage();
+                                clearTimeout(sto1);
+                            }, 1000);
+                        },
+                    }, 'FadeOut3-=2');
+                }
+
+                function showAnimatePage(){
+                    $('#animatePage').addClass('onAnimating');
+                    animatePage.value = true;
+                    let sto = setTimeout(()=>{
+                        loadThreePanel();
+                        clearTimeout(sto);
+                    }, 10)
+                }
+
+                function loadThreePanel(){
+                    init();
+                    animate();
+                }
+
                 onMounted(()=>{
-                    let path = document.querySelector('#comebuySvg path');
-                    let pathLen = path.getTotalLength();
-                    path.style.strokeDasharray = pathLen + ' ' + pathLen;
-                    path.style.strokeDashoffset = pathLen;
-                    
-                    scrollShowSvg( pathLen - window.innerHeight )
-
-                    function scrollShowSvg( endLen ){
-                        window.addEventListener('scroll', ()=>{
-                            let start = 0
-                            let dd = document.documentElement
-                            let SP = ( dd.scrollTop + document.body.scrollTop - start ) / ( dd.scrollHeight - dd.clientHeight - start );
-                            let drawLen = (pathLen - endLen) * SP
-
-                            path.style.strokeDashoffset = pathLen - drawLen
-                            // console.log( pathLen, drawLen, path.style.strokeDashoffset )
-                        })
-                    }
+                    svgAnimate().scroll();
+                    // showAnimatePage();
                 })
 
                 return {
+                    data,
                     age,
-                    skills,
-                    works,
-                    otherWorks,
-                    leetCode,
-                    codePen,
-                    phaser,
+                    isAnimate,
+                    animatePage,
+                    otherWorks_showMore,
                     monthsToYearString,
-                    monthsToYear,
-                    objectSameKeysToArray,
+                    switchToAnimatePage,
                 }
             }
         }

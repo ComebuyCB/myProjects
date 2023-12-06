@@ -1,0 +1,11 @@
+Model Information:
+* title:	Boat 03b
+* source:	https://sketchfab.com/3d-models/boat-03b-8a20e56e69e14851bb157a3d0ce2eb9f
+* author:	agt14032013 (https://sketchfab.com/agt14032013)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Boat 03b" (https://sketchfab.com/3d-models/boat-03b-8a20e56e69e14851bb157a3d0ce2eb9f) by agt14032013 (https://sketchfab.com/agt14032013) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
